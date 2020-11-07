@@ -1,0 +1,44 @@
+{
+  "gitbook": ">=3.0.0",
+  "plugins": [
+      "graph",
+      "mermaid-gb3",
+      "uml",
+      "simple-page-toc",
+      "theme-api",
+      "collapsible-menu",
+      "expandable-chapters",
+      "katex"
+  ],
+  "pluginsConfig": {
+      "mermaid-compat": {
+          "theme": "forest"
+      },
+      "uml": {
+          "charset" : "UTF-8",
+          "format": "png"
+      },
+      "theme-api": {
+          "theme": "dark",
+          "split": true
+      },
+      "expandable-chapters":{},
+      "simple-page-toc": {
+          "maxDepth": 5,
+          "skipFirstH1": true
+      }
+  },
+  "styles": {
+      "pdf": "/styles/pdf.css"
+  },
+  "pdf": {
+      "fontFamily": "sans serif",
+      "fontSize": 8,
+      "margin": {
+          "top": 0,
+          "bottom": 0,
+          "right": 0,
+          "left": 0
+      }
+  }
+}

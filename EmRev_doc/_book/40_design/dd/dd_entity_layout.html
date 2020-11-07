@@ -1,0 +1,1857 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>DB定義書 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+
+
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="dd_entity_layout.html" />
+    
+    
+    <link rel="prev" href="../bd/function_list.html" />
+    
+
+    <script src="../../gitbook/gitbook-plugin-graph/d3.min.js"></script>
+    <script src="../../gitbook/gitbook-plugin-graph/function-plot.js"></script>    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Basic Design</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../bd/sitemap.html">
+            
+                <a href="../bd/sitemap.html">
+            
+                    
+                    サイトマップ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../bd/screen_transition_diagram.html">
+            
+                <a href="../bd/screen_transition_diagram.html">
+            
+                    
+                    画面遷移図
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../bd/function_list.html">
+            
+                <a href="../bd/function_list.html">
+            
+                    
+                    機能一覧
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Detail Design</li>
+        
+        
+    
+        <li class="chapter active" data-level="3.1" data-path="dd_entity_layout.html">
+            
+                <a href="dd_entity_layout.html">
+            
+                    
+                    DB定義書
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.2" data-path="dd_entity_layout.html">
+            
+                <a href="dd_entity_layout.html">
+            
+                    
+                    画面設計書
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="wire_frame.html">
+            
+                <a href="wire_frame.html">
+            
+                    
+                    ワイヤーフレーム
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">etc</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../../50_etc/change_log.html">
+            
+                <a href="../../50_etc/change_log.html">
+            
+                    
+                    更新履歴
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../../50_etc/memo.html">
+            
+                <a href="../../50_etc/memo.html">
+            
+                    
+                    メモ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >DB定義書</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="entity-layout">Entity Layout</h1>
+<!-- TOC -->
+<!-- HTMLファイルのID属性に沿って移動させている。 -->
+<ul>
+<li><a href="#db-entity-layout">Entity Layout</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#transaction-tables">Transaction tables</a><ul>
+<li><a href="#torders">&#x30AA;&#x30FC;&#x30C0;&#x30FC;&#x30C6;&#x30FC;&#x30D6;&#x30EB; t_orders </a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h2 id="overview">Overview</h2>
+<ul>
+<li>&#x672C;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x306F;&#x3001;DB &#x306E; Entity Layout &#x306B;&#x3064;&#x3044;&#x3066;&#x8A18;&#x8F09;&#x3059;&#x308B;&#x3002;</li>
+</ul>
+<h2 id="transaction-tables">Transaction tables</h2>
+<ul>
+<li>&#x30C8;&#x30E9;&#x30F3;&#x30B6;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x30C6;&#x30FC;&#x30D6;&#x30EB;&#x306E;&#x30EC;&#x30A4;&#x30A2;&#x30A6;&#x30C8;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x901A;&#x308A;&#x3068;&#x306A;&#x308B;&#x3002;<ul>
+<li>&#x30C6;&#x30FC;&#x30D6;&#x30EB;&#x540D;&#x306E; prefix &#x306B;&#x3000;<code>t_</code> &#x3092;&#x3064;&#x3051;&#x308B;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<h3 id="e-r-diagram">E-R diagram</h3>
+<!--  Layout settings  色や隠す関係のメソッドを設定している。 -->
+<!-- !define・・・定数内はnot nullである事を宣言している。 -->
+<!-- Table description [e-r図関係] -->
+<p><img src="../../assets/images/uml/fc166d3daf3af5b31c0ae1d750c8e8d8b26db9ba.png"></p>
+<p><img src="../../assets/images/uml/4fb5726f0e5fc2facc0b3dd6d26065a710a71f31.png">
+company_informations</p>
+<ul>
+<li>&#x7DD1;&#x306F;&#x30C8;&#x30E9;&#x30F3;&#x30B6;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x30C6;&#x30FC;&#x30D6;&#x30EB;&#x3002;&#x8D64;&#x306F;&#x4E2D;&#x9593;&#x30C6;&#x30FC;&#x30D6;&#x30EB;&#x3002;</li>
+</ul>
+<h3 id="users">users</h3>
+<ul>
+<li><p>users (&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x60C5;&#x5831;&#x306E;&#x7BA1;&#x7406;)</p>
+</li>
+<li><p>N/A&#x30FB;&#x30FB;&#x30FB;&#x8A72;&#x5F53;&#x306A;&#x3057;</p>
+</li>
+<li>&#x540C;&#x3058;&#x30C6;&#x30FC;&#x30D6;&#x30EB;&#x5185;&#x3067;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x51FA;&#x3057;&#x5165;&#x308C;&#x304C;&#x3042;&#x3063;&#x305F;&#x969B;&#x306B;Nullable or NOT NULL&#x306E;&#x5224;&#x5B9A;&#x304C;&#x8D70;&#x3063;&#x3066;&#x3044;&#x308B;&#x306E;&#x304B;&#x3092;&#x78BA;&#x8A8D;&#x3002;</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Collation</th>
+<th style="text-align:left">Nullable or NOT NULL</th>
+<th style="text-align:left">Key</th>
+<th style="text-align:left">Default</th>
+<th style="text-align:left">Extra</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left">UNIQUE</td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left">auto_increment</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">email</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left">UNIQUE</td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">password</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">roll</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">100</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">value&#x5185;&#x306B;&#x5165;&#x308B;&#x6570;&#x5B57;&#x306E;&#x5F79;&#x5272;&#x306F;-roll&#x3078;</td>
+</tr>
+<tr>
+<td style="text-align:left">remember_token</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x691C;&#x8A0E;&#x9805;&#x76EE;</td>
+</tr>
+<tr>
+<td style="text-align:left">delete_flg</td>
+<td style="text-align:left">tinyint(1)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">create_date</td>
+<td style="text-align:left">datetime</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">update_date</td>
+<td style="text-align:left">timestamp</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">CURRENT_TIMESTAMP</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>roll</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Value</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">&#x7BA1;&#x7406;&#x8005;</td>
+</tr>
+<tr>
+<td style="text-align:left">50</td>
+<td style="text-align:left">&#x793E;&#x54E1;</td>
+</tr>
+<tr>
+<td style="text-align:left">100</td>
+<td style="text-align:left">&#x4E00;&#x822C;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="generalprofs">general_profs</h3>
+<ul>
+<li>general_profs(&#x4E00;&#x822C;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x306E;&#x30D7;&#x30ED;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x60C5;&#x5831;&#x306E;&#x7BA1;&#x7406;)<ul>
+<li>users:general_profs&#x306F;1:1&#x306E;&#x95A2;&#x4FC2;&#x3068;&#x306A;&#x308B;</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Collation</th>
+<th style="text-align:left">Nullable or NOT NULL</th>
+<th style="text-align:left">Key</th>
+<th style="text-align:left">Default</th>
+<th style="text-align:left">Extra</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left">UNIQUE</td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left">auto_increment</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">user_id</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left">UNIQUE</td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">username</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">age</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">tel</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">zip</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">addr</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">delete_flg</td>
+<td style="text-align:left">tinyint(1)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">create_date</td>
+<td style="text-align:left">datetime</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">update_date</td>
+<td style="text-align:left">timestamp</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">CURRENT_TIMESTAMP</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Relationship</strong></li>
+</ul>
+<h3 id="employeeprofs">employee_profs</h3>
+<ul>
+<li>&#x4F1A;&#x793E;&#x54E1;&#x30D7;&#x30ED;&#x30D5;&#x3068;&#x4E00;&#x822C;&#x30D7;&#x30ED;&#x30D5;&#x306F;&#x5206;&#x3051;&#x305F;&#x3044;&#x3068;&#x8003;&#x3048;&#x308B;&#x4EBA;&#x3082;&#x3044;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x306A;&#x3044;&#x306E;&#x3067;&#x4E2D;&#x9593;&#x30C6;&#x30FC;&#x30D6;&#x30EB;&#x3067;&#x306E;&#x7BA1;&#x7406;&#x306F;&#x3057;&#x306A;&#x3044;&#x3002;</li>
+<li>employee_profs (&#x4F1A;&#x793E;&#x54E1;&#x5074;&#x30D7;&#x30ED;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x60C5;&#x5831;&#x306E;&#x7BA1;&#x7406;)<ul>
+<li>general_profs:employee_profs&#x306F;1:1&#x306E;&#x95A2;&#x4FC2;&#x3068;&#x306A;&#x308B;</li>
+<li>users:employee_profs&#x306F;1:1&#x306E;&#x95A2;&#x4FC2;&#x3068;&#x306A;&#x308B;</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Collation</th>
+<th style="text-align:left">Nullable or NOT NULL</th>
+<th style="text-align:left">Key</th>
+<th style="text-align:left">Default</th>
+<th style="text-align:left">Extra</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left">UNIQUE</td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left">auto_increment</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">general_id</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left">UNIQUE</td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">user_id</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left">UNIQUE</td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">username</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">age</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">tel</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">zip</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">addr</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">incumbent</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x73FE;&#x8077;</td>
+</tr>
+<tr>
+<td style="text-align:left">currently_department</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x73FE;&#x90E8;&#x7F72;</td>
+</tr>
+<tr>
+<td style="text-align:left">currently_position</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x73FE;&#x5F79;&#x8077;</td>
+</tr>
+<tr>
+<td style="text-align:left">delete_flg</td>
+<td style="text-align:left">tinyint(1)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">create_date</td>
+<td style="text-align:left">datetime</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">update_date</td>
+<td style="text-align:left">timestamp</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">CURRENT_TIMESTAMP</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Relationship</strong></li>
+</ul>
+<h3 id="employeereviews">employee_reviews</h3>
+<ul>
+<li>employee_reviews(&#x793E;&#x54E1;&#x306E;&#x30EC;&#x30D3;&#x30E5;&#x30FC;&#x5185;&#x5BB9;&#x306E;&#x7BA1;&#x7406;)<ul>
+<li>employee_profs:employee_reviews&#x306F;1:n&#x306E;&#x95A2;&#x4FC2;&#x3068;&#x306A;&#x308B;&#x3002;</li>
+<li>employee_reviews:review_company_id&#x306F;1:1&#x306E;&#x95A2;&#x4FC2;&#x3068;&#x306A;&#x308B;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Collation</th>
+<th style="text-align:left">Nullable or NOT NULL</th>
+<th style="text-align:left">Key</th>
+<th style="text-align:left">Default</th>
+<th style="text-align:left">Extra</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left">UNIQUE</td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left">auto_increment</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">employee_id</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">review_company_id</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">joining route</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">Nullable</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x5165;&#x793E;&#x7D4C;&#x8DEF;</td>
+</tr>
+<tr>
+<td style="text-align:left">occupation</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">Nullable</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x5728;&#x7C4D;&#x6642;&#x306E;&#x8077;&#x7A2E;</td>
+</tr>
+<tr>
+<td style="text-align:left">position</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">Nullable</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x5728;&#x7C4D;&#x6642;&#x306E;&#x5F79;&#x8077;</td>
+</tr>
+<tr>
+<td style="text-align:left">enrollment_period</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">Nullable</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x5728;&#x7C4D;&#x671F;&#x9593;</td>
+</tr>
+<tr>
+<td style="text-align:left">enrollment_status</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">Nullable</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x5728;&#x7C4D;&#x72B6;&#x6CC1;</td>
+</tr>
+<tr>
+<td style="text-align:left">employment_status</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">Nullable</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x96C7;&#x7528;&#x5F62;&#x614B;</td>
+</tr>
+<tr>
+<td style="text-align:left">welfare_office_environment</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">Nullable</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x798F;&#x5229;&#x539A;&#x751F;&#x30FB;&#x30AA;&#x30D5;&#x30A3;&#x30B9;&#x74B0;&#x5883;</td>
+</tr>
+<tr>
+<td style="text-align:left">working_hours</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Nullable</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x52E4;&#x52D9;&#x6642;&#x9593;</td>
+</tr>
+<tr>
+<td style="text-align:left">holiday</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">Nullable</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x4F11;&#x65E5;</td>
+</tr>
+<tr>
+<td style="text-align:left">in_company_system</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">Nullable</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x793E;&#x5185;&#x5236;&#x5EA6;</td>
+</tr>
+<tr>
+<td style="text-align:left">corporate_culture</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">Nullable</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x4F01;&#x696D;&#x6587;&#x5316;</td>
+</tr>
+<tr>
+<td style="text-align:left">organizational_structure</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">Nullable</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x7D44;&#x7E54;&#x4F53;&#x5236;</td>
+</tr>
+<tr>
+<td style="text-align:left">ease_of_work_for_women</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">Nullable</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x5973;&#x6027;&#x306E;&#x50CD;&#x304D;&#x3084;&#x3059;&#x3055;</td>
+</tr>
+<tr>
+<td style="text-align:left">rewarding_work</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">Nullable</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x50CD;&#x304D;&#x304C;&#x3044;</td>
+</tr>
+<tr>
+<td style="text-align:left">image_gap</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">Nullable</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x5165;&#x793E;&#x524D;&#x3068;&#x306E;&#x30AE;&#x30E3;&#x30C3;&#x30D7;</td>
+</tr>
+<tr>
+<td style="text-align:left">business_outlook</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">Nullable</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x4E8B;&#x696D;&#x5C55;&#x671B;</td>
+</tr>
+<tr>
+<td style="text-align:left">strengths_and_weaknesses</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">Nullable</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x5F37;&#x307F;&#x30FB;&#x5F31;&#x307F;</td>
+</tr>
+<tr>
+<td style="text-align:left">annual_income_salary</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">Nullable</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x5E74;&#x53CE;&#x30FB;&#x7D66;&#x4E0E;</td>
+</tr>
+<tr>
+<td style="text-align:left">like_count</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x30EC;&#x30D3;&#x30E5;&#x30FC;&#x6BCE;&#x306E;&#x3044;&#x3044;&#x306D;&#x6570;&#x3092;&#x30AB;&#x30A6;&#x30F3;&#x30C8;&#x3059;&#x308B;</td>
+</tr>
+<tr>
+<td style="text-align:left">delete_flg</td>
+<td style="text-align:left">tinyint(1)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">create_date</td>
+<td style="text-align:left">datetime</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">update_date</td>
+<td style="text-align:left">timestamp</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">CURRENT_TIMESTAMP</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Relationship</strong></li>
+</ul>
+<h3 id="dmmessages">dm_messages</h3>
+<ul>
+<li>dm_messages(&#x30C0;&#x30A4;&#x30EC;&#x30AF;&#x30C8;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x60C5;&#x5831;&#x3092;&#x7BA1;&#x7406;&#x3059;&#x308B;&#x30C6;&#x30FC;&#x30D6;&#x30EB;)<ul>
+<li>DM&#x6A5F;&#x80FD;&#x3092;&#x3082;&#x3046;&#x4E00;&#x5EA6;&#x6D17;&#x3044;&#x76F4;&#x3057;&#x3066;&#x30C6;&#x30FC;&#x30D6;&#x30EB;&#x3092;&#x8003;&#x3048;&#x308B;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Collation</th>
+<th style="text-align:left">Nullable or NOT NULL</th>
+<th style="text-align:left">Key</th>
+<th style="text-align:left">Default</th>
+<th style="text-align:left">Extra</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left">UNIQUE</td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left">auto_increment</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">send_date</td>
+<td style="text-align:left">datetime</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">to_user</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">DM&#x3092;&#x9001;&#x308B;&#x5074;&#x306E;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x60C5;&#x5831;</td>
+</tr>
+<tr>
+<td style="text-align:left">from_user</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">DM&#x3092;&#x53D7;&#x3051;&#x53D6;&#x308B;&#x5074;&#x306E;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x60C5;&#x5831;</td>
+</tr>
+<tr>
+<td style="text-align:left">msg</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">delete_flg</td>
+<td style="text-align:left">tinyint(1)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">create_date</td>
+<td style="text-align:left">datetime</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">update_date</td>
+<td style="text-align:left">timestamp</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">CURRENT_TIMESTAMP</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Relationship</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Column name</th>
+<th style="text-align:left">Target table name</th>
+<th style="text-align:left">Target column name</th>
+<th style="text-align:left">CASCADE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">t_delivery_plan_id</td>
+<td style="text-align:left">t_delivery_plans</td>
+<td style="text-align:left">id</td>
+<td style="text-align:left">ON DELETE CASCADE</td>
+</tr>
+</tbody>
+</table>
+<h3 id="publicmessages">public_messages</h3>
+<ul>
+<li>public_messages(&#x30D1;&#x30D6;&#x30EA;&#x30C3;&#x30AF;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x3092;&#x7BA1;&#x7406;&#x3059;&#x308B;&#x30C6;&#x30FC;&#x30D6;&#x30EB;)<ul>
+<li>pm&#x6A5F;&#x80FD;&#x3092;&#x3082;&#x3046;&#x4E00;&#x5EA6;&#x6D17;&#x3044;&#x76F4;&#x3057;&#x3066;&#x30C6;&#x30FC;&#x30D6;&#x30EB;&#x3092;&#x8003;&#x3048;&#x308B;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Collation</th>
+<th style="text-align:left">Nullable or NOT NULL</th>
+<th style="text-align:left">Key</th>
+<th style="text-align:left">Default</th>
+<th style="text-align:left">Extra</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left">UNIQUE</td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left">auto_increment</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">send_date</td>
+<td style="text-align:left">datetime</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">to_user</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">DM&#x3092;&#x9001;&#x308B;&#x5074;&#x306E;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x60C5;&#x5831;</td>
+</tr>
+<tr>
+<td style="text-align:left">from_user</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">DM&#x3092;&#x53D7;&#x3051;&#x53D6;&#x308B;&#x5074;&#x306E;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x60C5;&#x5831;</td>
+</tr>
+<tr>
+<td style="text-align:left">msg</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">delete_flg</td>
+<td style="text-align:left">tinyint(1)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">create_date</td>
+<td style="text-align:left">datetime</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">update_date</td>
+<td style="text-align:left">timestamp</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">CURRENT_TIMESTAMP</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Relationship</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Column name</th>
+<th style="text-align:left">Target table name</th>
+<th style="text-align:left">Target column name</th>
+<th style="text-align:left">CASCADE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">t_order_attribute_id</td>
+<td style="text-align:left">t_order_attributes</td>
+<td style="text-align:left">id</td>
+<td style="text-align:left">ON UPDATE CASCADE,ON DELETE CASCADE</td>
+</tr>
+<tr>
+<td style="text-align:left">t_delivery_plan_detail_id</td>
+<td style="text-align:left">t_delivery_plan_details</td>
+<td style="text-align:left">id</td>
+<td style="text-align:left">ON UPDATE CASCADE,ON DELETE CASCADE</td>
+</tr>
+</tbody>
+</table>
+<h3 id="reviewlikes">review_likes</h3>
+<ul>
+<li>review_likes (&#x30EC;&#x30D3;&#x30E5;&#x30FC;&#x306E;&#x304A;&#x6C17;&#x306B;&#x5165;&#x308A;&#x767B;&#x9332;&#x7528;&#x306E;&#x30C6;&#x30FC;&#x30D6;&#x30EB;)<ul>
+<li>users:review_likes&#x306F;1:1&#x306E;&#x95A2;&#x4FC2;&#x3068;&#x306A;&#x308B;</li>
+<li>review_likes:employee_reviews&#x306F;1:n&#x306E;&#x95A2;&#x4FC2;&#x3068;&#x306A;&#x308B;</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Collation</th>
+<th style="text-align:left">Nullable or NOT NULL</th>
+<th style="text-align:left">Key</th>
+<th style="text-align:left">Default</th>
+<th style="text-align:left">Extra</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left">UNIQUE</td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left">auto_increment</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">employee_review_id</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">user_id</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">delete_flg</td>
+<td style="text-align:left">tinyint(1)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">create_date</td>
+<td style="text-align:left">datetime</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">update_date</td>
+<td style="text-align:left">timestamp</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">CURRENT_TIMESTAMP</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Relationship</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Column name</th>
+<th style="text-align:left">Target table name</th>
+<th style="text-align:left">Target column name</th>
+<th style="text-align:left">CASCADE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">t_delivery_plan_detail_id</td>
+<td style="text-align:left">t_delivery_plan_details</td>
+<td style="text-align:left">id</td>
+<td style="text-align:left">ON DELETE CASCADE</td>
+</tr>
+</tbody>
+</table>
+<h3 id="companyinformations">company_informations</h3>
+<ul>
+<li>company_informations&#xFF08;&#x4F1A;&#x793E;&#x60C5;&#x5831;&#x7BA1;&#x7406;&#x30C6;&#x30FC;&#x30D6;&#x30EB;&#xFF09;<ul>
+<li>company_informations:employee_reviews&#x306F;1:n&#x306E;&#x95A2;&#x4FC2;&#x3068;&#x306A;&#x308B;</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Collation</th>
+<th style="text-align:left">Nullable or NOT NULL</th>
+<th style="text-align:left">Key</th>
+<th style="text-align:left">Default</th>
+<th style="text-align:left">Extra</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left">UNIQUE</td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left">auto_increment</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">employee_reviews_id</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">company_name</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x4F1A;&#x793E;&#x540D;</td>
+</tr>
+<tr>
+<td style="text-align:left">industry</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x696D;&#x754C;</td>
+</tr>
+<tr>
+<td style="text-align:left">company_url</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x4F1A;&#x793E;URL</td>
+</tr>
+<tr>
+<td style="text-align:left">location</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x6240;&#x5728;&#x5730;</td>
+</tr>
+<tr>
+<td style="text-align:left">number_of_employees</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x5F93;&#x696D;&#x54E1;&#x6570;</td>
+</tr>
+<tr>
+<td style="text-align:left">year_of_establishment</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x8A2D;&#x7ACB;&#x5E74;&#x5EA6;</td>
+</tr>
+<tr>
+<td style="text-align:left">representative</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x4EE3;&#x8868;&#x8005;</td>
+</tr>
+<tr>
+<td style="text-align:left">listed_year</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x4E0A;&#x5834;&#x5E74;</td>
+</tr>
+<tr>
+<td style="text-align:left">average_annual_income</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x5E73;&#x5747;&#x5E74;&#x53CE;</td>
+</tr>
+<tr>
+<td style="text-align:left">average_age</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x5E73;&#x5747;&#x5E74;&#x9F62;</td>
+</tr>
+<tr>
+<td style="text-align:left">number_of_reviews</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x53E3;&#x30B3;&#x30DF;&#x6570;</td>
+</tr>
+<tr>
+<td style="text-align:left">delete_flg</td>
+<td style="text-align:left">tinyint(1)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">create_date</td>
+<td style="text-align:left">datetime</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">update_date</td>
+<td style="text-align:left">timestamp</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">CURRENT_TIMESTAMP</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Relationship</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Column name</th>
+<th style="text-align:left">Target table name</th>
+<th style="text-align:left">Target column name</th>
+<th style="text-align:left">CASCADE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">t_delivery_plan_detail_split_id</td>
+<td style="text-align:left">t_delivery_plan_detail_splits</td>
+<td style="text-align:left">id</td>
+<td style="text-align:left">ON UPDATE CASCADE,ON DELETE CASCADE</td>
+</tr>
+</tbody>
+</table>
+<h3 id="browsinghistoryrelasions">browsing_history_relasions</h3>
+<ul>
+<li>browsing_historys(&#x4E00;&#x822C;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x306E;&#x95B2;&#x89A7;&#x5C65;&#x6B74;&#x3092;&#x7BA1;&#x7406;&#x3059;&#x308B;&#x3002;)<ul>
+<li>users:browsing_historys_relasions&#x306F;1:1&#x306E;&#x95A2;&#x4FC2;&#x3068;&#x306A;&#x308B;</li>
+<li>browsing_historys_relasions:employee_reviews&#x306F;1:n&#x306E;&#x95A2;&#x4FC2;&#x3068;&#x306A;&#x308B;</li>
+<li>browsing_historys_relasions:browsing_historys_recodes&#x306F;1:n&#x306E;&#x95A2;&#x4FC2;&#x3068;&#x306A;&#x308B;</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Collation</th>
+<th style="text-align:left">Nullable or NOT NULL</th>
+<th style="text-align:left">Key</th>
+<th style="text-align:left">Default</th>
+<th style="text-align:left">Extra</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left">UNIQUE</td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left">auto_increment</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">user_id</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">employee_review_id</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">browsing_historys_recode_id</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">delete_flg</td>
+<td style="text-align:left">tinyint(1)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">create_date</td>
+<td style="text-align:left">datetime</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">update_date</td>
+<td style="text-align:left">timestamp</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">CURRENT_TIMESTAMP</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Column name</th>
+<th style="text-align:left">Target table name</th>
+<th style="text-align:left">Target column name</th>
+<th style="text-align:left">CASCADE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">t_delivery_plan_detail_id</td>
+<td style="text-align:left">t_delivery_plan_details</td>
+<td style="text-align:left">id</td>
+<td style="text-align:left">ON UPDATE CASCADE,ON DELETE CASCADE</td>
+</tr>
+</tbody>
+</table>
+<h3 id="browsinghistorysrecodes">browsing_historys_recodes</h3>
+<ul>
+<li>browsing_historys_recodes (&#x95B2;&#x89A7;&#x5C65;&#x6B74;&#x306E;&#x30ED;&#x30B0;&#x3092;&#x7BA1;&#x7406;&#x3059;&#x308B;&#x3002;)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Collation</th>
+<th style="text-align:left">Nullable or NOT NULL</th>
+<th style="text-align:left">Key</th>
+<th style="text-align:left">Default</th>
+<th style="text-align:left">Extra</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left">UNIQUE</td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left">auto_increment</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">browsing_historys_recode</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">delete_flg</td>
+<td style="text-align:left">tinyint(1)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">create_date</td>
+<td style="text-align:left">datetime</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">update_date</td>
+<td style="text-align:left">timestamp</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">CURRENT_TIMESTAMP</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="memo">memo</h2>
+<ul>
+<li><code>varchar</code>&#x306F;migration file&#x3067;&#x306F;<code>string</code>&#x3068;&#x5B9A;&#x7FA9;</li>
+<li><code>numeric</code>&#x306F;migration file&#x3067;&#x306F;<code>Decimal</code>&#x3068;&#x5B9A;&#x7FA9;</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"DB定義書","level":"3.1","depth":1,"next":{"title":"画面設計書","level":"3.2","depth":1,"path":"40_design/dd/dd_entity_layout.md","ref":"40_design/dd/dd_entity_layout.md","articles":[]},"previous":{"title":"機能一覧","level":"2.3","depth":1,"path":"40_design/bd/function_list.md","ref":"40_design/bd/function_list.md","articles":[]},"dir":"ltr"},"config":{"gitbook":">=3.0.0","theme":"default","variables":{},"plugins":["graph","mermaid-gb3","uml","simple-page-toc","theme-api","collapsible-menu","expandable-chapters","katex","livereload"],"pluginsConfig":{"collapsible-menu":{},"livereload":{},"simple-page-toc":{"maxDepth":5,"skipFirstH1":true},"mermaid-compat":{"theme":"forest"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"graph":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"uml":{"charset":"UTF-8","format":"png"},"mermaid-gb3":{},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":8,"fontFamily":"sans serif","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":0,"left":0,"top":0,"bottom":0}},"styles":{"pdf":"/styles/pdf.css"}},"file":{"path":"40_design/dd/dd_entity_layout.md","mtime":"2020-11-07T11:38:26.279Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-07T11:55:57.429Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
+        
+    
+
+    <script src="../../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+
+    </body>
+</html>
+
