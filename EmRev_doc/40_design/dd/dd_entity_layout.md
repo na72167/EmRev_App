@@ -105,6 +105,7 @@ company_informations
 | email                 | varchar(255)  |utf8_general_ci       | NOT NULL              | UNIQUE | N/A               |                |                                              |
 | password              | varchar(255)  |utf8_general_ci       | NOT NULL              |        | N/A               |                |                                              |
 | roll                  | int(11)       |                      | NOT NULL              |        | 100               |                | value内に入る数字の役割は-rollへ                 |
+| report_flg            | tinyint(1)    |                      | NOT NULL              |        | N/A               |                | 通報フラグ                                             |
 | remember_token        |               |                      |                       |        |                   |                | 検討項目                                      |
 | delete_flg            | tinyint(1)    |                      | NOT NULL              |        | 0                 |                |                                              |
 | create_date           | datetime      |                      | NOT NULL              |        | N/A               |                |                                              |
@@ -157,6 +158,7 @@ company_informations
 | tel                   | int(11)       |                      | NOT NULL             |        | N/A               |                |                                              |
 | zip                   | int(11)       |                      | NOT NULL             |        | N/A               |                |                                              |
 | addr                  | varchar(255)  |utf8_general_ci       | NOT NULL             |        | N/A               |                |                                              |
+| affiliation_company   | varchar(255)  |utf8_general_ci       | NOT NULL             |        | N/A               |                |現所属会社                                      |
 | incumbent             | varchar(255)  |utf8_general_ci       | NOT NULL             |        | N/A               |                |現職                                           |
 | currently_department  | varchar(255)  |utf8_general_ci       | NOT NULL             |        | N/A               |                |現部署                                         |
 | currently_position    | varchar(255)  |utf8_general_ci       | NOT NULL             |        | N/A               |                |現役職                                         |
@@ -294,6 +296,9 @@ company_informations
 | company_name                | varchar(255)  | utf8_general_ci      | NOT NULL             |        | N/A               |                |会社名                                         |
 | industry                    | varchar(255)  | utf8_general_ci      | NOT NULL             |        | N/A               |                |業界                                           |
 | company_url                 | varchar(255)  | utf8_general_ci      | NOT NULL             |        | N/A               |                |会社URL                                        |
+| zip1                        | int(11)       |                      | NOT NULL             |        | N/A               |                |会社画像その1                                   |
+| zip2                        | int(11)       |                      | NOT NULL             |        | N/A               |                |会社画像その2                                   |
+| zip3                        | int(11)       |                      | NOT NULL             |        | N/A               |                |会社画像その3                                   |
 | location                    | varchar(255)  | utf8_general_ci      | NOT NULL             |        | N/A               |                |所在地                                         |
 | number_of_employees         | int(11)       |                      | NOT NULL             |        | N/A               |                |従業員数                                       |
 | year_of_establishment       | int(11)       |                      | NOT NULL             |        | N/A               |                |設立年度                                       |
@@ -313,6 +318,17 @@ company_informations
 | t_delivery_plan_detail_split_id | t_delivery_plan_detail_splits | id                 | ON UPDATE CASCADE,ON DELETE CASCADE |
 
 
+
+### report_category
+- report_category(通報機能専用の項目関係のデータを管理する。)
+
+| Field                       | Type          |Collation             |Nullable or NOT NULL  | Key    | Default           | Extra          | Description                                  |
+|:----------------------------|:--------------|:---------------------|:---------------------|:-------|:------------------|:---------------|:---------------------------------------------|
+| id                          | int(11)       |                      | NOT NULL             | UNIQUE | N/A               | auto_increment |                                              |
+| name                        | int(11)       |                      | NOT NULL             |        | N/A               |                |                                              |
+| delete_flg                  | tinyint(1)    |                      | NOT NULL             |        | N/A               |                |                                              |
+| create_date                 | datetime      |                      | NOT NULL             |        | N/A               |                |                                              |
+| update_date                 | timestamp     |                      | NOT NULL             |        | CURRENT_TIMESTAMP |                |                                              |
 
 
 ### browsing_history_relasions

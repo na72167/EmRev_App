@@ -52,8 +52,22 @@
   - 2020/10/24
   テーブル仮組み完成
   - 2020/10/29
+ 「company_informations」テーブルに
+ 「zip1」「zip2」「zip3」カラムを追加。
+  - 2020/11/10
  「employee_reviews」テーブルに
  「review_company_id」カラムを追加。
+   - 2020/11/10
+ 「users」テーブルに
+ 「report」カラムを追加。
+  - 2020/11/10
+  「report_category」テーブル
+  (通報機能専用の項目関係のもの)
+  を追加。
+  - 2020/11/10
+  「employee_profs」テーブルに
+  「affiliation_company」カラム
+  を追加。
 
 - [メモ](#)
   -

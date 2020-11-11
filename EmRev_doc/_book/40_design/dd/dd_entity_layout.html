@@ -384,6 +384,16 @@ company_informations</p>
 <td style="text-align:left">value&#x5185;&#x306B;&#x5165;&#x308B;&#x6570;&#x5B57;&#x306E;&#x5F79;&#x5272;&#x306F;-roll&#x3078;</td>
 </tr>
 <tr>
+<td style="text-align:left">report_flg</td>
+<td style="text-align:left">tinyint(1)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x901A;&#x5831;&#x30D5;&#x30E9;&#x30B0;</td>
+</tr>
+<tr>
 <td style="text-align:left">remember_token</td>
 <td style="text-align:left"></td>
 <td style="text-align:left"></td>
@@ -676,6 +686,16 @@ company_informations</p>
 <td style="text-align:left">N/A</td>
 <td style="text-align:left"></td>
 <td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">affiliation_company</td>
+<td style="text-align:left">varchar(255)</td>
+<td style="text-align:left">utf8_general_ci</td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x73FE;&#x6240;&#x5C5E;&#x4F1A;&#x793E;</td>
 </tr>
 <tr>
 <td style="text-align:left">incumbent</td>
@@ -1445,6 +1465,36 @@ company_informations</p>
 <td style="text-align:left">&#x4F1A;&#x793E;URL</td>
 </tr>
 <tr>
+<td style="text-align:left">zip1</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x4F1A;&#x793E;&#x753B;&#x50CF;&#x305D;&#x306E;1</td>
+</tr>
+<tr>
+<td style="text-align:left">zip2</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x4F1A;&#x793E;&#x753B;&#x50CF;&#x305D;&#x306E;2</td>
+</tr>
+<tr>
+<td style="text-align:left">zip3</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x4F1A;&#x793E;&#x753B;&#x50CF;&#x305D;&#x306E;3</td>
+</tr>
+<tr>
 <td style="text-align:left">location</td>
 <td style="text-align:left">varchar(255)</td>
 <td style="text-align:left">utf8_general_ci</td>
@@ -1573,6 +1623,75 @@ company_informations</p>
 <td style="text-align:left">t_delivery_plan_detail_splits</td>
 <td style="text-align:left">id</td>
 <td style="text-align:left">ON UPDATE CASCADE,ON DELETE CASCADE</td>
+</tr>
+</tbody>
+</table>
+<h3 id="reportcategory">report_category</h3>
+<ul>
+<li>report_category(&#x901A;&#x5831;&#x6A5F;&#x80FD;&#x5C02;&#x7528;&#x306E;&#x9805;&#x76EE;&#x95A2;&#x4FC2;&#x306E;&#x30C7;&#x30FC;&#x30BF;&#x3092;&#x7BA1;&#x7406;&#x3059;&#x308B;&#x3002;)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Collation</th>
+<th style="text-align:left">Nullable or NOT NULL</th>
+<th style="text-align:left">Key</th>
+<th style="text-align:left">Default</th>
+<th style="text-align:left">Extra</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left">UNIQUE</td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left">auto_increment</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:left">int(11)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">delete_flg</td>
+<td style="text-align:left">tinyint(1)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">create_date</td>
+<td style="text-align:left">datetime</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">update_date</td>
+<td style="text-align:left">timestamp</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">NOT NULL</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">CURRENT_TIMESTAMP</td>
+<td style="text-align:left"></td>
 </tr>
 </tbody>
 </table>
@@ -1795,7 +1914,7 @@ company_informations</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"DB定義書","level":"3.1","depth":1,"next":{"title":"画面設計書","level":"3.2","depth":1,"path":"40_design/dd/dd_entity_layout.md","ref":"40_design/dd/dd_entity_layout.md","articles":[]},"previous":{"title":"機能一覧","level":"2.3","depth":1,"path":"40_design/bd/function_list.md","ref":"40_design/bd/function_list.md","articles":[]},"dir":"ltr"},"config":{"gitbook":">=3.0.0","theme":"default","variables":{},"plugins":["graph","mermaid-gb3","uml","simple-page-toc","theme-api","collapsible-menu","expandable-chapters","katex","livereload"],"pluginsConfig":{"collapsible-menu":{},"livereload":{},"simple-page-toc":{"maxDepth":5,"skipFirstH1":true},"mermaid-compat":{"theme":"forest"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"graph":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"uml":{"charset":"UTF-8","format":"png"},"mermaid-gb3":{},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":8,"fontFamily":"sans serif","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":0,"left":0,"top":0,"bottom":0}},"styles":{"pdf":"/styles/pdf.css"}},"file":{"path":"40_design/dd/dd_entity_layout.md","mtime":"2020-11-07T11:38:26.279Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-08T06:14:59.830Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"DB定義書","level":"3.1","depth":1,"next":{"title":"画面設計書","level":"3.2","depth":1,"path":"40_design/dd/dd_entity_layout.md","ref":"40_design/dd/dd_entity_layout.md","articles":[]},"previous":{"title":"機能一覧","level":"2.3","depth":1,"path":"40_design/bd/function_list.md","ref":"40_design/bd/function_list.md","articles":[]},"dir":"ltr"},"config":{"gitbook":">=3.0.0","theme":"default","variables":{},"plugins":["graph","mermaid-gb3","uml","simple-page-toc","theme-api","collapsible-menu","expandable-chapters","katex","livereload"],"pluginsConfig":{"collapsible-menu":{},"livereload":{},"simple-page-toc":{"maxDepth":5,"skipFirstH1":true},"mermaid-compat":{"theme":"forest"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"graph":{},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"uml":{"charset":"UTF-8","format":"png"},"mermaid-gb3":{},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":8,"fontFamily":"sans serif","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":0,"left":0,"top":0,"bottom":0}},"styles":{"pdf":"/styles/pdf.css"}},"file":{"path":"40_design/dd/dd_entity_layout.md","mtime":"2020-11-10T10:54:10.834Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-08T06:14:59.830Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
