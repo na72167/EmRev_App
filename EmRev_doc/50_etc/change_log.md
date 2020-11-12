@@ -68,6 +68,9 @@
   「employee_profs」テーブルに
   「affiliation_company」カラム
   を追加。
+  - 2020/11/11
+  「users」テーブルの「roll」カラムのvalue一覧に
+  「150:退会済み」を追加。
 
 - [メモ](#)
   -

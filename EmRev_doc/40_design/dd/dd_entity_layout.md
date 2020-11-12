@@ -105,7 +105,7 @@ company_informations
 | email                 | varchar(255)  |utf8_general_ci       | NOT NULL              | UNIQUE | N/A               |                |                                              |
 | password              | varchar(255)  |utf8_general_ci       | NOT NULL              |        | N/A               |                |                                              |
 | roll                  | int(11)       |                      | NOT NULL              |        | 100               |                | value内に入る数字の役割は-rollへ                 |
-| report_flg            | tinyint(1)    |                      | NOT NULL              |        | N/A               |                | 通報フラグ                                             |
+| report_flg            | tinyint(1)    |                      | NOT NULL              |        | N/A               |                | 通報フラグ                                     |
 | remember_token        |               |                      |                       |        |                   |                | 検討項目                                      |
 | delete_flg            | tinyint(1)    |                      | NOT NULL              |        | 0                 |                |                                              |
 | create_date           | datetime      |                      | NOT NULL              |        | N/A               |                |                                              |
@@ -118,6 +118,7 @@ company_informations
 | 1     | 管理者       |
 | 50    | 社員        |
 | 100   | 一般        |
+| 150   | 退会済        |
 
 
 ### general_profs
