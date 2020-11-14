@@ -58,10 +58,9 @@
  「employee_reviews」テーブルに
  「review_company_id」カラムを追加。
    - 2020/11/10
- 「users」テーブルに
+ ・「users」テーブルに
  「report」カラムを追加。
-  - 2020/11/10
-  「report_category」テーブル
+  ・「report_category」テーブル
   (通報機能専用の項目関係のもの)
   を追加。
   - 2020/11/10
@@ -71,6 +70,11 @@
   - 2020/11/11
   「users」テーブルの「roll」カラムのvalue一覧に
   「150:退会済み」を追加。
+  - 2020/11/12
+   「employee_reviews」テーブルへ「general_estimation」(総評)カラムを
+   追加。
+   「employee_profs」テーブルへ「dm_state」(DM可否)カラムを
+   追加。
 
 - [メモ](#)
   -

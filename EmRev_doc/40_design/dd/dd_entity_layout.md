@@ -163,6 +163,7 @@ company_informations
 | incumbent             | varchar(255)  |utf8_general_ci       | NOT NULL             |        | N/A               |                |現職                                           |
 | currently_department  | varchar(255)  |utf8_general_ci       | NOT NULL             |        | N/A               |                |現部署                                         |
 | currently_position    | varchar(255)  |utf8_general_ci       | NOT NULL             |        | N/A               |                |現役職                                         |
+| dm_state              | tinyint(1)    |                      | NOT NULL             |        | N/A               |                |DM可否                                         |
 | delete_flg            | tinyint(1)    |                      | NOT NULL             |        | N/A               |                |                                              |
 | create_date           | datetime      |                      | NOT NULL             |        | N/A               |                |                                              |
 | update_date           | timestamp     |                      | NOT NULL             |        | CURRENT_TIMESTAMP |                |                                              |
@@ -201,6 +202,7 @@ company_informations
 | business_outlook            | varchar(255)  | utf8_general_ci      | Nullable             |        | N/A               |                |事業展望                                       |
 | strengths_and_weaknesses    | varchar(255)  | utf8_general_ci      | Nullable             |        | N/A               |                |強み・弱み                                     |
 | annual_income_salary        | varchar(255)  | utf8_general_ci      | Nullable             |        | N/A               |                |年収・給与                                     |
+| general_estimation          | varchar(255)  | utf8_general_ci      | Nullable             |        | N/A               |                |総評　　　                                     |
 | like_count                  | int(11)       |                      | NOT NULL             |        | 0                 |                |レビュー毎のいいね数をカウントする                 |
 | delete_flg                  | tinyint(1)    |                      | NOT NULL             |        | N/A               |                |                                              |
 | create_date                 | datetime      |                      | NOT NULL             |        | N/A               |                |                                              |
