@@ -1,0 +1,13 @@
+{
+  "name": "dev",
+  "version": "1.0.0",
+  "author": "",
+  "main": "gulpfile.js",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "*",
+    "gulp-sass-glob": "*",
+    "gulp-watch": "*"
+  }
+}
