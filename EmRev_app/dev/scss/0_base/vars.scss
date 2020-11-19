@@ -1,0 +1,68 @@
+// ==============================
+// sassの使い方
+// ==============================
+// sass（サス）は「プリプロセッサー」や「メタ言語」とも呼ばれる
+// 書き方は{}を使わないsass記法と普通のcssと同じ{}を使うscss記法の２種類
+// 他にも「Less（レス）」なんてものも一時流行ったがあまり使われず
+// https://webukatu.com/wordpress/blog/1633
+
+// ==============================
+// sassのメリット
+// ==============================
+// 1.コンポーネントごとにまとめられるので保守性が上がる
+// 2.いちいち同じセレクタを書かなくていいので開発速度が上がる
+// 3.見やすくてバグが発生しにくい
+
+// ==============================
+// sassの特徴
+// ==============================
+// 1.ネスト（入れ子構造）で書く
+// 2.変数が使える
+// 3.関数のようなmixinというものが使える
+// 4.インポートが使える
+//   @import “./mixins.scss”
+// 他にも下記サイトのように色々な機能があるが、上記だけ覚えておけばOK
+// https://cartman0.hatenablog.com/entry/2015/07/17/060125
+
+// ==============================
+// sassの使い方
+// ==============================
+// 1.拡張子はscss
+// 2.cssへコンパイルする必要があるので、コンパイル用のライブラリを入れる（色々ある）
+// 3.コンパイルしてcssをhtmlでいつもと同じ様に読み込むだけ
+
+
+// ==============================
+// 変数
+// ==============================
+$font-color_default: #777;
+$font-color_date: #e37b89; // TODO:リファクタ必要
+$color_corp: #e3a8b1;
+$font-color_sub1: #b6a489;
+
+
+$primary-color: #047aed;
+$secondary-color: #1c3fa8;
+$dark-color: #002240;
+$light-color: #f4f4f4;
+$success-color: #5cb85c;
+$error-color: #d9534f;
+
+$site-width: 980px;
+
+$font-size_s: 12px;
+$font-size_m: 14px;
+$font-size_default: 16px;
+$font-size_l: 18px;
+$font-size_xl: 24px;
+$font-size_xxl: 30px;
+$font-size_3l: 38px;
+
+$space_s: 5px;
+$space_m: 10px;
+$space_l: 15px;
+$space_xl: 20px;
+$space_xxl: 30px;
+$space_3l: 40px;
+
+$font-family_corp: 'Amatic SC', cursive;

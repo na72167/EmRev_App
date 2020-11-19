@@ -1,0 +1,36 @@
+// メディアクエリのブレークポイント設定
+
+//@media screen and (max-width: 414px){
+//  .btn{
+//    font-size: .7em;
+//  }
+//}
+
+// 通常、変数として設定しておくと後々変更しやすくて便利
+//  !defaultはすでに変数に値が入っていた場合は何もせず、変数に値が入っていない時に割り当てられるもの
+// https://hail2u.net/blog/webdesign/how-to-use-bang-default-flag-in-sass-and-how-it-works.html
+//$breakpoint-sm: 400px !default;
+//$breakpoint-md: 768px !default;
+//$breakpoint-lg: 1000px !default;
+
+// マップ型変数を使うと便利
+$breakpoints: (
+  'sm': 'screen and (max-width: 414px)',
+  'md': 'screen and (max-width: 768px)',
+  'lg': 'screen and (max-width: 1000px)',
+  'xl': 'screen and (max-width: 1200px)',
+) !default;
+
+// ==============================
+// mixin
+// ==============================
+// @mixinは関数のようなものを作れる
+// https://www.webcreatorbox.com/tech/sass-mixin
+// map-get()の第一引数に変数名、第二引数にマップ型のキーを渡すと、マップ型の値が返る
+// #{}は「インターポーレーション」といって、演算できない箇所、変数使えない箇所でも使えるようにするものcalcなどでよく使う
+// http://book.scss.jp/code/c4/08.html
+@mixin mq($breakpoint: sm) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
