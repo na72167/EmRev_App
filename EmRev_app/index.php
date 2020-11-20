@@ -9,36 +9,76 @@
 <body>
   <!-- ヘッダー関係 -->
   <header class="header">
-    <!-- タイトル -->
-    <h1 class="header_title">EmRev</h1>
-    <!-- ナビゲーション(セッション内容で切り替える) -->
-    <nav>
-      <ui>
-        <li>LOGIN</li>
-        <li>SIGNUP</li>
-      </ui>
-    </nav>
+    <div class="header__content-wrap">
+      <!-- タイトル -->
+      <h1 class="header__title">EmRev</h1>
+      <!-- ナビゲーション(セッション内容で切り替える) -->
+      <nav class="header__nav">
+        <ul class="header__nav-ul">
+          <li class="header__nav-list">LOGIN</li>
+          <li class="header__nav-list">SIGNUP</li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <!-- ヒーローバナー -->
-  <session class="hero">
+  <section class="hero">
+
     <!-- テキスト関係 -->
-      <div class="hero__text-content">
-        <span class="hero__text-catchTheam">
-          キャッチテーマ
-        </span>
-        <div class="hero__text-about">
-          サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-          サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+      <div class="hero__content">
+
+        <div class="hero__text-wrap">
+          <span class="hero__text-catchtheam">
+            キャッチテーマ
+          </span>
+          <div class="hero__text-about">
+            サンプルサンプルサンプルサンプル<br>サンプルサンプルサンプルサンプル<br>
+            サンプルサンプルサンプルサンプル<br>サンプルサンプルサンプルサンプル
+          </div>
+          <div class="hero__text-aboutStyle">
+            <a class="hero__text-aboutLink">このアプリについて</a>
+          </div>
         </div>
-        <div class="hero__text-aboutStyle">
-          <a class="hero__text-aboutLink">このアプリについて</a>
+
+        <!-- 会員登録関係 -->
+        <div class="hero__signup">
+          <span class="hero__signup-title">SignuUp</span>
+          <!-- メールアドレス入力欄 -->
+          <div class="hero__signup-emailaddressField">
+            <span>Name</span>
+          </div>
+          <!-- パスワード入力 -->
+          <div class="hero__signup-passwardField">
+            <!-- あとからプレースホルダーにする。 -->
+            <span>password</span>
+          </div>
+          <!-- 確認用パスワード入力 -->
+          <div class="hero__signup-confirmationPasswardField">
+            <!-- あとからプレースホルダーにする。 -->
+            <span>confirmationPassword</span>
+          </div>
         </div>
+
+        <!-- ログイン関係
+        <div class="hero__login">
+          <span class="hero__login-title">Login</span>
+          メールアドレス入力欄
+          <div class="hero__signup-emailaddressField">
+            <span>Name</span>
+          </div>
+          パスワード入力
+          <div class="hero__signup-passwardField">
+            あとからプレースホルダーにする。
+            <span>password</span>
+          </div>
+        </div> -->
       </div>
-  </session>
+
+  </section>
 
   <!-- 新着レビューコンテンツ -->
-  <session class="review">
+  <section class="review">
 
     <!-- レビューコンテンツ(今は仮レイアウトの都合上複数同じ要素を作っているがphpを書き始めた際にはfor文で回す) -->
     <div class="review__content review__contentPosition-1">
@@ -163,11 +203,11 @@
       </div>
     </div>
 
-  </session>
+  </section>
 
 
   <!-- このアプリについて -->
-  <session class="about">
+  <section class="about">
     <div class="about__content-style">
 
       <div class="about__title">
@@ -189,10 +229,10 @@
         </div>
       </div>
     </div>
-  </session>
+  </section>
 
     <!-- お問い合わせフォーム -->
-  <session class="contact">
+  <section class="contact">
     <div class="contact__usernName">
       お問い合わせ
     </div>
@@ -208,7 +248,7 @@
       </textarea>
     </div>
     <div>送信</div>
-  </session>
+  </section>
 
   <!-- フッター -->
   <footer class="footer">

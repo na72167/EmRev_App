@@ -1,0 +1,38 @@
+.header{
+  height: 70px;
+  background-color: $primary-color;
+  color:#fff;
+  overflow: hidden;
+  width: 100%;
+
+  &__content-wrap{
+    height: 100%;
+    margin: 0 auto;
+    max-width: 1100px;
+  }
+  &__title{
+    display: inline;
+    font-size: 2em;
+    position: relative;
+    top: calc(70px / 2 - 51px / 2);
+    margin-left: 67px;
+    font-weight: 300;
+  }
+
+  &__nav{
+    float: right;
+    position: relative;
+    margin-right: 67px;
+    top: calc(70px / 2 - 25px / 2);
+    &-ul{
+    }
+    &-list{
+    list-style-type: none;
+    float: left;
+    margin-right: 10px;
+      &:last-child{
+        margin-right: 0px;
+      }
+    }
+  }
+}
