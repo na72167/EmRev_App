@@ -29,16 +29,14 @@
       <div class="hero__content">
 
         <div class="hero__text-wrap">
-          <span class="hero__text-catchtheam">
-            キャッチテーマ
-          </span>
+          <h1 class="hero__text-catchtheam">
+          Easier Deployment
+          </h1>
           <div class="hero__text-about">
-            サンプルサンプルサンプルサンプル<br>サンプルサンプルサンプルサンプル<br>
-            サンプルサンプルサンプルサンプル<br>サンプルサンプルサンプルサンプル
+            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
           </div>
-          <div class="hero__text-aboutStyle">
-            <a class="hero__text-aboutLink">このアプリについて</a>
-          </div>
+          <a class="hero__text-aboutLink" href="#about">このアプリについて</a>
         </div>
 
         <!-- 会員登録関係 -->
@@ -207,7 +205,7 @@
 
 
   <!-- このアプリについて -->
-  <section class="about">
+  <section id="about" class="about">
     <div class="about__content-style">
 
       <div class="about__title">

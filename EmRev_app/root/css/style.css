@@ -100,11 +100,30 @@ body {
     margin: 0 auto;
     overflow: visible; }
   .hero__text-wrap {
-    height: 100%;
+    height: 250px;
     width: 500px;
     margin-right: 100px;
     color: #fff;
-    float: left; }
+    float: left;
+    position: relative;
+    top: 100px;
+    text-align: center; }
+  .hero__text-catchtheam {
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 1.2;
+    margin: 20px 0; }
+  .hero__text-aboutLink {
+    border: 1px #fff solid;
+    border-radius: 5px;
+    padding: 10px 30px;
+    position: relative;
+    top: 20px;
+    text-decoration: none; }
+    .hero__text-aboutLink:link {
+      color: #fff; }
+    .hero__text-aboutLink:visited {
+      color: #fff; }
   .hero__signup {
     height: 350px;
     width: 400px;
