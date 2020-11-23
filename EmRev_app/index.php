@@ -29,33 +29,62 @@
       <div class="hero__content">
 
         <div class="hero__text-wrap">
-          <h1 class="hero__text-catchtheam">
+          <h1 class="hero__text-catchTheam">
           Easier Deployment
           </h1>
           <div class="hero__text-about">
             サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサン
           </div>
           <a class="hero__text-aboutLink" href="#about">このアプリについて</a>
         </div>
 
         <!-- 会員登録関係 -->
         <div class="hero__signup">
-          <span class="hero__signup-title">SignuUp</span>
-          <!-- メールアドレス入力欄 -->
-          <div class="hero__signup-emailaddressField">
-            <span>Name</span>
-          </div>
-          <!-- パスワード入力 -->
-          <div class="hero__signup-passwardField">
-            <!-- あとからプレースホルダーにする。 -->
-            <span>password</span>
-          </div>
-          <!-- 確認用パスワード入力 -->
-          <div class="hero__signup-confirmationPasswardField">
-            <!-- あとからプレースホルダーにする。 -->
-            <span>confirmationPassword</span>
-          </div>
+          <form action="" method="post" class="hero__signup-formStyle">
+            <h2 class="hero__signup-title">SignuUp</h2>
+              <div class="hero__signup-commonMsgArea">
+                <!-- 接続エラー等のメッセージをここに出力させる。 -->
+              </div>
+
+            <!-- メールアドレス入力欄 -->
+            <div class="hero__signup-emailaddressField">
+              <!-- 後にphpでエラー時用のスタイルを付属させる様にする。 -->
+              <label class="#">
+                <input class="hero__signup-emailForm" type="text" name="email" placeholder="Email" value="">
+              </label>
+              <div class="hero__signup-areaMsg">
+              <!-- 後にphpでエラーメッセージを出力させる様にする。-->
+              </div>
+            </div>
+
+            <!-- パスワード入力 -->
+            <div class="hero__signup-passwardField">
+              <!-- 後にphpでエラー時用のスタイルを付属させる様にする。 -->
+              <label class="#">
+                <input class="hero__signup-passwordForm" type="password" name="password" placeholder="Password" value="">
+              </label>
+              <div class="hero__signup-areaMsg">
+              <!-- 後にphpでエラーメッセージを出力させる様にする。-->
+              </div>
+            </div>
+
+            <!-- 確認用パスワード入力 -->
+            <div class="hero__signup-confirmationPasswardField">
+              <!-- 後にphpでエラー時用のスタイルを付属させる様にする。 -->
+              <label class="#">
+                <input class="hero__signup-passwordConfirmationForm" type="password" name="password_re" placeholder="Confirmation Password" value="">
+              </label>
+              <div class="hero__signup-areaMsg">
+              <!-- 後にphpでエラーメッセージを出力させる様にする。-->
+              </div>
+            </div>
+
+            <div class="hero__signup-registerBtnField">
+              <input class="hero__signup-registerBtn" type="submit" value="登録する">
+            </div>
+
+          </form>
         </div>
 
         <!-- ログイン関係
@@ -78,129 +107,136 @@
   <!-- 新着レビューコンテンツ -->
   <section class="review">
 
-    <!-- レビューコンテンツ(今は仮レイアウトの都合上複数同じ要素を作っているがphpを書き始めた際にはfor文で回す) -->
-    <div class="review__content review__contentPosition-1">
+    <div class="review__content-block">
+      <h3 class="review__content-title">New reviews</h3>
+      <!-- 新着レビューコンテンツ(今は仮レイアウトの都合上複数同じ要素を作っているがphpを書き始めた際にはfor文で回す) -->
+      <div class="review__content-wrap">
+        <div class="review__content-individual">
 
-      <!-- イメージ画像 -->
-      <img class="review__image" rel="#">
+          <!-- イメージ画像 -->
+          <img class="review__image" rel="#">
 
-      <!-- ユーザー名 -->
-      <div href="#" class="review__userName-style">
-        <span class="review__userName">
-          ユーザー名
-        </span>
-      </div>
+          <!-- ユーザー名 -->
+          <div href="#" class="review__userName-style">
+            <span class="review__userName">
+              ユーザー名
+            </span>
+          </div>
 
-      <!-- 会社名 -->
-      <div href="#" class="review__companyName-style">
-        <span class="review__companyName">会社名</span>
-      </div>
+          <!-- 会社名 -->
+          <div href="#" class="review__companyName-style">
+            <span class="review__companyName">会社名</span>
+          </div>
 
-      <!-- 会社の業界 -->
-      <div href="#" class="review__industry-style">
-        <span class="review__industry">会社の業界</span>
-      </div>
+          <!-- 会社の業界 -->
+          <div href="#" class="review__industry-style">
+            <span class="review__industry">会社の業界</span>
+          </div>
 
-      <!-- レビュー内容(総評) -->
-      <div class="review__generalComment-style">
-        <div class="review__generalComment">
-          サンプルサンプルサンプルサンプルサンプルサンプルサンプル
-          サンプルサンプルサンプルサンプルサンプルサンプルサンプル
-          サンプルサンプルサンプルサンプルサンプルサンプルサンプル
-          サンプルサンプルサンプルサンプルサンプルサンプルサンプル
+          <!-- レビュー内容(総評) -->
+          <div class="review__generalComment-style">
+            <div class="review__generalComment">
+              サンプルサンプルサンプル<br>
+              サンプルサンプルサンプル<br>
+              サンプルサンプルサンプル<br>
+              サンプルサンプルサンプル<br>
+              サンプルサンプルサンプル...
+            </div>
+          </div>
+
+          <!-- 詳細を見る -->
+          <div href="#" class="review__detail-style">
+            <span class="review__detail">
+            詳細を見る
+            </span>
+          </div>
+        </div>
+
+        <!-- レビューコンテンツ(今は仮レイアウトの都合上複数同じ要素を作っているがphpを書き始めた際にはfor文で回す) -->
+        <div class="review__content-individual">
+
+          <!-- イメージ画像 -->
+          <img class="review__image" rel="#">
+
+          <!-- ユーザー名 -->
+          <div href="#" class="review__username-style">
+            <span class="review__userName">
+              ユーザー名
+            </span>
+          </div>
+
+          <!-- 会社名 -->
+          <div href="#" class="review__companyName-style">
+            <span class="review__companyName">会社名</span>
+          </div>
+
+          <!-- 会社の業界 -->
+          <div href="#" class="review__industry-style">
+            <span class="review__industry">会社の業界</span>
+          </div>
+
+          <!-- レビュー内容(総評) -->
+          <div class="review__generalComment-style">
+            <div class="review__generalComment">
+              サンプルサンプルサンプル<br>
+              サンプルサンプルサンプル<br>
+              サンプルサンプルサンプル<br>
+              サンプルサンプルサンプル<br>
+              サンプルサンプルサンプル...
+            </div>
+          </div>
+
+          <!-- 詳細を見る -->
+          <div href="#" class="review__detail-style">
+            <span class="review__detail">
+            詳細を見る
+            </span>
+          </div>
+        </div>
+
+        <!-- レビューコンテンツ(今は仮レイアウトの都合上複数同じ要素を作っているがphpを書き始めた際にはfor文で回す) -->
+        <div class="review__content-individual">
+
+          <!-- イメージ画像 -->
+          <img class="review__image" rel="#">
+
+          <!-- ユーザー名 -->
+          <div href="#" class="review__userName-style">
+            <span class="review__userName">
+              ユーザー名
+            </span>
+          </div>
+
+          <!-- 会社名 -->
+          <div href="#" class="review__companyName-style">
+            <span class="review__companyName">会社名</span>
+          </div>
+
+          <!-- 会社の業界 -->
+          <div href="#" class="review__industry-style">
+            <span class="review__industry">会社の業界</span>
+          </div>
+
+          <!-- レビュー内容(総評) -->
+          <div class="review__generalComment-style">
+            <div class="review__generalComment">
+              サンプルサンプルサンプル<br>
+              サンプルサンプルサンプル<br>
+              サンプルサンプルサンプル<br>
+              サンプルサンプルサンプル<br>
+              サンプルサンプルサンプル...
+            </div>
+          </div>
+
+          <!-- 詳細を見る -->
+          <div href="#" class="review__detail-style">
+            <span class="review__detail">
+            詳細を見る
+            </span>
+          </div>
         </div>
       </div>
-
-      <!-- 詳細を見る -->
-      <div href="#" class="review__detail-style">
-        <span class="review__detail">
-        詳細を見る
-        </span>
-      </div>
     </div>
-
-    <!-- レビューコンテンツ(今は仮レイアウトの都合上複数同じ要素を作っているがphpを書き始めた際にはfor文で回す) -->
-    <div class="review__content review__contentPosition-2">
-
-      <!-- イメージ画像 -->
-      <img class="review__image" rel="#">
-
-      <!-- ユーザー名 -->
-      <div href="#" class="review__username-style">
-        <span class="review__userName">
-          ユーザー名
-        </span>
-      </div>
-
-      <!-- 会社名 -->
-      <div href="#" class="review__companyName-style">
-        <span class="review__companyName">会社名</span>
-      </div>
-
-      <!-- 会社の業界 -->
-      <div href="#" class="review__industry-style">
-        <span class="review__industry">会社の業界</span>
-      </div>
-
-      <!-- レビュー内容(総評) -->
-      <div class="review__generalComment-style">
-        <div class="review__generalComment">
-          サンプルサンプルサンプルサンプルサンプルサンプルサンプル
-          サンプルサンプルサンプルサンプルサンプルサンプルサンプル
-          サンプルサンプルサンプルサンプルサンプルサンプルサンプル
-          サンプルサンプルサンプルサンプルサンプルサンプルサンプル
-        </div>
-      </div>
-
-      <!-- 詳細を見る -->
-      <div href="#" class="review__detail-style">
-        <span class="review__detail">
-        詳細を見る
-        </span>
-      </div>
-    </div>
-
-    <!-- レビューコンテンツ(今は仮レイアウトの都合上複数同じ要素を作っているがphpを書き始めた際にはfor文で回す) -->
-    <div class="review__content review__contentPosition-3">
-
-      <!-- イメージ画像 -->
-      <img class="review__image" rel="#">
-
-      <!-- ユーザー名 -->
-      <div href="#" class="review__userName-style">
-        <span class="review__userName">
-          ユーザー名
-        </span>
-      </div>
-
-      <!-- 会社名 -->
-      <div href="#" class="review__companyName-style">
-        <span class="review__companyName">会社名</span>
-      </div>
-
-      <!-- 会社の業界 -->
-      <div href="#" class="review__industry-style">
-        <span class="review__industry">会社の業界</span>
-      </div>
-
-      <!-- レビュー内容(総評) -->
-      <div class="review__generalComment-style">
-        <div class="review__generalComment">
-          サンプルサンプルサンプルサンプルサンプルサンプルサンプル
-          サンプルサンプルサンプルサンプルサンプルサンプルサンプル
-          サンプルサンプルサンプルサンプルサンプルサンプルサンプル
-          サンプルサンプルサンプルサンプルサンプルサンプルサンプル
-        </div>
-      </div>
-
-      <!-- 詳細を見る -->
-      <div href="#" class="review__detail-style">
-        <span class="review__detail">
-        詳細を見る
-        </span>
-      </div>
-    </div>
-
   </section>
 
 

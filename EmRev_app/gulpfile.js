@@ -1,7 +1,7 @@
 // 環境変数
 const setting = {
     scss: {
-        watch: "./dev/scss/*/*.scss",
+        watch: "./dev/scss/**",
         src: "./dev/scss/*.scss",
         dest: "./root/css"
     }

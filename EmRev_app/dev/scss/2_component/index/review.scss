@@ -1,0 +1,39 @@
+.review{
+  height: 670px;
+  background-color: #fff;
+  position: relative;
+  &__content-block{
+    height:550px;
+    max-width: 1600px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+    top: 80px;
+  }
+  &__content-title{
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+  }
+  &__content-wrap{
+    height: 450px;
+    width: 1296px;
+    margin: 0 auto;
+    position: relative;
+    top:25px;
+  }
+  &__content-individual{
+    height: 450px;
+    width: 30%;
+    background-color: $light-color;
+    float: left;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px 50px;
+    margin-right: 60px;
+    &:last-child{
+      margin-right: 0px;
+    }
+  }
+}

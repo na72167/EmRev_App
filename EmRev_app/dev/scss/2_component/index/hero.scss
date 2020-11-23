@@ -1,0 +1,128 @@
+.hero{
+  height: 400px;
+  width: 100%;
+  background-color: $primary-color;
+  position: relative;
+  &::before{
+    //ヒーローバナーの模様部分(この辺場当たり的にスタイルを当ててしまったのであとでキレイにする。)
+    content: "";
+    height:100px;
+    width: 100%;
+    background-color: #fff;
+    transform: skewY(-3deg);
+    position: absolute;
+    bottom: -70px;
+  }
+  &__content{
+    height: 100%;
+    max-width: 1100px;
+    margin:0 auto;
+    //基本的にはoverflow:hidden;で親要素からはみ出た際に早めに気づける様に
+    //するがここのみレイアウトの都合上、overflow:visible;を使う。
+    overflow: visible;
+  }
+  &__text-wrap{
+    height: 250px;
+    width: 500px;
+    margin-right: 100px;
+    color:#fff;
+    float: left;
+    position: relative;
+    top: 100px;
+    text-align: center;
+  }
+  &__text-catchTheam{
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 1.2;
+    margin:20px 0;
+  }
+  &__text-aboutLink{
+    border: 1px #fff solid;
+    border-radius: 5px;
+    padding: 10px 30px;
+    position: relative;
+    top: 20px;
+    text-decoration:none;
+    &:link{
+      color:#fff;
+    }
+    &:visited{
+      color:#fff;
+    }
+  }
+  &__signup{
+    height: 350px;
+    width: 400px;
+    background-color: #fff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    float: left;
+    position: relative;
+    top:100px;
+    z-index: 3;
+    &-title{
+      text-align: center;
+      font-size: 22px;
+      margin: 10px 0;
+    }
+    &-formStyle{
+      height: 236px;
+      width: 320px;
+      margin: 40px auto;
+    }
+    &-emailaddressField{
+      height: 57px;
+      position: relative;
+    }
+    &-emailForm{
+      border: 0;
+      border-bottom: 1px solid #b4becb;
+      width: 100%;
+      padding: 3px;
+      font-size: 16px;
+      position: absolute;
+      top:27px;
+    }
+    &-passwardField{
+      height: 57px;
+      position: relative;
+    }
+    &-passwordForm{
+      border: 0;
+      border-bottom: 1px solid #b4becb;
+      width: 100%;
+      padding: 3px;
+      font-size: 16px;
+      position: absolute;
+      top:27px;
+    }
+    &-confirmationPasswardField{
+      height: 57px;
+      position: relative;
+    }
+    &-passwordConfirmationForm{
+      border: 0;
+      border-bottom: 1px solid #b4becb;
+      width: 100%;
+      padding: 3px;
+      font-size: 16px;
+      position: absolute;
+      top:27px;
+    }
+    &-registerBtnField{
+      height: 57px;
+      position: relative;
+      padding: 0 105px;
+    }
+    &-registerBtn{
+      position: absolute;
+      top:30px;
+      padding: 10px 30px;
+      background-color: $primary-color;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+    }
+  }
+}
