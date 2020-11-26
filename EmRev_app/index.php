@@ -23,7 +23,7 @@
   </header>
 
   <!-- ヒーローバナー -->
-  <section class="hero">
+  <section id="index-signup" class="hero">
 
     <!-- テキスト関係 -->
       <div class="hero__content">
@@ -36,7 +36,7 @@
             サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
             サンプルサンプルサンプルサンプルサンプルサンプルサンプルサン
           </div>
-          <a class="hero__text-aboutLink" href="#about">このアプリについて</a>
+          <a class="hero__text-aboutLink" href="#index-about">このアプリについて</a>
         </div>
 
         <!-- 会員登録関係 -->
@@ -241,52 +241,80 @@
 
 
   <!-- このアプリについて -->
-  <section id="about" class="about">
-    <div class="about__content-style">
-
-      <div class="about__title">
-      このアプリについて
-      </div>
-
-      <div class="about__text">
+  <section id="index-about" class="about">
+    <div class="about__content-wrap">
+      <h3 class="about__content-title">
+      About app
+      </h3>
+      <div class="about__content-text">
+        サンプルサンプルサンプルサンプルサンプルサンプルサンプル
+        サンプルサンプルサンプルサンプルサンプルサンプルサンプル
+        サンプルサンプルサンプルサンプルサンプルサンプルサンプル
+        サンプルサンプルサンプルサンプルサンプルサンプルサンプル
+        サンプルサンプルサンプルサンプルサンプルサンプルサンプル
+        サンプルサンプルサンプルサンプルサンプルサンプルサンプル
+        サンプルサンプルサンプルサンプルサンプルサンプルサンプル
+        サンプルサンプルサンプルサンプルサンプルサンプルサンプル
+        サンプルサンプルサンプルサンプルサンプルサンプルサンプル
+        サンプルサンプルサンプルサンプルサンプルサンプルサンプル
+        サンプルサンプルサンプルサンプルサンプルサンプルサンプル
+        サンプルサンプルサンプルサンプルサンプルサンプルサンプル
+        サンプルサンプルサンプルサンプルサンプルサンプルサンプル
+        サンプルサンプルサンプルサンプルサンプルサンプルサンプル
+        サンプルサンプルサンプルサンプルサンプルサンプルサンプル
+        サンプルサンプルサンプルサンプルサンプルサンプルサンプル
+        サンプルサンプルサンプルサンプルサンプルサンプルサンプル
+        サンプルサンプルサンプルサンプルサンプルサンプルサンプル
+        サンプルサンプルサンプルサンプルサンプルサンプルサンプル
+        サンプルサンプルサンプルサンプルサンプルサンプルサンプル
         サンプルサンプルサンプルサンプルサンプルサンプルサンプル
         サンプルサンプルサンプルサンプルサンプルサンプルサンプル
         サンプルサンプルサンプルサンプルサンプルサンプルサンプル
         サンプルサンプルサンプルサンプルサンプルサンプルサンプル
       </div>
-
-      <div class="about__link-style">
-
       <!-- リンク先はセッション内のログイン情報に沿ってif文で変更する。ログインしている場合はマイページへ。していない場合はサインアップ画面へ移動する。-->
-        <div href="#" class="about__link">
-          このアプリを使ってみる
-        </div>
-      </div>
+      <a href="#index-signup" class="about__content-link">
+        このアプリを使ってみる
+      </a>
     </div>
   </section>
 
     <!-- お問い合わせフォーム -->
-  <section class="contact">
-    <div class="contact__usernName">
-      お問い合わせ
-    </div>
-    <div class="contact__type-style">
-      <div class="contact__type">
-        お問い合わせの種類
+  <section class="contact" id="index-contact">
+    <div class="contact__content-wrap">
+      <div class="contact__content-title">
+        CONTACT
       </div>
-      <option>
-      </option>
+      <div class="contact__content-body">
+        <from action="" class="">
+          <input class="contact__content-form" type="text" placeholder="お名前">
+          <input class="contact__content-form" type="email" placeholder="E-Mail">
+          <input class="contact__content-form" placeholder="お問い合わせの種類">
+          <textarea class="contact__content-areaForm" placeholder="お問い合わせ内容"></textarea>
+          <button class="contact__content-buttom">送信する</button>
+        </from>
+      </div>
     </div>
-    <div class="contact__about">
-      <textarea name="" id="" cols="30" rows="10">
-      </textarea>
-    </div>
-    <div>送信</div>
   </section>
 
   <!-- フッター -->
   <footer class="footer">
-  Copyright © yuitoHigashihara. All Rights Reserved
+    <div class="footer__element-wrap">
+      <div class="footer__element-copyright">
+        <h1 class="footer__element-copyrightTitle">EmRev</h1>
+        Copyright © Y.H<br>All Rights Reserved
+      </div>
+      <div class="footer__element-link">
+        sample<br>
+        sample<br>
+        sample
+      </div>
+      <div class="footer__element-sns">
+        sample<br>
+        sample<br>
+        sample
+      </div>
+    </div>
   </footer>
 </body>
 </html>

@@ -51,6 +51,8 @@
       color:#fff;
     }
   }
+
+
   &__signup{
     height: 350px;
     width: 400px;
@@ -83,6 +85,10 @@
       font-size: 16px;
       position: absolute;
       top:27px;
+      &:focus{
+        outline: none;
+        border-bottom: 1px solid $primary-color;
+      }
     }
     &-passwardField{
       height: 57px;
@@ -96,6 +102,10 @@
       font-size: 16px;
       position: absolute;
       top:27px;
+      &:focus{
+        outline: none;
+        border-bottom: 1px solid $primary-color;
+      }
     }
     &-confirmationPasswardField{
       height: 57px;
@@ -109,6 +119,10 @@
       font-size: 16px;
       position: absolute;
       top:27px;
+      &:focus{
+        outline: none;
+        border-bottom: 1px solid $primary-color;
+      }
     }
     &-registerBtnField{
       height: 57px;

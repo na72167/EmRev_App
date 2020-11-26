@@ -1,4 +1,41 @@
 .about{
   height: 500px;
   background-color: $primary-color;
+  text-align: center;
+  position: relative;
+  &__content-wrap{
+    //position: absolute;を中央寄せにする場合は
+    //left: 0;right: 0;を指定後,margin: 0 auto;で効く様になる。
+    height: 400px;
+    max-width: 1600px;
+    margin: 0 auto;
+    position: absolute;
+    top:60px;
+    left: 0;
+    right: 0;
+    color: #fff;
+  }
+  &__content-title{
+    font-size: 2em;
+    padding: 20px 0px;
+  }
+  &__content-text{
+    width: 80%;
+    margin: 0 auto;
+  }
+  &__content-link{
+    border: 1px #fff solid;
+    border-radius: 5px;
+    padding: 10px 30px;
+    position: relative;
+    top:30px;
+    border-radius: 5px;
+    text-decoration: none;
+    &:link{
+      color:#fff;
+    }
+    &:visited{
+      color:#fff;
+    }
+  }
 }

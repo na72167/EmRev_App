@@ -1,0 +1,38 @@
+.footer{
+  background-color: $dark-color;
+  // 「em」は「親要素に対してn倍」という感じで数字が決まる。
+  // 「rem」とは、「root」+「em」をあわせた単位。「root要素(htmlタグ)に対してn倍」という感じで数字が決まる。
+  // 多分padding・marginをremで指定する際はhtml要素(root)に記入した「font-size」に依存する?
+  // html要素に特に指定していない場合はブラウザで「font-size:16px」となる。
+  // 今回の場合「padding:4rem 0」だと16×4で64pxになる。
+  // でもなんで「font-size」なのかが分からないので本当にこれが依存先なのかもう少し調べる。
+  padding: 4rem 0;
+  &__element-wrap{
+    max-width: 1000px;
+    overflow: hidden;
+    margin:0 auto;
+  }
+  &__element-copyrightTitle{
+    font-size: 2em;
+  }
+  &__element-copyright{
+    height: 103px;
+    width: 326px;
+    color: #fff;
+    margin-right: 10px;
+    float: left;
+  }
+  &__element-link{
+    height: 93px;
+    width: 326px;
+    color: #fff;
+    margin-right: 10px;
+    float: left;
+  }
+  &__element-sns{
+    height: 93px;
+    width: 326px;
+    color: #fff;
+    float: left;
+  }
+}

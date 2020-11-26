@@ -52,8 +52,34 @@ table {
 body {
   font-family: 'Lato', sans-serif;
   color: #333;
-  line-height: 1.6;
-  background-color: black; }
+  line-height: 1.6; }
+
+.footer {
+  background-color: #002240;
+  padding: 4rem 0; }
+  .footer__element-wrap {
+    max-width: 1000px;
+    overflow: hidden;
+    margin: 0 auto; }
+  .footer__element-copyrightTitle {
+    font-size: 2em; }
+  .footer__element-copyright {
+    height: 103px;
+    width: 326px;
+    color: #fff;
+    margin-right: 10px;
+    float: left; }
+  .footer__element-link {
+    height: 93px;
+    width: 326px;
+    color: #fff;
+    margin-right: 10px;
+    float: left; }
+  .footer__element-sns {
+    height: 93px;
+    width: 326px;
+    color: #fff;
+    float: left; }
 
 .header {
   height: 70px;
@@ -86,13 +112,78 @@ body {
 
 .about {
   height: 500px;
-  background-color: #047aed; }
+  background-color: #047aed;
+  text-align: center;
+  position: relative; }
+  .about__content-wrap {
+    height: 400px;
+    max-width: 1600px;
+    margin: 0 auto;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    color: #fff; }
+  .about__content-title {
+    font-size: 2em;
+    padding: 20px 0px; }
+  .about__content-text {
+    width: 80%;
+    margin: 0 auto; }
+  .about__content-link {
+    border: 1px #fff solid;
+    border-radius: 5px;
+    padding: 10px 30px;
+    position: relative;
+    top: 30px;
+    border-radius: 5px;
+    text-decoration: none; }
+    .about__content-link:link {
+      color: #fff; }
+    .about__content-link:visited {
+      color: #fff; }
 
 .contact {
   height: 550px;
   width: 100%;
-  background-color: #fff;
-  color: #fff; }
+  background-color: #fff; }
+  .contact__content-title {
+    text-align: center;
+    width: 700px;
+    font-size: 2em; }
+  .contact__content-wrap {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    top: 50px; }
+  .contact__content-body {
+    width: 100%; }
+  .contact__content-form {
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid #b4becb;
+    margin-bottom: 15px; }
+    .contact__content-form:focus {
+      outline: none;
+      border-bottom: 1px solid #047aed; }
+  .contact__content-areaForm {
+    margin: 20px 0 20px;
+    height: 200px;
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid #b4becb;
+    resize: none; }
+    .contact__content-areaForm:focus {
+      outline: none;
+      border-bottom: 1px solid #047aed; }
+  .contact__content-buttom {
+    display: block;
+    padding: 10px 30px;
+    background-color: #047aed;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    margin: 0 auto; }
 
 .hero {
   height: 400px;
@@ -166,6 +257,9 @@ body {
       font-size: 16px;
       position: absolute;
       top: 27px; }
+      .hero__signup-emailForm:focus {
+        outline: none;
+        border-bottom: 1px solid #047aed; }
     .hero__signup-passwardField {
       height: 57px;
       position: relative; }
@@ -177,6 +271,9 @@ body {
       font-size: 16px;
       position: absolute;
       top: 27px; }
+      .hero__signup-passwordForm:focus {
+        outline: none;
+        border-bottom: 1px solid #047aed; }
     .hero__signup-confirmationPasswardField {
       height: 57px;
       position: relative; }
@@ -188,6 +285,9 @@ body {
       font-size: 16px;
       position: absolute;
       top: 27px; }
+      .hero__signup-passwordConfirmationForm:focus {
+        outline: none;
+        border-bottom: 1px solid #047aed; }
     .hero__signup-registerBtnField {
       height: 57px;
       position: relative;
