@@ -4,7 +4,7 @@
   background-color: $primary-color;
   position: relative;
   &::before{
-    //ヒーローバナーの模様部分(この辺場当たり的にスタイルを当ててしまったのであとでキレイにする。)
+    //ヒーローバナーの模様部分(この辺場当たり的にスタイルを当ててしまったのであとでキレイにする。)z-index
     content: "";
     height:100px;
     width: 100%;
@@ -13,6 +13,11 @@
     position: absolute;
     bottom: -70px;
   }
+
+  //=============================================================
+  //コンテンツ全体
+  //=============================================================
+
   &__content{
     height: 100%;
     max-width: 1100px;
@@ -50,9 +55,16 @@
     &:visited{
       color:#fff;
     }
+    &:hover{
+      transition: all .5s;
+      background-color: #fff;
+      color: $primary-color;
+    }
   }
 
-
+  //=============================================================
+  //ユーザー登録関係のスタイル
+  //=============================================================
   &__signup{
     height: 350px;
     width: 400px;
@@ -62,7 +74,7 @@
     float: left;
     position: relative;
     top:100px;
-    z-index: 3;
+    z-index: 1;
     &-title{
       text-align: center;
       font-size: 22px;

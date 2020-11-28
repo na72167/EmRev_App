@@ -1,0 +1,71 @@
+.revRegistJr-content{
+  height: 880px;
+  width: 100%;
+  background-color: #fff;
+  overflow: hidden;
+  &__wrap{
+    max-width: 1000px;
+    margin: 30px auto;
+  }
+  &__form-element{
+    height: 830px;
+    width: 630px;
+    margin-left: 70px;
+    border-radius: 10px;
+    float: left;
+    background-color: #fff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  }
+  &__form-wrap{
+    margin: 50px auto;
+    max-width: 480px;
+  }
+  &__title{
+    font-size: 2rem;
+    text-align: center;
+  }
+  &__sub{
+    text-align: center;
+  }
+  &__form{
+    margin: 40px;
+  }
+  &__input{
+    height: 27px;
+    width: 100%;
+    margin-bottom: 40px;
+    display: block;
+    border: 0;
+    border-bottom: 1px solid #b4becb;
+    &::placeholder{
+      font-size: 15px;
+    }
+    &:last-child{
+      margin-bottom: 0px;
+    }
+    &:focus{
+      outline: none;
+      border-bottom: 1px solid $primary-color;
+    }
+  }
+  &__bottom-wrap{
+    margin-top: 60px;
+    height: 41px;
+    width: 412px;
+  }
+  &__bottom-cancel{
+    padding: 10px 15px;
+    background-color: #fff;
+    color: #06D1EC;
+    border: none;
+    border: 1px solid #06D1EC;
+  }
+  &__bottom-next{
+    padding: 10px 47px;
+    margin-left: 50px;
+    background-color: #06D1EC;
+    color: #fff;
+    border: none;
+    border: 1px solid #fff;
+  }
+}

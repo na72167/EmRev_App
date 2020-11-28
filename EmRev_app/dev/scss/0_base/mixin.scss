@@ -29,7 +29,16 @@ $breakpoints: (
 // map-get()の第一引数に変数名、第二引数にマップ型のキーを渡すと、マップ型の値が返る
 // #{}は「インターポーレーション」といって、演算できない箇所、変数使えない箇所でも使えるようにするものcalcなどでよく使う
 // http://book.scss.jp/code/c4/08.html
-@mixin mq($breakpoint: sm) {
+
+//スマートフォン想定
+@mixin mqsm($breakpoint: sm) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+//タブレット想定
+@mixin mqmd($breakpoint: md) {
   @media #{map-get($breakpoints, $breakpoint)} {
     @content;
   }
