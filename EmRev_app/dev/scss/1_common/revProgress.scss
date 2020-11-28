@@ -1,0 +1,26 @@
+.revProgress{
+  height: 440px;
+  width: 290px;
+  background-color: $light-color;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  float: left;
+  &__content-wrap{
+    position: relative;
+    top: calc(310px / 2 - 220px / 2);
+    width: 180px;
+    margin: 0 auto;
+  }
+  &__content-title{
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 20px 0;
+  }
+  &__content-guide{
+    font-weight: 10;
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+    border: 0;
+    border-bottom: 1px solid #b4becb;
+  }
+}

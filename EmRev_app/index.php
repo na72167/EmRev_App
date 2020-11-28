@@ -1,27 +1,14 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>Project</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-  <link rel="stylesheet" href="root/css/style.css">
-</head>
+<?php
+  // タイトルの読み込み
+  $Page_Title = 'ホーム';
+  // ヘッドの読み込み
+  require('./head.php');
+?>
 <body>
-  <!-- ヘッダー関係 -->
-  <header class="header">
-    <div class="header__content-wrap">
-      <!-- タイトル -->
-      <h1 class="header__title">EmRev</h1>
-      <!-- ナビゲーション(セッション内容で切り替える) -->
-      <nav class="header__nav">
-        <ul class="header__nav-ul">
-          <li class="header__nav-list">LOGIN</li>
-          <li class="header__nav-list">SIGNUP</li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
+  <!--ヘッダー読み込み-->
+  <?php
+    require('./header.php');
+    ?>
   <!-- ヒーローバナー -->
   <section id="index-signup" class="hero">
 
@@ -42,7 +29,7 @@
         <!-- 会員登録関係 -->
         <div class="hero__signup">
           <form action="" method="post" class="hero__signup-formStyle">
-            <h2 class="hero__signup-title">SignuUp</h2>
+            <h2 class="hero__signup-title">SignUp</h2>
               <div class="hero__signup-commonMsgArea">
                 <!-- 接続エラー等のメッセージをここに出力させる。 -->
               </div>
@@ -297,24 +284,9 @@
     </div>
   </section>
 
-  <!-- フッター -->
-  <footer class="footer">
-    <div class="footer__element-wrap">
-      <div class="footer__element-copyright">
-        <h1 class="footer__element-copyrightTitle">EmRev</h1>
-        Copyright © Y.H<br>All Rights Reserved
-      </div>
-      <div class="footer__element-link">
-        sample<br>
-        sample<br>
-        sample
-      </div>
-      <div class="footer__element-sns">
-        sample<br>
-        sample<br>
-        sample
-      </div>
-    </div>
-  </footer>
+<?php
+// フッター要素の読み込み
+  require('./footer.php');
+?>
 </body>
 </html>

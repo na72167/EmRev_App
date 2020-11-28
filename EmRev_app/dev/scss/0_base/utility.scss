@@ -6,6 +6,8 @@
 
 body{
   font-family: 'Lato', sans-serif;
+  overscroll-behavior: none;
   color: #333;
   line-height: 1.6;
+  position: relative;
 }

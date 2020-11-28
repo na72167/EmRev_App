@@ -37,5 +37,10 @@
     &:visited{
       color:#fff;
     }
+    &:hover{
+      transition: all .5s;
+      background-color: #fff;
+      color: $primary-color;
+    }
   }
 }
