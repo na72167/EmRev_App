@@ -704,3 +704,98 @@ body {
     color: #fff;
     border: none;
     border: 1px solid #fff; }
+
+.revRegistPc-content {
+  height: 2780px;
+  width: 100%;
+  background-color: #fff; }
+  .revRegistPc-content__wrap {
+    max-width: 1000px;
+    margin: 30px auto; }
+  .revRegistPc-content__form-element {
+    height: 2600px;
+    width: 630px;
+    margin-left: 70px;
+    float: left;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px; }
+  .revRegistPc-content__form-wrap {
+    width: 500px;
+    margin: 40px auto; }
+  .revRegistPc-content__input {
+    height: 27px;
+    width: 100%;
+    margin-bottom: 40px;
+    display: block;
+    border: 0;
+    border-bottom: 1px solid #b4becb; }
+    .revRegistPc-content__input::placeholder {
+      font-size: 15px; }
+    .revRegistPc-content__input:last-child {
+      margin-bottom: 0px; }
+    .revRegistPc-content__input:focus {
+      outline: none;
+      border-bottom: 1px solid #047aed; }
+  .revRegistPc-content__title {
+    font-size: 2rem;
+    text-align: center; }
+  .revRegistPc-content__sub {
+    text-align: center;
+    margin-bottom: 40px; }
+  .revRegistPc-content__form-title {
+    width: 120px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    text-align: center;
+    border: 0;
+    border-bottom: 1px solid #b4becb; }
+  .revRegistPc-content__form-areaForm {
+    height: 100px;
+    width: 500px;
+    background-color: #F4F4F4;
+    margin-bottom: 5px;
+    border-radius: 2px;
+    border: 0;
+    border: 1px solid #b4becb;
+    resize: none; }
+    .revRegistPc-content__form-areaForm:focus {
+      outline: none;
+      border: 1px solid #047aed; }
+  .revRegistPc-content__form-conciseTitle {
+    width: 380px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    text-align: center;
+    border: 0;
+    border-bottom: 1px solid #b4becb; }
+  .revRegistPc-content__form-conciseAreaForm {
+    height: 25px;
+    width: 500px;
+    background-color: #F4F4F4;
+    margin-bottom: 5px;
+    border-radius: 2px;
+    border: 0;
+    border: 1px solid #b4becb;
+    resize: none; }
+    .revRegistPc-content__form-conciseAreaForm:focus {
+      outline: none;
+      border: 1px solid #047aed; }
+  .revRegistPc-content__bottom-wrap {
+    width: 500px;
+    margin: 50px auto 0px;
+    text-align: center; }
+  .revRegistPc-content__bottom-link {
+    text-decoration: none; }
+  .revRegistPc-content__bottom-return {
+    padding: 10px 45px;
+    background-color: #fff;
+    color: #06D1EC;
+    border: none;
+    border: 1px solid #06D1EC; }
+  .revRegistPc-content__bottom-next {
+    padding: 10px 47px;
+    margin-left: 50px;
+    background-color: #06D1EC;
+    color: #fff;
+    border: none;
+    border: 1px solid #fff; }
