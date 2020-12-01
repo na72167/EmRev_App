@@ -13,7 +13,6 @@
   <?php
     require('./header.php');
   ?>
-  <div class="#">
     <!-- ページ紹介要素ファイルの読み込み -->
     <?php
       require('./intro.php');
@@ -50,8 +49,8 @@
             <textarea class="revRegistCc-content__form-areaForm" placeholder="福利厚生について"></textarea>
 
             <div class="revRegistCc-content__bottom-wrap">
-              <bottom class="revRegistCc-content__bottom-return">前の項目へ</bottom>
-              <bottom class="revRegistCc-content__bottom-next">次の項目へ</bottom>
+              <a href="reviewRegister-jr.php" class="revRegistCc-content__bottom-link"><bottom class="revRegistCc-content__bottom-return" href="reviewRegister-jr.php">前の項目へ</bottom></a>
+              <a href="reviewRegister-jw.php" class="revRegistCc-content__bottom-link"><bottom class="revRegistCc-content__bottom-next" href="reviewRegister-jw.php">次の項目へ</bottom></a>
             </div>
 
           </from>
