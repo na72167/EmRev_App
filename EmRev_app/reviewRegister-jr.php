@@ -1,3 +1,4 @@
+<!-- jrはjointed routeの略 -->
 <?php
   // タイトルの読み込み
   $Page_Title = 'レビュー登録画面';
@@ -44,8 +45,8 @@
             </div>
 
             <div class="revRegistJr-content__bottom-wrap">
-              <bottom class="revRegistJr-content__bottom-cancel">レビューを取り消す</bottom>
-              <bottom class="revRegistJr-content__bottom-next">次の項目へ</bottom>
+              <a href="mypage.php" class="revRegistJr-content__bottom-link"><bottom class="revRegistJr-content__bottom-cancel" href="mypage.php">レビューを取り消す</bottom></a>
+              <a href="reviewRegister-cc.php" class="revRegistJr-content__bottom-link"><bottom class="revRegistJr-content__bottom-next" href="reviewRegister-cc.php">次の項目へ</bottom></a>
             </div>
 
           </form>
