@@ -1,5 +1,5 @@
-.revRegistCc-content{
-  height: 1280px;
+.revRegistGc-content{
+  height: 630px;
   width: 100%;
   background-color: #fff;
   &__wrap{
@@ -7,7 +7,7 @@
     margin: 30px auto;
   }
   &__form-element{
-    height: 1230px;
+    height: 530px;
     width: 630px;
     margin-left: 70px;
     //floatは付属させた要素はabsoluteの様に他要素の影響を受ける様になる。
@@ -19,6 +19,28 @@
     width: 500px;
     margin: 40px auto;
   }
+  &__form-conciseTitle{
+    width: 380px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    text-align: center;
+    border: 0;
+    border-bottom: 1px solid #b4becb;
+  }
+  &__form-conciseAreaForm{
+    height: 25px;
+    width: 500px;
+    background-color: #F4F4F4;
+    margin-bottom: 5px;
+    border-radius: 2px;
+    border: 0;
+    border: 1px solid #b4becb;
+    resize: none;
+    &:focus{
+      outline: none;
+      border: 1px solid $primary-color;
+    }
+  }
   &__title{
     font-size: 2rem;
     text-align: center;
@@ -28,7 +50,7 @@
     margin-bottom: 40px;
   }
   &__form-title{
-    width: 110px;
+    width: 70px;
     margin-bottom: 10px;
     font-size: 13px;
     text-align: center;
