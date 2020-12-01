@@ -67,6 +67,28 @@
       border: 1px solid $primary-color;
     }
   }
+  &__form-conciseTitle{
+    width: 380px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    text-align: center;
+    border: 0;
+    border-bottom: 1px solid #b4becb;
+  }
+  &__form-conciseAreaForm{
+    height: 25px;
+    width: 500px;
+    background-color: #F4F4F4;
+    margin-bottom: 5px;
+    border-radius: 2px;
+    border: 0;
+    border: 1px solid #b4becb;
+    resize: none;
+    &:focus{
+      outline: none;
+      border: 1px solid $primary-color;
+    }
+  }
   &__bottom-wrap{
     width: 500px;
     margin: 50px auto 0px;

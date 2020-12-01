@@ -71,15 +71,15 @@
         <div class="revRegistPc-content__form-title">事業展望</div>
         <textarea class="revRegistPc-content__form-areaForm" placeholder="事業展望について"></textarea>
 
-        <div class="revRegistGc-content__form-conciseTitle">総合的なこの会社の印象や評価を20文字以内でお願いします。</div>
-        <textarea class="revRegistGc-content__form-conciseAreaForm" placeholder="総評(簡潔にお願いします)"></textarea>
+        <div class="revRegistPc-content__form-conciseTitle">総合的なこの会社の印象や評価を20文字以内でお願いします。</div>
+        <textarea class="revRegistPc-content__form-conciseAreaForm" placeholder="総評(簡潔にお願いします)"></textarea>
 
-        <div class="revRegistGc-content__form-title">総評</div>
-        <textarea class="revRegistGc-content__form-areaForm" placeholder="総評(詳しくお願いします)"></textarea>
+        <div class="revRegistPc-content__form-title">総評</div>
+        <textarea class="revRegistPc-content__form-areaForm" placeholder="総評(詳しくお願いします)"></textarea>
 
         <div class="revRegistPc-content__bottom-wrap">
           <a href="reviewRegister-Pc.php" class="revRegistPc-content__bottom-link"><bottom class="revRegistPc-content__bottom-return">前の項目へ</bottom></a>
-          <a href="reviewRegister-gc.php" class="revRegistPc-content__bottom-link"><bottom class="revRegistPc-content__bottom-next">投稿する</bottom></a>
+          <a href="reviewRegister-Pc.php" class="revRegistPc-content__bottom-link"><bottom class="revRegistPc-content__bottom-next">投稿する</bottom></a>
         </div>
       </from>
     </div>

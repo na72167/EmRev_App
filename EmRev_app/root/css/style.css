@@ -761,6 +761,25 @@ body {
     .revRegistPc-content__form-areaForm:focus {
       outline: none;
       border: 1px solid #047aed; }
+  .revRegistPc-content__form-conciseTitle {
+    width: 380px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    text-align: center;
+    border: 0;
+    border-bottom: 1px solid #b4becb; }
+  .revRegistPc-content__form-conciseAreaForm {
+    height: 25px;
+    width: 500px;
+    background-color: #F4F4F4;
+    margin-bottom: 5px;
+    border-radius: 2px;
+    border: 0;
+    border: 1px solid #b4becb;
+    resize: none; }
+    .revRegistPc-content__form-conciseAreaForm:focus {
+      outline: none;
+      border: 1px solid #047aed; }
   .revRegistPc-content__bottom-wrap {
     width: 500px;
     margin: 50px auto 0px;
