@@ -47,6 +47,7 @@
               <bottom class="revRegistJr-content__bottom-cancel">レビューを取り消す</bottom>
               <bottom class="revRegistJr-content__bottom-next">次の項目へ</bottom>
             </div>
+
           </form>
         </div>
     </div>
