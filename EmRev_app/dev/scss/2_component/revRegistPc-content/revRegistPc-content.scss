@@ -1,0 +1,115 @@
+.revRegistPc-content{
+  height: 2780px;
+  width: 100%;
+  background-color: #fff;
+  &__wrap{
+    max-width: 1000px;
+    margin: 30px auto;
+  }
+  &__form-element{
+    height: 2600px;
+    width: 630px;
+    margin-left: 70px;
+    //floatは付属させた要素はabsoluteの様に他要素の影響を受ける様になる。
+    float: left;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+  &__form-wrap{
+    width: 500px;
+    margin: 40px auto;
+  }
+  &__input{
+    height: 27px;
+    width: 100%;
+    margin-bottom: 40px;
+    display: block;
+    border: 0;
+    border-bottom: 1px solid #b4becb;
+    &::placeholder{
+      font-size: 15px;
+    }
+    &:last-child{
+      margin-bottom: 0px;
+    }
+    &:focus{
+      outline: none;
+      border-bottom: 1px solid $primary-color;
+    }
+  }
+  &__title{
+    font-size: 2rem;
+    text-align: center;
+  }
+  &__sub{
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  &__form-title{
+    width: 120px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    text-align: center;
+    border: 0;
+    border-bottom: 1px solid #b4becb;
+  }
+  &__form-areaForm{
+    height: 100px;
+    width: 500px;
+    background-color: #F4F4F4;
+    margin-bottom: 5px;
+    border-radius: 2px;
+    border: 0;
+    border: 1px solid #b4becb;
+    resize: none;
+    &:focus{
+      outline: none;
+      border: 1px solid $primary-color;
+    }
+  }
+  &__form-conciseTitle{
+    width: 380px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    text-align: center;
+    border: 0;
+    border-bottom: 1px solid #b4becb;
+  }
+  &__form-conciseAreaForm{
+    height: 25px;
+    width: 500px;
+    background-color: #F4F4F4;
+    margin-bottom: 5px;
+    border-radius: 2px;
+    border: 0;
+    border: 1px solid #b4becb;
+    resize: none;
+    &:focus{
+      outline: none;
+      border: 1px solid $primary-color;
+    }
+  }
+  &__bottom-wrap{
+    width: 500px;
+    margin: 50px auto 0px;
+    text-align: center;
+  }
+  &__bottom-link{
+    text-decoration: none;
+  }
+  &__bottom-return{
+    padding: 10px 45px;
+    background-color: #fff;
+    color: #06D1EC;
+    border: none;
+    border: 1px solid #06D1EC;
+  }
+  &__bottom-next{
+    padding: 10px 47px;
+    margin-left: 50px;
+    background-color: #06D1EC;
+    color: #fff;
+    border: none;
+    border: 1px solid #fff;
+  }
+}
