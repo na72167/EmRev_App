@@ -1,0 +1,55 @@
+.mypeMyReviewList{
+  height: 600px;
+  width: 1600px;
+  margin: 0 auto;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  position: relative;
+  &__title{
+    position: relative;
+    top:20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2rem;
+  }
+  &__listWrap{
+    height: 430px;
+    width: 1450px;
+    margin: 40px auto 0px;
+  }
+  &__scrollLeft{
+    font-size: 50px;
+    float:left;
+    position: absolute;
+    top:260px;
+    left:25px;
+  }
+  &__detailElement{
+    height: 430px;
+    width: 340px;
+    float: left;
+    border: 1px solid #b4becb;
+    border-radius: 5px;
+    margin-left: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+  &__img-wrap{
+    height: 215px;
+    width: 340px;
+    border-bottom: 1px solid #b4becb;
+  }
+  &__scrollRight{
+    font-size: 50px;
+    float:right;
+    position: absolute;
+    top:260px;
+    right:20px;
+  }
+  &__ReviewListLink{
+    position: absolute;
+    left:700px;
+    top:550px;
+    text-align: center;
+  }
+}
