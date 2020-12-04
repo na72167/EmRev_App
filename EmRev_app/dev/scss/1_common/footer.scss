@@ -7,7 +7,6 @@
   // 今回の場合「padding:4rem 0」だと16×4で64pxになる。
   // でもなんで「font-size」なのかが分からないので本当にこれが依存先なのかもう少し調べる。
   padding: 4rem 0;
-  margin-top: 20px;
   &__element-wrap{
     max-width: 1000px;
     overflow: hidden;
