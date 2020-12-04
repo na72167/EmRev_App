@@ -805,6 +805,157 @@ body {
     .mypeUserProfile__state-output {
       float: left; }
 
+.profEdiUserProfile {
+  height: 480px;
+  width: 850px;
+  background-color: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin: 0 auto;
+  padding: 50px 100px 0px;
+  position: relative;
+  top: -170px;
+  overflow: hidden; }
+  .profEdiUserProfile__img-wrap {
+    height: 230px;
+    width: 230px;
+    border: 1px solid #b4becb;
+    border-radius: 10px;
+    float: left; }
+  .profEdiUserProfile__detail {
+    float: left;
+    margin: 10px 0 30px 130px; }
+  .profEdiUserProfile__name {
+    overflow: hidden;
+    border-bottom: 1px solid #b4becb;
+    margin-bottom: 20px; }
+    .profEdiUserProfile__name-element {
+      margin-right: 5px;
+      float: left; }
+    .profEdiUserProfile__name-output {
+      float: left; }
+  .profEdiUserProfile__ageTel-Wrap {
+    overflow: hidden; }
+  .profEdiUserProfile__age {
+    float: left;
+    overflow: hidden;
+    border-bottom: 1px solid #b4becb;
+    margin-bottom: 20px; }
+    .profEdiUserProfile__age-element {
+      margin-right: 5px;
+      float: left; }
+    .profEdiUserProfile__age-output {
+      float: left; }
+  .profEdiUserProfile__tel {
+    float: left;
+    margin-left: 30px;
+    overflow: hidden;
+    border-bottom: 1px solid #b4becb;
+    margin-bottom: 20px; }
+    .profEdiUserProfile__tel-element {
+      margin-right: 5px;
+      float: left; }
+    .profEdiUserProfile__tel-output {
+      float: left; }
+  .profEdiUserProfile__address {
+    overflow: hidden;
+    border-bottom: 1px solid #b4becb;
+    margin-bottom: 20px; }
+    .profEdiUserProfile__address-element {
+      margin-right: 5px;
+      float: left; }
+    .profEdiUserProfile__address-output {
+      float: left; }
+  .profEdiUserProfile__state {
+    overflow: hidden;
+    border-bottom: 1px solid #b4becb;
+    margin-bottom: 20px; }
+    .profEdiUserProfile__state-element {
+      margin-right: 5px;
+      float: left; }
+    .profEdiUserProfile__state-output {
+      float: left; }
+  .profEdiUserProfile__dmState {
+    overflow: hidden;
+    border-bottom: 1px solid #b4becb;
+    margin-bottom: 20px; }
+    .profEdiUserProfile__dmState-element {
+      margin-right: 5px;
+      float: left; }
+    .profEdiUserProfile__dmState-output {
+      float: left; }
+  .profEdiUserProfile__employeeInfoWrap {
+    position: relative;
+    top: 270px;
+    right: 580px;
+    width: 1180px; }
+  .profEdiUserProfile__affiliationCompany {
+    overflow: hidden;
+    border-bottom: 1px solid #b4becb;
+    margin-bottom: 20px; }
+    .profEdiUserProfile__affiliationCompany-element {
+      margin-right: 5px;
+      float: left; }
+    .profEdiUserProfile__affiliationCompany-output {
+      float: left; }
+  .profEdiUserProfile__incumbentPositionWrap {
+    overflow: hidden; }
+  .profEdiUserProfile__incumbent {
+    float: left;
+    overflow: hidden;
+    border-bottom: 1px solid #b4becb;
+    margin-bottom: 20px; }
+    .profEdiUserProfile__incumbent-element {
+      margin-right: 5px;
+      float: left; }
+    .profEdiUserProfile__incumbent-output {
+      float: left; }
+  .profEdiUserProfile__Position {
+    float: left;
+    margin-left: 30px;
+    overflow: hidden;
+    border-bottom: 1px solid #b4becb;
+    margin-bottom: 20px; }
+    .profEdiUserProfile__Position-element {
+      margin-right: 5px;
+      float: left; }
+    .profEdiUserProfile__Position-output {
+      float: left; }
+  .profEdiUserProfile__currentDepartment {
+    overflow: hidden;
+    border-bottom: 1px solid #b4becb;
+    margin-bottom: 20px; }
+    .profEdiUserProfile__currentDepartment-element {
+      margin-right: 5px;
+      float: left; }
+    .profEdiUserProfile__currentDepartment-output {
+      float: left; }
+  .profEdiUserProfile__bottom-wrap {
+    background-color: #fff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    top: -140px;
+    height: 60px;
+    width: 850px;
+    padding: 18px 0 0;
+    margin: 0 auto -60px;
+    text-align: center; }
+  .profEdiUserProfile__bottom-link {
+    text-decoration: none; }
+  .profEdiUserProfile__bottom-return {
+    padding: 10px 87px;
+    background-color: #fff;
+    color: #06D1EC;
+    border: 1px solid #06D1EC;
+    border-radius: 3px; }
+  .profEdiUserProfile__bottom-next {
+    padding: 10px 37px;
+    margin-left: 50px;
+    background-color: #06D1EC;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 3px; }
+
 .revRegistCc-content {
   height: 1280px;
   width: 100%;
