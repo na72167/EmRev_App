@@ -1,6 +1,6 @@
 <?php
   // タイトルの読み込み
-  $Page_Title = ‘マイページ’;
+  $Page_Title = 'マイページ';
   $Intro__Text_Title ='Review Register';
   $Intro__Text_Sub ='マイページ画面';
   $Intro__Img = 'src="src/img/docs.png"';
@@ -56,17 +56,6 @@
 
 
     <!-- =================================== -->
-
-
-
-
-
-
-
-
-
-
-
 
 
     <section class="mypeMyReviewList">
@@ -424,16 +413,6 @@
         </div>
       <div class="mypeMyFavoriteList__ReviewListLink">投稿レビューをもっと見る</div>
     </section>
-
-
-
-
-
-
-
-
-
-
 
   <?php
   // フッター要素の読み込み
