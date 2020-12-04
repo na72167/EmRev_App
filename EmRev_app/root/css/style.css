@@ -56,9 +56,15 @@ body {
   line-height: 1.6;
   position: relative; }
 
+.designSpace {
+  height: 160px;
+  width: 100%;
+  background-color: #047aed; }
+
 .footer {
   background-color: #002240;
-  padding: 4rem 0; }
+  padding: 4rem 0;
+  margin-top: 20px; }
   .footer__element-wrap {
     max-width: 1000px;
     overflow: hidden;
@@ -103,6 +109,13 @@ body {
     top: calc(70px / 2 - 51px / 2);
     margin-left: 67px;
     font-weight: 300; }
+  .header__title-link {
+    color: #fff;
+    text-decoration: none; }
+    .header__title-link:link {
+      color: #fff; }
+    .header__title-link:visited {
+      color: #fff; }
   .header__nav {
     float: right;
     position: relative;
@@ -183,6 +196,12 @@ body {
       border-bottom: 1px solid #b4becb;
       background-color: #fff;
       color: #0082e6; }
+
+.middleElement {
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  overflow: visible; }
 
 .revProgress {
   height: 440px;
@@ -439,6 +458,353 @@ body {
     margin-right: 60px; }
     .review__content-individual:last-child {
       margin-right: 0px; }
+
+.mypeDmList {
+  height: 380px;
+  width: 1600px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin: 150px auto 0; }
+  .mypeDmList__title {
+    position: relative;
+    top: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+    font-size: 2rem; }
+  .mypeDmList__detail {
+    width: 1150px;
+    margin: 0 auto;
+    padding: 0 30px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #b4becb;
+    overflow: hidden; }
+  .mypeDmList__postingTime {
+    overflow: hidden;
+    width: 180px;
+    float: left; }
+    .mypeDmList__postingTime-element {
+      width: 80px;
+      float: left; }
+    .mypeDmList__postingTime-output {
+      width: 50px;
+      float: left; }
+  .mypeDmList__postingDate {
+    overflow: hidden;
+    width: 300px;
+    float: left; }
+    .mypeDmList__postingDate-element {
+      width: 120px;
+      float: left; }
+    .mypeDmList__postingDate-output {
+      width: 150px;
+      float: left; }
+  .mypeDmList__postings {
+    overflow: hidden;
+    width: 600px;
+    float: left; }
+    .mypeDmList__postings-element {
+      width: 100px;
+      float: left; }
+    .mypeDmList__postings-output {
+      width: 500px;
+      float: left; }
+  .mypeDmList__dmList-link {
+    text-align: center; }
+
+.mypeMyFavoriteList {
+  height: 600px;
+  width: 1600px;
+  margin: 150px auto;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  position: relative; }
+  .mypeMyFavoriteList__title {
+    position: relative;
+    top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2rem; }
+  .mypeMyFavoriteList__listWrap {
+    height: 430px;
+    width: 1450px;
+    margin: 40px auto 0px; }
+  .mypeMyFavoriteList__scrollLeft {
+    font-size: 50px;
+    float: left;
+    position: absolute;
+    top: 260px;
+    left: 25px; }
+  .mypeMyFavoriteList__detailElement {
+    height: 430px;
+    width: 340px;
+    float: left;
+    border: 1px solid #b4becb;
+    border-radius: 5px;
+    margin-left: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px; }
+  .mypeMyFavoriteList__img-wrap {
+    height: 215px;
+    width: 340px;
+    border-bottom: 1px solid #b4becb; }
+  .mypeMyFavoriteList__scrollRight {
+    font-size: 50px;
+    float: right;
+    position: absolute;
+    top: 260px;
+    right: 20px; }
+  .mypeMyFavoriteList__detail {
+    padding: 30px 40px; }
+  .mypeMyFavoriteList__nameGood-Wrap {
+    width: 320px;
+    overflow: hidden; }
+  .mypeMyFavoriteList__name {
+    width: 150px;
+    border-bottom: 1px solid #b4becb;
+    overflow: hidden;
+    float: left;
+    margin-right: 40px;
+    margin-bottom: 10px; }
+    .mypeMyFavoriteList__name-element {
+      float: left;
+      margin-right: 10px; }
+    .mypeMyFavoriteList__name-output {
+      float: left; }
+  .mypeMyFavoriteList__good {
+    width: 50px;
+    border-bottom: 1px solid #b4becb;
+    overflow: hidden;
+    float: left; }
+    .mypeMyFavoriteList__good-element {
+      float: left; }
+    .mypeMyFavoriteList__good-output {
+      float: left; }
+  .mypeMyFavoriteList__occupation {
+    overflow: hidden;
+    width: 250px;
+    border-bottom: 1px solid #b4becb;
+    margin-bottom: 10px; }
+    .mypeMyFavoriteList__occupation-element {
+      float: left;
+      margin-right: 10px; }
+    .mypeMyFavoriteList__occupation-output {
+      float: left; }
+  .mypeMyFavoriteList__PostingTime {
+    overflow: hidden;
+    width: 250px;
+    border-bottom: 1px solid #b4becb; }
+    .mypeMyFavoriteList__PostingTime-element {
+      float: left;
+      margin-right: 10px; }
+    .mypeMyFavoriteList__PostingTime-output {
+      float: left; }
+  .mypeMyFavoriteList__ReviewDetail {
+    height: 40px;
+    width: 339px;
+    padding: 6px;
+    position: relative;
+    top: 45px;
+    left: -41px;
+    background-color: #2A3A50;
+    color: #fff;
+    border-radius: 0 0 5px 5px;
+    text-align: center; }
+    .mypeMyFavoriteList__ReviewDetail:link {
+      color: #fff; }
+    .mypeMyFavoriteList__ReviewDetail:visited {
+      color: #fff; }
+    .mypeMyFavoriteList__ReviewDetail:hover {
+      transition: all .5s;
+      background-color: #b4becb;
+      color: #2A3A50; }
+  .mypeMyFavoriteList__ReviewListLink {
+    position: absolute;
+    left: 700px;
+    top: 550px;
+    text-align: center; }
+
+.mypeMyReviewList {
+  height: 600px;
+  width: 1600px;
+  margin: 0 auto;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  position: relative; }
+  .mypeMyReviewList__title {
+    position: relative;
+    top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2rem; }
+  .mypeMyReviewList__listWrap {
+    height: 430px;
+    width: 1450px;
+    margin: 40px auto 0px; }
+  .mypeMyReviewList__scrollLeft {
+    font-size: 50px;
+    float: left;
+    position: absolute;
+    top: 260px;
+    left: 25px; }
+  .mypeMyReviewList__detailElement {
+    height: 430px;
+    width: 340px;
+    float: left;
+    border: 1px solid #b4becb;
+    border-radius: 5px;
+    margin-left: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px; }
+  .mypeMyReviewList__img-wrap {
+    height: 215px;
+    width: 340px;
+    border-bottom: 1px solid #b4becb; }
+  .mypeMyReviewList__scrollRight {
+    font-size: 50px;
+    float: right;
+    position: absolute;
+    top: 260px;
+    right: 20px; }
+  .mypeMyReviewList__detail {
+    padding: 30px 40px; }
+  .mypeMyReviewList__nameGood-Wrap {
+    width: 320px;
+    overflow: hidden; }
+  .mypeMyReviewList__name {
+    width: 150px;
+    border-bottom: 1px solid #b4becb;
+    overflow: hidden;
+    float: left;
+    margin-right: 40px;
+    margin-bottom: 10px; }
+    .mypeMyReviewList__name-element {
+      float: left;
+      margin-right: 10px; }
+    .mypeMyReviewList__name-output {
+      float: left; }
+  .mypeMyReviewList__good {
+    width: 50px;
+    border-bottom: 1px solid #b4becb;
+    overflow: hidden;
+    float: left; }
+    .mypeMyReviewList__good-element {
+      float: left; }
+    .mypeMyReviewList__good-output {
+      float: left; }
+  .mypeMyReviewList__occupation {
+    overflow: hidden;
+    width: 250px;
+    border-bottom: 1px solid #b4becb;
+    margin-bottom: 10px; }
+    .mypeMyReviewList__occupation-element {
+      float: left;
+      margin-right: 10px; }
+    .mypeMyReviewList__occupation-output {
+      float: left; }
+  .mypeMyReviewList__PostingTime {
+    overflow: hidden;
+    width: 250px;
+    border-bottom: 1px solid #b4becb; }
+    .mypeMyReviewList__PostingTime-element {
+      float: left;
+      margin-right: 10px; }
+    .mypeMyReviewList__PostingTime-output {
+      float: left; }
+  .mypeMyReviewList__ReviewDetail {
+    height: 40px;
+    width: 339px;
+    padding: 6px;
+    position: relative;
+    top: 45px;
+    left: -41px;
+    background-color: #2A3A50;
+    color: #fff;
+    border-radius: 0 0 5px 5px;
+    text-align: center; }
+    .mypeMyReviewList__ReviewDetail:link {
+      color: #fff; }
+    .mypeMyReviewList__ReviewDetail:visited {
+      color: #fff; }
+    .mypeMyReviewList__ReviewDetail:hover {
+      transition: all .5s;
+      background-color: #b4becb;
+      color: #2A3A50; }
+  .mypeMyReviewList__ReviewListLink {
+    position: absolute;
+    left: 700px;
+    top: 550px;
+    text-align: center; }
+
+.mypeUserProfile {
+  height: 320px;
+  width: 850px;
+  background-color: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin: 0 auto;
+  padding: 50px 100px;
+  position: relative;
+  top: -170px;
+  overflow: hidden; }
+  .mypeUserProfile__img-wrap {
+    height: 230px;
+    width: 230px;
+    border: 1px solid #b4becb;
+    border-radius: 10px;
+    float: left; }
+  .mypeUserProfile__detail {
+    float: left;
+    margin: 30px 0 30px 130px; }
+  .mypeUserProfile__name {
+    overflow: hidden;
+    border-bottom: 1px solid #b4becb;
+    margin-bottom: 20px; }
+    .mypeUserProfile__name-element {
+      margin-right: 5px;
+      float: left; }
+    .mypeUserProfile__name-output {
+      float: left; }
+  .mypeUserProfile__ageTel-Wrap {
+    overflow: hidden; }
+  .mypeUserProfile__age {
+    float: left;
+    overflow: hidden;
+    border-bottom: 1px solid #b4becb;
+    margin-bottom: 20px; }
+    .mypeUserProfile__age-element {
+      margin-right: 5px;
+      float: left; }
+    .mypeUserProfile__age-output {
+      float: left; }
+  .mypeUserProfile__tel {
+    float: left;
+    margin-left: 30px;
+    overflow: hidden;
+    border-bottom: 1px solid #b4becb;
+    margin-bottom: 20px; }
+    .mypeUserProfile__tel-element {
+      margin-right: 5px;
+      float: left; }
+    .mypeUserProfile__tel-output {
+      float: left; }
+  .mypeUserProfile__address {
+    overflow: hidden;
+    border-bottom: 1px solid #b4becb;
+    margin-bottom: 20px; }
+    .mypeUserProfile__address-element {
+      margin-right: 5px;
+      float: left; }
+    .mypeUserProfile__address-output {
+      float: left; }
+  .mypeUserProfile__state {
+    overflow: hidden;
+    border-bottom: 1px solid #b4becb;
+    margin-bottom: 20px; }
+    .mypeUserProfile__state-element {
+      margin-right: 5px;
+      float: left; }
+    .mypeUserProfile__state-output {
+      float: left; }
 
 .revRegistCc-content {
   height: 1280px;

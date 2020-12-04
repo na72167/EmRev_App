@@ -1,0 +1,138 @@
+.mypeMyReviewList{
+  height: 600px;
+  width: 1600px;
+  margin: 0 auto;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  position: relative;
+  &__title{
+    position: relative;
+    top:20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2rem;
+  }
+  &__listWrap{
+    height: 430px;
+    width: 1450px;
+    margin: 40px auto 0px;
+  }
+  &__scrollLeft{
+    font-size: 50px;
+    float:left;
+    position: absolute;
+    top:260px;
+    left:25px;
+  }
+  &__detailElement{
+    height: 430px;
+    width: 340px;
+    float: left;
+    border: 1px solid #b4becb;
+    border-radius: 5px;
+    margin-left: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+  &__img-wrap{
+    height: 215px;
+    width: 340px;
+    border-bottom: 1px solid #b4becb;
+  }
+  &__scrollRight{
+    font-size: 50px;
+    float:right;
+    position: absolute;
+    top:260px;
+    right:20px;
+  }
+  &__detail{
+    padding: 30px 40px;
+  }
+  &__nameGood-Wrap{
+    width: 320px;
+    overflow: hidden;
+  }
+  &__name{
+    width: 150px;
+    border-bottom: 1px solid #b4becb;
+    overflow: hidden;
+    float: left;
+    margin-right: 40px;
+    margin-bottom: 10px;
+    &-element{
+      float: left;
+      margin-right: 10px;
+    }
+    &-output{
+      float: left;
+    }
+  }
+  &__good{
+    width: 50px;
+    border-bottom: 1px solid #b4becb;
+    overflow: hidden;
+    float: left;
+    &-element{
+      float: left;
+    }
+    &-output{
+      float: left;
+    }
+  }
+  &__occupation{
+    overflow: hidden;
+    width: 250px;
+    border-bottom: 1px solid #b4becb;
+    margin-bottom: 10px;
+    &-element{
+      float: left;
+      margin-right: 10px;
+    }
+    &-output{
+      float: left;
+    }
+  }
+  &__PostingTime{
+    overflow: hidden;
+    width: 250px;
+    border-bottom: 1px solid #b4becb;
+    &-element{
+      float: left;
+      margin-right: 10px;
+    }
+    &-output{
+      float: left;
+    }
+  }
+  &__ReviewDetail{
+    height: 40px;
+    width: 339px;
+    padding: 6px;
+    position: relative;
+    top:45px;
+    left: -41px;
+    background-color: #2A3A50;
+    color: #fff;
+    border-radius: 0 0 5px 5px;
+    text-align: center;
+    &:link{
+      color:#fff;
+    }
+    &:visited{
+      color:#fff;
+    }
+    &:hover{
+      transition: all .5s;
+      background-color: #b4becb;
+      color: #2A3A50;
+    }
+  }
+
+  &__ReviewListLink{
+    position: absolute;
+    left:700px;
+    top:550px;
+    text-align: center;
+  }
+}

@@ -2,7 +2,7 @@
   <header class="header js-toggle-sp-menu-target">
     <div class="header__content-wrap">
       <!-- タイトル -->
-      <h1 class="header__title" href="index.php">EmRev</h1>
+      <h1 class="header__title" href="index.php"><a href="index.php" class="header__title-link">EmRev</a></h1>
       <!-- ナビゲーション(ログイン前のもの。セッション内容で切り替える。) -->
       <nav class="header__nav">
         <ul class="header__nav-ul">

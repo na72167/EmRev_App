@@ -24,6 +24,16 @@
     margin-left: 67px;
     font-weight: 300;
   }
+  &__title-link{
+    color:#fff;
+    text-decoration: none;
+    &:link{
+      color:#fff;
+    }
+    &:visited{
+      color:#fff;
+    }
+  }
 
   &__nav{
     float: right;
