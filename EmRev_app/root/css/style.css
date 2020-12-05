@@ -56,6 +56,14 @@ body {
   line-height: 1.6;
   position: relative; }
 
+input {
+  appearance: none;
+  outline: none;
+  border: 0; }
+
+button {
+  border: 0; }
+
 .designSpace {
   height: 160px;
   width: 100%;
@@ -63,7 +71,8 @@ body {
 
 .footer {
   background-color: #002240;
-  padding: 4rem 0; }
+  padding: 4rem 0;
+  margin-top: 20px; }
   .footer__element-wrap {
     max-width: 1000px;
     overflow: hidden;
@@ -224,6 +233,253 @@ body {
     margin-bottom: 20px;
     border: 0;
     border-bottom: 1px solid #b4becb; }
+
+.dmScreen {
+  height: 730px;
+  width: 1400px;
+  margin: 20px auto;
+  position: relative;
+  top: -50px;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); }
+  .dmScreen__userList-wrap {
+    height: 730px;
+    width: 380px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    background-color: #fff; }
+  .dmScreen__userSearch-padding {
+    display: block;
+    padding: 50px 30px 0px; }
+  .dmScreen__userSearch-wrap {
+    height: 80px;
+    width: 380px;
+    padding: 30px 70px 0;
+    background-color: #fff; }
+  .dmScreen__userSearch-input {
+    height: 40px;
+    width: 197px;
+    display: block;
+    font-size: 15px;
+    float: left;
+    border: 0;
+    border-bottom: 2px solid #b4becb; }
+    .dmScreen__userSearch-input:focus {
+      outline: none;
+      border-bottom: 2px solid #047aed; }
+  .dmScreen__userSearch-button {
+    height: 40px;
+    width: 40px;
+    float: left;
+    margin-left: 2px;
+    border-radius: 3px;
+    background-color: #047aed; }
+  .dmScreen__recent-wrap {
+    height: 100%;
+    width: 100%; }
+  .dmScreen__recent-style {
+    color: #047aed;
+    font-size: 28px;
+    padding: 5px 0;
+    position: relative;
+    left: 20px; }
+  .dmScreen__recent-element {
+    height: 75px;
+    overflow: hidden;
+    z-index: -1; }
+    .dmScreen__recent-element:focus {
+      outline: none;
+      transition: box-shadow .5s;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); }
+    .dmScreen__recent-element:focus .dmScreen__recent-marker {
+      transition: background-color .5s;
+      background-color: #84d4f4; }
+  .dmScreen__recent-imgStyle {
+    height: 65px;
+    width: 65px;
+    margin: 5px 0 5px 20px;
+    border-radius: 100px;
+    background-color: black; }
+  .dmScreen__recent-activeSignal {
+    height: 13px;
+    width: 13px;
+    position: absolute;
+    border: 1px solid #fff;
+    border-radius: 100px;
+    background-color: #06EC67; }
+  .dmScreen__recent-name {
+    width: 100px;
+    position: relative;
+    top: -51px;
+    left: 120px;
+    float: left;
+    font-size: 18px; }
+  .dmScreen__recent-time {
+    width: 100px;
+    position: relative;
+    top: -50px;
+    left: 220px;
+    float: left; }
+  .dmScreen__recent-marker {
+    height: 75px;
+    width: 10px;
+    float: right;
+    position: relative;
+    top: -75px; }
+  .dmScreen__thisWeek-element {
+    height: 75px;
+    overflow: hidden; }
+    .dmScreen__thisWeek-element:focus {
+      outline: none;
+      transition: box-shadow .5s;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); }
+    .dmScreen__thisWeek-element:focus .dmScreen__thisWeek-marker {
+      transition: background-color .5s;
+      background-color: #84d4f4; }
+  .dmScreen__thisWeek-imgStyle {
+    height: 65px;
+    width: 65px;
+    margin: 5px 0 5px 20px;
+    border-radius: 100px;
+    background-color: black; }
+  .dmScreen__thisWeek-activeSignal {
+    height: 13px;
+    width: 13px;
+    position: absolute;
+    border: 1px solid #fff;
+    border-radius: 100px;
+    background-color: #06EC67; }
+  .dmScreen__thisWeek-name {
+    width: 100px;
+    position: relative;
+    top: -51px;
+    left: 120px;
+    float: left;
+    font-size: 18px; }
+  .dmScreen__thisWeek-time {
+    width: 100px;
+    position: relative;
+    top: -50px;
+    left: 220px;
+    float: left; }
+  .dmScreen__thisWeek-marker {
+    height: 75px;
+    width: 10px;
+    float: right;
+    position: relative;
+    top: -75px; }
+  .dmScreen__thisWeek-style {
+    color: #047aed;
+    font-size: 25px;
+    padding: 5px 0;
+    position: relative;
+    left: 20px; }
+  .dmScreen__callPartner-element {
+    height: 130px;
+    width: 1020px;
+    background-color: #047aed;
+    float: right;
+    position: absolute;
+    top: 0px;
+    left: 380px;
+    border-radius: 0 3px 0 0;
+    border-bottom: 3px solid #b4becb; }
+  .dmScreen__inputForm {
+    height: 65px;
+    width: 1020px;
+    position: absolute;
+    top: 665px;
+    left: 380px;
+    padding: 15px 0px 20px 180px;
+    background-color: #F0EAEA; }
+  .dmScreen__inputForm-clickSignal {
+    height: 40px;
+    width: 2px;
+    border-left: 3px solid #047aed;
+    padding: 5px 0 8px 30px; }
+  .dmScreen__inputForm-style {
+    font-size: 20px;
+    width: 730px;
+    background-color: #F0EAEA; }
+  .dmScreen__inputForm-button {
+    height: 40px;
+    width: 40px;
+    border: 0;
+    border-radius: 5px;
+    position: relative;
+    top: -32px;
+    left: 730px;
+    background-color: #047aed; }
+  .dmScreen__callPartner-imgStyle {
+    height: 65px;
+    width: 65px;
+    margin: 30px 0 5px 50px;
+    border-radius: 100px;
+    border: 2px solid #fff;
+    background-color: black; }
+  .dmScreen__callPartner-activeSignal {
+    height: 13px;
+    width: 13px;
+    position: absolute;
+    border: 1px solid #fff;
+    border-radius: 100px;
+    background-color: #06EC67; }
+  .dmScreen__callPartner-name {
+    width: 100px;
+    position: relative;
+    top: -58px;
+    left: 150px;
+    float: left;
+    font-size: 18px; }
+  .dmScreen__callPartner-time {
+    width: 100px;
+    position: relative;
+    top: -10px; }
+  .dmScreen__contactBoard {
+    height: 520px;
+    width: 900px;
+    position: relative;
+    top: -585px;
+    left: 380px; }
+  .dmScreen__contactBoard-imgStylePerson {
+    height: 65px;
+    width: 65px;
+    margin: 0px 0 5px 50px;
+    float: left;
+    border-radius: 100px;
+    border: 2px solid #fff;
+    background-color: black;
+    position: relative; }
+  .dmScreen__contactBoard-personText {
+    height: 80px;
+    width: 500px;
+    border-radius: 5px;
+    background-color: #F0EAEA;
+    position: absolute;
+    top: 30px;
+    left: 130px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); }
+  .dmScreen__contactBoard-contactMyself {
+    position: relative;
+    top: 130px;
+    left: 420px; }
+  .dmScreen__contactBoard-imgStyleMyself {
+    height: 65px;
+    width: 65px;
+    margin: 0px 0 5px 400px;
+    float: left;
+    border-radius: 100px;
+    border: 2px solid #fff;
+    background-color: black;
+    position: relative; }
+  .dmScreen__contactBoard-TextMyself {
+    height: 80px;
+    width: 500px;
+    border-radius: 5px;
+    background-color: #ABF0F0;
+    position: absolute;
+    top: 30px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); }
 
 .about {
   height: 500px;
