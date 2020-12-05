@@ -1,0 +1,24 @@
+.withdrawal{
+
+  &__content{
+    position: relative;
+    top: -30px;
+    height: 600px;
+    width: 1400px;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+  }
+  &__content-bottom{
+    position: absolute;
+    top:230px;
+    left: 610px;
+    padding: 20px 47px;
+    font-size: 30px;
+    background-color: #EC0618;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 3px;
+  }
+}
