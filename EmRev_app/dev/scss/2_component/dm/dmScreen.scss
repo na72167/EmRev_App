@@ -1,0 +1,296 @@
+.dmScreen{
+  height: 730px;
+  width: 1400px;
+  margin: 20px auto;
+  position: relative;
+  top: -50px;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  &__userList-wrap{
+    height: 730px;
+    width: 380px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+  }
+  &__userSearch-padding{
+    display: block;
+    padding: 50px 30px 0px;
+  }
+  &__userSearch-wrap{
+    height: 80px;
+    width: 380px;
+    padding: 30px 70px 0;
+    background-color: #fff;
+  }
+  &__userSearch-input{
+    height: 40px;
+    width: 197px;
+    display: block;
+    font-size: 15px;
+    float: left;
+    border:0;
+    border-bottom: 2px solid #b4becb;
+    &:focus{
+      outline: none;
+      border-bottom: 2px solid $primary-color;
+    }
+  }
+  &__userSearch-button{
+    height: 40px;
+    width: 40px;
+    float: left;
+    margin-left: 2px;
+    border-radius: 3px;
+    background-color: $primary-color;
+  }
+  &__recent-wrap{
+    height: 100%;
+    width: 100%;
+  }
+  &__recent-style{
+    color: $primary-color;
+    font-size: 28px;
+    padding: 5px 0;
+    position: relative;
+    left: 20px;
+  }
+  &__recent-element{
+    height: 75px;
+    overflow: hidden;
+    z-index: -1;
+    &:focus{
+      outline: none;
+      transition: box-shadow .5s;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    }
+    &:focus .dmScreen__recent-marker{
+      transition: background-color .5s;
+      background-color: #84d4f4;
+    }
+  }
+  &__recent-imgStyle{
+    height: 65px;
+    width: 65px;
+    margin: 5px 0 5px 20px;
+    border-radius: 100px;
+    background-color: black;
+  }
+  &__recent-activeSignal{
+    height: 13px;
+    width: 13px;
+    position: absolute;
+    border: 1px solid #fff;
+    border-radius: 100px;
+    background-color: #06EC67;
+  }
+  &__recent-name{
+    width: 100px;
+    position: relative;
+    top: -51px;
+    left: 120px;
+    float: left;
+    font-size: 18px;
+  }
+  &__recent-time{
+    width: 100px;
+    position: relative;
+    top: -50px;
+    left: 220px;
+    float: left;
+  }
+  &__recent-marker{
+    height: 75px;
+    width: 10px;
+    float: right;
+    // 応急処置(クリック後のマーカー部分の位置関係)
+    // floatで親要素の幅等に影響受けなくなっているのでそれを踏まえて後で修正する。
+    position: relative;
+    top:-75px;
+  }
+
+
+  &__thisWeek-element{
+    height: 75px;
+    overflow: hidden;
+    &:focus{
+      outline: none;
+      transition: box-shadow .5s;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    }
+    &:focus .dmScreen__thisWeek-marker{
+      transition: background-color .5s;
+      background-color: #84d4f4;
+    }
+  }
+  &__thisWeek-imgStyle{
+    height: 65px;
+    width: 65px;
+    margin: 5px 0 5px 20px;
+    border-radius: 100px;
+    background-color: black;
+  }
+  &__thisWeek-activeSignal{
+    height: 13px;
+    width: 13px;
+    position: absolute;
+    border: 1px solid #fff;
+    border-radius: 100px;
+    background-color: #06EC67;
+  }
+  &__thisWeek-name{
+    width: 100px;
+    position: relative;
+    top: -51px;
+    left: 120px;
+    float: left;
+    font-size: 18px;
+  }
+  &__thisWeek-time{
+    width: 100px;
+    position: relative;
+    top: -50px;
+    left: 220px;
+    float: left;
+  }
+  &__thisWeek-marker{
+    height: 75px;
+    width: 10px;
+    float: right;
+    // 応急処置(クリック後のマーカー部分の位置関係)
+    // floatで親要素の幅等に影響受けなくなっているのでそれを踏まえて後で修正する。
+    position: relative;
+    top:-75px;
+  }
+  &__thisWeek-style{
+    color: $primary-color;
+    font-size: 25px;
+    padding: 5px 0;
+    position: relative;
+    left: 20px;
+  }
+  &__callPartner-element{
+    height: 130px;
+    width: 1020px;
+    background-color: $primary-color;
+    float: right;
+    position: absolute;
+    top: 0px;
+    left: 380px;
+    border-radius: 0 3px 0 0;
+    border-bottom: 3px solid #b4becb;
+  }
+  &__inputForm{
+    height: 65px;
+    width: 1020px;
+    position: absolute;
+    top:665px;
+    left: 380px;
+    padding: 15px 0px 20px 180px;
+    background-color: #F0EAEA;
+  }
+  &__inputForm-clickSignal{
+    height: 40px;
+    width: 2px;
+    border-left: 3px solid $primary-color;
+    padding: 5px 0 8px 30px;
+  }
+  &__inputForm-style{
+    font-size: 20px;
+    width: 730px;
+    background-color: #F0EAEA;
+  }
+  &__inputForm-button{
+    height: 40px;
+    width: 40px;
+    border: 0;
+    border-radius: 5px;
+    position: relative;
+    top:-32px;
+    left: 730px;
+    background-color: $primary-color;
+  }
+  &__callPartner-imgStyle{
+    height: 65px;
+    width: 65px;
+    margin: 30px 0 5px 50px;
+    border-radius: 100px;
+    border: 2px solid #fff;
+    background-color: black;
+  }
+  &__callPartner-activeSignal{
+    height: 13px;
+    width: 13px;
+    position: absolute;
+    border: 1px solid #fff;
+    border-radius: 100px;
+    background-color: #06EC67;
+  }
+  &__callPartner-name{
+    width: 100px;
+    position: relative;
+    top: -58px;
+    left: 150px;
+    float: left;
+    font-size: 18px;
+  }
+  &__callPartner-time{
+    width: 100px;
+    position: relative;
+    top: -10px;
+  }
+  &__contactBoard{
+    height: 520px;
+    width: 900px;
+    position: relative;
+    top: -585px;
+    left: 380px;
+  }
+  &__contactBoard-contactPerson{
+
+  }
+  &__contactBoard-imgStylePerson{
+    height: 65px;
+    width: 65px;
+    margin: 0px 0 5px 50px;
+    float: left;
+    border-radius: 100px;
+    border: 2px solid #fff;
+    background-color: black;
+    position: relative;
+  }
+  &__contactBoard-personText{
+    height: 80px;
+    width: 500px;
+    border-radius: 5px;
+    background-color: #F0EAEA;
+    position: absolute;
+    top: 30px;
+    left: 130px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  }
+  &__contactBoard-contactMyself{
+    position: relative;
+    top: 130px;
+    left: 420px;
+  }
+  &__contactBoard-imgStyleMyself{
+    height: 65px;
+    width: 65px;
+    margin: 0px 0 5px 400px;
+    float: left;
+    border-radius: 100px;
+    border: 2px solid #fff;
+    background-color: black;
+    position: relative;
+  }
+  &__contactBoard-TextMyself{
+    height: 80px;
+    width: 500px;
+    border-radius: 5px;
+    background-color: #ABF0F0;
+    position: absolute;
+    top: 30px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  }
+}
