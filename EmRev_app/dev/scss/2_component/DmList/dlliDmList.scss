@@ -1,0 +1,88 @@
+.dlliDmList{
+  height: 610px;
+  width: 1600px;
+  position: relative;
+  top:-180px;
+  background-color: #fff;;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin: 150px auto 0;
+  &__title{
+    position: relative;
+    top:20px;
+    margin-bottom: 40px;
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  &__detail{
+    width: 1150px;
+    margin: 0 auto;
+    padding: 0 30px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #b4becb;
+    overflow: hidden;
+  }
+
+  &__postingTime{
+    overflow: hidden;
+    width: 180px;
+    float: left;
+    &-element{
+      width: 80px;
+      float: left;
+    }
+    &-output{
+      width: 50px;
+      float: left;
+    }
+  }
+
+  &__postingDate{
+    overflow: hidden;
+    width: 300px;
+    float: left;
+    &-element{
+      width: 120px;
+      float: left;
+    }
+    &-output{
+      width: 150px;
+      float: left;
+    }
+  }
+
+  &__postings{
+    overflow: hidden;
+    width: 600px;
+    float: left;
+    &-element{
+      width: 100px;
+      float: left;
+    }
+    &-output{
+      width: 500px;
+      float: left;
+    }
+  }
+
+  &__pageTransition{
+    height: 50px;
+    border-top: 1px solid #b4becb;
+    border-bottom: 1px solid #b4becb;
+  }
+  &__pageTransition-contentWrap{
+    width: 80px;
+    margin: 10px auto 0;
+  }
+  &__pageTransition-leftArrow{
+    float: left;
+  }
+  &__pageTransition-guideNumber{
+    float: left;
+  }
+  &__pageTransition-rightArrow{
+    float: left;
+  }
+
+}
