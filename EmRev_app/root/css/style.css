@@ -481,6 +481,72 @@ button {
     top: 30px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); }
 
+.dlliDmList {
+  height: 610px;
+  width: 1600px;
+  position: relative;
+  top: -180px;
+  background-color: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin: 150px auto 0; }
+  .dlliDmList__title {
+    position: relative;
+    top: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+    font-size: 2rem; }
+  .dlliDmList__detail {
+    width: 1150px;
+    margin: 0 auto;
+    padding: 0 30px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #b4becb;
+    overflow: hidden; }
+  .dlliDmList__postingTime {
+    overflow: hidden;
+    width: 180px;
+    float: left; }
+    .dlliDmList__postingTime-element {
+      width: 80px;
+      float: left; }
+    .dlliDmList__postingTime-output {
+      width: 50px;
+      float: left; }
+  .dlliDmList__postingDate {
+    overflow: hidden;
+    width: 300px;
+    float: left; }
+    .dlliDmList__postingDate-element {
+      width: 120px;
+      float: left; }
+    .dlliDmList__postingDate-output {
+      width: 150px;
+      float: left; }
+  .dlliDmList__postings {
+    overflow: hidden;
+    width: 600px;
+    float: left; }
+    .dlliDmList__postings-element {
+      width: 100px;
+      float: left; }
+    .dlliDmList__postings-output {
+      width: 500px;
+      float: left; }
+  .dlliDmList__pageTransition {
+    height: 50px;
+    border-top: 1px solid #b4becb;
+    border-bottom: 1px solid #b4becb; }
+  .dlliDmList__pageTransition-contentWrap {
+    width: 80px;
+    margin: 10px auto 0; }
+  .dlliDmList__pageTransition-leftArrow {
+    float: left; }
+  .dlliDmList__pageTransition-guideNumber {
+    float: left; }
+  .dlliDmList__pageTransition-rightArrow {
+    float: left; }
+
 .regitedUlEmployeeSearch {
   height: 390px;
   width: 290px;
