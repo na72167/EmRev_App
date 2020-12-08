@@ -1,0 +1,129 @@
+.regitedUlEmployeeList{
+  height: 100%;
+  width: 610px;
+  padding: 20px 20px;
+  background-color: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  margin-top: -670px;
+  margin-left: 900px;
+  margin-right: auto;
+  &__header{
+    border-bottom: 1px solid #b4becb;
+    padding:5px 20px;
+    text-align: center;
+  }
+  &__title{
+    font-size: 2rem;
+  }
+  &__mainContent{
+    height: 100%;
+    width: 570px;
+    margin: 12px 0;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  &__imgStyle{
+    height: 140px;
+    width: 140px;
+    border-radius: 5px;
+    margin: 10px 30px 10px 15px;
+    float: left;
+    overflow: hidden;
+  }
+
+  &__img{
+    height: 140px;
+    width: 140px;
+    border-radius: 5px;
+    border: 1px solid #b4becb;
+    background-color: black;
+    float: left;
+  }
+
+  &__userDetail{
+    height: 160px;
+    width: 360px;
+    float: left;
+    padding: 20px 20px;
+    border-left: 1px solid #b4becb;
+  }
+
+  &__nameAgeWrap{
+    width: 350px;
+    overflow: hidden;
+    margin-top: 10px;
+    margin-bottom: 3px;
+  }
+
+  &__name{
+    float: left;
+  }
+
+  &__age{
+    float: left;
+    margin-left: 10px;
+  }
+
+  &__dmIncumbentWrap{
+    width: 350px;
+    overflow: hidden;
+    margin-bottom: 3px;
+  }
+
+  &__dm{
+    float: left;
+  }
+
+  &__affiliatedCompanyStateWrap{
+    width: 350px;
+    overflow: hidden;
+    margin-bottom: 5px;
+  }
+
+  &__Incumbent{
+    float: left;
+    margin-left: 10px;
+  }
+
+  &__affiliatedCompanyStateWrap{
+    width: 350px;
+    overflow: hidden;
+    margin-bottom: 5px;
+  }
+
+  &__affiliatedCompany{
+    float: left;
+  }
+
+  &__state{
+    float: left;
+    margin-left: 10px;
+  }
+
+  &__userProfLink{
+    margin-top: 10px;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  &__pageTransition{
+    height: 50px;
+    border-top: 1px solid #b4becb;
+    border-bottom: 1px solid #b4becb;
+  }
+  &__pageTransition-contentWrap{
+    width: 80px;
+    margin: 10px auto 0;
+  }
+  &__pageTransition-leftArrow{
+    float: left;
+  }
+  &__pageTransition-guideNumber{
+    float: left;
+  }
+  &__pageTransition-rightArrow{
+    float: left;
+  }
+}
