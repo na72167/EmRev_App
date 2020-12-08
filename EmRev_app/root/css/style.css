@@ -713,6 +713,70 @@ button {
     border: none;
     border: 1px solid #fff; }
 
+.empregEmployeeRegister {
+  height: 590px;
+  width: 1400px;
+  background-color: #fff;
+  border-radius: 3px;
+  padding: 30px 0;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  position: relative;
+  top: -20px; }
+  .empregEmployeeRegister__content {
+    height: 200px;
+    width: 700px;
+    margin: 0 auto;
+    padding: 20px 0; }
+  .empregEmployeeRegister__input {
+    border: 1px solid #b4becb;
+    height: 40px;
+    width: 700px; }
+  .empregEmployeeRegister__title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 50px; }
+  .empregEmployeeRegister__outputStyle {
+    border-bottom: 1px solid #b4becb;
+    margin: 10px auto;
+    text-align: center;
+    height: 30px;
+    width: 550px; }
+  .empregEmployeeRegister__secondText {
+    position: relative;
+    left: 450px; }
+  .empregEmployeeRegister__content-bottom {
+    display: block;
+    height: 46px;
+    width: 116px;
+    margin: 20px auto 0;
+    padding: 10px 27px;
+    font-size: 15px;
+    background-color: #06D1EC;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 3px; }
+  .empregEmployeeRegister__bottom-wrap {
+    position: relative;
+    top: 50px;
+    margin: 0 auto;
+    width: 385px; }
+  .empregEmployeeRegister__bottom-link {
+    text-decoration: none; }
+  .empregEmployeeRegister__bottom-return {
+    padding: 10px 45px;
+    background-color: #fff;
+    color: #06D1EC;
+    border: none;
+    border: 1px solid #06D1EC; }
+  .empregEmployeeRegister__bottom-next {
+    padding: 10px 47px;
+    margin-left: 50px;
+    background-color: #06D1EC;
+    color: #fff;
+    border: none;
+    border: 1px solid #fff; }
+
 .about {
   height: 500px;
   background-color: #047aed;
