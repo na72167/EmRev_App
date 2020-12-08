@@ -481,6 +481,172 @@ button {
     top: 30px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); }
 
+.regitedUlEmployeeSearch {
+  height: 390px;
+  width: 290px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  margin-top: 30px;
+  position: relative;
+  left: 550px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px 20px; }
+  .regitedUlEmployeeSearch__title {
+    font-size: 22px;
+    text-align: center; }
+  .regitedUlEmployeeSearch__form {
+    height: 100%;
+    margin-top: 10px; }
+  .regitedUlEmployeeSearch__inputContentStyle {
+    margin: 0 auto 10px;
+    padding: 0 10px; }
+  .regitedUlEmployeeSearch__inputName {
+    font-size: 14px;
+    height: 16px; }
+  .regitedUlEmployeeSearch__inputStyle {
+    border: 1px solid #707070;
+    width: 220px;
+    border-radius: 5px; }
+  .regitedUlEmployeeSearch__bottomStyle {
+    text-align: center;
+    display: block;
+    width: 150px;
+    padding: 5px 0;
+    margin: 20px auto 0;
+    background-color: #06D1EC;
+    color: #fff;
+    border: none;
+    border: 1px solid #fff; }
+
+.regitedUlEmployeeList {
+  height: 100%;
+  width: 610px;
+  padding: 20px 20px;
+  background-color: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  margin-top: -670px;
+  margin-left: 900px;
+  margin-right: auto; }
+  .regitedUlEmployeeList__header {
+    border-bottom: 1px solid #b4becb;
+    padding: 5px 20px;
+    text-align: center; }
+  .regitedUlEmployeeList__title {
+    font-size: 2rem; }
+  .regitedUlEmployeeList__mainContent {
+    height: 100%;
+    width: 570px;
+    margin: 12px 0;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden; }
+  .regitedUlEmployeeList__imgStyle {
+    height: 140px;
+    width: 140px;
+    border-radius: 5px;
+    margin: 10px 30px 10px 15px;
+    float: left;
+    overflow: hidden; }
+  .regitedUlEmployeeList__img {
+    height: 140px;
+    width: 140px;
+    border-radius: 5px;
+    border: 1px solid #b4becb;
+    background-color: black;
+    float: left; }
+  .regitedUlEmployeeList__userDetail {
+    height: 160px;
+    width: 360px;
+    float: left;
+    padding: 20px 20px;
+    border-left: 1px solid #b4becb; }
+  .regitedUlEmployeeList__nameAgeWrap {
+    width: 350px;
+    overflow: hidden;
+    margin-top: 10px;
+    margin-bottom: 3px; }
+  .regitedUlEmployeeList__name {
+    float: left; }
+  .regitedUlEmployeeList__age {
+    float: left;
+    margin-left: 10px; }
+  .regitedUlEmployeeList__dmIncumbentWrap {
+    width: 350px;
+    overflow: hidden;
+    margin-bottom: 3px; }
+  .regitedUlEmployeeList__dm {
+    float: left; }
+  .regitedUlEmployeeList__affiliatedCompanyStateWrap {
+    width: 350px;
+    overflow: hidden;
+    margin-bottom: 5px; }
+  .regitedUlEmployeeList__Incumbent {
+    float: left;
+    margin-left: 10px; }
+  .regitedUlEmployeeList__affiliatedCompanyStateWrap {
+    width: 350px;
+    overflow: hidden;
+    margin-bottom: 5px; }
+  .regitedUlEmployeeList__affiliatedCompany {
+    float: left; }
+  .regitedUlEmployeeList__state {
+    float: left;
+    margin-left: 10px; }
+  .regitedUlEmployeeList__userProfLink {
+    margin-top: 10px;
+    font-size: 12px;
+    text-align: center; }
+  .regitedUlEmployeeList__pageTransition {
+    height: 50px;
+    border-top: 1px solid #b4becb;
+    border-bottom: 1px solid #b4becb; }
+  .regitedUlEmployeeList__pageTransition-contentWrap {
+    width: 80px;
+    margin: 10px auto 0; }
+  .regitedUlEmployeeList__pageTransition-leftArrow {
+    float: left; }
+  .regitedUlEmployeeList__pageTransition-guideNumber {
+    float: left; }
+  .regitedUlEmployeeList__pageTransition-rightArrow {
+    float: left; }
+
+.regitedUlEmployeeSorting {
+  height: 250px;
+  width: 290px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  margin-top: 30px;
+  position: relative;
+  left: 550px;
+  padding: 20px 20px; }
+  .regitedUlEmployeeSorting__title {
+    font-size: 22px;
+    text-align: center; }
+  .regitedUlEmployeeSorting__form {
+    height: 100%;
+    margin-top: 10px; }
+  .regitedUlEmployeeSorting__inputContentStyle {
+    margin: 0 auto 10px;
+    padding: 0 10px; }
+  .regitedUlEmployeeSorting__inputName {
+    font-size: 14px;
+    height: 16px; }
+  .regitedUlEmployeeSorting__inputStyle {
+    border: 1px solid #707070;
+    width: 220px;
+    border-radius: 5px; }
+  .regitedUlEmployeeSorting__bottomStyle {
+    text-align: center;
+    display: block;
+    width: 150px;
+    padding: 5px 0;
+    margin: 20px auto 0;
+    background-color: #06D1EC;
+    color: #fff;
+    border: none;
+    border: 1px solid #fff; }
+
 .about {
   height: 500px;
   background-color: #047aed;
