@@ -234,6 +234,226 @@ button {
     border: 0;
     border-bottom: 1px solid #b4becb; }
 
+.browsingHistory {
+  height: 100%;
+  width: 720px;
+  padding: 20px 20px;
+  background-color: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  margin-top: -950px;
+  margin-left: 870px;
+  margin-right: auto; }
+  .browsingHistory__header {
+    border-bottom: 1px solid #b4becb;
+    padding: 5px 20px;
+    text-align: center; }
+  .browsingHistory__title {
+    font-size: 2rem; }
+  .browsingHistory__mainContent {
+    height: 100%;
+    width: 680px;
+    margin: 12px 0;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden; }
+  .browsingHistory__imgComInfoWrap {
+    width: 380px; }
+  .browsingHistory__industryClassification {
+    font-size: 12px;
+    width: 360px; }
+  .browsingHistory__companyName {
+    font-size: 12px; }
+  .browsingHistory__location {
+    font-size: 12px; }
+  .browsingHistory__reviewLink {
+    width: 230px;
+    font-size: 12px;
+    float: left;
+    position: relative;
+    top: 120px;
+    left: -95px; }
+  .browsingHistory__imgStyle {
+    height: 90px;
+    width: 90px;
+    border-radius: 5px;
+    margin: 20px 15px 10px 15px;
+    float: left;
+    overflow: hidden; }
+  .browsingHistory__img {
+    height: 90px;
+    width: 90px;
+    border-radius: 5px;
+    border: 1px solid #b4becb;
+    background-color: black;
+    float: left; }
+  .browsingHistory__companyWrap {
+    font-size: 20px;
+    height: 1px;
+    position: relative;
+    top: 35px;
+    right: 5px; }
+  .browsingHistory__userDetail {
+    height: 155px;
+    width: 330px;
+    float: right;
+    margin-top: -20px;
+    padding: 15px 5px 5px 20px;
+    border-left: 1px solid #b4becb; }
+  .browsingHistory__nameAgeWrap {
+    width: 300px;
+    overflow: hidden;
+    margin-top: 10px;
+    margin-bottom: 3px; }
+  .browsingHistory__name {
+    float: left; }
+  .browsingHistory__age {
+    float: left;
+    margin-top: 10px;
+    font-size: 14px; }
+  .browsingHistory__dmIncumbentWrap {
+    width: 350px;
+    overflow: hidden; }
+  .browsingHistory__dm {
+    float: left; }
+  .browsingHistory__userNameAgeFavoliteWrap {
+    margin-top: 10px;
+    font-size: 12px;
+    text-align: center;
+    margin-left: 20px;
+    width: 320px; }
+  .browsingHistory__userNameAgeWrap {
+    float: left; }
+  .browsingHistory__affiliatedCompanyStateWrap {
+    width: 350px;
+    overflow: hidden;
+    margin-bottom: 5px; }
+  .browsingHistory__Incumbent {
+    float: left;
+    margin-left: 10px; }
+  .browsingHistory__affiliatedCompanyStateWrap {
+    width: 350px;
+    overflow: hidden;
+    margin-bottom: 5px; }
+  .browsingHistory__affiliatedCompany {
+    float: left;
+    width: 80px;
+    margin-top: 35px; }
+  .browsingHistory__san {
+    float: left;
+    width: 32px;
+    margin-top: 40px; }
+  .browsingHistory__favorite {
+    margin-right: 0px;
+    margin-top: -10px;
+    font-size: 20px;
+    float: right; }
+  .browsingHistory__state {
+    float: left;
+    margin-left: 10px; }
+  .browsingHistory__userProfLink {
+    font-size: 12px;
+    margin-top: 2px; }
+  .browsingHistory__pageTransition {
+    height: 50px;
+    border-top: 1px solid #b4becb;
+    border-bottom: 1px solid #b4becb; }
+  .browsingHistory__pageTransition-contentWrap {
+    width: 80px;
+    margin: 10px auto 0; }
+  .browsingHistory__pageTransition-leftArrow {
+    float: left; }
+  .browsingHistory__pageTransition-guideNumber {
+    float: left; }
+  .browsingHistory__pageTransition-rightArrow {
+    float: left; }
+
+.browsingHistorySearch {
+  height: 670px;
+  width: 290px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  margin-top: 30px;
+  position: relative;
+  left: 550px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px 20px; }
+  .browsingHistorySearch__title {
+    font-size: 22px;
+    text-align: center; }
+  .browsingHistorySearch__form {
+    height: 100%;
+    margin-top: 10px; }
+  .browsingHistorySearch__inputContentStyle {
+    margin: 0 auto 10px;
+    padding: 0 10px; }
+  .browsingHistorySearch__inputName {
+    font-size: 14px;
+    height: 16px; }
+  .browsingHistorySearch__inputStyle {
+    border: 1px solid #707070;
+    width: 220px;
+    border-radius: 5px; }
+  .browsingHistorySearch__betweenStyleWrap {
+    margin-top: 5px;
+    width: 370px;
+    overflow: hidden; }
+  .browsingHistorySearch__betweenStyle {
+    border: 1px solid #707070;
+    border-radius: 5px;
+    width: 101px;
+    float: left; }
+  .browsingHistorySearch__betweenStyleHoge {
+    font-size: 30px;
+    margin-top: -18px;
+    float: left; }
+  .browsingHistorySearch__bottomStyle {
+    text-align: center;
+    display: block;
+    width: 150px;
+    padding: 5px 0;
+    margin: 20px auto 0;
+    background-color: #06D1EC;
+    color: #fff;
+    border: none;
+    border: 1px solid #fff; }
+
+.browsingHistorySorting {
+  height: 250px;
+  width: 290px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  margin-top: 30px;
+  position: relative;
+  left: 550px;
+  padding: 20px 20px; }
+  .browsingHistorySorting__title {
+    font-size: 22px;
+    text-align: center; }
+  .browsingHistorySorting__form {
+    height: 100%;
+    margin-top: 10px; }
+  .browsingHistorySorting__inputContentStyle {
+    margin: 0 auto 10px;
+    padding: 0 10px; }
+  .browsingHistorySorting__inputName {
+    font-size: 14px;
+    height: 16px; }
+  .browsingHistorySorting__inputStyle {
+    border: 1px solid #707070;
+    width: 220px;
+    border-radius: 5px; }
+  .browsingHistorySorting__bottomStyle {
+    text-align: center;
+    display: block;
+    width: 150px;
+    padding: 5px 0;
+    margin: 20px auto 0;
+    background-color: #06D1EC;
+    color: #fff;
+    border: none;
+    border: 1px solid #fff; }
+
 .dmScreen {
   height: 730px;
   width: 1400px;
@@ -713,221 +933,65 @@ button {
     border: none;
     border: 1px solid #fff; }
 
-.revliReviewList {
-  height: 100%;
-  width: 720px;
-  padding: 20px 20px;
+.empregEmployeeRegister {
+  height: 590px;
+  width: 1400px;
   background-color: #fff;
+  border-radius: 3px;
+  padding: 30px 0;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-  margin-top: -950px;
-  margin-left: 870px;
-  margin-right: auto; }
-  .revliReviewList__header {
-    border-bottom: 1px solid #b4becb;
-    padding: 5px 20px;
-    text-align: center; }
-  .revliReviewList__title {
-    font-size: 2rem; }
-  .revliReviewList__mainContent {
-    height: 100%;
-    width: 680px;
-    margin: 12px 0;
-    border: 2px solid rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    overflow: hidden; }
-  .revliReviewList__imgComInfoWrap {
-    width: 380px; }
-  .revliReviewList__industryClassification {
-    font-size: 12px;
-    width: 360px; }
-  .revliReviewList__companyName {
-    font-size: 12px; }
-  .revliReviewList__location {
-    font-size: 12px; }
-  .revliReviewList__reviewLink {
-    width: 230px;
-    font-size: 12px;
-    float: left;
-    position: relative;
-    top: 120px;
-    left: -95px; }
-  .revliReviewList__imgStyle {
-    height: 90px;
-    width: 90px;
-    border-radius: 5px;
-    margin: 20px 15px 10px 15px;
-    float: left;
-    overflow: hidden; }
-  .revliReviewList__img {
-    height: 90px;
-    width: 90px;
-    border-radius: 5px;
-    border: 1px solid #b4becb;
-    background-color: black;
-    float: left; }
-  .revliReviewList__companyWrap {
-    font-size: 20px;
-    height: 1px;
-    position: relative;
-    top: 35px;
-    right: 5px; }
-  .revliReviewList__userDetail {
-    height: 155px;
-    width: 330px;
-    float: right;
-    margin-top: -20px;
-    padding: 15px 5px 5px 20px;
-    border-left: 1px solid #b4becb; }
-  .revliReviewList__nameAgeWrap {
-    width: 300px;
-    overflow: hidden;
-    margin-top: 10px;
-    margin-bottom: 3px; }
-  .revliReviewList__name {
-    float: left; }
-  .revliReviewList__age {
-    float: left;
-    margin-top: 10px;
-    font-size: 14px; }
-  .revliReviewList__dmIncumbentWrap {
-    width: 350px;
-    overflow: hidden; }
-  .revliReviewList__dm {
-    float: left; }
-  .revliReviewList__userNameAgeFavoliteWrap {
-    margin-top: 10px;
-    font-size: 12px;
-    text-align: center;
-    margin-left: 20px;
-    width: 320px; }
-  .revliReviewList__userNameAgeWrap {
-    float: left; }
-  .revliReviewList__affiliatedCompanyStateWrap {
-    width: 350px;
-    overflow: hidden;
-    margin-bottom: 5px; }
-  .revliReviewList__Incumbent {
-    float: left;
-    margin-left: 10px; }
-  .revliReviewList__affiliatedCompanyStateWrap {
-    width: 350px;
-    overflow: hidden;
-    margin-bottom: 5px; }
-  .revliReviewList__affiliatedCompany {
-    float: left;
-    width: 80px;
-    margin-top: 35px; }
-  .revliReviewList__san {
-    float: left;
-    width: 32px;
-    margin-top: 40px; }
-  .revliReviewList__favorite {
-    margin-right: 0px;
-    margin-top: -10px;
-    font-size: 20px;
-    float: right; }
-  .revliReviewList__state {
-    float: left;
-    margin-left: 10px; }
-  .revliReviewList__userProfLink {
-    font-size: 12px;
-    margin-top: 2px; }
-  .revliReviewList__pageTransition {
-    height: 50px;
-    border-top: 1px solid #b4becb;
-    border-bottom: 1px solid #b4becb; }
-  .revliReviewList__pageTransition-contentWrap {
-    width: 80px;
-    margin: 10px auto 0; }
-  .revliReviewList__pageTransition-leftArrow {
-    float: left; }
-  .revliReviewList__pageTransition-guideNumber {
-    float: left; }
-  .revliReviewList__pageTransition-rightArrow {
-    float: left; }
-
-.revliReviewListSearch {
-  height: 670px;
-  width: 290px;
-  background-color: #f4f4f4;
-  border-radius: 10px;
-  margin-top: 30px;
+  margin: 0 auto;
   position: relative;
-  left: 550px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-  padding: 20px 20px; }
-  .revliReviewListSearch__title {
-    font-size: 22px;
-    text-align: center; }
-  .revliReviewListSearch__form {
-    height: 100%;
-    margin-top: 10px; }
-  .revliReviewListSearch__inputContentStyle {
-    margin: 0 auto 10px;
-    padding: 0 10px; }
-  .revliReviewListSearch__inputName {
-    font-size: 14px;
-    height: 16px; }
-  .revliReviewListSearch__inputStyle {
-    border: 1px solid #707070;
-    width: 220px;
-    border-radius: 5px; }
-  .revliReviewListSearch__betweenStyleWrap {
-    margin-top: 5px;
-    width: 370px;
-    overflow: hidden; }
-  .revliReviewListSearch__betweenStyle {
-    border: 1px solid #707070;
-    border-radius: 5px;
-    width: 101px;
-    float: left; }
-  .revliReviewListSearch__betweenStyleHoge {
-    font-size: 30px;
-    margin-top: -18px;
-    float: left; }
-  .revliReviewListSearch__bottomStyle {
+  top: -20px; }
+  .empregEmployeeRegister__content {
+    height: 200px;
+    width: 700px;
+    margin: 0 auto;
+    padding: 20px 0; }
+  .empregEmployeeRegister__input {
+    border: 1px solid #b4becb;
+    height: 40px;
+    width: 700px; }
+  .empregEmployeeRegister__title {
+    font-size: 2rem;
     text-align: center;
+    margin-bottom: 50px; }
+  .empregEmployeeRegister__outputStyle {
+    border-bottom: 1px solid #b4becb;
+    margin: 10px auto;
+    text-align: center;
+    height: 30px;
+    width: 550px; }
+  .empregEmployeeRegister__secondText {
+    position: relative;
+    left: 450px; }
+  .empregEmployeeRegister__content-bottom {
     display: block;
-    width: 150px;
-    padding: 5px 0;
+    height: 46px;
+    width: 116px;
     margin: 20px auto 0;
+    padding: 10px 27px;
+    font-size: 15px;
     background-color: #06D1EC;
     color: #fff;
+    border: 1px solid #fff;
+    border-radius: 3px; }
+  .empregEmployeeRegister__bottom-wrap {
+    position: relative;
+    top: 50px;
+    margin: 0 auto;
+    width: 385px; }
+  .empregEmployeeRegister__bottom-link {
+    text-decoration: none; }
+  .empregEmployeeRegister__bottom-return {
+    padding: 10px 45px;
+    background-color: #fff;
+    color: #06D1EC;
     border: none;
-    border: 1px solid #fff; }
-
-.revliReviewListSorting {
-  height: 250px;
-  width: 290px;
-  background-color: #f4f4f4;
-  border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-  margin-top: 30px;
-  position: relative;
-  left: 550px;
-  padding: 20px 20px; }
-  .revliReviewListSorting__title {
-    font-size: 22px;
-    text-align: center; }
-  .revliReviewListSorting__form {
-    height: 100%;
-    margin-top: 10px; }
-  .revliReviewListSorting__inputContentStyle {
-    margin: 0 auto 10px;
-    padding: 0 10px; }
-  .revliReviewListSorting__inputName {
-    font-size: 14px;
-    height: 16px; }
-  .revliReviewListSorting__inputStyle {
-    border: 1px solid #707070;
-    width: 220px;
-    border-radius: 5px; }
-  .revliReviewListSorting__bottomStyle {
-    text-align: center;
-    display: block;
-    width: 150px;
-    padding: 5px 0;
-    margin: 20px auto 0;
+    border: 1px solid #06D1EC; }
+  .empregEmployeeRegister__bottom-next {
+    padding: 10px 47px;
+    margin-left: 50px;
     background-color: #06D1EC;
     color: #fff;
     border: none;
@@ -1958,6 +2022,226 @@ button {
   .revRegistJw-content__bottom-next {
     padding: 10px 47px;
     margin-left: 50px;
+    background-color: #06D1EC;
+    color: #fff;
+    border: none;
+    border: 1px solid #fff; }
+
+.revliReviewList {
+  height: 100%;
+  width: 720px;
+  padding: 20px 20px;
+  background-color: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  margin-top: -950px;
+  margin-left: 870px;
+  margin-right: auto; }
+  .revliReviewList__header {
+    border-bottom: 1px solid #b4becb;
+    padding: 5px 20px;
+    text-align: center; }
+  .revliReviewList__title {
+    font-size: 2rem; }
+  .revliReviewList__mainContent {
+    height: 100%;
+    width: 680px;
+    margin: 12px 0;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden; }
+  .revliReviewList__imgComInfoWrap {
+    width: 380px; }
+  .revliReviewList__industryClassification {
+    font-size: 12px;
+    width: 360px; }
+  .revliReviewList__companyName {
+    font-size: 12px; }
+  .revliReviewList__location {
+    font-size: 12px; }
+  .revliReviewList__reviewLink {
+    width: 230px;
+    font-size: 12px;
+    float: left;
+    position: relative;
+    top: 120px;
+    left: -95px; }
+  .revliReviewList__imgStyle {
+    height: 90px;
+    width: 90px;
+    border-radius: 5px;
+    margin: 20px 15px 10px 15px;
+    float: left;
+    overflow: hidden; }
+  .revliReviewList__img {
+    height: 90px;
+    width: 90px;
+    border-radius: 5px;
+    border: 1px solid #b4becb;
+    background-color: black;
+    float: left; }
+  .revliReviewList__companyWrap {
+    font-size: 20px;
+    height: 1px;
+    position: relative;
+    top: 35px;
+    right: 5px; }
+  .revliReviewList__userDetail {
+    height: 155px;
+    width: 330px;
+    float: right;
+    margin-top: -20px;
+    padding: 15px 5px 5px 20px;
+    border-left: 1px solid #b4becb; }
+  .revliReviewList__nameAgeWrap {
+    width: 300px;
+    overflow: hidden;
+    margin-top: 10px;
+    margin-bottom: 3px; }
+  .revliReviewList__name {
+    float: left; }
+  .revliReviewList__age {
+    float: left;
+    margin-top: 10px;
+    font-size: 14px; }
+  .revliReviewList__dmIncumbentWrap {
+    width: 350px;
+    overflow: hidden; }
+  .revliReviewList__dm {
+    float: left; }
+  .revliReviewList__userNameAgeFavoliteWrap {
+    margin-top: 10px;
+    font-size: 12px;
+    text-align: center;
+    margin-left: 20px;
+    width: 320px; }
+  .revliReviewList__userNameAgeWrap {
+    float: left; }
+  .revliReviewList__affiliatedCompanyStateWrap {
+    width: 350px;
+    overflow: hidden;
+    margin-bottom: 5px; }
+  .revliReviewList__Incumbent {
+    float: left;
+    margin-left: 10px; }
+  .revliReviewList__affiliatedCompanyStateWrap {
+    width: 350px;
+    overflow: hidden;
+    margin-bottom: 5px; }
+  .revliReviewList__affiliatedCompany {
+    float: left;
+    width: 80px;
+    margin-top: 35px; }
+  .revliReviewList__san {
+    float: left;
+    width: 32px;
+    margin-top: 40px; }
+  .revliReviewList__favorite {
+    margin-right: 0px;
+    margin-top: -10px;
+    font-size: 20px;
+    float: right; }
+  .revliReviewList__state {
+    float: left;
+    margin-left: 10px; }
+  .revliReviewList__userProfLink {
+    font-size: 12px;
+    margin-top: 2px; }
+  .revliReviewList__pageTransition {
+    height: 50px;
+    border-top: 1px solid #b4becb;
+    border-bottom: 1px solid #b4becb; }
+  .revliReviewList__pageTransition-contentWrap {
+    width: 80px;
+    margin: 10px auto 0; }
+  .revliReviewList__pageTransition-leftArrow {
+    float: left; }
+  .revliReviewList__pageTransition-guideNumber {
+    float: left; }
+  .revliReviewList__pageTransition-rightArrow {
+    float: left; }
+
+.revliReviewListSearch {
+  height: 670px;
+  width: 290px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  margin-top: 30px;
+  position: relative;
+  left: 550px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px 20px; }
+  .revliReviewListSearch__title {
+    font-size: 22px;
+    text-align: center; }
+  .revliReviewListSearch__form {
+    height: 100%;
+    margin-top: 10px; }
+  .revliReviewListSearch__inputContentStyle {
+    margin: 0 auto 10px;
+    padding: 0 10px; }
+  .revliReviewListSearch__inputName {
+    font-size: 14px;
+    height: 16px; }
+  .revliReviewListSearch__inputStyle {
+    border: 1px solid #707070;
+    width: 220px;
+    border-radius: 5px; }
+  .revliReviewListSearch__betweenStyleWrap {
+    margin-top: 5px;
+    width: 370px;
+    overflow: hidden; }
+  .revliReviewListSearch__betweenStyle {
+    border: 1px solid #707070;
+    border-radius: 5px;
+    width: 101px;
+    float: left; }
+  .revliReviewListSearch__betweenStyleHoge {
+    font-size: 30px;
+    margin-top: -18px;
+    float: left; }
+  .revliReviewListSearch__bottomStyle {
+    text-align: center;
+    display: block;
+    width: 150px;
+    padding: 5px 0;
+    margin: 20px auto 0;
+    background-color: #06D1EC;
+    color: #fff;
+    border: none;
+    border: 1px solid #fff; }
+
+.revliReviewListSorting {
+  height: 250px;
+  width: 290px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  margin-top: 30px;
+  position: relative;
+  left: 550px;
+  padding: 20px 20px; }
+  .revliReviewListSorting__title {
+    font-size: 22px;
+    text-align: center; }
+  .revliReviewListSorting__form {
+    height: 100%;
+    margin-top: 10px; }
+  .revliReviewListSorting__inputContentStyle {
+    margin: 0 auto 10px;
+    padding: 0 10px; }
+  .revliReviewListSorting__inputName {
+    font-size: 14px;
+    height: 16px; }
+  .revliReviewListSorting__inputStyle {
+    border: 1px solid #707070;
+    width: 220px;
+    border-radius: 5px; }
+  .revliReviewListSorting__bottomStyle {
+    text-align: center;
+    display: block;
+    width: 150px;
+    padding: 5px 0;
+    margin: 20px auto 0;
     background-color: #06D1EC;
     color: #fff;
     border: none;
