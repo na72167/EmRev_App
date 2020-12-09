@@ -1824,6 +1824,43 @@ button {
     border: none;
     border: 1px solid #fff; }
 
+.revRegistCm-content {
+  height: 630px;
+  width: 100%;
+  background-color: #fff; }
+  .revRegistCm-content__wrap {
+    max-width: 1000px;
+    margin: 30px auto; }
+  .revRegistCm-content__form-element {
+    height: 230px;
+    width: 630px;
+    margin-left: 70px;
+    float: left;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px; }
+  .revRegistCm-content__form-wrap {
+    width: 500px;
+    margin: 40px auto; }
+  .revRegistCm-content__title {
+    font-size: 2rem;
+    text-align: center; }
+  .revRegistCm-content__sub {
+    text-align: center;
+    margin-bottom: 40px; }
+  .revRegistCm-content__bottom-wrap {
+    width: 500px;
+    margin: 50px auto 0px;
+    text-align: center; }
+  .revRegistCm-content__bottom-link {
+    text-decoration: none; }
+  .revRegistCm-content__bottom-next {
+    padding: 10px 47px;
+    margin-left: 15px;
+    background-color: #06D1EC;
+    color: #fff;
+    border: none;
+    border: 1px solid #fff; }
+
 .revRegistGc-content {
   height: 630px;
   width: 100%;
