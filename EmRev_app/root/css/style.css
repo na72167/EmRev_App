@@ -454,6 +454,55 @@ button {
     border: none;
     border: 1px solid #fff; }
 
+.revcrReviewCompanyRegistration__content {
+  position: relative;
+  top: -30px;
+  height: 600px;
+  width: 1400px;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  margin: 0 auto; }
+
+.revcrReviewCompanyRegistration__title {
+  padding: 20px 0;
+  text-align: center;
+  font-size: 2rem; }
+
+.revcrReviewCompanyRegistration__inputComp {
+  height: 27px;
+  width: 250px;
+  margin: 0 auto;
+  padding-left: 10px;
+  border: 0;
+  border-bottom: 1px solid #b4becb; }
+  .revcrReviewCompanyRegistration__inputComp::placeholder {
+    font-size: 15px; }
+  .revcrReviewCompanyRegistration__inputComp:last-child {
+    margin-bottom: 0px; }
+  .revcrReviewCompanyRegistration__inputComp:focus {
+    outline: none;
+    border-bottom: 1px solid #047aed; }
+
+.revcrReviewCompanyRegistration__infoWrap {
+  width: 550px;
+  margin: 0 auto; }
+
+.revcrReviewCompanyRegistration__bottom-return {
+  padding: 10px 45px;
+  background-color: #fff;
+  color: #06D1EC;
+  border: none;
+  border: 1px solid #06D1EC; }
+
+.revcrReviewCompanyRegistration__bottom-next {
+  padding: 10px 47px;
+  margin-left: 50px;
+  background-color: #06D1EC;
+  color: #fff;
+  border: none;
+  border: 1px solid #fff; }
+
 .dmScreen {
   height: 730px;
   width: 1400px;

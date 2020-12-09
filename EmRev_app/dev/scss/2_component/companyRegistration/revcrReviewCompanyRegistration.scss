@@ -1,0 +1,57 @@
+.revcrReviewCompanyRegistration{
+  &__content{
+    position: relative;
+    top: -30px;
+    height: 600px;
+    width: 1400px;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+  }
+  &__title{
+    padding:20px 0;
+    text-align: center;
+    font-size: 2rem;
+  }
+  &__inputComp{
+    height: 27px;
+    width: 250px;
+    margin: 0 auto;
+    padding-left: 10px;
+    border: 0;
+    border-bottom: 1px solid #b4becb;
+    &::placeholder{
+      font-size: 15px;
+    }
+    &:last-child{
+      margin-bottom: 0px;
+    }
+    &:focus{
+      outline: none;
+      border-bottom: 1px solid $primary-color;
+    }
+  }
+  &__infoWrap{
+    width: 550px;
+    margin: 0 auto;
+  }
+
+
+
+  &__bottom-return{
+    padding: 10px 45px;
+    background-color: #fff;
+    color: #06D1EC;
+    border: none;
+    border: 1px solid #06D1EC;
+  }
+  &__bottom-next{
+    padding: 10px 47px;
+    margin-left: 50px;
+    background-color: #06D1EC;
+    color: #fff;
+    border: none;
+    border: 1px solid #fff;
+  }
+}
