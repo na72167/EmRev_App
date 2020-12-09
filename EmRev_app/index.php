@@ -1,4 +1,18 @@
 <?php
+  require('function.php');
+
+  //関数関係のファイルを纏めたもの
+  require('function.php');
+
+  debug('「「「「「「「「「「「「「「「「「「「');
+  debug('アカウント作成ページ');
+  debug('「「「「「「「「「「「「「');
+  debugLogStart();
+
+
+?>
+
+<?php
   // タイトルの読み込み
   $Page_Title = 'ホーム';
   // ヘッドの読み込み
@@ -32,6 +46,8 @@
             <h2 class="hero__signup-title">SignUp</h2>
               <div class="hero__signup-commonMsgArea">
                 <!-- 接続エラー等のメッセージをここに出力させる。 -->
+                <!--例外処理発生時に出力されるメッセージを出す処理-->
+                <?php if(!empty($err_ms['common'])) echo $err_ms['common'];?>
               </div>
 
             <!-- メールアドレス入力欄 -->
