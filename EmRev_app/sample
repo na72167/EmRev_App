@@ -1,27 +1,27 @@
-  <section class="regitedUlEmployeeSearch">
-    <h1 class="regitedUlEmployeeSearch__title">Employee Search</h1>
-    <form class="regitedUlEmployeeSearch__form">
+  <section class="regitedUlEmployeeSorting">
+    <h1 class="regitedUlEmployeeSorting__title">Employee Search</h1>
+    <form class="regitedUlEmployeeSorting__form">
 
-      <div class="regitedUlEmployeeSearch__inputContentStyle">
-        <h1 class="regitedUlEmployeeSearch__inputName">名前</h1>
-        <input class="regitedUlEmployeeSearch__inputStyle" placeholder="入力してください">
+      <div class="regitedUlEmployeeSorting__inputContentStyle">
+        <h1 class="regitedUlEmployeeSorting__inputName">名前</h1>
+        <input class="regitedUlEmployeeSorting__inputStyle" placeholder="入力してください">
       </div>
-      <div class="regitedUlEmployeeSearch__inputContentStyle">
-        <h1 class="regitedUlEmployeeSearch__inputName">年齢</h1>
-        <input class="regitedUlEmployeeSearch__inputStyle" placeholder="入力してください">
+      <div class="regitedUlEmployeeSorting__inputContentStyle">
+        <h1 class="regitedUlEmployeeSorting__inputName">年齢</h1>
+        <input class="regitedUlEmployeeSorting__inputStyle" placeholder="入力してください">
       </div>
-      <div class="regitedUlEmployeeSearch__inputContentStyle">
-        <h1 class="regitedUlEmployeeSearch__inputName">電話番号</h1>
-        <input class="regitedUlEmployeeSearch__inputStyle" placeholder="入力してください">
+      <div class="regitedUlEmployeeSorting__inputContentStyle">
+        <h1 class="regitedUlEmployeeSorting__inputName">電話番号</h1>
+        <input class="regitedUlEmployeeSorting__inputStyle" placeholder="入力してください">
       </div>
-      <div class="regitedUlEmployeeSearch__inputContentStyle">
-        <h1 class="regitedUlEmployeeSearch__inputName">住所</h1>
-        <input class="regitedUlEmployeeSearch__inputStyle" placeholder="入力してください">
+      <div class="regitedUlEmployeeSorting__inputContentStyle">
+        <h1 class="regitedUlEmployeeSorting__inputName">住所</h1>
+        <input class="regitedUlEmployeeSorting__inputStyle" placeholder="入力してください">
       </div>
-      <div class="regitedUlEmployeeSearch__inputContentStyle">
-        <h1 class="regitedUlEmployeeSearch__inputName">DM可否</h1>
-        <input class="regitedUlEmployeeSearch__inputStyle" placeholder="入力してください">
+      <div class="regitedUlEmployeeSorting__inputContentStyle">
+        <h1 class="regitedUlEmployeeSorting__inputName">DM可否</h1>
+        <input class="regitedUlEmployeeSorting__inputStyle" placeholder="入力してください">
       </div>
-      <bottom class="regitedUlEmployeeSearch__bottomStyle">検索する</bottom>
+      <bottom class="regitedUlEmployeeSorting__bottomStyle">検索する</bottom>
     </form>
   </section>
