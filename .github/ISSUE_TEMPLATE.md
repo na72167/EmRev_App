@@ -1,9 +1,9 @@
 ---
-name: Sample template
-about: サンプルテンプレート。
-title: ''
+name: EmRev issue template
+about: EmRev issue テンプレート。
+title: 'EM-#-'
 labels: ''
-assignees: itkr
+assignees: y.h
 
 ---
 
