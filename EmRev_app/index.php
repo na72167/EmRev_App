@@ -1,6 +1,5 @@
+<!--アカウント作成関係処理-->
 <?php
-  require('function.php');
-
   //関数関係のファイルを纏めたもの
   require('function.php');
 
@@ -9,6 +8,87 @@
   debug('「「「「「「「「「「「「「');
   debugLogStart();
 
+  //post送信された後の処理
+  //_post等はsession_start()を使った時点で用意される。
+
+  if(!empty($_POST)){
+
+    //変数にユーザー情報を代入
+    $email = $_POST['email'];
+    $pass = $_POST['pass'];
+    $password_re = $_POST['password_re'];
+
+    //未入力チェック
+    validRequired($email, 'email');
+    validRequired($pass, 'pass');
+    validRequired($password_re, 'password_re');
+
+    if(empty($err_ms)){
+
+      //emailの形式チェック
+      validEmail($email, 'email');
+      //最大文字数チェック
+      validMaxLen($email, 'email');
+      //重複チェック
+      validEmailDup($email);
+
+
+      //パスワードの半角英数字チェック
+      validHalf($pass, 'pass');
+      //最大文字数チェック
+      validMaxLen($pass, 'pass');
+      //最小文字数チェック
+      validMinLen($pass, 'pass');
+
+
+      //パスワード（再入力）の最大文字数チェック
+      validMaxLen($password_re, 'password_re');
+      //最小文字数チェック
+      validMinLen($pass, 'password_re');
+
+      if(empty($err_ms)){
+
+        //パスワードとパスワード再入力が合っているかチェック
+        validMatch($pass, $password_re, 'password_re');
+
+        if(empty($err_ms)){
+
+          //例外処理
+          try {
+            // DBへ接続
+            $dbh = dbConnect();
+            // SQL文作成
+            $sql = 'INSERT INTO users (email,password,login_time,create_date) VALUES(:email,:pass,:login_time,:create_date)';
+            $data = array(':email' => $email, ':pass' => password_hash($pass, PASSWORD_DEFAULT),
+                          ':login_time' => date('Y-m-d H:i:s'),
+                          ':create_date' => date('Y-m-d H:i:s'));
+            // クエリ実行
+            $stmt = queryPost($dbh, $sql, $data);
+
+            // クエリ成功の場合
+            if($stmt){
+            //ログイン有効期限（デフォルトを１時間とする）
+            $sesLimit = 60*60;
+            // 最終ログイン日時を現在日時に
+            $_SESSION['login_date'] = time();
+            $_SESSION['login_limit'] = $sesLimit;
+            // ユーザーIDを格納
+            // 新しくユーザー登録をした = 対応テーブル最後尾にデータ追加されるのでlastInsertId()でID属性を取得してくる。
+            $_SESSION['user_id'] = $dbh->lastInsertId();
+
+            debug('セッション変数の中身：'.print_r($_SESSION,true));
+
+            header("Location:mypage.php"); //マイページへ
+            }
+          } catch (Exception $e) {
+            error_log('エラー発生:' . $e->getMessage());
+            $err_msg['common'] = ERROR_MS_07;
+          }
+
+        }
+      }
+    }
+  }
 
 ?>
 
@@ -53,22 +133,28 @@
             <!-- メールアドレス入力欄 -->
             <div class="hero__signup-emailaddressField">
               <!-- 後にphpでエラー時用のスタイルを付属させる様にする。 -->
+
               <label class="#">
-                <input class="hero__signup-emailForm" type="text" name="email" placeholder="Email" value="">
+                  <!-- バリに引っかかった際には$err_msに関連するvalueが入るので、それを判定元にerrクラスを付属させる。 -->
+                  <!-- value内は入力記録の保持 -->
+                  <input class="hero__signup-emailForm <?php if(!empty($err_ms['email'])) echo 'err'; ?>" type="text" name="email" placeholder="Email" value="<?php if(!empty($_POST['email'])) echo $_POST['email']; ?>">
+                  <!-- 後にphpでエラーメッセージを出力させる様にする。-->
+                  <div class="hero__signup-areaMsg">
+                  <?php
+                  if(!empty($err_ms['email'])) echo $err_ms['email'];
+                  ?>
+                  </div>
               </label>
-              <div class="hero__signup-areaMsg">
-              <!-- 後にphpでエラーメッセージを出力させる様にする。-->
-              </div>
             </div>
 
             <!-- パスワード入力 -->
             <div class="hero__signup-passwardField">
-              <!-- 後にphpでエラー時用のスタイルを付属させる様にする。 -->
-              <label class="#">
-                <input class="hero__signup-passwordForm" type="password" name="password" placeholder="Password" value="">
-              </label>
+                <!-- 後にphpでエラー時用のスタイルを付属させる様にする。 -->
+                  <input class="hero__signup-passwordForm <?php if(!empty($err_ms['pass'])) echo 'err'; ?>" type="password" name="pass" placeholder="Password" value="<?php if(!empty($_POST['pass'])) echo $_POST['pass']; ?>">
               <div class="hero__signup-areaMsg">
-              <!-- 後にphpでエラーメッセージを出力させる様にする。-->
+                <?php
+                if(!empty($err_ms['password'])) echo $err_ms['password'];
+                ?>
               </div>
             </div>
 
@@ -76,10 +162,12 @@
             <div class="hero__signup-confirmationPasswardField">
               <!-- 後にphpでエラー時用のスタイルを付属させる様にする。 -->
               <label class="#">
-                <input class="hero__signup-passwordConfirmationForm" type="password" name="password_re" placeholder="Confirmation Password" value="">
+                <input class="hero__signup-passwordConfirmationForm" type="password" name="password_re" placeholder="Confirmation Password" value="<?php if(!empty($_POST['password_re'])) echo $_POST['password_re']; ?>">
               </label>
               <div class="hero__signup-areaMsg">
-              <!-- 後にphpでエラーメッセージを出力させる様にする。-->
+                <?php
+                if(!empty($err_ms['password_re'])) echo $err_ms['password_re'];
+                ?>
               </div>
             </div>
 
