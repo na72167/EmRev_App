@@ -1,0 +1,258 @@
+[09-Dec-2020 23:17:37 UTC] PHP Fatal error:  Cannot redeclare debug() (previously declared in /Applications/MAMP/htdocs/EmRev/EmRev_app/function.php:9) in /Applications/MAMP/htdocs/EmRev/EmRev_app/function.php on line 9
+[09-Dec-2020 23:17:44 UTC] PHP Fatal error:  Cannot redeclare debug() (previously declared in /Applications/MAMP/htdocs/EmRev/EmRev_app/function.php:9) in /Applications/MAMP/htdocs/EmRev/EmRev_app/function.php on line 9
+[09-Dec-2020 23:17:46 UTC] PHP Fatal error:  Cannot redeclare debug() (previously declared in /Applications/MAMP/htdocs/EmRev/EmRev_app/function.php:9) in /Applications/MAMP/htdocs/EmRev/EmRev_app/function.php on line 9
+[10-Dec-2020 01:45:52 UTC] デバッグ：「「「「「「「「「「「「「「「「「「「
+[10-Dec-2020 01:45:52 UTC] デバッグ：アカウント作成ページ
+[10-Dec-2020 01:45:52 UTC] デバッグ：「「「「「「「「「「「「「
+[10-Dec-2020 01:45:52 UTC] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[10-Dec-2020 01:45:52 UTC] デバッグ：セッションID：n9476nsoc9e9mbjmbvoembg687
+[10-Dec-2020 01:45:52 UTC] デバッグ：セッション変数の中身：Array
+(
+)
+
+[10-Dec-2020 01:45:52 UTC] デバッグ：現在日時タイムスタンプ：1607564752
+[10-Dec-2020 01:46:37 UTC] デバッグ：「「「「「「「「「「「「「「「「「「「
+[10-Dec-2020 01:46:37 UTC] デバッグ：アカウント作成ページ
+[10-Dec-2020 01:46:37 UTC] デバッグ：「「「「「「「「「「「「「
+[10-Dec-2020 01:46:37 UTC] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[10-Dec-2020 01:46:37 UTC] デバッグ：セッションID：cmbdb9t7bc8qrdshqka8llnpvl
+[10-Dec-2020 01:46:37 UTC] デバッグ：セッション変数の中身：Array
+(
+)
+
+[10-Dec-2020 01:46:37 UTC] デバッグ：現在日時タイムスタンプ：1607564797
+[10-Dec-2020 01:46:37 UTC] PHP Notice:  Undefined index: pass in /Applications/MAMP/htdocs/EmRev/EmRev_app/index.php on line 18
+[10-Dec-2020 01:48:16 UTC] デバッグ：「「「「「「「「「「「「「「「「「「「
+[10-Dec-2020 01:48:16 UTC] デバッグ：アカウント作成ページ
+[10-Dec-2020 01:48:16 UTC] デバッグ：「「「「「「「「「「「「「
+[10-Dec-2020 01:48:16 UTC] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[10-Dec-2020 01:48:16 UTC] デバッグ：セッションID：213kevsn52fd3979vuvp9brd60
+[10-Dec-2020 01:48:16 UTC] デバッグ：セッション変数の中身：Array
+(
+)
+
+[10-Dec-2020 01:48:16 UTC] デバッグ：現在日時タイムスタンプ：1607564896
+[10-Dec-2020 01:48:16 UTC] PHP Notice:  Undefined index: pass in /Applications/MAMP/htdocs/EmRev/EmRev_app/index.php on line 18
+[10-Dec-2020 01:49:44 UTC] デバッグ：「「「「「「「「「「「「「「「「「「「
+[10-Dec-2020 01:49:44 UTC] デバッグ：アカウント作成ページ
+[10-Dec-2020 01:49:44 UTC] デバッグ：「「「「「「「「「「「「「
+[10-Dec-2020 01:49:44 UTC] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[10-Dec-2020 01:49:44 UTC] デバッグ：セッションID：dmpvmq6qp6lsgletqv7v8b9j1o
+[10-Dec-2020 01:49:44 UTC] デバッグ：セッション変数の中身：Array
+(
+)
+
+[10-Dec-2020 01:49:44 UTC] デバッグ：現在日時タイムスタンプ：1607564984
+[10-Dec-2020 01:49:44 UTC] PHP Notice:  Undefined index: pass in /Applications/MAMP/htdocs/EmRev/EmRev_app/index.php on line 18
+[10-Dec-2020 01:50:01 UTC] デバッグ：「「「「「「「「「「「「「「「「「「「
+[10-Dec-2020 01:50:01 UTC] デバッグ：アカウント作成ページ
+[10-Dec-2020 01:50:01 UTC] デバッグ：「「「「「「「「「「「「「
+[10-Dec-2020 01:50:01 UTC] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[10-Dec-2020 01:50:01 UTC] デバッグ：セッションID：gjlungsq7q15iqis50o3b6emfm
+[10-Dec-2020 01:50:01 UTC] デバッグ：セッション変数の中身：Array
+(
+)
+
+[10-Dec-2020 01:50:01 UTC] デバッグ：現在日時タイムスタンプ：1607565001
+[10-Dec-2020 01:50:01 UTC] PHP Notice:  Undefined index: pass in /Applications/MAMP/htdocs/EmRev/EmRev_app/index.php on line 18
+[10-Dec-2020 01:52:04 UTC] デバッグ：「「「「「「「「「「「「「「「「「「「
+[10-Dec-2020 01:52:04 UTC] デバッグ：アカウント作成ページ
+[10-Dec-2020 01:52:04 UTC] デバッグ：「「「「「「「「「「「「「
+[10-Dec-2020 01:52:04 UTC] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[10-Dec-2020 01:52:04 UTC] デバッグ：セッションID：3fosuh94t0q2d8g6gki1e4nurm
+[10-Dec-2020 01:52:04 UTC] デバッグ：セッション変数の中身：Array
+(
+)
+
+[10-Dec-2020 01:52:04 UTC] デバッグ：現在日時タイムスタンプ：1607565124
+[10-Dec-2020 01:52:04 UTC] PHP Notice:  Undefined index: pass in /Applications/MAMP/htdocs/EmRev/EmRev_app/index.php on line 18
+[10-Dec-2020 01:54:33 UTC] デバッグ：「「「「「「「「「「「「「「「「「「「
+[10-Dec-2020 01:54:33 UTC] デバッグ：アカウント作成ページ
+[10-Dec-2020 01:54:33 UTC] デバッグ：「「「「「「「「「「「「「
+[10-Dec-2020 01:54:33 UTC] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[10-Dec-2020 01:54:33 UTC] デバッグ：セッションID：tr220mpd8n3dnneisqksggupns
+[10-Dec-2020 01:54:33 UTC] デバッグ：セッション変数の中身：Array
+(
+)
+
+[10-Dec-2020 01:54:33 UTC] デバッグ：現在日時タイムスタンプ：1607565273
+[10-Dec-2020 01:54:33 UTC] PHP Notice:  Undefined index: pass in /Applications/MAMP/htdocs/EmRev/EmRev_app/index.php on line 18
+[10-Dec-2020 01:54:42 UTC] デバッグ：「「「「「「「「「「「「「「「「「「「
+[10-Dec-2020 01:54:42 UTC] デバッグ：アカウント作成ページ
+[10-Dec-2020 01:54:42 UTC] デバッグ：「「「「「「「「「「「「「
+[10-Dec-2020 01:54:42 UTC] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[10-Dec-2020 01:54:42 UTC] デバッグ：セッションID：rsebria620etu51ak4bl1eout8
+[10-Dec-2020 01:54:42 UTC] デバッグ：セッション変数の中身：Array
+(
+)
+
+[10-Dec-2020 01:54:42 UTC] デバッグ：現在日時タイムスタンプ：1607565282
+[10-Dec-2020 01:54:42 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function queryPost() in /Applications/MAMP/htdocs/EmRev/EmRev_app/function.php:145
+Stack trace:
+#0 /Applications/MAMP/htdocs/EmRev/EmRev_app/index.php(33): validEmailDup('test@example.co...')
+#1 {main}
+  thrown in /Applications/MAMP/htdocs/EmRev/EmRev_app/function.php on line 145
+[10-Dec-2020 02:00:48 UTC] デバッグ：「「「「「「「「「「「「「「「「「「「
+[10-Dec-2020 02:00:48 UTC] デバッグ：アカウント作成ページ
+[10-Dec-2020 02:00:48 UTC] デバッグ：「「「「「「「「「「「「「
+[10-Dec-2020 02:00:48 UTC] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[10-Dec-2020 02:00:48 UTC] デバッグ：セッションID：shuhs02453icvm29r31aqp1llk
+[10-Dec-2020 02:00:48 UTC] デバッグ：セッション変数の中身：Array
+(
+)
+
+[10-Dec-2020 02:00:48 UTC] デバッグ：現在日時タイムスタンプ：1607565648
+[10-Dec-2020 02:00:48 UTC] PHP Notice:  Undefined index: pass in /Applications/MAMP/htdocs/EmRev/EmRev_app/index.php on line 18
+[10-Dec-2020 02:00:57 UTC] デバッグ：「「「「「「「「「「「「「「「「「「「
+[10-Dec-2020 02:00:57 UTC] デバッグ：アカウント作成ページ
+[10-Dec-2020 02:00:57 UTC] デバッグ：「「「「「「「「「「「「「
+[10-Dec-2020 02:00:57 UTC] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[10-Dec-2020 02:00:57 UTC] デバッグ：セッションID：uta64e1eajh687n894t04q2j7v
+[10-Dec-2020 02:00:57 UTC] デバッグ：セッション変数の中身：Array
+(
+)
+
+[10-Dec-2020 02:00:57 UTC] デバッグ：現在日時タイムスタンプ：1607565657
+[10-Dec-2020 02:01:08 UTC] デバッグ：「「「「「「「「「「「「「「「「「「「
+[10-Dec-2020 02:01:08 UTC] デバッグ：アカウント作成ページ
+[10-Dec-2020 02:01:08 UTC] デバッグ：「「「「「「「「「「「「「
+[10-Dec-2020 02:01:08 UTC] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[10-Dec-2020 02:01:08 UTC] デバッグ：セッションID：nik3mkc403lsoc5n6s5ltjs4u5
+[10-Dec-2020 02:01:08 UTC] デバッグ：セッション変数の中身：Array
+(
+)
+
+[10-Dec-2020 02:01:08 UTC] デバッグ：現在日時タイムスタンプ：1607565668
+[10-Dec-2020 02:01:15 UTC] デバッグ：「「「「「「「「「「「「「「「「「「「
+[10-Dec-2020 02:01:15 UTC] デバッグ：アカウント作成ページ
+[10-Dec-2020 02:01:15 UTC] デバッグ：「「「「「「「「「「「「「
+[10-Dec-2020 02:01:15 UTC] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[10-Dec-2020 02:01:15 UTC] デバッグ：セッションID：psnb04t0t9v5oj0m83tgld0mf0
+[10-Dec-2020 02:01:15 UTC] デバッグ：セッション変数の中身：Array
+(
+)
+
+[10-Dec-2020 02:01:15 UTC] デバッグ：現在日時タイムスタンプ：1607565675
+[10-Dec-2020 02:04:22 UTC] デバッグ：「「「「「「「「「「「「「「「「「「「
+[10-Dec-2020 02:04:22 UTC] デバッグ：アカウント作成ページ
+[10-Dec-2020 02:04:22 UTC] デバッグ：「「「「「「「「「「「「「
+[10-Dec-2020 02:04:22 UTC] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[10-Dec-2020 02:04:22 UTC] デバッグ：セッションID：4pi6e4rq2p4v62f0lstq9duca3
+[10-Dec-2020 02:04:22 UTC] デバッグ：セッション変数の中身：Array
+(
+)
+
+[10-Dec-2020 02:04:22 UTC] デバッグ：現在日時タイムスタンプ：1607565862
+[10-Dec-2020 02:04:22 UTC] PHP Notice:  Undefined variable: password_re in /Applications/MAMP/htdocs/EmRev/EmRev_app/index.php on line 45
+[10-Dec-2020 02:04:22 UTC] PHP Notice:  Undefined variable: password_re in /Applications/MAMP/htdocs/EmRev/EmRev_app/index.php on line 47
+[10-Dec-2020 02:04:33 UTC] デバッグ：「「「「「「「「「「「「「「「「「「「
+[10-Dec-2020 02:04:33 UTC] デバッグ：アカウント作成ページ
+[10-Dec-2020 02:04:33 UTC] デバッグ：「「「「「「「「「「「「「
+[10-Dec-2020 02:04:33 UTC] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[10-Dec-2020 02:04:33 UTC] デバッグ：セッションID：2dr8hkdm0q6en6ki094leojhug
+[10-Dec-2020 02:04:33 UTC] デバッグ：セッション変数の中身：Array
+(
+)
+
+[10-Dec-2020 02:04:33 UTC] デバッグ：現在日時タイムスタンプ：1607565873
+[10-Dec-2020 02:04:33 UTC] PHP Notice:  Undefined variable: password_re in /Applications/MAMP/htdocs/EmRev/EmRev_app/index.php on line 45
+[10-Dec-2020 02:04:33 UTC] PHP Notice:  Undefined variable: password_re in /Applications/MAMP/htdocs/EmRev/EmRev_app/index.php on line 47
+[10-Dec-2020 02:05:21 UTC] デバッグ：「「「「「「「「「「「「「「「「「「「
+[10-Dec-2020 02:05:21 UTC] デバッグ：アカウント作成ページ
+[10-Dec-2020 02:05:21 UTC] デバッグ：「「「「「「「「「「「「「
+[10-Dec-2020 02:05:21 UTC] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[10-Dec-2020 02:05:21 UTC] デバッグ：セッションID：c9co1i6h5c6cva4c3g618qss9c
+[10-Dec-2020 02:05:21 UTC] デバッグ：セッション変数の中身：Array
+(
+)
+
+[10-Dec-2020 02:05:21 UTC] デバッグ：現在日時タイムスタンプ：1607565921
+[10-Dec-2020 02:05:21 UTC] PHP Notice:  Undefined variable: password_re in /Applications/MAMP/htdocs/EmRev/EmRev_app/index.php on line 24
+[10-Dec-2020 02:05:23 UTC] デバッグ：「「「「「「「「「「「「「「「「「「「
+[10-Dec-2020 02:05:23 UTC] デバッグ：アカウント作成ページ
+[10-Dec-2020 02:05:23 UTC] デバッグ：「「「「「「「「「「「「「
+[10-Dec-2020 02:05:23 UTC] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[10-Dec-2020 02:05:23 UTC] デバッグ：セッションID：rrtuma7ariruo7h5m3j9qhln5m
+[10-Dec-2020 02:05:23 UTC] デバッグ：セッション変数の中身：Array
+(
+)
+
+[10-Dec-2020 02:05:23 UTC] デバッグ：現在日時タイムスタンプ：1607565923
+[10-Dec-2020 02:05:23 UTC] PHP Notice:  Undefined variable: password_re in /Applications/MAMP/htdocs/EmRev/EmRev_app/index.php on line 24
+[10-Dec-2020 02:06:25 UTC] デバッグ：「「「「「「「「「「「「「「「「「「「
+[10-Dec-2020 02:06:25 UTC] デバッグ：アカウント作成ページ
+[10-Dec-2020 02:06:25 UTC] デバッグ：「「「「「「「「「「「「「
+[10-Dec-2020 02:06:25 UTC] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[10-Dec-2020 02:06:25 UTC] デバッグ：セッションID：l0n06a53lfsv2bija0rsnv9sc0
+[10-Dec-2020 02:06:25 UTC] デバッグ：セッション変数の中身：Array
+(
+)
+
+[10-Dec-2020 02:06:25 UTC] デバッグ：現在日時タイムスタンプ：1607565985
+[10-Dec-2020 02:06:25 UTC] PHP Notice:  Undefined variable: password_re in /Applications/MAMP/htdocs/EmRev/EmRev_app/index.php on line 24
+[10-Dec-2020 02:10:18 UTC] デバッグ：「「「「「「「「「「「「「「「「「「「
+[10-Dec-2020 02:10:18 UTC] デバッグ：アカウント作成ページ
+[10-Dec-2020 02:10:18 UTC] デバッグ：「「「「「「「「「「「「「
+[10-Dec-2020 02:10:18 UTC] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[10-Dec-2020 02:10:18 UTC] デバッグ：セッションID：194b8mebiu97m7godaujr8nltg
+[10-Dec-2020 02:10:18 UTC] デバッグ：セッション変数の中身：Array
+(
+)
+
+[10-Dec-2020 02:10:18 UTC] デバッグ：現在日時タイムスタンプ：1607566218
+[10-Dec-2020 02:10:18 UTC] デバッグ：セッション変数の中身：Array
+(
+    [login_date] => 1607566218
+    [login_limit] => 3600
+    [user_id] => 0
+)
+
+[10-Dec-2020 02:14:54 UTC] デバッグ：「「「「「「「「「「「「「「「「「「「
+[10-Dec-2020 02:14:54 UTC] デバッグ：アカウント作成ページ
+[10-Dec-2020 02:14:54 UTC] デバッグ：「「「「「「「「「「「「「
+[10-Dec-2020 02:14:54 UTC] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[10-Dec-2020 02:14:54 UTC] デバッグ：セッションID：p312pdtk6bpsjkf43tq1i6jjdu
+[10-Dec-2020 02:14:54 UTC] デバッグ：セッション変数の中身：Array
+(
+    [login_date] => 1607566218
+    [login_limit] => 3600
+    [user_id] => 0
+)
+
+[10-Dec-2020 02:14:54 UTC] デバッグ：現在日時タイムスタンプ：1607566494
+[10-Dec-2020 02:14:54 UTC] デバッグ：ログイン期限日時タイムスタンプ：1607569818
+[10-Dec-2020 02:14:54 UTC] デバッグ：セッション変数の中身：Array
+(
+    [login_date] => 1607566494
+    [login_limit] => 3600
+    [user_id] => 1
+)
+
+[10-Dec-2020 02:14:56 UTC] デバッグ：「「「「「「「「「「「「「「「「「「「
+[10-Dec-2020 02:14:56 UTC] デバッグ：アカウント作成ページ
+[10-Dec-2020 02:14:56 UTC] デバッグ：「「「「「「「「「「「「「
+[10-Dec-2020 02:14:56 UTC] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[10-Dec-2020 02:14:56 UTC] デバッグ：セッションID：rqne1mv0882fnipqvi1akjnht4
+[10-Dec-2020 02:14:56 UTC] デバッグ：セッション変数の中身：Array
+(
+    [login_date] => 1607566494
+    [login_limit] => 3600
+    [user_id] => 1
+)
+
+[10-Dec-2020 02:14:56 UTC] デバッグ：現在日時タイムスタンプ：1607566496
+[10-Dec-2020 02:14:56 UTC] デバッグ：ログイン期限日時タイムスタンプ：1607570094
+[10-Dec-2020 02:15:05 UTC] デバッグ：「「「「「「「「「「「「「「「「「「「
+[10-Dec-2020 02:15:05 UTC] デバッグ：アカウント作成ページ
+[10-Dec-2020 02:15:05 UTC] デバッグ：「「「「「「「「「「「「「
+[10-Dec-2020 02:15:05 UTC] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[10-Dec-2020 02:15:05 UTC] デバッグ：セッションID：ad2m75026mcs169kdi8d4fa99i
+[10-Dec-2020 02:15:05 UTC] デバッグ：セッション変数の中身：Array
+(
+    [login_date] => 1607566494
+    [login_limit] => 3600
+    [user_id] => 1
+)
+
+[10-Dec-2020 02:15:05 UTC] デバッグ：現在日時タイムスタンプ：1607566505
+[10-Dec-2020 02:15:05 UTC] デバッグ：ログイン期限日時タイムスタンプ：1607570094
