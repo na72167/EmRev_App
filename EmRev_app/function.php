@@ -64,7 +64,7 @@ session_regenerate_id();
     //DB接続関数
   function dbConnect(){
     //DBへの接続準備
-    $dsn = 'mysql:dbname=EmRevDB;host=localhost;charset=utf8';
+    $dsn = 'mysql:dbname=EmRevDB;host=localhost:8889;charset=utf8';
     $user = 'root';
     $password = 'root';
     $options = array(
