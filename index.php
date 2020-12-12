@@ -27,8 +27,8 @@
 
       //emailの形式チェック
       validEmail($email, 'email');
-      //最大文字数チェック
-      validMaxLen($email, 'email');
+      //email最大文字数チェック
+      validMaxLenEmail($email, 'email');
       //重複チェック
       validEmailDup($email);
 
@@ -44,7 +44,7 @@
       //パスワード（再入力）の最大文字数チェック
       validMaxLen($password_re, 'password_re');
       //最小文字数チェック
-      validMinLen($pass, 'password_re');
+      validMinLen($password_re, 'password_re');
 
       if(empty($err_ms)){
 

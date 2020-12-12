@@ -57,6 +57,7 @@ session_regenerate_id();
   define('ERROR_MS_06','256文字以内で入力してください');
   define('ERROR_MS_07','エラーが発生しました。しばらく経ってからやり直してください。');
   define('ERROR_MS_08','そのEmailはすでに登録されています');
+  define('ERROR_MS_09','31文字以内で入力してください');
 
   //エラメ出力用の空配列
   $err_ms = array();
@@ -107,17 +108,18 @@ session_regenerate_id();
     }
   }
 
-  //半角チェック
+  //半角チェック(半角のみしか打てないのにこの正規表現だと全角アルファベットが打てる。)
+  //でも半角英数字の正規表現で調べるとこれが出てくるのでこのままにしておく。
   function validHalf($string, $key){
-    if(!preg_match("/^[a-zA-Z0-9]+$/", $key)){
+    if(!preg_match("/^[a-zA-Z0-9]+$/", $string)){
       global $err_ms;
       $err_ms[$key] = ERROR_MS_04;
     }
 }
 
-      //最小文字数チェック
-    function validMinLen($string, $key, $min = 6){
-      if(mb_strlen($string) < $min){
+      //最小文字数チェック(以下「<=」がうまく動かないのでorを使ってる。)
+    function validMinLen($string, $key, $min = 5){
+      if(mb_strlen($string) < $min or mb_strlen($string) == $min){
         global $err_ms;
         $err_ms[$key] = ERROR_MS_05;
       }
@@ -128,6 +130,22 @@ session_regenerate_id();
       if(mb_strlen($string) > $max){
         global $err_ms;
         $err_ms[$key] = ERROR_MS_06;
+      }
+    }
+
+    //最大文字数チェック(email専用)
+    function validMaxLenEmail($string, $key, $max = 31){
+      if(mb_strlen($string) > $max or mb_strlen($string) == $max){
+        global $err_ms;
+        $err_ms[$key] = ERROR_MS_09;
+      }
+    }
+
+     //最大文字数チェック(password専用)
+    function validMaxLenPassword($string, $key, $max = 31){
+      if(mb_strlen($string) > $max or mb_strlen($string) == $max){
+        global $err_ms;
+        $err_ms[$key] = ERROR_MS_09;
       }
     }
 
@@ -156,6 +174,14 @@ session_regenerate_id();
     }
 
   //==============その他関数====================
+
+      //エラーメッセージ表示
+    function getErrMsg($key){
+      global $err_ms;
+      if(!empty($err_ms[$key])){
+        return $err_ms[$key];
+      }
+    }
 
   //SQL実行関数
   function queryPost($dbh, $sql, $data){
