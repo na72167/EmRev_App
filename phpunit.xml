@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpunit colors="true">
+    <testsuites>
+        <testsuite name="WebukatuMarket">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
+
+<!-- //次にやること -->
+<!-- 異常系のエラー(とりあえずエラー文一式吐かせる) -->
+<!-- テストシートの記入 -->
