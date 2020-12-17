@@ -1180,8 +1180,15 @@ button {
     border-radius: 10px;
     float: left;
     position: relative;
-    top: 100px;
+    left: 650px;
+    top: 60px;
     z-index: 1; }
+    .hero__signup-loginWrap {
+      height: 417px;
+      width: 1100px;
+      position: relative;
+      top: -250px;
+      overflow: hidden; }
     .hero__signup-title {
       text-align: center;
       font-size: 22px;
@@ -1244,6 +1251,9 @@ button {
       border: none;
       border-radius: 5px;
       color: #fff; }
+  .hero .hidden {
+    transition: all .5s;
+    transform: translateY(110%); }
 
 .review {
   height: 670px;

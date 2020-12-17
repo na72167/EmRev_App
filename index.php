@@ -120,79 +120,82 @@
           <a class="hero__text-aboutLink" href="#index-about">このアプリについて</a>
         </div>
 
-        <!-- 会員登録関係 -->
-        <div class="hero__signup">
-          <form action="" method="post" class="hero__signup-formStyle">
-            <h2 class="hero__signup-title">SignUp</h2>
-              <div class="hero__signup-commonMsgArea">
-                <!-- 接続エラー等のメッセージをここに出力させる。 -->
-                <!--例外処理発生時に出力されるメッセージを出す処理-->
-                <?php if(!empty($err_ms['common'])) echo $err_ms['common'];?>
-              </div>
+        <div class="hero__signup-loginWrap">
+          <!-- 会員登録関係 -->
+          <div class="hero__signup js-signup-style">
+            <form action="" method="post" class="hero__signup-formStyle">
+              <h2 class="hero__signup-title">SignUp</h2>
+                <div class="hero__signup-commonMsgArea">
+                  <!-- 接続エラー等のメッセージをここに出力させる。 -->
+                  <!--例外処理発生時に出力されるメッセージを出す処理-->
+                  <?php if(!empty($err_ms['common'])) echo $err_ms['common'];?>
+                </div>
 
-            <!-- メールアドレス入力欄 -->
-            <div class="hero__signup-emailaddressField">
-              <!-- 後にphpでエラー時用のスタイルを付属させる様にする。 -->
-
-              <label class="#">
-                  <!-- バリに引っかかった際には$err_msに関連するvalueが入るので、それを判定元にerrクラスを付属させる。 -->
-                  <!-- value内は入力記録の保持 -->
-                  <input class="hero__signup-emailForm <?php if(!empty($err_ms['email'])) echo 'err'; ?>" type="text" name="email" placeholder="Email" value="<?php if(!empty($_POST['email'])) echo $_POST['email']; ?>">
-                  <!-- 後にphpでエラーメッセージを出力させる様にする。-->
-                  <div class="hero__signup-areaMsg">
-                  <?php
-                  if(!empty($err_ms['email'])) echo $err_ms['email'];
-                  ?>
-                  </div>
-              </label>
-            </div>
-
-            <!-- パスワード入力 -->
-            <div class="hero__signup-passwardField">
+              <!-- メールアドレス入力欄 -->
+              <div class="hero__signup-emailaddressField">
                 <!-- 後にphpでエラー時用のスタイルを付属させる様にする。 -->
-                  <input class="hero__signup-passwordForm <?php if(!empty($err_ms['pass'])) echo 'err'; ?>" type="password" name="pass" placeholder="Password" value="<?php if(!empty($_POST['pass'])) echo $_POST['pass']; ?>">
-              <div class="hero__signup-areaMsg">
-                <?php
-                if(!empty($err_ms['password'])) echo $err_ms['password'];
-                ?>
+
+                <label class="#">
+                    <!-- バリに引っかかった際には$err_msに関連するvalueが入るので、それを判定元にerrクラスを付属させる。 -->
+                    <!-- value内は入力記録の保持 -->
+                    <input class="hero__signup-emailForm <?php if(!empty($err_ms['email'])) echo 'err'; ?>" type="text" name="email" placeholder="Email" value="<?php if(!empty($_POST['email'])) echo $_POST['email']; ?>">
+                    <!-- 後にphpでエラーメッセージを出力させる様にする。-->
+                    <div class="hero__signup-areaMsg">
+                    <?php
+                    if(!empty($err_ms['email'])) echo $err_ms['email'];
+                    ?>
+                    </div>
+                </label>
               </div>
-            </div>
 
-            <!-- 確認用パスワード入力 -->
-            <div class="hero__signup-confirmationPasswardField">
-              <!-- 後にphpでエラー時用のスタイルを付属させる様にする。 -->
-              <label class="#">
-                <input class="hero__signup-passwordConfirmationForm" type="password" name="password_re" placeholder="Confirmation Password" value="<?php if(!empty($_POST['password_re'])) echo $_POST['password_re']; ?>">
-              </label>
-              <div class="hero__signup-areaMsg">
-                <?php
-                if(!empty($err_ms['password_re'])) echo $err_ms['password_re'];
-                ?>
+              <!-- パスワード入力 -->
+              <div class="hero__signup-passwardField">
+                  <!-- 後にphpでエラー時用のスタイルを付属させる様にする。 -->
+                    <input class="hero__signup-passwordForm <?php if(!empty($err_ms['pass'])) echo 'err'; ?>" type="password" name="pass" placeholder="Password" value="<?php if(!empty($_POST['pass'])) echo $_POST['pass']; ?>">
+                <div class="hero__signup-areaMsg">
+                  <?php
+                  if(!empty($err_ms['password'])) echo $err_ms['password'];
+                  ?>
+                </div>
               </div>
-            </div>
 
-            <div class="hero__signup-registerBtnField">
-              <input class="hero__signup-registerBtn" type="submit" value="登録する">
-            </div>
+              <!-- 確認用パスワード入力 -->
+              <div class="hero__signup-confirmationPasswardField">
+                <!-- 後にphpでエラー時用のスタイルを付属させる様にする。 -->
+                <label class="#">
+                  <input class="hero__signup-passwordConfirmationForm" type="password" name="password_re" placeholder="Confirmation Password" value="<?php if(!empty($_POST['password_re'])) echo $_POST['password_re']; ?>">
+                </label>
+                <div class="hero__signup-areaMsg">
+                  <?php
+                  if(!empty($err_ms['password_re'])) echo $err_ms['password_re'];
+                  ?>
+                </div>
+              </div>
 
-          </form>
+              <div class="hero__signup-registerBtnField">
+                <input class="hero__signup-registerBtn" type="submit" value="登録する">
+              </div>
+
+            </form>
+          </div>
+
+          <!-- ログイン関係 -->
+          <div class="hero__login js-login-style">
+            <span class="hero__login-title">Login</span>
+            メールアドレス入力欄
+            <div class="hero__signup-emailAddressField">
+              <span>Name</span>
+            </div>
+            パスワード入力
+            <div class="hero__signup-passwardField">
+              あとからプレースホルダーにする。
+              <span>password</span>
+            </div>
+          </div>
+
         </div>
-
-        <!-- ログイン関係
-        <div class="hero__login">
-          <span class="hero__login-title">Login</span>
-          メールアドレス入力欄
-          <div class="hero__signup-emailaddressField">
-            <span>Name</span>
-          </div>
-          パスワード入力
-          <div class="hero__signup-passwardField">
-            あとからプレースホルダーにする。
-            <span>password</span>
-          </div>
-        </div> -->
       </div>
-
+    </div>
   </section>
 
   <!-- 新着レビューコンテンツ -->
