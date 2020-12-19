@@ -7,15 +7,21 @@ $(function(){
     $('.menuAbout').toggleClass('active');
   });
 
-  //signup・loginフォーム切り替え
+  //signup->loginフォーム切り替え
   $('.active-login-menu').on('click', function () {
     $('.js-signup-style').addClass('hidden');
     setTimeout(() => {
       $('.js-login-style').removeClass('hidden');
     }, 1000)
-    });
+  });
 
-  //
+  //login->signupフォーム切り替え
+  $('.active-signup-menu').on('click', function () {
+    $('.js-login-style').addClass('hidden');
+    setTimeout(() => {
+      $('.js-signup-style').removeClass('hidden');
+    }, 1000)
+  });
 });
 
 

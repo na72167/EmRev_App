@@ -8,7 +8,7 @@
         <ul class="header__nav-ul">
           <li class="header__nav-list js-toggle-sp-menu">menu</li>
           <li class="header__nav-list active-login-menu">LOGIN</li>
-          <li class="header__nav-list">SIGNUP</li>
+          <li class="header__nav-list active-signup-menu">SIGNUP</li>
         </ul>
       </nav>
 

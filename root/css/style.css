@@ -1180,14 +1180,16 @@ button {
     border-radius: 10px;
     float: left;
     position: relative;
-    left: 650px;
-    top: 60px;
-    z-index: 1; }
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+    transition: all .5s; }
     .hero__signup-loginWrap {
-      height: 417px;
-      width: 1100px;
+      height: 367px;
+      width: 420px;
       position: relative;
-      top: -250px;
+      top: 40px;
+      right: 10px;
       overflow: hidden; }
     .hero__signup-title {
       text-align: center;
@@ -1251,9 +1253,66 @@ button {
       border: none;
       border-radius: 5px;
       color: #fff; }
+  .hero__login {
+    height: 350px;
+    width: 400px;
+    padding: 20px 0;
+    position: relative;
+    left: 10px;
+    background-color: #fff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    z-index: 1;
+    transition: all .5s; }
+    .hero__login-title {
+      text-align: center;
+      font-size: 22px;
+      margin: 10px 0;
+      height: 30px; }
+    .hero__login-formStyle {
+      height: 300px;
+      width: 320px;
+      margin: 0 40px;
+      position: absolute; }
+    .hero__login-emailaddressField {
+      height: 57px; }
+    .hero__login-emailForm {
+      border: 0;
+      border-bottom: 1px solid #b4becb;
+      width: 100%;
+      padding: 3px;
+      font-size: 16px;
+      position: absolute;
+      top: 97px; }
+      .hero__login-emailForm:focus {
+        outline: none;
+        border-bottom: 1px solid #047aed; }
+    .hero__login-passwardField {
+      height: 57px; }
+    .hero__login-passwordForm {
+      border: 0;
+      border-bottom: 1px solid #b4becb;
+      width: 100%;
+      padding: 3px;
+      font-size: 16px;
+      position: absolute;
+      top: 177px; }
+      .hero__login-passwordForm:focus {
+        outline: none;
+        border-bottom: 1px solid #047aed; }
+    .hero__login-registerBtnField {
+      height: 57px;
+      padding: 0 105px; }
+    .hero__login-registerBtn {
+      position: absolute;
+      top: 250px;
+      padding: 10px 30px;
+      background-color: #047aed;
+      border: none;
+      border-radius: 5px;
+      color: #fff; }
   .hero .hidden {
-    transition: all .5s;
-    transform: translateY(110%); }
+    transform: translateY(130%); }
 
 .review {
   height: 670px;
