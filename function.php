@@ -3,6 +3,8 @@
 ini_set('log_errors','on');
 //ログの出力ファイルを指定
 ini_set('error_log','php.log');
+//mysql関係のログ出力ファイルを指定
+ini_set('mysql_error_log','mysql.log');
 
 $debug_flg = true;
 
@@ -115,7 +117,7 @@ session_regenerate_id();
       global $err_ms;
       $err_ms[$key] = ERROR_MS_04;
     }
-}
+  }
 
       //最小文字数チェック(以下「<=」がうまく動かないのでorを使ってる。)
     function validMinLen($string, $key, $min = 5){

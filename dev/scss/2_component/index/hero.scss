@@ -73,14 +73,16 @@
     border-radius: 10px;
     float: left;
     position: relative;
-    left: 650px;
-    top: 60px;
+    top: 10px;
+    left: 10px;
     z-index: 1;
+    transition: all .5s;
     &-loginWrap{
-      height: 417px;
-      width: 1100px;
+      height: 367px;
+      width: 420px;
       position: relative;
-      top: -250px;
+      top: 40px;
+      right: 10px;
       overflow: hidden;
     }
     &-title{
@@ -161,11 +163,82 @@
     }
   }
 
+
+
+  &__login{
+    height: 350px;
+    width: 400px;
+    padding: 20px 0;
+    position: relative;
+    left: 10px;
+    background-color: #fff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    z-index: 1;
+    transition: all .5s;
+    &-title{
+      text-align: center;
+      font-size: 22px;
+      margin: 10px 0;
+      height: 30px;
+    }
+    &-formStyle{
+      height: 300px;
+      width: 320px;
+      margin: 0 40px;
+      position: absolute;
+    }
+    &-emailaddressField{
+      height: 57px;
+    }
+    &-emailForm{
+      border: 0;
+      border-bottom: 1px solid #b4becb;
+      width: 100%;
+      padding: 3px;
+      font-size: 16px;
+      position: absolute;
+      top:97px;
+      &:focus{
+        outline: none;
+        border-bottom: 1px solid $primary-color;
+      }
+    }
+    &-passwardField{
+      height: 57px;
+    }
+    &-passwordForm{
+      border: 0;
+      border-bottom: 1px solid #b4becb;
+      width: 100%;
+      padding: 3px;
+      font-size: 16px;
+      position: absolute;
+      top:177px;
+      &:focus{
+        outline: none;
+        border-bottom: 1px solid $primary-color;
+      }
+    }
+    &-registerBtnField{
+      height: 57px;
+      padding: 0 105px;
+    }
+    &-registerBtn{
+      position: absolute;
+      top:250px;
+      padding: 10px 30px;
+      background-color: $primary-color;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+    }
+  }
+
   //jsアニメーション用クラス
   // ===========================
   .hidden{
-    transition: all .5s;
-    transform: translateY(110%);
+    transform: translateY(130%);
   }
   // ===========================
 }

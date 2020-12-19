@@ -1,83 +1,41 @@
-  public function testValidRequiredEmailFalse() {
-    //email未入力のバリテーションがちゃんと走るかのテスト
-    validRequired('test@exsample.com', 'email');
-    $results = getErrMsg('email');
-    $this->assertNull($results);
-  }
+   <form action="" method="post" class="hero__login-formStyle">
+              <h2 class="hero__login-title">SignUp</h2>
+                <div class="hero__login-commonMsgArea">
+                  <!-- 接続エラー等のメッセージをここに出力させる。 -->
+                  <!--例外処理発生時に出力されるメッセージを出す処理-->
+                  <?php if(!empty($err_ms['common'])) echo $err_ms['common'];?>
+                </div>
 
-  public function testValidRequiredPasswordFalse() {
-    //password未入力のバリテーションがちゃんと走るかのテスト
-    validRequired('123456', 'pass');
-    $results = getErrMsg('pass');
-    $this->assertNull($results);
-  }
+              <!-- メールアドレス入力欄 -->
+              <div class="hero__login-emailaddressField">
+                <!-- 後にphpでエラー時用のスタイルを付属させる様にする。 -->
 
-  public function testValidRequiredPasswordReFalse() {
-    //password未入力のバリテーションがちゃんと走るかのテスト
-    validRequired('123456', 'password_re');
-    $results = getErrMsg('password_re');
-    $this->assertNull($results);
-  }
+                <label class="#">
+                    <!-- バリに引っかかった際には$err_msに関連するvalueが入るので、それを判定元にerrクラスを付属させる。 -->
+                    <!-- value内は入力記録の保持 -->
+                    <input class="hero__login-emailForm <?php if(!empty($err_ms['email'])) echo 'err'; ?>" type="text" name="email" placeholder="Email" value="<?php if(!empty($_POST['email'])) echo $_POST['email']; ?>">
+                    <!-- 後にphpでエラーメッセージを出力させる様にする。-->
+                    <div class="hero__login-areaMsg">
+                    <?php
+                    if(!empty($err_ms['email'])) echo $err_ms['email'];
+                    ?>
+                    </div>
+                </label>
+              </div>
 
-  public function testValidFormatEmailFalse() {
-    //emailの形式のバリテーションがちゃんと走るかのテスト
-    validEmail('test@exsample.com', 'email');
-    $results = getErrMsg('email');
-    $this->assertNull($results);
-  }
+              <!-- パスワード入力 -->
+              <div class="hero__login-passwardField">
+                  <!-- 後にphpでエラー時用のスタイルを付属させる様にする。 -->
+                    <input class="hero__login-passwordForm <?php if(!empty($err_ms['pass'])) echo 'err'; ?>" type="password" name="pass" placeholder="Password" value="<?php if(!empty($_POST['pass'])) echo $_POST['pass']; ?>">
+                <div class="hero__login-areaMsg">
+                  <?php
+                  if(!empty($err_ms['password'])) echo $err_ms['password'];
+                  ?>
+                </div>
+              </div>
 
-  public function testValidMaxLenEmailFalse() {
-    //emailの最大文字数のバリテーションがちゃんと走るかのテスト
-    validMaxLen('test@exsample.com', 'email');
-    $results = getErrMsg('email');
-    $this->assertNull($results);
-  }
+              <div class="hero__login-registerBtnField">
+                <input class="hero__login-registerBtn" type="submit" value="ログイン">
+              </div>
 
-  public function testValidDuplicateEmailFalse() {
-    //emailの最大文字数のバリテーションがちゃんと走るかのテスト
-    validEmailDup('test@exsample.com', 'email');
-    $results = getErrMsg('email');
-    $this->assertNull($results);
-  }
-
-  public function testValidHalfPasswordFalse() {
-    //passwordが半角文字数かどうかのバリテーションがちゃんと走るかのテスト
-    validHalf('123456', 'pass');
-    $results = getErrMsg('pass');
-    $this->assertNull($results);
-  }
-
-  public function testValidMaxLenPasswordFalse() {
-    //passwordの最大文字数のバリテーションがちゃんと走るかのテスト
-    validMaxLen('123456', 'pass');
-    $results = getErrMsg('pass');
-    $this->assertNull($results);
-  }
-
-  public function testValidMinLenPasswordFalse() {
-    //passwordの最小文字数のバリテーションがちゃんと走るかのテスト
-    validMinLen('123456', 'pass');
-    $results = getErrMsg('pass');
-    $this->assertNull($results);
-  }
-
-  public function testValidMaxLenPasswordReFalse() {
-    //password(再入力)の最大文字数のバリテーションがちゃんと走るかのテスト
-    validMaxLen('123456', 'password_re');
-    $results = getErrMsg('password_re');
-    $this->assertNull($results);
-  }
-
-  public function testValidMinLenPasswordReFalse() {
-    //password(再入力)の最小文字数のバリテーションがちゃんと走るかのテスト
-    validMinLen('123456', 'password_re');
-    $results = getErrMsg('password_re');
-    $this->assertNull($results);
-  }
-
-  public function testValidMatchPasswordFalse() {
-    //passwordとpassword(再入力)の内容が合致しているかのテスト
-    validMatch('123456','123456', 'password_re');
-    $results = getErrMsg('password_re');
-    $this->assertNull($results);
-  }
+            </form>

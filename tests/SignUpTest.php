@@ -90,7 +90,7 @@ class SignUpTest extends PHPUnit\Framework\TestCase {
     $this->assertNull($results);
   }
 
-    // ==============異常系==============
+    // ==============準正常系==============
 
   public function testValidRequiredEmailFalse() {
     //email未入力時に「入力必須です」とエラーが出力されるかを確認。
@@ -176,4 +176,7 @@ class SignUpTest extends PHPUnit\Framework\TestCase {
     $results = getErrMsg('password_re');
     $this->assertEquals(ERROR_MS_03, $results);
   }
+
+   // ==============異常系==============
+   //例外処理が走るか確認
 }
