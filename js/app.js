@@ -3,7 +3,6 @@ $(function(){
   //js-toggle-sp-menuを持つ要素をクリックすると
   //.js-toggle-sp-menu-targetクラスを持つ要素に対してactiveクラスを持たせる。
   $('.js-toggle-sp-menu').on('click', function () {
-    $('.js-toggle-sp-menu-target').toggleClass('active');
     $('.menuAbout').toggleClass('active');
   });
 
@@ -22,6 +21,21 @@ $(function(){
       $('.js-signup-style').removeClass('hidden');
     }, 1000)
   });
+
+  // フラッシュメッセージ表示
+  // #js-show-msgを持つ要素を取得。$jsShowMsg変数内に入れて処理を当てていく。
+  // 要素内に文字が入った際に取得。その後変数に代入。
+  // 要素内文字に空文字があった場合""に入れ替える。（空白を消す)。
+  // msg内に文字が入った際に処理が走る。
+  // その後対象要素に.slideToggle()を当ててメッセージを表示する。
+  var $jsShowMsg = $('#js-show-msg');
+  var msg = $jsShowMsg.text();
+  if (msg.replace(/^[\s　]+|[\s　]+$/g, "").length) {
+    $jsShowMsg.addClass('fade-up');
+    setTimeout(function () {
+      $jsShowMsg.removeClass('fade-up');
+    }, 3000);
+  }
 });
 
 
