@@ -3,8 +3,6 @@
 ini_set('log_errors','on');
 //ログの出力ファイルを指定
 ini_set('error_log','php.log');
-//mysql関係のログ出力ファイルを指定
-ini_set('mysql_error_log','mysql.log');
 
 $debug_flg = true;
 
@@ -60,6 +58,8 @@ session_regenerate_id();
   define('ERROR_MS_07','エラーが発生しました。しばらく経ってからやり直してください。');
   define('ERROR_MS_08','そのEmailはすでに登録されています');
   define('ERROR_MS_09','31文字以内で入力してください');
+  define('SUCCESS_MS_01','ログアウトしました');
+  define('SUCCESS_MS_02','退会しました');
 
   //エラメ出力用の空配列
   $err_ms = array();
@@ -193,5 +193,14 @@ session_regenerate_id();
     $stmt->execute($data);
     return $stmt;
   }
+
+ //sessionを１回だけ取得できる
+function getSessionFlash($key){
+  if(!empty($_SESSION[$key])){
+    $data = $_SESSION[$key];
+    $_SESSION[$key] = '';
+    return $data;
+  }
+}
 
 ?>

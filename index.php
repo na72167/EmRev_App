@@ -9,7 +9,6 @@
   debugLogStart();
 
   //post送信された後の処理
-  //_post等はsession_start()を使った時点で用意される。
 
   if(!empty($_POST) && $_POST['user_register'] === '登録する'){
 
@@ -191,7 +190,7 @@ if(!empty($_POST) && $_POST['user_login'] === 'ログイン'){
     require('./header.php');
     ?>
   <!-- ヒーローバナー -->
-  <section id="index-signup" class="hero">
+  <section class="hero">
 
     <!-- テキスト関係 -->
       <div class="hero__content">
@@ -489,7 +488,7 @@ if(!empty($_POST) && $_POST['user_login'] === 'ログイン'){
         サンプルサンプルサンプルサンプルサンプルサンプルサンプル
       </div>
       <!-- リンク先はセッション内のログイン情報に沿ってif文で変更する。ログインしている場合はマイページへ。していない場合はサインアップ画面へ移動する。-->
-      <a href="#index-signup" class="about__content-link">
+      <a href="#index-top" class="about__content-link active-signup-menu">
         このアプリを使ってみる
       </a>
     </div>
