@@ -1,9 +1,17 @@
 <?php
-    // タイトルの読み込み
-    $Page_Title = 'プロフィール編集画面';
-    $Intro__Text_Title ='Profile Edit';
-    $Intro__Text_Sub ='プロフィール編集画面';
-    $Intro__Img = 'src="src/img/docs.png"';
+    //関数関係のファイルを纏めたもの
+  require('function.php');
+
+  debug('「「「「「「「「「「「「「「「「「「「');
+  debug('アカウント作成ページ');
+  debug('「「「「「「「「「「「「「');
+  debugLogStart();
+
+  // タイトルの読み込み
+  $Page_Title = 'プロフィール編集画面';
+  $Intro__Text_Title ='Profile Edit';
+  $Intro__Text_Sub ='プロフィール編集画面';
+  $Intro__Img = 'src="src/img/docs.png"';
   // ヘッドの読み込み
   require('./head.php');
 ?>
@@ -82,7 +90,7 @@
 
     <div class="profEdiUserProfile__bottom-wrap">
       <a href="#.php" class="profEdiUserProfile__bottom-link"><bottom class="profEdiUserProfile__bottom-return">変更を取り消す</bottom></a>
-      <a href="#.php" class="profEdiUserProfile__bottom-link"><bottom class="profEdiUserProfile__bottom-next">このユーザーをブロックする</bottom></a>
+      <a href="#.php" class="profEdiUserProfile__bottom-link"><bottom class="profEdiUserProfile__bottom-next">変更する</bottom></a>
     </div>
 
   <?php
