@@ -30,14 +30,17 @@
     }
     &-output{
       float: left;
+      display: block;
     }
   }
 
   &__ageTel-Wrap{
     overflow: hidden;
+    width: 230px;
   }
   &__age{
     float: left;
+    width: 50px;
     overflow: hidden;
     border-bottom: 1px solid #b4becb;
     margin-bottom: 20px;
@@ -47,10 +50,13 @@
     }
     &-output{
       float: left;
+      width: 20px;
     }
   }
   &__tel{
     float: left;
+    height: 22px;
+    width: 150px;
     margin-left: 30px;
     overflow: hidden;
     border-bottom: 1px solid #b4becb;
@@ -60,6 +66,7 @@
       float: left;
     }
     &-output{
+      width: 120px;
       float: left;
     }
   }
@@ -72,6 +79,8 @@
       float: left;
     }
     &-output{
+      height: 20px;
+      width: 160px;
       float: left;
     }
   }
@@ -116,6 +125,7 @@
     }
     &-output{
       float: left;
+      width: 500px;
     }
   }
 
@@ -159,6 +169,7 @@
     }
     &-output{
       float: left;
+      width: 520px;
     }
   }
 
@@ -169,7 +180,7 @@
     top: -140px;
     height: 60px;
     width: 850px;
-    padding: 18px 0 0;
+    padding: 10px 0 0;
     margin: 0 auto -60px;
     text-align: center;
   }

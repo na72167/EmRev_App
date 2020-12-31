@@ -46,7 +46,7 @@ session_regenerate_id();
 
 //セッション関係はここまで
 
-//ここからバリテーション関係やDB関係の関数
+//====================ここからバリテーション関係やDB関係の関数===========================
 
   //エラーメッセージ関係の定数
   define('ERROR_MS_01','入力必須です');
@@ -70,6 +70,7 @@ session_regenerate_id();
     $dsn = 'mysql:dbname=EmRevDB;host=localhost:8889;charset=utf8';
     $user = 'root';
     $password = 'root';
+    // ここのオプション関係はコピペ
     $options = array(
       // SQL実行失敗時にはエラーコードのみ設定
       PDO::ATTR_ERRMODE => PDO::ERRMODE_SILENT,
@@ -175,6 +176,14 @@ session_regenerate_id();
       }
     }
 
+     //電話番号形式チェック
+    function validTel($str, $key){
+      if(!preg_match("/0\d{1,4}\d{1,4}\d{4}/", $str)){
+        global $err_msg;
+        $err_msg[$key] = MSG10;
+      }
+    }
+
   //==============その他関数====================
 
       //エラーメッセージ表示
@@ -200,6 +209,135 @@ function getSessionFlash($key){
     $data = $_SESSION[$key];
     $_SESSION[$key] = '';
     return $data;
+  }
+}
+
+//ログイン中のユーザー情報をセッション内idを元にDBから引っ張ってくる。
+function getUser($u_id){
+  debug('ユーザー情報を取得します。');
+  //例外処理
+  try {
+    // DBへ接続
+    $dbh = dbConnect();
+    // SQL文作成
+    $sql = 'SELECT * FROM users  WHERE id = :u_id AND delete_flg = 0';
+    $data = array(':u_id' => $u_id);
+    // クエリ実行
+    $stmt = queryPost($dbh, $sql, $data);
+
+    // クエリ結果のデータを１レコード返却
+    if($stmt){
+      return $stmt->fetch(PDO::FETCH_ASSOC);
+    }else{
+      return false;
+    }
+
+  } catch (Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+  }
+//  return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+// サニタイズ(対象の文字列をhtml化。その後文字列として返す。)
+function sanitize($str){
+  return htmlspecialchars($str,ENT_QUOTES);
+}
+
+// フォーム入力保持
+// 入力情報を第一。get,postの切り替えをflgで管理する。
+// trueでget,falseでpost。デフォルトだと_post内を比較対象にする。
+function getFormData($str, $flg = false){
+  if($flg){
+    $method = $_GET;
+  }else{
+    $method = $_POST;
+  }
+  global $dbFormData;
+  // ユーザーデータがある場合(ログインしているかの確認)
+  if(!empty($dbFormData)){
+    //フォームのエラーがある場合(上のフラグ管理でアクセスするスーパーグローバル変数を切り替える。)
+    if(!empty($err_msg[$str])){
+      //POSTにデータがある場合
+      if(isset($method[$str])){
+        return sanitize($method[$str]);
+      }else{
+        //ない場合はDBの情報を表示（基本ありえない。上の処理でエラーメッセージがあるか確認してあると判定されているので、
+        //エラーの判定物[送信情報]が無いとこっちのif文にそもそも入れない。）
+        return sanitize($dbFormData[$str]);
+      }
+    }else{
+      //POSTにエラーに引っかからないデータがあり、_post OR _get内の情報とDBの情報と違う場合
+      //_変数内にnull以外の情報があり、_変数内の情報(入力情報)と$dbFormDataに保持された入力情報
+      //(他のエラー等が原因で問題が無くても送信ができなかった情報など)を比較。
+      //if文内の条件に合致した場合,サニタイズを通して入力情報をフォームへ返す。
+      if(isset($method[$str]) && $method[$str] !== $dbFormData[$str]){
+        return sanitize($method[$str]);
+      }else{
+        //falseの場合(入力情報がない。もしくは前回の入力情報と今回の入力情報が一緒の場合は前回の入力情報を送信する。)
+        return sanitize($dbFormData[$str]);
+      }
+    }
+  }else{
+    // 中にnull以外のものが入っているのか確認。別のものが入っていたら
+    // html化->文字列に変更
+    if(isset($method[$str])){
+      return sanitize($method[$str]);
+    }
+  }
+}
+
+
+// 画像処理
+function uploadImg($file, $key){
+  debug('画像アップロード処理開始');
+  debug('FILE情報：'.print_r($file,true));
+
+  if (isset($file['error']) && is_int($file['error'])) {
+    try {
+      // バリデーション
+      // $file['error'] の値を確認。配列内には「UPLOAD_ERR_OK」などの定数が入っている。
+      //「UPLOAD_ERR_OK」などの定数はphpでファイルアップロード時に自動的に定義される。定数には値として0や1などの数値が入っている。
+      switch ($file['error']) {
+          case UPLOAD_ERR_OK: // OK
+              break;
+          case UPLOAD_ERR_NO_FILE:   // ファイル未選択の場合
+              throw new RuntimeException('ファイルが選択されていません');
+          case UPLOAD_ERR_INI_SIZE:  // php.ini定義の最大サイズが超過した場合
+          case UPLOAD_ERR_FORM_SIZE: // フォーム定義の最大サイズ超過した場合
+              throw new RuntimeException('ファイルサイズが大きすぎます');
+          default: // その他の場合
+              throw new RuntimeException('その他のエラーが発生しました');
+      }
+
+      // $file['mime']の値はブラウザ側で偽装可能なので、MIMEタイプを自前でチェックする
+      // exif_imagetype関数は「IMAGETYPE_GIF」「IMAGETYPE_JPEG」などの定数を返す
+      $type = @exif_imagetype($file['tmp_name']);
+      if (!in_array($type, [IMAGETYPE_GIF, IMAGETYPE_JPEG, IMAGETYPE_PNG], true)) { // 第三引数にはtrueを設定すると厳密にチェックしてくれるので必ずつける
+          throw new RuntimeException('画像形式が未対応です');
+      }
+
+      // ファイルデータからSHA-1ハッシュを取ってファイル名を決定し、ファイルを保存する
+      // ハッシュ化しておかないとアップロードされたファイル名そのままで保存してしまうと同じファイル名がアップロードされる可能性があり、
+      // DBにパスを保存した場合、どっちの画像のパスなのか判断つかなくなってしまう
+      // image_type_to_extension関数はファイルの拡張子を取得するもの
+      $path = 'uploads/'.sha1_file($file['tmp_name']).image_type_to_extension($type);
+      if (!move_uploaded_file($file['tmp_name'], $path)) { //ファイルを移動する
+          throw new RuntimeException('ファイル保存時にエラーが発生しました');
+      }
+      // 保存したファイルパスのパーミッション（権限）を変更する
+      chmod($path, 0644);
+
+      debug('ファイルは正常にアップロードされました');
+      debug('ファイルパス：'.$path);
+      return $path;
+
+    } catch (RuntimeException $e) {
+
+      debug($e->getMessage());
+      global $err_msg;
+      $err_msg[$key] = $e->getMessage();
+
+    }
   }
 }
 

@@ -1782,11 +1782,14 @@ button {
       margin-right: 5px;
       float: left; }
     .profEdiUserProfile__name-output {
-      float: left; }
+      float: left;
+      display: block; }
   .profEdiUserProfile__ageTel-Wrap {
-    overflow: hidden; }
+    overflow: hidden;
+    width: 230px; }
   .profEdiUserProfile__age {
     float: left;
+    width: 50px;
     overflow: hidden;
     border-bottom: 1px solid #b4becb;
     margin-bottom: 20px; }
@@ -1794,9 +1797,12 @@ button {
       margin-right: 5px;
       float: left; }
     .profEdiUserProfile__age-output {
-      float: left; }
+      float: left;
+      width: 20px; }
   .profEdiUserProfile__tel {
     float: left;
+    height: 22px;
+    width: 150px;
     margin-left: 30px;
     overflow: hidden;
     border-bottom: 1px solid #b4becb;
@@ -1805,6 +1811,7 @@ button {
       margin-right: 5px;
       float: left; }
     .profEdiUserProfile__tel-output {
+      width: 120px;
       float: left; }
   .profEdiUserProfile__address {
     overflow: hidden;
@@ -1814,6 +1821,8 @@ button {
       margin-right: 5px;
       float: left; }
     .profEdiUserProfile__address-output {
+      height: 20px;
+      width: 160px;
       float: left; }
   .profEdiUserProfile__state {
     overflow: hidden;
@@ -1846,7 +1855,8 @@ button {
       margin-right: 5px;
       float: left; }
     .profEdiUserProfile__affiliationCompany-output {
-      float: left; }
+      float: left;
+      width: 500px; }
   .profEdiUserProfile__incumbentPositionWrap {
     overflow: hidden; }
   .profEdiUserProfile__incumbent {
@@ -1878,7 +1888,8 @@ button {
       margin-right: 5px;
       float: left; }
     .profEdiUserProfile__currentDepartment-output {
-      float: left; }
+      float: left;
+      width: 520px; }
   .profEdiUserProfile__bottom-wrap {
     background-color: #fff;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
@@ -1886,7 +1897,7 @@ button {
     top: -140px;
     height: 60px;
     width: 850px;
-    padding: 18px 0 0;
+    padding: 10px 0 0;
     margin: 0 auto -60px;
     text-align: center; }
   .profEdiUserProfile__bottom-link {
