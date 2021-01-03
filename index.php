@@ -1,95 +1,66 @@
 <!--アカウント作成関係処理-->
 <?php
-  //関数関係のファイルを纏めたもの
-  require('function.php');
+  use classFolder\admin\signup;
+  use classFolder\db\dbConnectObj;
+  use classFolder\debug\debugFunction;
 
-  debug('「「「「「「「「「「「「「「「「「「「');
-  debug('アカウント作成ページ');
-  debug('「「「「「「「「「「「「「');
-  debugLogStart();
+  //デバック関係のメッセージも一通りまとめる。
+  //デバックログスタートなどの補助的用自作関数も一通りまとめてメッセージファイルに継承する。
+  debugFunction::debug('「「「「「「「「「「「「「「「「「「「');
+  debugFunction::debug('アカウント作成ページ');
+  debugFunction::debug('「「「「「「「「「「「「「');
+  debugFunction::debugLogStart();
 
-  //post送信された後の処理
+  // post送信された情報を管理する配列
+  $formTransmission = array();
+  $successFormTransmission = array();
 
+  // ユーザー登録フォームから送信されたか判定
   if(!empty($_POST) && $_POST['user_register'] === '登録する'){
 
-    //変数にユーザー情報を代入
-    $email = $_POST['email'];
-    $pass = $_POST['pass'];
-    $password_re = $_POST['password_re'];
+    $formTransmission[] = new signup( $_POST['email'], $_POST['pass'], $_POST['password_re'],'');
 
-    //未入力チェック
-    validRequired($email, 'email');
-    validRequired($pass, 'pass');
-    validRequired($password_re, 'password_re');
+    //バリテーションはset内で完結させてる。
+    $formTransmission->setEmail($this->email);
+    $formTransmission->setPass($this->pass);
+    $formTransmission->setPass_re($this->password_re);
 
-    if(empty($err_ms)){
+    //問題があった場合set関数内のバリテーションで変数err_ms内にメッセージが入るのでそれを元に判定する
+    if(empty($formTransmission->getErr_ms())){
+      //例外処理
+      try {
+        $signupProp[] = new dbConnect(dbConnectProp::dbConnectProp(),
+        'INSERT INTO users (email,password,create_date) VALUES(:email,:pass,:create_date)',
+        array(':email' => $formTransmission->getEmail(),':pass' => $formTransmission->getPass(),':create_date' => date('Y-m-d H:i:s')));
 
-      //emailの形式チェック
-      validEmail($email, 'email');
-      //email最大文字数チェック
-      validMaxLenEmail($email, 'email');
-      //重複チェック
-      validEmailDup($email);
+        //sql文を実際に実行。insert文を使ってuserデータを登録する。
+        $stmt = dbConnect::queryPost($signupProp[]->dbh, $signupProp[]->sql, $signupProp[]->data);
 
+        // insert成功の場合
+        if($stmt){
+        //ログイン有効期限（デフォルトを１時間とする）
+        $sesLimit = 60*60;
+        // 最終ログイン日時を現在日時に
+        $_SESSION['login_date'] = time();
+        $_SESSION['login_limit'] = $sesLimit;
+        // ユーザーIDを格納
+        // 新しくユーザー登録をした = 対応テーブル最後尾にデータ追加されるのでlastInsertId()でID属性を取得してくる。
+        $_SESSION['user_id'] = $signupProp->dbh->lastInsertId();
 
-      //パスワードの半角英数字チェック
-      validHalf($pass, 'pass');
-      //最大文字数チェック
-      validMaxLen($pass, 'pass');
-      //最小文字数チェック
-      validMinLen($pass, 'pass');
-
-
-      //パスワード（再入力）の最大文字数チェック
-      validMaxLen($password_re, 'password_re');
-      //最小文字数チェック
-      validMinLen($password_re, 'password_re');
-
-      if(empty($err_ms)){
-
-        //パスワードとパスワード再入力が合っているかチェック
-        validMatch($pass, $password_re, 'password_re');
-
-        if(empty($err_ms)){
-
-          //例外処理
-          try {
-            // DBへ接続
-            $dbh = dbConnect();
-            // SQL文作成
-            $sql = 'INSERT INTO users (email,password,create_date) VALUES(:email,:pass,:create_date)';
-            $data = array(':email' => $email, ':pass' => password_hash($pass, PASSWORD_DEFAULT),
-                          ':create_date' => date('Y-m-d H:i:s'));
-            // クエリ実行
-            $stmt = queryPost($dbh, $sql, $data);
-
-            // クエリ成功の場合
-            if($stmt){
-            //ログイン有効期限（デフォルトを１時間とする）
-            $sesLimit = 60*60;
-            // 最終ログイン日時を現在日時に
-            $_SESSION['login_date'] = time();
-            $_SESSION['login_limit'] = $sesLimit;
-            // ユーザーIDを格納
-            // 新しくユーザー登録をした = 対応テーブル最後尾にデータ追加されるのでlastInsertId()でID属性を取得してくる。
-            $_SESSION['user_id'] = $dbh->lastInsertId();
-
-            debug('セッション変数の中身：'.print_r($_SESSION,true));
-
-            header("Location:mypage.php"); //マイページへ
-            }
-          } catch (Exception $e) {
-            error_log('エラー発生:' . $e->getMessage());
-            $err_msg['common'] = ERROR_MS_07;
-            header("Location:index.php");
-          }
-
+        debug('セッション変数の中身：'.print_r($_SESSION,true));
+        header("Location:mypage.php"); //マイページへ
         }
+      } catch (Exception $e) {
+        error_log('エラー発生:' . $e->getMessage());
+        //クラス内プロパティを直接引っ張ってくる方法を調べる。
+        $formTransmission[]->err_ms = 'エラーが発生しました。しばらく経ってからやり直してください。';
+        header("Location:index.php");
       }
     }
   }
 
 
+  //エラーメッセージの出力をgetに書き換える。
 
 
 //================================
