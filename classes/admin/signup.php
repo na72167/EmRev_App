@@ -1,6 +1,7 @@
 <?php
-  namespace classFolder\admin\signup;
-  use classFolder\db\validation;
+  namespace classes\admin;
+  use classes\db\dbConnect;
+  use classes\db\validation;
 
 class signup extends dbConnect{
 
@@ -15,7 +16,7 @@ class signup extends dbConnect{
   private $err_ms = array();
 
   //=========生成オブジェクト毎に変数を管理できる様にするコンストラクタ。=========
-  private function __construct($email, $pass, $password_re,$err_ms) {
+  public function __construct($email, $pass, $password_re,$err_ms) {
     $this->email = $email;
     $this->pass = $pass;
     $this->password_re = $password_re;

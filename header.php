@@ -1,3 +1,7 @@
+  <?php
+  use classes\debug\debugFunction;
+  use classes\etc\etc;
+  ?>
   <!-- ヘッダー関係 -->
   <header id="index-top" class="header js-toggle-sp-menu-target">
     <div class="header__content-wrap">
@@ -27,8 +31,8 @@
   </header>
 
   <div id="js-show-msg" class="msg-slide">
-    <?php debug('セッション変数の中身：'.print_r($_SESSION['msg_success'],true)); ?>
-    <?php echo getSessionFlash('msg_success'); ?>
+    <?php debugFunction::debug('セッション変数の中身：'.print_r($_SESSION['msg_success'],true)); ?>
+    <?php echo etc::getSessionFlash('msg_success'); ?>
   </div>
 
   <!-- メニューバーの内容部分 -->

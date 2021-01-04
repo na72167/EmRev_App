@@ -1,5 +1,5 @@
 <?php
-  namespace classFolder\db\validation;
+  namespace classes\db;
 
   class validation{
 

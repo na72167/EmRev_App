@@ -1,11 +1,15 @@
 <?php
-  namespace classFolder\debug\debugFunction;
 
+  //名前空間を指定する側のファイルはクラス名まで付けなくていい。(そこまで指定するのはuse側のみ)
+  //composer.jsonのautoload内にあるpsr4にclassesフォルダをルート指定する事を書いてある。
+  namespace classes\debug;
+
+  //インスタンス化して扱う予定は無いので,メソッド関係には全てstaticを使う。
   class debugFunction{
       // 本番環境の場合はfalseに切り替える
       const debug_flg = true;
 
-      private function logSessionSetUp(){
+      public static function logSessionSetUp(){
       //ログ出力関係の設定
       ini_set('log_errors','on');
       //ログの出力ファイルを指定
@@ -28,20 +32,22 @@
       session_regenerate_id();
     }
 
-    function debug($string){
+    public static function debug($string){
       self::debug_flg;
-      if(!empty($debug_flg)){
+      if(!empty(self::debug_flg)){
         error_log('デバッグ：'.$string);
       }
     }
 
-    function debugLogStart(){
-      debug('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始');
-      debug('セッションID：'.session_id());
-      debug('セッション変数の中身：'.print_r($_SESSION,true));
-      debug('現在日時タイムスタンプ：'.time());
+    public static function debugLogStart(){
+      //クラス内関数で$_globalを扱いたい場合のみglobalを使って宣言する必要がある。
+      global $_SESSION;
+      self::debug('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始');
+      self::debug('セッションID：'.session_id());
+      self::debug('セッション変数の中身：'.print_r($_SESSION,true));
+      self::debug('現在日時タイムスタンプ：'.time());
       if(!empty($_SESSION['login_date']) && !empty($_SESSION['login_limit'])){
-        debug( 'ログイン期限日時タイムスタンプ：'.( $_SESSION['login_date'] + $_SESSION['login_limit'] ) );
+        self::debug( 'ログイン期限日時タイムスタンプ：'.( $_SESSION['login_date'] + $_SESSION['login_limit'] ) );
       }
     }
   }
