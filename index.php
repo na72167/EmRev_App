@@ -1,11 +1,15 @@
 <!--アカウント作成関係処理-->
 <?php
-  use classFolder\admin\signup;
-  use classFolder\db\dbConnectObj;
-  use classFolder\debug\debugFunction;
+
+  require('vendor/autoload.php');
+
+  use classes\admin\signup;
+  use classes\db\dbConnectObj;
+  use classes\debug\debugFunction;
 
   //デバック関係のメッセージも一通りまとめる。
   //デバックログスタートなどの補助的用自作関数も一通りまとめてメッセージファイルに継承する。
+  debugFunction::logSessionSetUp();
   debugFunction::debug('「「「「「「「「「「「「「「「「「「「');
   debugFunction::debug('アカウント作成ページ');
   debugFunction::debug('「「「「「「「「「「「「「');
@@ -18,7 +22,8 @@
   // ユーザー登録フォームから送信されたか判定
   if(!empty($_POST) && $_POST['user_register'] === '登録する'){
 
-    $formTransmission[] = new signup( $_POST['email'], $_POST['pass'], $_POST['password_re'],'');
+    $formTransmission = new signup( $_POST['email'], $_POST['pass'], $_POST['password_re'],'');
+    var_dump($formTransmission);
 
     //バリテーションはset内で完結させてる。
     $formTransmission->setEmail($this->email);

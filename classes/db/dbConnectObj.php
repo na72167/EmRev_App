@@ -1,5 +1,5 @@
 <?php
-  namespace classFolder\db\dbConnectProp;
+  namespace classes\db;
 
   class dbConnectProp{
     //DBへの接続準備

@@ -1,5 +1,5 @@
 <?php
-  namespace classFolder\db\dbConnect;
+  namespace classes\db;
 
   class dbConnect{
     private $dbh;
