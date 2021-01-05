@@ -35,7 +35,8 @@
     public static function debug($string){
       self::debug_flg;
       if(!empty(self::debug_flg)){
-        error_log('デバッグ：'.$string);
+        //オブジェクト内容を出力させたい為print_r関数を使う。
+        error_log('デバッグ：'.print_r($string,true));
       }
     }
 
