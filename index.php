@@ -1,10 +1,14 @@
 <!--アカウント作成関係処理-->
 <?php
 
+  //主にuseを扱う際のルートディレクトリ指定に使ってる。
   require('vendor/autoload.php');
+  //このファイルのみ名前空間を使うとPDOが上手く使えなくなる為
+  //requireを使う。
+  require('classes/db/dbConnectPDO.php');
 
   use classes\admin\signup;
-  use classes\db\dbConnectObj;
+  use classes\db\dbConnectFunction;
   use classes\debug\debugFunction;
 
   //デバック関係のメッセージも一通りまとめる。
@@ -22,24 +26,28 @@
   // ユーザー登録フォームから送信されたか判定
   if(!empty($_POST) && $_POST['user_register'] === '登録する'){
 
-    $formTransmission = new signup( $_POST['email'], $_POST['pass'], $_POST['password_re'],'');
-    var_dump($formTransmission);
+    $formTransmission = new signup($_POST['email'], $_POST['pass'], $_POST['password_re'],'');
+    //判定元オブジェクトの内容確認
+    debugFunction::debug($formTransmission);
 
     //バリテーションはset内で完結させてる。
-    $formTransmission->setEmail($this->email);
-    $formTransmission->setPass($this->pass);
-    $formTransmission->setPass_re($this->password_re);
+    // アクセス修飾子で制御しているプロパティは直接引っ張り出せない。(例:$formTransmission->emailはFatal errorが発生する。)
+    // なので同じクラス内で管理している個別のgetterメソッドで取得する。
+    $formTransmission->setEmail($formTransmission->getEmail());
+    $formTransmission->setPass($formTransmission->getPass());
+    $formTransmission->setPass_re($formTransmission->getPass_re());
 
     //問題があった場合set関数内のバリテーションで変数err_ms内にメッセージが入るのでそれを元に判定する
     if(empty($formTransmission->getErr_ms())){
       //例外処理
+      //dbConnectProperty()のみクラス・トレイト化してない(PDOが上手く行かない為)
       try {
-        $signupProp[] = new dbConnect(dbConnectProp::dbConnectProp(),
+        $signupProp = new dbConnectFunction(dbConnectProperty(),
         'INSERT INTO users (email,password,create_date) VALUES(:email,:pass,:create_date)',
         array(':email' => $formTransmission->getEmail(),':pass' => $formTransmission->getPass(),':create_date' => date('Y-m-d H:i:s')));
 
         //sql文を実際に実行。insert文を使ってuserデータを登録する。
-        $stmt = dbConnect::queryPost($signupProp[]->dbh, $signupProp[]->sql, $signupProp[]->data);
+        $stmt = dbConnectFunction::queryPost($signupProp->getDbh(), $signupProp->getSql(), $signupProp->getData());
 
         // insert成功の場合
         if($stmt){
@@ -50,7 +58,7 @@
         $_SESSION['login_limit'] = $sesLimit;
         // ユーザーIDを格納
         // 新しくユーザー登録をした = 対応テーブル最後尾にデータ追加されるのでlastInsertId()でID属性を取得してくる。
-        $_SESSION['user_id'] = $signupProp->dbh->lastInsertId();
+        $_SESSION['user_id'] = $signupProp->getDbh()->lastInsertId();
 
         debug('セッション変数の中身：'.print_r($_SESSION,true));
         header("Location:mypage.php"); //マイページへ
@@ -58,7 +66,7 @@
       } catch (Exception $e) {
         error_log('エラー発生:' . $e->getMessage());
         //クラス内プロパティを直接引っ張ってくる方法を調べる。
-        $formTransmission[]->err_ms = 'エラーが発生しました。しばらく経ってからやり直してください。';
+        $formTransmission->setErr_ms('エラーが発生しました。しばらく経ってからやり直してください。');
         header("Location:index.php");
       }
     }

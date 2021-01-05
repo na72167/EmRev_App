@@ -11,5 +11,10 @@
       return $data;
     }
   }
+
+  // サニタイズ(対象の文字列をhtml化。その後文字列として返す。)
+  public static function sanitize($str){
+    return htmlspecialchars($str,ENT_QUOTES);
+  }
 }
 ?>

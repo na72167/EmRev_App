@@ -1,12 +1,13 @@
 <?php
-  namespace classes\db;
+  //名前空間を使うとPDOクラスへのアクセスが上手くいかなくなる為
+  //このファイルのみrequireで読み込み事にする。
 
-  class dbConnectProp{
-    //DBへの接続準備
-    const dsn = 'mysql:dbname=EmRevDB;host=localhost:8889;charset=utf8';
-    const user = 'root';
-    const password = 'root';
-    const options = array(
+  function dbConnectProperty(){
+      //DBへの接続準備
+    $dsn = 'mysql:dbname=EmRevDB;host=localhost:8889;charset=utf8';
+    $user = 'root';
+    $password = 'root';
+    $options = array(
       // SQL実行失敗時にはエラーコードのみ設定
       PDO::ATTR_ERRMODE => PDO::ERRMODE_SILENT,
       // デフォルトフェッチモードを連想配列形式に設定
@@ -15,11 +16,7 @@
       // SELECTで得た結果に対してもrowCountメソッドを使えるようにする
       PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => true,
     );
-
-    //PDOオブジェクト生成
-    //$thisでキーを引っ張ってきた段階で対象オブジェクトがキーを保持しているか確認。
-    function dbConnectProperty(){
-      return new PDO(dsn, user, password,options);
-    }
+    $dbh = new PDO($dsn,$user,$password,$options);
+    return $dbh;
   }
 ?>

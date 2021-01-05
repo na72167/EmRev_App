@@ -1,61 +1,24 @@
-[04-Jan-2021 13:56:29 UTC] デバッグ：「「「「「「「「「「「「「「「「「「「
-[04-Jan-2021 13:56:29 UTC] デバッグ：アカウント作成ページ
-[04-Jan-2021 13:56:29 UTC] デバッグ：「「「「「「「「「「「「「
-[04-Jan-2021 13:56:29 UTC] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
-[04-Jan-2021 13:56:29 UTC] デバッグ：セッションID：nmncdvhe4mgkdpmi0h5ktjcbd2
-[04-Jan-2021 13:56:29 UTC] デバッグ：セッション変数の中身：Array
+[05-Jan-2021 10:03:37 UTC] デバッグ：「「「「「「「「「「「「「「「「「「「
+[05-Jan-2021 10:03:37 UTC] デバッグ：アカウント作成ページ
+[05-Jan-2021 10:03:37 UTC] デバッグ：「「「「「「「「「「「「「
+[05-Jan-2021 10:03:37 UTC] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[05-Jan-2021 10:03:37 UTC] デバッグ：セッションID：2ta7fult16p6oo0at0fsrfg66j
+[05-Jan-2021 10:03:37 UTC] デバッグ：セッション変数の中身：Array
 (
     [msg_success] => 
-    [login_date] => 1608448283
+    [login_date] => 1609837990
     [login_limit] => 3600
-    [user_id] => 2
+    [user_id] => 0
 )
 
-[04-Jan-2021 13:56:29 UTC] デバッグ：現在日時タイムスタンプ：1609768589
-[04-Jan-2021 13:56:29 UTC] デバッグ：ログイン期限日時タイムスタンプ：1608451883
-[04-Jan-2021 13:56:29 UTC] PHP Fatal error:  Uncaught Error: Class 'classes\admin\dbConnect' not found in /Applications/MAMP/htdocs/EmRev/EmRev_app/classes/admin/signup.php:5
-Stack trace:
-#0 /Applications/MAMP/htdocs/EmRev/EmRev_app/vendor/composer/ClassLoader.php(444): include()
-#1 /Applications/MAMP/htdocs/EmRev/EmRev_app/vendor/composer/ClassLoader.php(322): Composer\Autoload\includeFile('/Applications/M...')
-#2 [internal function]: Composer\Autoload\ClassLoader->loadClass('classes\\admin\\s...')
-#3 /Applications/MAMP/htdocs/EmRev/EmRev_app/index.php(25): spl_autoload_call('classes\\admin\\s...')
-#4 {main}
-  thrown in /Applications/MAMP/htdocs/EmRev/EmRev_app/classes/admin/signup.php on line 5
-[04-Jan-2021 13:59:16 UTC] デバッグ：「「「「「「「「「「「「「「「「「「「
-[04-Jan-2021 13:59:16 UTC] デバッグ：アカウント作成ページ
-[04-Jan-2021 13:59:16 UTC] デバッグ：「「「「「「「「「「「「「
-[04-Jan-2021 13:59:16 UTC] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
-[04-Jan-2021 13:59:16 UTC] デバッグ：セッションID：r8mmd01ut3qqvctkb61q15htt4
-[04-Jan-2021 13:59:16 UTC] デバッグ：セッション変数の中身：Array
+[05-Jan-2021 10:03:37 UTC] デバッグ：現在日時タイムスタンプ：1609841017
+[05-Jan-2021 10:03:37 UTC] デバッグ：ログイン期限日時タイムスタンプ：1609841590
+[05-Jan-2021 10:03:37 UTC] デバッグ：classes\admin\signup Object
 (
-    [msg_success] => 
-    [login_date] => 1608448283
-    [login_limit] => 3600
-    [user_id] => 2
+    [email:protected] => test@example.com
+    [pass:protected] => test01
+    [password_re:protected] => test01
+    [err_ms:protected] => 
 )
 
-[04-Jan-2021 13:59:16 UTC] デバッグ：現在日時タイムスタンプ：1609768756
-[04-Jan-2021 13:59:16 UTC] デバッグ：ログイン期限日時タイムスタンプ：1608451883
-[04-Jan-2021 13:59:16 UTC] PHP Fatal error:  Uncaught Error: Call to private classes\admin\signup::__construct() from invalid context in /Applications/MAMP/htdocs/EmRev/EmRev_app/index.php:25
-Stack trace:
-#0 {main}
-  thrown in /Applications/MAMP/htdocs/EmRev/EmRev_app/index.php on line 25
-[04-Jan-2021 14:03:52 UTC] デバッグ：「「「「「「「「「「「「「「「「「「「
-[04-Jan-2021 14:03:52 UTC] デバッグ：アカウント作成ページ
-[04-Jan-2021 14:03:52 UTC] デバッグ：「「「「「「「「「「「「「
-[04-Jan-2021 14:03:52 UTC] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
-[04-Jan-2021 14:03:52 UTC] デバッグ：セッションID：996kdtl3tk3cv901nk2ccmh577
-[04-Jan-2021 14:03:52 UTC] デバッグ：セッション変数の中身：Array
-(
-    [msg_success] => 
-    [login_date] => 1608448283
-    [login_limit] => 3600
-    [user_id] => 2
-)
-
-[04-Jan-2021 14:03:52 UTC] デバッグ：現在日時タイムスタンプ：1609769032
-[04-Jan-2021 14:03:52 UTC] デバッグ：ログイン期限日時タイムスタンプ：1608451883
-[04-Jan-2021 14:03:52 UTC] PHP Fatal error:  Uncaught Error: Call to private method classes\admin\signup::setEmail() from context '' in /Applications/MAMP/htdocs/EmRev/EmRev_app/index.php:29
-Stack trace:
-#0 {main}
-  thrown in /Applications/MAMP/htdocs/EmRev/EmRev_app/index.php on line 29
+[05-Jan-2021 10:03:37 UTC] PHP Fatal error:  Cannot redeclare dbConnectProperty() (previously declared in /Applications/MAMP/htdocs/EmRev/EmRev_app/classes/db/dbConnectPDO.php:7) in /Applications/MAMP/htdocs/EmRev/EmRev_app/classes/db/dbConnectPDO.php on line 5
