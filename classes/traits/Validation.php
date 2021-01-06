@@ -2,8 +2,6 @@
 
   namespace classes\traits;
   //このファイルのみ名前空間を使うとPDOが上手く使えなくなる為
-  //requireを使う。
-  require('classes/db/dbConnectPDO.php');
 
   trait validation{
 

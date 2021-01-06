@@ -1,24 +1,32 @@
-[05-Jan-2021 10:03:37 UTC] デバッグ：「「「「「「「「「「「「「「「「「「「
-[05-Jan-2021 10:03:37 UTC] デバッグ：アカウント作成ページ
-[05-Jan-2021 10:03:37 UTC] デバッグ：「「「「「「「「「「「「「
-[05-Jan-2021 10:03:37 UTC] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
-[05-Jan-2021 10:03:37 UTC] デバッグ：セッションID：2ta7fult16p6oo0at0fsrfg66j
-[05-Jan-2021 10:03:37 UTC] デバッグ：セッション変数の中身：Array
+[06-Jan-2021 17:39:22 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[06-Jan-2021 17:39:22 Asia/Tokyo] デバッグ：アカウント作成ページ
+[06-Jan-2021 17:39:22 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[06-Jan-2021 17:39:22 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[06-Jan-2021 17:39:22 Asia/Tokyo] デバッグ：セッションID：49ri22597q391ib7qniu40g8gi
+[06-Jan-2021 17:39:22 Asia/Tokyo] デバッグ：セッション変数の中身：Array
 (
     [msg_success] => 
-    [login_date] => 1609837990
+    [login_date] => 1609851753
     [login_limit] => 3600
     [user_id] => 0
 )
 
-[05-Jan-2021 10:03:37 UTC] デバッグ：現在日時タイムスタンプ：1609841017
-[05-Jan-2021 10:03:37 UTC] デバッグ：ログイン期限日時タイムスタンプ：1609841590
-[05-Jan-2021 10:03:37 UTC] デバッグ：classes\admin\signup Object
+[06-Jan-2021 17:39:22 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1609922362
+[06-Jan-2021 17:39:22 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1609855353
+[06-Jan-2021 17:39:22 Asia/Tokyo] デバッグ：セッション変数の中身：
+[06-Jan-2021 17:39:22 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[06-Jan-2021 17:39:22 Asia/Tokyo] デバッグ：アカウント作成ページ
+[06-Jan-2021 17:39:22 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[06-Jan-2021 17:39:22 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[06-Jan-2021 17:39:22 Asia/Tokyo] デバッグ：セッションID：dekmahr48o1htpjh1dkt245qlj
+[06-Jan-2021 17:39:22 Asia/Tokyo] デバッグ：セッション変数の中身：Array
 (
-    [email:protected] => test@example.com
-    [pass:protected] => test01
-    [password_re:protected] => test01
-    [err_ms:protected] => 
+    [msg_success] => 
+    [login_date] => 1609851753
+    [login_limit] => 3600
+    [user_id] => 0
 )
 
-[05-Jan-2021 10:03:37 UTC] PHP Fatal error:  Cannot redeclare dbConnectProperty() (previously declared in /Applications/MAMP/htdocs/EmRev/EmRev_app/classes/db/dbConnectPDO.php:7) in /Applications/MAMP/htdocs/EmRev/EmRev_app/classes/db/dbConnectPDO.php on line 5
+[06-Jan-2021 17:39:22 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1609922362
+[06-Jan-2021 17:39:22 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1609855353
+[06-Jan-2021 17:39:22 Asia/Tokyo] デバッグ：セッション変数の中身：
