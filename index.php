@@ -5,7 +5,8 @@
   require('vendor/autoload.php');
   //このファイルのみ名前空間を使うとPDOが上手く使えなくなる為
   //requireを使う。
-  require('classes/db/dbConnectPDO.php');
+  //継承元ファイル込で二回以上使うとFatal error: Cannot redeclareが出る。
+  require('dbConnectPDO.php');
 
   use classes\admin\signup;
   use classes\db\dbConnectFunction;
@@ -26,7 +27,12 @@
   // ユーザー登録フォームから送信されたか判定
   if(!empty($_POST) && $_POST['user_register'] === '登録する'){
 
+    debugFunction::debug('「「「「「「「「「「「「「「「「「「「');
+    debugFunction::debug('ユーザー登録処理に入りました。');
+    debugFunction::debug('「「「「「「「「「「「「「');
+
     $formTransmission = new signup($_POST['email'], $_POST['pass'], $_POST['password_re'],'');
+
     //判定元オブジェクトの内容確認
     debugFunction::debug($formTransmission);
 
@@ -39,10 +45,14 @@
 
     //問題があった場合set関数内のバリテーションで変数err_ms内にメッセージが入るのでそれを元に判定する
     if(empty($formTransmission->getErr_ms())){
+
+      debugFunction::debug('エラーメッセージ配列には何も入っていないです。');
+      // debugFunction::debug('バリデーションOKです。');
+
       //例外処理
-      //dbConnectProperty()のみクラス・トレイト化してない(PDOが上手く行かない為)
+      //dbConnectPDO()を記述したファイルのみクラス・トレイト化・namespaceを使用していない。(PDOが上手く行かない為)
       try {
-        $signupProp = new dbConnectFunction(dbConnectProperty(),
+        $signupProp = new dbConnectFunction($db = dbConnect(),
         'INSERT INTO users (email,password,create_date) VALUES(:email,:pass,:create_date)',
         array(':email' => $formTransmission->getEmail(),':pass' => $formTransmission->getPass(),':create_date' => date('Y-m-d H:i:s')));
 
@@ -60,18 +70,23 @@
         // 新しくユーザー登録をした = 対応テーブル最後尾にデータ追加されるのでlastInsertId()でID属性を取得してくる。
         $_SESSION['user_id'] = $signupProp->getDbh()->lastInsertId();
 
-        debug('セッション変数の中身：'.print_r($_SESSION,true));
+        debugFunction::debug('セッション変数の中身：'.print_r($_SESSION,true));
         header("Location:mypage.php"); //マイページへ
         }
       } catch (Exception $e) {
         error_log('エラー発生:' . $e->getMessage());
-        //クラス内プロパティを直接引っ張ってくる方法を調べる。
+        //クラス内プロパティを直接引っ張ってくる(static)方法を調べる。
         $formTransmission->setErr_ms('エラーが発生しました。しばらく経ってからやり直してください。');
         header("Location:index.php");
       }
     }
   }
 
+
+
+  //次はログイン機能をクラス化する。
+  //あとユーザー登録機能のバリテーション処理などがちゃんと機能しているか確認。
+  //クラスを使ったテストコードの書き方も確認する。
 
   //エラーメッセージの出力をgetに書き換える。
 
@@ -80,50 +95,61 @@
 // ログイン画面処理
 //================================
 // post送信されていた場合
+
 if(!empty($_POST) && $_POST['user_login'] === 'ログイン'){
-  debug('POST送信があります。');
 
-  //変数にユーザー情報を代入
-  $email = $_POST['login-email'];
-  $pass = $_POST['login-pass'];
-  $pass_save = (!empty($_POST['login-pass_save'])) ? true : false; //ショートハンド（略記法）という書き方
+  debugFunction::debug('「「「「「「「「「「「「「');
+  debugFunction::debug('ログイン機能処理に入りました。');
+  debugFunction::debug('「「「「「「「「「「「「「');
 
-  //emailの形式チェック
-  validEmail($email, 'login-email');
-  //emailの最大文字数チェック
-  validMaxLen($email, 'login-email');
+  //インスタンス生成時の情報挿入の際もアクセス修飾子周りで引っかかった場合、set関数を使う様にする。
+  //なるべくごちゃごちゃさせたくないのと、アクセス修飾子についてより深く知りたいので、このまま一度インスタンス化させる。
+  $loginFormTransmission = new login($_POST['login-email'], $_POST['login-pass'],!empty(($_POST['login-pass_save'])) ? true : false,'');
 
-  //パスワードの半角英数字チェック
-  validHalf($pass, 'login-pass');
-  //パスワードの最大文字数チェック
-  validMaxLen($pass, 'login-pass');
-  //パスワードの最小文字数チェック
-  validMinLen($pass, 'login-pass');
+  //判定元オブジェクトの内容確認
+  debugFunction::debug($loginFormTransmission);
 
-  //未入力チェック
-  validRequired($email, 'login-email');
-  validRequired($pass, 'login-pass');
+  // バリテーションはset内で完結させてる。
+  // アクセス修飾子で制御しているプロパティは直接引っ張り出せない。(例:$formTransmission->emailはFatal errorが発生する。)
+  // なので同じクラス内で管理している個別のgetterメソッドで取得する。
+  $loginFormTransmission->setLoginEmail($loginFormTransmission->getLoginEmail());
+  $loginFormTransmission->setLoginPass($loginFormTransmission->getLoginPass());
+  $loginFormTransmission->getLoginPassSave();
 
-  if(empty($err_ms)){
-    debug('バリデーションOKです。');
+  //問題があった場合set関数内のバリテーションで変数err_ms内にメッセージが入るのでそれを元に判定する
+  if(empty($loginFormTransmission->getErr_ms())){
+
+    debugFunction::debug('エラーメッセージ配列には何も入っていないです。');
+    // debugFunction::debug('バリデーションOKです。');
 
     //例外処理
+    //dbConnectPDO()を記述したファイルのみクラス・トレイト化・namespaceを使用していない。(PDOが上手く行かない為)
+    //SELECTで指定しているカラム順序がおかしいのは、のちのpass比較時に
+    //array_shiftを利用して配列の１つ目を取得してフォーム送信passと比較するので、
+    //idが先に来ると照合が上手くいかなくなる。
+
     try {
-      // DBへ接続
-      $dbh = dbConnect();
-      // SQL文作成
-      $sql = 'SELECT password,id  FROM users WHERE email = :email AND delete_flg = 0';
-      $data = array(':email' => $email);
-      // クエリ実行
-      $stmt = queryPost($dbh, $sql, $data);
-      // クエリ結果の値を取得
+      $loginProp = new dbConnectFunction($db = dbConnect(),
+      'SELECT password,id  FROM users WHERE email = :email AND delete_flg = 0',
+      array(':email' => $email));
+
+      //sql文を実際に実行。SELECT文を使ってuserテーブルから入力したemail情報と合致するレコードを探す。
+      //合致した場合、対応レコードが保持するpassword・id情報を取得する。
+      $stmt = dbConnectFunction::queryPost($loginProp->getDbh(), $loginProp->getSql(), $loginProp->getData());
+
+      //クエリ文の実行結果から取得したレコードをfetch関数を使ってkey・valueの連想配列配形式で管理する。
+      //カラムがkey。レコードがvalueになる。
+      //emailはuniqueである為、取得レコードは1つのみになるのでfetch。
+      //複数の場合はfetchAllを扱う。
       $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-      debug('クエリ結果の中身：'.print_r($result,true));
+      // 無事に取得できていればpasswordとid情報が入っている。
+      debugFunction::debug('クエリ結果の中身：'.print_r($result,true));
 
-      // パスワード照合
-      if(!empty($result) && password_verify($pass, array_shift($result))){
-        debug('パスワードがマッチしました。');
+      // パスワード情報が取得されているかを確認。
+      // password_verifyで対象ユーザーのDB内passとフォームから送信されたpassが合致するかを確認。
+      if(!empty($result) && password_verify($loginFormTransmission->getLoginPass(), array_shift($result))){
+        debugFunction::debug('パスワードがマッチしました。');
 
         //ログイン有効期限（デフォルトを１時間とする）
         $sesLimit = 60*60;
@@ -131,20 +157,23 @@ if(!empty($_POST) && $_POST['user_login'] === 'ログイン'){
         $_SESSION['login_date'] = time(); //time関数は1970年1月1日 00:00:00 を0として、1秒経過するごとに1ずつ増加させた値が入る
 
         // ログイン保持にチェックがある場合
-        if($pass_save){
-          debug('ログイン保持にチェックがあります。');
+        if($loginFormTransmission->getLoginPassSave()){
+          debugFunction::debug('ログイン保持にチェックがあります。');
           // ログイン有効期限を30日にしてセット
           $_SESSION['login_limit'] = $sesLimit * 24 * 30;
         }else{
-          debug('ログイン保持にチェックはありません。');
+          debugFunction::debug('ログイン保持にチェックはありません。');
           // 次回からログイン保持しないので、ログイン有効期限を1時間後にセット
           $_SESSION['login_limit'] = $sesLimit;
         }
         // ユーザーIDを格納
+        // 比較元のid属性は上のfetch処理で取得している。
         $_SESSION['user_id'] = $result['id'];
 
-        debug('セッション変数の中身：'.print_r($_SESSION,true));
-        debug('マイページへ遷移します。');
+        debugFunction::debug('セッション変数の中身：'.print_r($_SESSION,true));
+        debugFunction::debug('マイページへ遷移します。');
+
+        // 個別のマイページへ返す為,あとで$_getを使ったクエリパラメータを保持させる処理を書く。
         header("Location:mypage.php"); //マイページへ
       }else{
         debug('パスワードがアンマッチです。');
@@ -163,6 +192,8 @@ if(!empty($_POST) && $_POST['user_login'] === 'ログイン'){
 ?>
 
 <?php
+  //ユーザー登録画面(あとで機能を切り分けるかも)
+  // require('./function/signUp.php');
   // タイトルの読み込み
   $Page_Title = 'ホーム';
   // ヘッドの読み込み

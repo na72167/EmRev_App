@@ -2,11 +2,13 @@
   //名前空間を使うとPDOクラスへのアクセスが上手くいかなくなる為
   //このファイルのみrequireで読み込み事にする。
 
-  function dbConnectProperty(){
-      //DBへの接続準備
+  //DB接続関数
+  function dbConnect(){
+    //DBへの接続準備
     $dsn = 'mysql:dbname=EmRevDB;host=localhost:8889;charset=utf8';
     $user = 'root';
     $password = 'root';
+    // ここのオプション関係はコピペ
     $options = array(
       // SQL実行失敗時にはエラーコードのみ設定
       PDO::ATTR_ERRMODE => PDO::ERRMODE_SILENT,
@@ -16,7 +18,8 @@
       // SELECTで得た結果に対してもrowCountメソッドを使えるようにする
       PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => true,
     );
-    $dbh = new PDO($dsn,$user,$password,$options);
+    // PDOオブジェクト生成（DBへ接続）
+    $dbh = new PDO($dsn, $user, $password, $options);
     return $dbh;
   }
 ?>
