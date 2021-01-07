@@ -1,32 +1,19 @@
 <?php
   namespace classes\admin;
+  use classes\validate\validation;
   use classes\etc\etc;
-  use classes\traits\validation;
 
 class signup{
 
-  //ユーザー登録関係のエラーやサクセスメッセージ関係
-  //クラス内で完結させたい為,defineでは無くconstを使う。
-  // =========エラーメッセージ関係=========
-  const ERROR_MS_01 = '入力必須です';
-  const ERROR_MS_02 = 'Emailの形式で入力してください';
-  const ERROR_MS_03 = 'パスワード(再入力)が合っていません';
-  const ERROR_MS_04 = '半角英数字のみご利用いただけます';
-  const ERROR_MS_05 = '6文字以上で入力してください';
-  const ERROR_MS_06 = '256文字以内で入力してください';
-  const ERROR_MS_07 = 'エラーが発生しました。しばらく経ってからやり直してください。';
-  const ERROR_MS_08 = 'そのEmailはすでに登録されています';
-  const ERROR_MS_09 = '31文字以内で入力してください';
-
-  // =========サクセスメッセージ関係=========
-  const SUCCESS_MS_01 = '31文字以内で入力してください';
-  const SUCCESS_MS_02 = '退会しました';
+  // これを参考にerr_msプロパティ内を連想配列形式で管理できるか確認する。
+  // (これができないとエラー文が一つしか保持できない。)
+  // https://qiita.com/ucan-lab/items/6decbe9cdf674ad11c8d#comments
 
   //=========送信内容を管理する為のプロパティ群=========
   protected $email;
   protected $pass;
   protected $password_re;
-  protected $err_ms = array();
+  public $err_ms;
 
   //=========生成オブジェクト毎に変数を管理できる様にするコンストラクタ。=========
   public function __construct($email, $pass, $password_re,$err_ms) {
@@ -42,15 +29,18 @@ class signup{
   // セッターを使うことで、直接代入させずにバリデーションチェックを行ってから代入させることができる
 
   //アクセス修飾子関係でvalidation::~にエラーが発生した際,trait「validation」をクラスに変更のち
-  //$thisでいけるか確認。
+  //$this->でいけるか確認。
+  //↑アクセスするプロパティがprivate以上でも実行メソッドがプロパティと同一クラス内ならその中で別クラスのメソッドを呼んで戻り値を
+  //用意しても大丈夫っぽい。
 
+  //$thisオンリーだとそのインスタンス内で保持しているプロパティ群が処理対象になる。
   public function setEmail($str){
     //未入力チェック
     $this->err_ms = validation::validRequired($str, 'email');
-    //emailの形式チェック
-    $this->err_ms = validation::validEmail($str, 'email');
-      //email最大文字数チェック
-    $this->err_ms = validation::validMaxLenEmail($str, 'email');
+    // //emailの形式チェック
+    // $this->err_ms = validation::validEmail($str, 'email');
+    //   //email最大文字数チェック
+    // $this->err_ms = validation::validMaxLenEmail($str, 'email');
     //重複チェック
     // $this->err_ms = validation::validEmailDup($str);
     //上のバリテーション処理を行い,エラーメッセージが無い場合

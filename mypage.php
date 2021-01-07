@@ -1,12 +1,9 @@
 <?php
 
-  //関数関係のファイルを纏めたもの
-  require('function.php');
-
-  debug('「「「「「「「「「「「「「「「「「「「');
-  debug('マイページ');
-  debug('「「「「「「「「「「「「「');
-  debugLogStart();
+  // debug('「「「「「「「「「「「「「「「「「「「');
+  // debug('マイページ');
+  // debug('「「「「「「「「「「「「「');
+  // debugLogStart();
 
   // タイトルの読み込み
   $Page_Title = 'マイページ';
