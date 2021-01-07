@@ -20,10 +20,6 @@
   debugFunction::debug('「「「「「「「「「「「「「');
   debugFunction::debugLogStart();
 
-  // post送信された情報を管理する配列
-  $formTransmission = array();
-  $successFormTransmission = array();
-
   // ユーザー登録フォームから送信されたか判定
   if(!empty($_POST) && $_POST['user_register'] === '登録する'){
 
@@ -42,6 +38,14 @@
     $formTransmission->setEmail($formTransmission->getEmail());
     $formTransmission->setPass($formTransmission->getPass());
     $formTransmission->setPass_re($formTransmission->getPass_re());
+    var_dump($formTransmission->getEmail());
+
+    // 明日確認する事。場合によってはバリテーションは上手くいってても作成されたインスタンスの保持期間の問題で
+    // var_dumpで表示できていないだけかもしれない。
+    // なので$_session内に入れて確認する。
+    // &_session[test] =  $formTransmission->setEmail($formTransmission->getEmail());
+    // ↑こんな感じで
+    // セッション情報は予め削除しておく。
 
     //問題があった場合set関数内のバリテーションで変数err_ms内にメッセージが入るのでそれを元に判定する
     if(empty($formTransmission->getErr_ms())){
@@ -54,7 +58,7 @@
       try {
         $signupProp = new dbConnectFunction($db = dbConnect(),
         'INSERT INTO users (email,password,create_date) VALUES(:email,:pass,:create_date)',
-        array(':email' => $formTransmission->getEmail(),':pass' => $formTransmission->getPass(),':create_date' => date('Y-m-d H:i:s')));
+        array(':email' => $formTransmission->getEmail(),':pass' => password_hash($formTransmission->getPass()),':create_date' => date('Y-m-d H:i:s')));
 
         //sql文を実際に実行。insert文を使ってuserデータを登録する。
         $stmt = dbConnectFunction::queryPost($signupProp->getDbh(), $signupProp->getSql(), $signupProp->getData());
