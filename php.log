@@ -1,23 +1,23 @@
-[07-Jan-2021 22:42:20 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
-[07-Jan-2021 22:42:20 Asia/Tokyo] デバッグ：アカウント作成ページ
-[07-Jan-2021 22:42:20 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
-[07-Jan-2021 22:42:20 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
-[07-Jan-2021 22:42:20 Asia/Tokyo] デバッグ：セッションID：ho1hocb3qo4gt8f12039svo6d5
-[07-Jan-2021 22:42:20 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+[09-Jan-2021 01:20:24 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[09-Jan-2021 01:20:24 Asia/Tokyo] デバッグ：アカウント作成ページ
+[09-Jan-2021 01:20:24 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[09-Jan-2021 01:20:24 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[09-Jan-2021 01:20:24 Asia/Tokyo] デバッグ：セッションID：fsoselrm35nork5ghmu9c7td33
+[09-Jan-2021 01:20:24 Asia/Tokyo] デバッグ：セッション変数の中身：Array
 (
     [msg_success] => 
-    [login_date] => 1610026222
+    [login_date] => 1610122586
     [login_limit] => 3600
     [user_id] => 0
     [test] => パスワード(再入力)が合っていません
 )
 
-[07-Jan-2021 22:42:20 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1610026940
-[07-Jan-2021 22:42:20 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1610029822
-[07-Jan-2021 22:42:20 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
-[07-Jan-2021 22:42:20 Asia/Tokyo] デバッグ：ユーザー登録処理に入りました。
-[07-Jan-2021 22:42:20 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
-[07-Jan-2021 22:42:20 Asia/Tokyo] デバッグ：classes\admin\signup Object
+[09-Jan-2021 01:20:24 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1610122824
+[09-Jan-2021 01:20:24 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1610126186
+[09-Jan-2021 01:20:24 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[09-Jan-2021 01:20:24 Asia/Tokyo] デバッグ：ユーザー登録処理に入りました。
+[09-Jan-2021 01:20:24 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[09-Jan-2021 01:20:24 Asia/Tokyo] デバッグ：classes\admin\signup Object
 (
     [email:protected] => 
     [pass:protected] => password
@@ -25,63 +25,29 @@
     [err_ms:protected] => 
 )
 
-[07-Jan-2021 22:42:20 Asia/Tokyo] PHP Notice:  Undefined index: user_login in /Applications/MAMP/htdocs/EmRev/EmRev_app/index.php on line 96
-[07-Jan-2021 22:42:20 Asia/Tokyo] デバッグ：セッション変数の中身：
-[07-Jan-2021 22:43:10 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
-[07-Jan-2021 22:43:10 Asia/Tokyo] デバッグ：アカウント作成ページ
-[07-Jan-2021 22:43:10 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
-[07-Jan-2021 22:43:10 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
-[07-Jan-2021 22:43:10 Asia/Tokyo] デバッグ：セッションID：834oo6fq1bfu1u40701fi1i27n
-[07-Jan-2021 22:43:10 Asia/Tokyo] デバッグ：セッション変数の中身：Array
-(
-    [msg_success] => 
-    [login_date] => 1610026222
-    [login_limit] => 3600
-    [user_id] => 0
-    [test] => パスワード(再入力)が合っていません
-)
-
-[07-Jan-2021 22:43:10 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1610026990
-[07-Jan-2021 22:43:10 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1610029822
-[07-Jan-2021 22:43:10 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
-[07-Jan-2021 22:43:10 Asia/Tokyo] デバッグ：ユーザー登録処理に入りました。
-[07-Jan-2021 22:43:10 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
-[07-Jan-2021 22:43:10 Asia/Tokyo] デバッグ：classes\admin\signup Object
+[09-Jan-2021 01:20:24 Asia/Tokyo] PHP Notice:  Undefined variable: err_ms in /Applications/MAMP/htdocs/EmRev/EmRev_app/classes/validate/validation.php on line 29
+[09-Jan-2021 01:20:24 Asia/Tokyo] PHP Notice:  Undefined variable: err_ms in /Applications/MAMP/htdocs/EmRev/EmRev_app/classes/validate/validation.php on line 36
+[09-Jan-2021 01:20:24 Asia/Tokyo] PHP Notice:  Undefined variable: err_ms in /Applications/MAMP/htdocs/EmRev/EmRev_app/classes/admin/signup.php on line 50
+[09-Jan-2021 01:20:24 Asia/Tokyo] PHP Notice:  Undefined variable: err_ms in /Applications/MAMP/htdocs/EmRev/EmRev_app/classes/admin/signup.php on line 67
+[09-Jan-2021 01:20:24 Asia/Tokyo] PHP Notice:  Undefined variable: err_ms in /Applications/MAMP/htdocs/EmRev/EmRev_app/classes/validate/validation.php on line 29
+[09-Jan-2021 01:20:24 Asia/Tokyo] PHP Notice:  Undefined variable: err_ms in /Applications/MAMP/htdocs/EmRev/EmRev_app/classes/validate/validation.php on line 58
+[09-Jan-2021 01:20:24 Asia/Tokyo] PHP Notice:  Undefined variable: err_ms in /Applications/MAMP/htdocs/EmRev/EmRev_app/classes/validate/validation.php on line 43
+[09-Jan-2021 01:20:24 Asia/Tokyo] PHP Notice:  Undefined variable: err_ms in /Applications/MAMP/htdocs/EmRev/EmRev_app/classes/admin/signup.php on line 84
+[09-Jan-2021 01:20:24 Asia/Tokyo] デバッグ：classes\admin\signup Object
 (
     [email:protected] => 
     [pass:protected] => password
     [password_re:protected] => 
-    [err_ms] => 
+    [err_ms:protected] => 
+    [] => Array
+        (
+            [email] => Emailの形式で入力してください
+            [pass_re] => 6文字以上で入力してください
+            [password] => パスワード(再入力)が合っていません
+        )
+
 )
 
-[07-Jan-2021 22:43:10 Asia/Tokyo] PHP Notice:  Undefined index: user_login in /Applications/MAMP/htdocs/EmRev/EmRev_app/index.php on line 96
-[07-Jan-2021 22:43:10 Asia/Tokyo] デバッグ：セッション変数の中身：
-[07-Jan-2021 22:43:11 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
-[07-Jan-2021 22:43:11 Asia/Tokyo] デバッグ：アカウント作成ページ
-[07-Jan-2021 22:43:11 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
-[07-Jan-2021 22:43:11 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
-[07-Jan-2021 22:43:11 Asia/Tokyo] デバッグ：セッションID：13ba335t5m3pud440vttda88nr
-[07-Jan-2021 22:43:11 Asia/Tokyo] デバッグ：セッション変数の中身：Array
-(
-    [msg_success] => 
-    [login_date] => 1610026222
-    [login_limit] => 3600
-    [user_id] => 0
-    [test] => パスワード(再入力)が合っていません
-)
-
-[07-Jan-2021 22:43:11 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1610026991
-[07-Jan-2021 22:43:11 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1610029822
-[07-Jan-2021 22:43:11 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
-[07-Jan-2021 22:43:11 Asia/Tokyo] デバッグ：ユーザー登録処理に入りました。
-[07-Jan-2021 22:43:11 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
-[07-Jan-2021 22:43:11 Asia/Tokyo] デバッグ：classes\admin\signup Object
-(
-    [email:protected] => 
-    [pass:protected] => password
-    [password_re:protected] => 
-    [err_ms] => 
-)
-
-[07-Jan-2021 22:43:11 Asia/Tokyo] PHP Notice:  Undefined index: user_login in /Applications/MAMP/htdocs/EmRev/EmRev_app/index.php on line 96
-[07-Jan-2021 22:43:11 Asia/Tokyo] デバッグ：セッション変数の中身：
+[09-Jan-2021 01:20:24 Asia/Tokyo] PHP Notice:  Undefined variable: err_ms in /Applications/MAMP/htdocs/EmRev/EmRev_app/classes/admin/signup.php on line 114
+[09-Jan-2021 01:20:24 Asia/Tokyo] PHP Notice:  Undefined index: user_login in /Applications/MAMP/htdocs/EmRev/EmRev_app/index.php on line 96
+[09-Jan-2021 01:20:24 Asia/Tokyo] デバッグ：セッション変数の中身：
