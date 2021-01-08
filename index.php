@@ -29,7 +29,6 @@
 
     $formTransmission = new signup($_POST['email'], $_POST['pass'], $_POST['password_re'],'');
 
-    //判定元オブジェクトの内容確認
     debugFunction::debug($formTransmission);
 
     //バリテーションはset内で完結させてる。
@@ -38,20 +37,14 @@
     $formTransmission->setEmail($formTransmission->getEmail());
     $formTransmission->setPass($formTransmission->getPass());
     $formTransmission->setPass_re($formTransmission->getPass_re());
-    var_dump($formTransmission->getEmail());
 
-    // 明日確認する事。場合によってはバリテーションは上手くいってても作成されたインスタンスの保持期間の問題で
-    // var_dumpで表示できていないだけかもしれない。
-    // なので$_session内に入れて確認する。
-    // &_session[test] =  $formTransmission->setEmail($formTransmission->getEmail());
-    // ↑こんな感じで
-    // セッション情報は予め削除しておく。
+    //キー定義されていないものを指定してvar_dump()するとstring(1) "�"が出力される。
+    debugFunction::debug($formTransmission);
 
-    //問題があった場合set関数内のバリテーションで変数err_ms内にメッセージが入るのでそれを元に判定する
+    //問題があった場合,バリテーション関数からエラーメッセージが返ってきてるはずなので
     if(empty($formTransmission->getErr_ms())){
 
-      debugFunction::debug('エラーメッセージ配列には何も入っていないです。');
-      // debugFunction::debug('バリデーションOKです。');
+      debugFunction::debug('バリデーションOKです。');
 
       //例外処理
       //dbConnectPDO()を記述したファイルのみクラス・トレイト化・namespaceを使用していない。(PDOが上手く行かない為)
@@ -80,7 +73,7 @@
       } catch (Exception $e) {
         error_log('エラー発生:' . $e->getMessage());
         //クラス内プロパティを直接引っ張ってくる(static)方法を調べる。
-        $formTransmission->setErr_ms('エラーが発生しました。しばらく経ってからやり直してください。');
+        $err_msg['common'] = 'エラーが発生しました。しばらく経ってからやり直してください。';
         header("Location:index.php");
       }
     }
@@ -119,6 +112,8 @@ if(!empty($_POST) && $_POST['user_login'] === 'ログイン'){
   $loginFormTransmission->setLoginEmail($loginFormTransmission->getLoginEmail());
   $loginFormTransmission->setLoginPass($loginFormTransmission->getLoginPass());
   $loginFormTransmission->getLoginPassSave();
+
+  debugFunction::debug($loginFormTransmission->getErr_ms());
 
   //問題があった場合set関数内のバリテーションで変数err_ms内にメッセージが入るのでそれを元に判定する
   if(empty($loginFormTransmission->getErr_ms())){

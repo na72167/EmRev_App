@@ -1,9 +1,9 @@
 <?php
   namespace classes\admin;
-  use classes\validate\validation;
   use classes\etc\etc;
+  use classes\validate\validation;
 
-class signup{
+class signup extends validation{
 
   // これを参考にerr_msプロパティ内を連想配列形式で管理できるか確認する。
   // (これができないとエラー文が一つしか保持できない。)
@@ -13,56 +13,58 @@ class signup{
   protected $email;
   protected $pass;
   protected $password_re;
-  public $err_ms;
+  protected $err_ms;
 
-  //=========生成オブジェクト毎に変数を管理できる様にするコンストラクタ。=========
-  public function __construct($email, $pass, $password_re,$err_ms) {
+  //=========コンストラクタ=========
+  public function __construct($email, $pass, $password_re) {
     $this->email = $email;
     $this->pass = $pass;
     $this->password_re = $password_re;
-    $this->err_ms = $err_ms;
   }
 
-  // =====getter=====
+  // =====setter=====
 
   // email挿入用セッター
-  // セッターを使うことで、直接代入させずにバリデーションチェックを行ってから代入させることができる
-
-  //アクセス修飾子関係でvalidation::~にエラーが発生した際,trait「validation」をクラスに変更のち
-  //$this->でいけるか確認。
-  //↑アクセスするプロパティがprivate以上でも実行メソッドがプロパティと同一クラス内ならその中で別クラスのメソッドを呼んで戻り値を
+  // セッターを使うことで、直接代入させずにバリデーションチェックを行ってから代入させてる。
+  //アクセスするプロパティがprivate以上でも実行メソッドがプロパティと同一クラス内ならその中で別クラスのメソッドを呼んで戻り値を
   //用意しても大丈夫っぽい。
-
   //$thisオンリーだとそのインスタンス内で保持しているプロパティ群が処理対象になる。
+
+
+  //バリテーションの流れとしては
+  //継承した親クラスvalidationから各バリ関数を呼び出す。
+  //その関数内からプロパティ$err_msを引っ張ってきて問題が合った場合setter関数の第二引数に合わせたキーとともに直接エラーメッセージを代入する。
+
   public function setEmail($str){
-    //未入力チェック
-    $this->err_ms = validation::validRequired($str, 'email');
-    // //emailの形式チェック
-    // $this->err_ms = validation::validEmail($str, 'email');
-    //   //email最大文字数チェック
-    // $this->err_ms = validation::validMaxLenEmail($str, 'email');
-    //重複チェック
-    // $this->err_ms = validation::validEmailDup($str);
+    //emailの未入力チェック
+    $this->validRequired($str,'email');
+    //emailの形式チェック
+    $this->validEmail($str,'email');
+    // //email最大文字数チェック
+    $this->validMaxLenEmail($str,'email');
+    // //重複チェック
+    // validation::validEmailDup($str);
+
     //上のバリテーション処理を行い,エラーメッセージが無い場合
     //サニタイズ処理(全ての要素をHTML化->文字列に変更。その後対象プロパティ内を置き換える。)を行う。
-    if(empty($this->err_ms)){
+    if(empty($this->$err_ms['email'])){
       $this->email = etc::sanitize($str);
     }
   }
 
-  // password挿入用セッター
+  // // password挿入用セッター
   public function setPass($str){
     //未入力チェック
-    $this->err_ms = validation::validRequired($str, 'pass');
+    $this->validRequired($str,'pass');
     //パスワードの半角英数字チェック
-    $this->err_ms = validation::validHalf($str, 'pass');
+    $this->validHalf($str,'pass');
     //最大文字数チェック
-    $this->err_ms = validation::validMaxLen($str, 'pass');
+    $this->validMaxLen($str,'pass');
     //最小文字数チェック
-    $this->err_ms = validation::validMinLen($str, 'pass');
+    $this->validMinLen($str,'pass');
     //上のバリテーション処理を行い,エラーメッセージが無い場合
     //サニタイズ処理(全ての要素をHTML化->文字列に変更。その後対象プロパティ内を置き換える。)を行う。
-    if(empty($this->err_ms)){
+    if(empty($this->$err_ms['pass'])){
       $this->pass = etc::sanitize($str);
     }
   }
@@ -70,16 +72,16 @@ class signup{
   // password(再入力)挿入用セッター
   public function setPass_re($str){
     //未入力チェック
-    $this->err_ms = validation::validRequired($str, 'pass_re');
-    //最大文字数チェック
-    $this->err_ms = validation::validMaxLen($str, 'pass_re');
-    //最小文字数チェック
-    $this->err_ms = validation::validMinLen($str, 'pass_re');
-    //再入力分のチェック
-    $this->err_ms = validation::validMatch($str,$this->pass,'pass_re');
-    //上のバリテーション処理を行い,エラーメッセージが無い場合
-    //サニタイズ処理(全ての要素をHTML化->文字列に変更。その後対象プロパティ内を置き換える。)を行う。
-    if(empty($this->err_ms)){
+    $this->validRequired($str,'pass_re');
+    // //最大文字数チェック
+    $this->validMaxLen($str,'pass_re');
+    // //最小文字数チェック
+    $this->validMinLen($str,'pass_re');
+    // //再入力分のチェック
+    $this->validMatch($str,'pass_re',$this->pass);
+    // //上のバリテーション処理を行い,エラーメッセージが無い場合
+    // //サニタイズ処理(全ての要素をHTML化->文字列に変更。その後対象プロパティ内を置き換える。)を行う。
+    if(empty($this->$err_ms['pass_re'])){
       $this->pass_re = etc::sanitize($str);
     }
   }
@@ -90,7 +92,7 @@ class signup{
     $this->err_ms = $str;
   }
 
-  // =====setter=====
+  // =====getter=====
 
   // email情報取得用ゲッター
   public function getEmail(){
@@ -107,9 +109,9 @@ class signup{
     return $this->password_re;
   }
 
-  // エラーメッセージ取得用ゲッター
+  // エラーメッセージ一括取得用ゲッター
   public function getErr_ms(){
-    return $this->err_ms;
+    return $this->$err_ms;
   }
 
 }
