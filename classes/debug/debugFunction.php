@@ -5,6 +5,7 @@
   namespace classes\debug;
 
   //インスタンス化して扱う予定は無いので,メソッド関係には全てstaticを使う。
+  //定数を保持したいのでトレイト化しない。
   class debugFunction{
       // 本番環境の場合はfalseに切り替える
       const debug_flg = true;
@@ -42,7 +43,6 @@
 
     public static function debugLogStart(){
       //クラス内関数で$_globalを扱いたい場合のみglobalを使って宣言する必要がある。
-      global $_SESSION;
       self::debug('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始');
       self::debug('セッションID：'.session_id());
       self::debug('セッション変数の中身：'.print_r($_SESSION,true));

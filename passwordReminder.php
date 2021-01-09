@@ -24,7 +24,7 @@
   ?>
 
   <section class="passrePasswordReminder">
-    <div class="passrePasswordReminder__content">
+    <div class="passreReminder__content">
       <h1 class="passrePasswordReminder__title">Password Reminder</h1>
       <form>
         <h4>メールアドレス</h4>

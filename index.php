@@ -27,9 +27,7 @@
     debugFunction::debug('ユーザー登録処理に入りました。');
     debugFunction::debug('「「「「「「「「「「「「「');
 
-    $formTransmission = new signup($_POST['email'], $_POST['pass'], $_POST['password_re'],'');
-
-    debugFunction::debug($formTransmission);
+    $formTransmission = new signup($_POST['email'], $_POST['pass'], $_POST['password_re'],'','','','');
 
     //バリテーションはset内で完結させてる。
     // アクセス修飾子で制御しているプロパティは直接引っ張り出せない。(例:$formTransmission->emailはFatal errorが発生する。)
@@ -68,17 +66,16 @@
         $_SESSION['user_id'] = $signupProp->getDbh()->lastInsertId();
 
         debugFunction::debug('セッション変数の中身：'.print_r($_SESSION,true));
+
         header("Location:mypage.php"); //マイページへ
         }
       } catch (Exception $e) {
         error_log('エラー発生:' . $e->getMessage());
-        //クラス内プロパティを直接引っ張ってくる(static)方法を調べる。
-        $err_msg['common'] = 'エラーが発生しました。しばらく経ってからやり直してください。';
+        $formTransmission->setCommonErr_ms('エラーが発生しました。しばらく経ってからやり直してください。');
         header("Location:index.php");
       }
     }
   }
-
 
 
   //次はログイン機能をクラス化する。
@@ -228,7 +225,7 @@ if(!empty($_POST) && $_POST['user_login'] === 'ログイン'){
                 <div class="hero__signup-commonMsgArea">
                   <!-- 接続エラー等のメッセージをここに出力させる。 -->
                   <!--例外処理発生時に出力されるメッセージを出す処理-->
-                  <?php if(!empty($err_ms['common'])) echo $err_ms['common'];?>
+                  <?php if(!empty($formTransmission->getCommonErr_ms())) echo $formTransmission->getCommonErr_ms();?>
                 </div>
 
               <!-- メールアドレス入力欄 -->
@@ -238,11 +235,11 @@ if(!empty($_POST) && $_POST['user_login'] === 'ログイン'){
                 <label class="#">
                     <!-- バリに引っかかった際には$err_msに関連するvalueが入るので、それを判定元にerrクラスを付属させる。 -->
                     <!-- value内は入力記録の保持 -->
-                    <input class="hero__signup-emailForm <?php if(!empty($err_ms['email'])) echo 'err'; ?>" type="text" name="email" placeholder="Email" value="<?php if(!empty($_POST['email'])) echo $_POST['email']; ?>">
+                    <input class="hero__signup-emailForm <?php if(!empty($formTransmission->getEmailErr_ms())) echo 'err'; ?>" type="text" name="email" placeholder="Email" value="<?php if(!empty($formTransmission->getEmail())) echo $formTransmission->getEmail(); ?>">
                     <!-- 後にphpでエラーメッセージを出力させる様にする。-->
                     <div class="hero__signup-areaMsg">
                     <?php
-                      if(!empty($err_ms['email'])) echo $err_ms['email'];
+                      if(!empty($formTransmission->getEmailErr_ms())) echo $formTransmission->getEmailErr_ms();
                     ?>
                     </div>
                 </label>
@@ -252,10 +249,10 @@ if(!empty($_POST) && $_POST['user_login'] === 'ログイン'){
               <div class="hero__signup-passwardField">
                 <label class="#">
                   <!-- 後にphpでエラー時用のスタイルを付属させる様にする。 -->
-                  <input class="hero__signup-passwordForm <?php if(!empty($err_ms['pass'])) echo 'err'; ?>" type="password" name="pass" placeholder="Password" value="<?php if(!empty($_POST['pass'])) echo $_POST['pass']; ?>">
+                  <input class="hero__signup-passwordForm <?php if(!empty($formTransmission->getPassErr_ms())) echo 'err'; ?>" type="password" name="pass" placeholder="Password" value="<?php if(!empty($formTransmission->getPass())) echo $formTransmission->getPass(); ?>">
                   <div class="hero__signup-areaMsg">
                     <?php
-                    if(!empty($err_ms['pass'])) echo $err_ms['pass'];
+                    if(!empty($formTransmission->getPassErr_ms())) echo $formTransmission->getPassErr_ms();
                     ?>
                   </div>
                 </label>
@@ -265,11 +262,11 @@ if(!empty($_POST) && $_POST['user_login'] === 'ログイン'){
               <div class="hero__signup-confirmationPasswardField">
                 <!-- 後にphpでエラー時用のスタイルを付属させる様にする。 -->
                 <label class="#">
-                  <input class="hero__signup-passwordConfirmationForm" name="password_re" type="password" placeholder="Confirmation Password" value="<?php if(!empty($_POST['password_re'])) echo $_POST['password_re']; ?>">
+                  <input class="hero__signup-passwordConfirmationForm" name="password_re" type="password" placeholder="Confirmation Password" value="<?php if(!empty($formTransmission->getPass_re())) echo $formTransmission->getPass_re(); ?>">
                 </label>
                 <div class="hero__signup-areaMsg">
                   <?php
-                  if(!empty($err_ms['password_re'])) echo $err_ms['password_re'];
+                  if(!empty($formTransmission->getPassReErr_ms())) echo $formTransmission->getPassReErr_ms();
                   ?>
                 </div>
               </div>
