@@ -24,14 +24,12 @@
     protected $loginPass;
     protected $loginPassSave;
     //エラーメッセージの配列はユーザー登録機能ののモノと共有して扱う為,あえて接頭辞を付けてない.
-    protected $err_ms = array();
 
   //=========生成オブジェクト毎に変数を管理できる様にするコンストラクタ。=========
   public function __construct($loginEmail,$loginPass,$loginPassSave,$err_ms) {
     $this->loginEmail = $loginEmail;
     $this->loginPass = $loginPass;
     $this->loginPassSave = $loginPassSave;
-    $this->err_ms = $err_ms;
   }
 
   // =====setter=====

@@ -24,61 +24,88 @@
     const SUCCESS_MS_02 = '退会しました';
 
     //入力チェック
-    public function validRequired($string,$key){
+    public function validRequired($string,$prop){
       if(empty($string)){
-        $this->$err_ms[$key] = self::ERROR_MS_01;
+        $this->$prop = self::ERROR_MS_01;
       }
     }
 
-    //email確認
-    public function validEmail($string,$key){
+    //email確認(空文字も比較対象になるみたいなので,emailフォームを未入力にした場合
+    //にも形式チェックも一緒に引っかかってERROR_MS_01の内容が上書きされてしまう。)
+    //なのでEmailフォームが空の場合は形式チェックの処理が走らない様にif($string !== '')
+    //を挟む様にした。
+    public function validEmail($string,$prop){
       if(!preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/", $string)){
-        $this->$err_ms[$key] = self::ERROR_MS_02;
+        if($string !== ''){
+          $this->$prop = self::ERROR_MS_02;
+        }
       }
     }
 
       //確認用パスワードのチェック
-    public function validMatch($string1, $string2,$key){
+    public function validMatch($string1,$prop,$string2){
       if($string1 !== $string2){
-        $this->$err_ms[$key] = self::ERROR_MS_03;
+        $this->$prop = self::ERROR_MS_03;
       }
     }
 
     //半角チェック(半角のみしか打てないのにこの正規表現だと全角アルファベットが打てる。)
     //でも半角英数字の正規表現で調べるとこれが出てくるのでとりあえずこのまま。
-    public function validHalf($string,$key){
+    public function validHalf($string,$prop){
       if(!preg_match("/^[a-zA-Z0-9]+$/", $string)){
-        $this->$err_ms[$key] = self::ERROR_MS_04;
+        $this->$prop = self::ERROR_MS_04;
       }
     }
 
     //最小文字数チェック(以下「<=」がうまく動かないのでorを使ってる。)
-    public function validMinLen($string,$key,$min = 5){
+    public function validMinLen($string,$prop,$min = 5){
       if(mb_strlen($string) < $min or mb_strlen($string) == $min){
-        $this->$err_ms[$key] = self::ERROR_MS_05;
+        $this->$prop = self::ERROR_MS_05;
       }
     }
 
     //最大文字数チェック
-    public function validMaxLen($string,$key,$max = 255){
+    public function validMaxLen($string,$prop,$max = 255){
       if(mb_strlen($string) > $max){
-        $this->$err_ms[$key] = self::ERROR_MS_06;
+        $this->$prop = self::ERROR_MS_06;
       }
     }
 
     //最大文字数チェック(email専用)
-    public function validMaxLenEmail($string,$key,$max = 31){
+    public function validMaxLenEmail($string,$prop,$max = 31){
       if(mb_strlen($string) > $max or mb_strlen($string) == $max){
-        $this->$err_ms[$key] = self::ERROR_MS_09;
+        $this->$prop = self::ERROR_MS_09;
       }
     }
 
      //最大文字数チェック(password専用)
-    public function validMaxLenPassword($string,$key,$max = 31){
+    public function validMaxLenPassword($string,$prop,$max = 31){
       if(mb_strlen($string) > $max or mb_strlen($string) == $max){
-        $this->$err_ms[$key] = self::ERROR_MS_09;
+        $this->$prop = self::ERROR_MS_09;
       }
     }
+
+  // //email重複確認
+  // function validEmailDup($email){
+  //   try {
+  //   //DB接続処理関数
+  //     $dbh = dbConnect();
+  //   //DBからemailデータを引っ張ってくる処理を詰める処理等
+  //     $sql = 'SELECT count(*) FROM users WHERE email = :email';
+  //     $data = array(':email' => $email);
+  //   //クエリ実行
+  //     $stmt = queryPost($dbh, $sql, $data);
+  //   // クエリ結果を変数に代入
+  //     $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+  //   if(!empty(array_shift($result))){
+  //       $err_ms['email'] = ERROR_MS_08;
+  //     }
+  //   } catch (Exception $e) {
+  //     error_log('エラー発生:' . $e->getMessage());
+  //     $err_ms['common'] = ERROR_MS_07;
+  //   }
+  // }
 
   }
 ?>
