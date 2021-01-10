@@ -2,6 +2,12 @@
 
 require_once(dirname(__FILE__) . '/../function.php');
 
+// laravelのテスト関係を参考に見てみる。
+// 掲示板機能のテスト
+// https://qiita.com/niisan-tokyo/items/264d4e8584ed58536bf4
+// https://qiita.com/nunulk/items/ea92393db04b5b89049b
+//https://qiita.com/nakano-shingo/items/9446568a2f9e903922d4
+
 class SignUpTest extends PHPUnit\Framework\TestCase {
 
   // ==============正常系==============
