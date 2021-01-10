@@ -20,6 +20,13 @@
   debugFunction::debug('「「「「「「「「「「「「「');
   debugFunction::debugLogStart();
 
+  //登録処理を行う前に$formTransmission内にインスタンスを用意していないと
+  //入力フォーム内にsignupクラスのgetterメソッドを使っている為,最初のホーム画面が部分的にしか映らなくなる。
+  $formTransmission = new signup('','','','','','','');
+
+  // 名前空間とuse指定後定義。
+  // $loginFormTransmission = new login('','','','');
+
   // ユーザー登録フォームから送信されたか判定
   if(!empty($_POST) && $_POST['user_register'] === '登録する'){
 
@@ -225,6 +232,7 @@ if(!empty($_POST) && $_POST['user_login'] === 'ログイン'){
                 <div class="hero__signup-commonMsgArea">
                   <!-- 接続エラー等のメッセージをここに出力させる。 -->
                   <!--例外処理発生時に出力されるメッセージを出す処理-->
+
                   <?php if(!empty($formTransmission->getCommonErr_ms())) echo $formTransmission->getCommonErr_ms();?>
                 </div>
 
