@@ -52,7 +52,7 @@
     //半角チェック(半角のみしか打てないのにこの正規表現だと全角アルファベットが打てる。)
     //でも半角英数字の正規表現で調べるとこれが出てくるのでとりあえずこのまま。
     public function validHalf($string,$prop){
-      if(!preg_match("/^[a-zA-Z0-9]+$/", $string)){
+      if(!preg_match("/^[a-z0-9]+$/", $string)){
         $this->$prop = self::ERROR_MS_04;
       }
     }

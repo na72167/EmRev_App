@@ -1,188 +1,189 @@
 <?php
 
-require_once(dirname(__FILE__) . '/../function.php');
+use classes\admin\signup;
 
-// laravelのテスト関係を参考に見てみる。
-// 掲示板機能のテスト
-// https://qiita.com/niisan-tokyo/items/264d4e8584ed58536bf4
-// https://qiita.com/nunulk/items/ea92393db04b5b89049b
-//https://qiita.com/nakano-shingo/items/9446568a2f9e903922d4
-
+//ファイル実行時にクラスのインスタンスは作られているっぽい。
 class SignUpTest extends PHPUnit\Framework\TestCase {
 
-  // ==============正常系==============
+  // ==============正常系（正しい数字や文字を入れた際に想定通りの動作をするかの確認）==============
 
-  public function testValidRequiredEmailTrue() {
-    //email未入力のバリテーションがちゃんと走るかのテスト
-    validRequired('test@exsample.com', 'email');
-    $results = getErrMsg('email');
-    $this->assertNull($results);
-  }
+  //Email関係
+  public function testNormalValidEmail():void {
 
-  public function testValidRequiredPasswordTrue() {
-    //password未入力のバリテーションがちゃんと走るかのテスト
-    validRequired('123456', 'pass');
-    $results = getErrMsg('pass');
-    $this->assertNull($results);
-  }
+    //プロパティは左から「メアド,パスワード,パスワード(再),メアド用エラーメッセージ,
+    //パスワード用エラーメッセージ,パスワード(再)用エラーメッセージ,共通エラーメッセージ」
+    $signUpTest = new signup('test@exsample.com','','','','','','');
 
-  public function testValidRequiredPasswordReTrue() {
-    //password未入力のバリテーションがちゃんと走るかのテスト
-    validRequired('123456', 'password_re');
-    $results = getErrMsg('password_re');
-    $this->assertNull($results);
-  }
+    //未入力テスト
+    $signUpTest->validRequired($signUpTest->getEmail(),'err_msEmail');
+    //正常なメールアドレスが入力された場合,err_msEmailプロパティに値が入らないかを確認。
+    $this->assertSame($signUpTest->getEmailErr_ms(),'');
 
-  public function testValidFormatEmailTrue() {
-    //emailの形式のバリテーションがちゃんと走るかのテスト
-    validEmail('test@exsample.com', 'email');
-    $results = getErrMsg('email');
-    $this->assertNull($results);
-  }
+    //形式チェック
+    $signUpTest->validEmail($signUpTest->getEmail(),'err_msEmail');
+    $this->assertSame($signUpTest->getEmailErr_ms(),'');
 
-  public function testValidMaxLenEmailTrue() {
-    //emailの最大文字数のバリテーションがちゃんと走るかのテスト
-    validMaxLenEmail('test@exsample.com', 'email');
-    $results = getErrMsg('email');
-    $this->assertNull($results);
-  }
+    //最大文字数チェック
+    $signUpTest->validMaxLenEmail($signUpTest->getEmail(),'err_msEmail');
+    $this->assertSame($signUpTest->getEmailErr_ms(),'');
 
-  public function testValidDuplicateEmailTrue() {
-    //emailの重複確認バリテーションがちゃんと走るかのテスト
-    validEmailDup('test@exsample.com', 'email');
-    $results = getErrMsg('email');
-    $this->assertNull($results);
-  }
-
-  public function testValidHalfPasswordTrue() {
-    //passwordが半角文字数かどうかのバリテーションがちゃんと走るかのテスト
-    validHalf('123456', 'pass');
-    $results = getErrMsg('pass');
-    $this->assertNull($results);
-  }
-
-  public function testValidMaxLenPasswordTrue() {
-    //passwordの最大文字数のバリテーションがちゃんと走るかのテスト
-    validMaxLen('123456', 'pass');
-    $results = getErrMsg('pass');
-    $this->assertNull($results);
-  }
-
-  public function testValidMinLenPasswordTrue() {
-    //passwordの最小文字数のバリテーションがちゃんと走るかのテスト
-    validMinLen('123456', 'pass');
-    $results = getErrMsg('pass');
-    $this->assertNull($results);
-  }
-
-  public function testValidMaxLenPasswordReTrue() {
-    //password(再入力)の最大文字数のバリテーションがちゃんと走るかのテスト
-    validMaxLen('123456', 'password_re');
-    $results = getErrMsg('password_re');
-    $this->assertNull($results);
-  }
-
-  public function testValidMinLenPasswordReTrue() {
-    //password(再入力)の最小文字数のバリテーションがちゃんと走るかのテスト
-    validMinLen('123456', 'password_re');
-    $results = getErrMsg('password_re');
-    $this->assertNull($results);
-  }
-
-  public function testValidMatchPasswordTrue() {
-    //passwordとpassword(再入力)の内容が合致しているかのテスト
-    validMatch('123456','123456', 'password_re');
-    $results = getErrMsg('password_re');
-    $this->assertNull($results);
-  }
-
-    // ==============準正常系==============
-
-  public function testValidRequiredEmailFalse() {
-    //email未入力時に「入力必須です」とエラーが出力されるかを確認。
-    validRequired('', 'email');
-    $results = getErrMsg('email');
-    $this->assertEquals(ERROR_MS_01, $results);
-  }
-
-  public function testValidRequiredPasswordFalse() {
-    //password未入力時に「入力必須です」とエラーが出力されるかのテスト
-    validRequired('', 'pass');
-    $results = getErrMsg('pass');
-    $this->assertEquals(ERROR_MS_01, $results);
-  }
-
-  public function testValidRequiredPasswordReFalse() {
-    //password未入力時に「入力必須です」とエラーが出力されるかのテスト
-    validRequired('', 'password_re');
-    $results = getErrMsg('password_re');
-    $this->assertEquals(ERROR_MS_01, $results);
-  }
-
-  public function testValidFormatEmailFalse() {
-    //email欄に間違った形式文を入力時「Emailの形式で入力してください」と出力されるかのテスト
-    error_log('Email形式チェック'.var_dump($err_ms[0]));
-    validEmail('test', 'email');
-    $results = getErrMsg('email');
-    $this->assertEquals(ERROR_MS_02, $results);
-  }
-
-  public function testValidMaxLenEmailFalse() {
-    //emailの最大文字数より多く入力した際、「31文字以内で入力してください」と出力されるかのテスト
-    validMaxLenEmail('testtesttesttestte@exsample.com', 'email');
-    $results = getErrMsg('email');
-    $this->assertEquals(ERROR_MS_09, $results);
-
-    global $err_ms;
-    $key = array_search('Emailの形式で入力してください', $err_ms);
-    error_log($key);
+    //重複チェック
+    // $signUpTest->validEmailDup($signUpTest->getEmail(),'err_msEmail');
+    // $this->assertNull($signUpTest->getEmailErr_ms());
 
   }
 
-  public function testValidHalfPasswordFalse() {
-    //passwordが半角文字数以外のものを入力した際に「半角英数字のみご利用いただけます」
-    //と出力されるかのテスト
-    validHalf('&$%$#','pass');
-    $results = getErrMsg('pass');
-    $this->assertEquals(ERROR_MS_04, $results);
+  //パスワード関係
+  public function testNormalValidPass():void {
+
+    //プロパティは左から「メアド,パスワード,パスワード(再),メアド用エラーメッセージ,
+    //パスワード用エラーメッセージ,パスワード(再)用エラーメッセージ,共通エラーメッセージ」
+    $signUpTest = new signup('','test01','','','','','');
+
+    //未入力テスト
+    $signUpTest->validRequired($signUpTest->getPass(),'err_msPass');
+    $this->assertSame($signUpTest->getPassErr_ms(),'');
+
+    //半角確認テスト
+    $signUpTest->validHalf($signUpTest->getPass(),'err_msPass');
+    $this->assertSame($signUpTest->getPassErr_ms(),'');
+
+    //最大文字数確認テスト
+    $signUpTest->validMaxLen($signUpTest->getPass(),'err_msPass');
+    $this->assertSame($signUpTest->getPassErr_ms(),'');
+
+    //最小文字数確認テスト
+    $signUpTest->validMinLen($signUpTest->getPass(),'err_msPass');
+    $this->assertSame($signUpTest->getPassErr_ms(),'');
+
   }
 
-  public function testValidMaxLenPasswordFalse() {
-    //passwordの最大文字数を入力した際に「31文字以内で入力してください」と出力するかの確認。
-    validMaxLenPassword('1234567891234567891234567891234', 'pass');
-    $results = getErrMsg('pass');
-    $this->assertEquals(ERROR_MS_09, $results);
+  //パスワード(再入力)関係
+  public function testNormalValidPass_Re():void {
+
+    //プロパティは左から「メアド,パスワード,パスワード(再),メアド用エラーメッセージ,
+    //パスワード用エラーメッセージ,パスワード(再)用エラーメッセージ,共通エラーメッセージ」
+    $signUpTest = new signup('','test01','test01','','','','');
+
+    //未入力テスト
+    $signUpTest->validRequired($signUpTest->getPass_re(),'err_msPassRe');
+    $this->assertSame($signUpTest->getPassReErr_ms(),'');
+
+    //最大文字数確認テスト
+    $signUpTest->validMaxLen($signUpTest->getPass_re(),'err_msPassRe');
+    $this->assertSame($signUpTest->getPassReErr_ms(),'');
+
+    //最小文字数確認テスト
+    $signUpTest->validMinLen($signUpTest->getPass_re(),'err_msPassRe');
+    $this->assertSame($signUpTest->getPassReErr_ms(),'');
+
+    //再入力照合確認テスト
+    $signUpTest->validMatch($signUpTest->getPass_re(),'err_msPassRe',$signUpTest->getPass());
+    $this->assertSame($signUpTest->getPassReErr_ms(),'');
+
   }
 
-  public function testValidMinLenPasswordFalse() {
-    //passwordの最小文字数を入力した際に「6文字以上で入力してください」と出力するかの確認。
-    validMinLen('12345', 'pass');
-    $results = getErrMsg('pass');
-    $this->assertEquals(ERROR_MS_05, $results);
+  // ==============準正常系（想定内の異常な数字や文字を入れた際に想定通りの動作をするかの確認）==============
+
+
+  //Email関係
+  public function testSemi_NormalValidEmail():void {
+
+    //プロパティは左から「メアド,パスワード,パスワード(再),メアド用エラーメッセージ,
+    //パスワード用エラーメッセージ,パスワード(再)用エラーメッセージ,共通エラーメッセージ」
+    $signUpTest = new signup('','','','','','','');
+
+    //未入力テスト
+    $signUpTest->validRequired($signUpTest->getEmail(),'err_msEmail');
+    //正常なメールアドレスが入力された場合,err_msEmailプロパティに値が入らないかを確認。
+    $this->assertSame($signUpTest->getEmailErr_ms(),'入力必須です');
+
+    $signUpTest = new signup('test','','','','','','');
+    //形式チェック
+    $signUpTest->validEmail($signUpTest->getEmail(),'err_msEmail');
+    $this->assertSame($signUpTest->getEmailErr_ms(),'Emailの形式で入力してください');
+
+    $signUpTest = new signup('testtesttesttesttest@example.com','','','','','','');
+    //最大文字数チェック
+    $signUpTest->validMaxLenEmail($signUpTest->getEmail(),'err_msEmail');
+    $this->assertSame($signUpTest->getEmailErr_ms(),'31文字以内で入力してください');
+
+    //重複チェック
+    // $signUpTest->validEmailDup($signUpTest->getEmail(),'err_msEmail');
+    // $this->assertSame($signUpTest->getEmailErr_ms(),'そのEmailはすでに登録されています');
+
   }
 
-  public function testValidMaxLenPasswordReFalse() {
-    //password(再入力)の最大文字数を入力した際に「31文字以内で入力してください」と出力するかの確認。
-    validMaxLenPassword('1234567891234567891234567891234', 'password_re');
-    $results = getErrMsg('password_re');
-    $this->assertEquals(ERROR_MS_09, $results);
+  //パスワード関係
+  public function testSemi_NormalValidPass():void {
+
+    //プロパティは左から「メアド,パスワード,パスワード(再),メアド用エラーメッセージ,
+    //パスワード用エラーメッセージ,パスワード(再)用エラーメッセージ,共通エラーメッセージ」
+    $signUpTest = new signup('','','','','','','');
+
+    //未入力テスト
+    $signUpTest->validRequired($signUpTest->getPass(),'err_msPass');
+    $this->assertSame($signUpTest->getPassErr_ms(),'入力必須です');
+
+    $signUpTest = new signup('','TEST','','','','','');
+    //半角確認テスト
+    $signUpTest->validHalf($signUpTest->getPass(),'err_msPass');
+    $this->assertSame($signUpTest->getPassErr_ms(),'半角英数字のみご利用いただけます');
+
+    $signUpTest = new signup('','testtesttesttestte
+    sttesttesttesttesttesttesttesttesttesttesttestt
+    esttesttesttesttesttesttesttesttesttesttesttest
+    testtesttesttesttesttesttesttesttesttesttesttes
+    ttesttesttesttesttesttesttesttesttesttesttestte
+    sttesttesttesttesttestteststtesttesttesttesttes
+    ttest','','','','','');
+    //最大文字数確認テスト
+    $signUpTest->validMaxLen($signUpTest->getPass(),'err_msPass');
+    $this->assertSame($signUpTest->getPassErr_ms(),'256文字以内で入力してください');
+
+    $signUpTest = new signup('','tests','','','','','');
+    //最小文字数確認テスト
+    $signUpTest->validMinLen($signUpTest->getPass(),'err_msPass');
+    $this->assertSame($signUpTest->getPassErr_ms(),'6文字以上で入力してください');
+
   }
 
-  public function testValidMinLenPasswordReFalse() {
-    //password(再入力)の最小文字数を入力した際に「6文字以上で入力してください」と出力するかの確認。
-    validMinLen('12345', 'password_re');
-    $results = getErrMsg('password_re');
-    $this->assertEquals(ERROR_MS_05, $results);
+  //パスワード(再入力)関係
+  public function testSemi_NormalValidPass_Re():void {
+
+    //プロパティは左から「メアド,パスワード,パスワード(再),メアド用エラーメッセージ,
+    //パスワード用エラーメッセージ,パスワード(再)用エラーメッセージ,共通エラーメッセージ」
+    $signUpTest = new signup('','','','','','','');
+
+    //未入力テスト
+    $signUpTest->validRequired($signUpTest->getPass_re(),'err_msPassRe');
+    $this->assertSame($signUpTest->getPassReErr_ms(),'入力必須です');
+
+    $signUpTest = new signup('','','testtesttesttest
+    testtesttesttesttesttesttesttesttesttesttesttest
+    testtesttesttesttesttesttesttesttesttesttesttest
+    testtesttesttesttesttesttesttesttesttesttesttes
+    ttesttesttesttesttesttesttesttesttesttesttestte
+    sttesttesttesttesttestteststtesttesttesttesttes
+    ttest','','','','');
+    //最大文字数確認テスト
+    $signUpTest->validMaxLen($signUpTest->getPass_re(),'err_msPassRe');
+    $this->assertSame($signUpTest->getPassReErr_ms(),'256文字以内で入力してください');
+
+    $signUpTest = new signup('','','tests','','','','');
+    //最小文字数確認テスト
+    $signUpTest->validMinLen($signUpTest->getPass_re(),'err_msPassRe');
+    $this->assertSame($signUpTest->getPassReErr_ms(),'6文字以上で入力してください');
+
+    $signUpTest = new signup('','test','tests','','','','');
+    //再入力照合確認テスト
+    $signUpTest->validMatch($signUpTest->getPass_re(),'err_msPassRe',$signUpTest->getPass());
+    $this->assertSame($signUpTest->getPassReErr_ms(),'パスワード(再入力)が合っていません');
+
   }
 
-  public function testValidMatchPasswordFalse() {
-    //passwordとpassword(再入力)の内容が合致していない場合
-    //「パスワード(再入力)が合っていません」と出力されるかのテスト。
-    validMatch('123456','1234567', 'password_re');
-    $results = getErrMsg('password_re');
-    $this->assertEquals(ERROR_MS_03, $results);
-  }
 
-   // ==============異常系==============
-   //例外処理が走るか確認
+  // ==============異常系(想定外の異常な数字や動作が確認された際の処理が正しく行われるかの確認)==============
+  //後回し
+
 }
