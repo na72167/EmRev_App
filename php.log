@@ -193,3 +193,19 @@ Stack trace:
 [10-Jan-2021 17:57:44 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1610184020
 [10-Jan-2021 17:57:44 Asia/Tokyo] PHP Notice:  Undefined index: msg_success in /Applications/MAMP/htdocs/EmRev/EmRev_app/header.php on line 34
 [10-Jan-2021 17:57:44 Asia/Tokyo] デバッグ：セッション変数の中身：
+[10-Jan-2021 23:23:44 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[10-Jan-2021 23:23:44 Asia/Tokyo] デバッグ：アカウント作成ページ
+[10-Jan-2021 23:23:44 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[10-Jan-2021 23:23:44 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[10-Jan-2021 23:23:44 Asia/Tokyo] デバッグ：セッションID：0053tmd4r28o2g1p5uj1jbke05
+[10-Jan-2021 23:23:44 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+(
+    [login_date] => 1610180420
+    [login_limit] => 3600
+    [user_id] => 0
+)
+
+[10-Jan-2021 23:23:44 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1610288624
+[10-Jan-2021 23:23:44 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1610184020
+[10-Jan-2021 23:23:44 Asia/Tokyo] PHP Notice:  Undefined index: msg_success in /Applications/MAMP/htdocs/EmRev/EmRev_app/header.php on line 34
+[10-Jan-2021 23:23:44 Asia/Tokyo] デバッグ：セッション変数の中身：

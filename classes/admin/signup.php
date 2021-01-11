@@ -64,6 +64,7 @@ class signup extends validation{
 
     //上のバリテーション処理を行い,エラーメッセージが無い場合
     //サニタイズ処理(全ての要素をHTML化->文字列に変更。その後対象プロパティ内を置き換える。)を行う。
+    //フォーム内の値に問題が合っても入力フォーム内に再表示させたいので初期化はさせない。
     if(empty($this->err_msEmail)){
       $this->email = etc::sanitize($str);
     }
