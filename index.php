@@ -9,6 +9,7 @@
   require('dbConnectPDO.php');
 
   use classes\admin\signup;
+  use classes\admin\login;
   use classes\db\dbConnectFunction;
   use classes\debug\debugFunction;
 
@@ -27,8 +28,11 @@
   // 名前空間とuse指定後定義。
   // $loginFormTransmission = new login('','','','');
 
+  // フォーム切り替え用フラグ(html側に切り替え用処理あり)
+  $form_flg = '';
+
   // ユーザー登録フォームから送信されたか判定
-  if(!empty($_POST) && $_POST['user_register'] === '登録する'){
+  if(!empty($_POST) && $form_flg = 0){
 
     debugFunction::debug('「「「「「「「「「「「「「「「「「「「');
     debugFunction::debug('ユーザー登録処理に入りました。');
@@ -97,7 +101,7 @@
 //================================
 // post送信されていた場合
 
-if(!empty($_POST) && $_POST['user_login'] === 'ログイン'){
+if(!empty($_POST) && $form_flg = 1){
 
   debugFunction::debug('「「「「「「「「「「「「「');
   debugFunction::debug('ログイン機能処理に入りました。');
@@ -280,7 +284,7 @@ if(!empty($_POST) && $_POST['user_login'] === 'ログイン'){
               </div>
 
               <div class="hero__signup-registerBtnField">
-                <input class="hero__signup-registerBtn" type="submit" name="user_register" value="登録する">
+                <input class="hero__signup-registerBtn" type="submit" name="user_register" value="登録する" <?php $form_flg = 0?> >
               </div>
 
             </form>
@@ -327,7 +331,7 @@ if(!empty($_POST) && $_POST['user_login'] === 'ログイン'){
                 </div>
 
                 <div class="hero__login-registerBtnField">
-                  <input class="hero__login-registerBtn" type="submit" name="user_login" value="ログイン">
+                  <input class="hero__login-registerBtn" type="submit" name="user_login" value="ログイン" <?php $form_flg = 1?>>
                 </div>
             </form>
 

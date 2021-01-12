@@ -1,4 +1,5 @@
 <?php
+  declare(strict_types=1);
   namespace classes\admin;
   use classes\etc\etc;
   use classes\validate\validation;
