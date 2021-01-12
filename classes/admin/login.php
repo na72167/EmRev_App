@@ -1,8 +1,9 @@
 <?php
 
-  namespace classes\admin\login;
+  declare(strict_types=1);
+  namespace classes\admin;
+  use classes\validate\validation;
   use classes\etc\etc;
-  use classes\traits\validation;
 
   class login{
 
