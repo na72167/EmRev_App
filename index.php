@@ -26,13 +26,13 @@
   $formTransmission = new signup('','','','','','','');
 
   // 名前空間とuse指定後定義。
-  // $loginFormTransmission = new login('','','','');
+  $loginFormTransmission = new login('','','','','','');
 
   // フォーム切り替え用フラグ(html側に切り替え用処理あり)
-  $form_flg = '';
+  $form_flg = true;
 
   // ユーザー登録フォームから送信されたか判定
-  if(!empty($_POST) && $form_flg = 0){
+  if(!empty($_POST) && $_POST['user_register'] === '登録する'){
 
     debugFunction::debug('「「「「「「「「「「「「「「「「「「「');
     debugFunction::debug('ユーザー登録処理に入りました。');
@@ -60,7 +60,7 @@
       try {
         $signupProp = new dbConnectFunction($db = dbConnect(),
         'INSERT INTO users (email,password,create_date) VALUES(:email,:pass,:create_date)',
-        array(':email' => $formTransmission->getEmail(),':pass' => password_hash($formTransmission->getPass()),':create_date' => date('Y-m-d H:i:s')));
+        array(':email' => $formTransmission->getEmail(),':pass' => password_hash($formTransmission->getPass(),PASSWORD_DEFAULT),':create_date' => date('Y-m-d H:i:s')));
 
         //sql文を実際に実行。insert文を使ってuserデータを登録する。
         $stmt = dbConnectFunction::queryPost($signupProp->getDbh(), $signupProp->getSql(), $signupProp->getData());
@@ -76,6 +76,8 @@
         // 新しくユーザー登録をした = 対応テーブル最後尾にデータ追加されるのでlastInsertId()でID属性を取得してくる。
         $_SESSION['user_id'] = $signupProp->getDbh()->lastInsertId();
 
+        // ポスト内情報の初期化
+        $_POST = [];
         debugFunction::debug('セッション変数の中身：'.print_r($_SESSION,true));
 
         header("Location:mypage.php"); //マイページへ
@@ -86,7 +88,12 @@
         header("Location:index.php");
       }
     }
+  }else{
+    $_POST['user_register'] === '';
   }
+
+
+
 
 
   //次はログイン機能をクラス化する。
@@ -101,7 +108,7 @@
 //================================
 // post送信されていた場合
 
-if(!empty($_POST) && $form_flg = 1){
+if(!empty($_POST) && $_POST['user_login'] === 'ログイン'){
 
   debugFunction::debug('「「「「「「「「「「「「「');
   debugFunction::debug('ログイン機能処理に入りました。');
@@ -109,7 +116,7 @@ if(!empty($_POST) && $form_flg = 1){
 
   //インスタンス生成時の情報挿入の際もアクセス修飾子周りで引っかかった場合、set関数を使う様にする。
   //なるべくごちゃごちゃさせたくないのと、アクセス修飾子についてより深く知りたいので、このまま一度インスタンス化させる。
-  $loginFormTransmission = new login($_POST['login-email'], $_POST['login-pass'],!empty(($_POST['login-pass_save'])) ? true : false,'');
+  $loginFormTransmission = new login($_POST['login-email'], $_POST['login-pass'],!empty(($_POST['login-pass_save'])) ? true : false,'','','');
 
   //判定元オブジェクトの内容確認
   debugFunction::debug($loginFormTransmission);
@@ -121,13 +128,12 @@ if(!empty($_POST) && $form_flg = 1){
   $loginFormTransmission->setLoginPass($loginFormTransmission->getLoginPass());
   $loginFormTransmission->getLoginPassSave();
 
-  debugFunction::debug($loginFormTransmission->getErr_ms());
+  debugFunction::debug($loginFormTransmission);
 
   //問題があった場合set関数内のバリテーションで変数err_ms内にメッセージが入るのでそれを元に判定する
   if(empty($loginFormTransmission->getErr_ms())){
 
-    debugFunction::debug('エラーメッセージ配列には何も入っていないです。');
-    // debugFunction::debug('バリデーションOKです。');
+    debugFunction::debug('バリデーションOKです。');
 
     //例外処理
     //dbConnectPDO()を記述したファイルのみクラス・トレイト化・namespaceを使用していない。(PDOが上手く行かない為)
@@ -138,7 +144,7 @@ if(!empty($_POST) && $form_flg = 1){
     try {
       $loginProp = new dbConnectFunction($db = dbConnect(),
       'SELECT password,id  FROM users WHERE email = :email AND delete_flg = 0',
-      array(':email' => $email));
+      array(':email' => $loginFormTransmission->getLoginEmail()));
 
       //sql文を実際に実行。SELECT文を使ってuserテーブルから入力したemail情報と合致するレコードを探す。
       //合致した場合、対応レコードが保持するpassword・id情報を取得する。
@@ -148,6 +154,7 @@ if(!empty($_POST) && $form_flg = 1){
       //カラムがkey。レコードがvalueになる。
       //emailはuniqueである為、取得レコードは1つのみになるのでfetch。
       //複数の場合はfetchAllを扱う。
+
       $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
       // 無事に取得できていればpasswordとid情報が入っている。
@@ -173,6 +180,7 @@ if(!empty($_POST) && $form_flg = 1){
           // 次回からログイン保持しないので、ログイン有効期限を1時間後にセット
           $_SESSION['login_limit'] = $sesLimit;
         }
+
         // ユーザーIDを格納
         // 比較元のid属性は上のfetch処理で取得している。
         $_SESSION['user_id'] = $result['id'];
@@ -180,19 +188,24 @@ if(!empty($_POST) && $form_flg = 1){
         debugFunction::debug('セッション変数の中身：'.print_r($_SESSION,true));
         debugFunction::debug('マイページへ遷移します。');
 
+        // ポスト内情報の初期化
+        $_POST = [];
         // 個別のマイページへ返す為,あとで$_getを使ったクエリパラメータを保持させる処理を書く。
         header("Location:mypage.php"); //マイページへ
       }else{
-        debug('パスワードがアンマッチです。');
+        debugFunction::debug('パスワードがアンマッチです。');
         $err_ms['login-common'] = 'メールアドレスまたはパスワードが違います';
+
       }
 
     } catch (Exception $e) {
       error_log('エラー発生:' . $e->getMessage());
-      $err_ms['login-common'] = ERROR_MS_07;
+      $loginFormTransmission->setErr_msCommon('エラーが発生しました。しばらく経ってからやり直してください。');
       header("Location:index.php");
     }
   }
+}else{
+  $_POST['user_login'] === '';
 }
 
 
@@ -284,7 +297,7 @@ if(!empty($_POST) && $form_flg = 1){
               </div>
 
               <div class="hero__signup-registerBtnField">
-                <input class="hero__signup-registerBtn" type="submit" name="user_register" value="登録する" <?php $form_flg = 0?> >
+                <input class="hero__signup-registerBtn" type="submit" name="user_register" value="登録する">
               </div>
 
             </form>
@@ -309,11 +322,11 @@ if(!empty($_POST) && $form_flg = 1){
                   <label class="#">
                       <!-- バリに引っかかった際には$err_msに関連するvalueが入るので、それを判定元にerrクラスを付属させる。 -->
                       <!-- value内は入力記録の保持 -->
-                      <input class="hero__login-emailForm <?php if(!empty($err_ms['login-email'])) echo 'err'; ?>" type="text" name="login-email" placeholder="Email" value="<?php if(!empty($_POST['login-email'])) echo $_POST['login-email']; ?>">
+                      <input class="hero__login-emailForm <?php if(!empty($loginFormTransmission->getEmailErr_ms())) echo 'err'; ?>" type="text" name="login-email" placeholder="Email" value="<?php if(!empty($loginFormTransmission->getEmailErr_ms())) echo $loginFormTransmission->getLoginEmail(); ?>">
                       <!-- 後にphpでエラーメッセージを出力させる様にする。-->
                       <div class="hero__login-areaMsg">
                       <?php
-                      if(!empty($err_ms['login-email'])) echo $err_ms['login-email'];
+                      if(!empty($loginFormTransmission->getEmailErr_ms())) echo $loginFormTransmission->getEmailErr_ms();
                       ?>
                       </div>
                   </label>
@@ -322,16 +335,16 @@ if(!empty($_POST) && $form_flg = 1){
                 <!-- パスワード入力 -->
                 <div class="hero__login-passwardField">
                   <!-- 後にphpでエラー時用のスタイルを付属させる様にする。 -->
-                  <input class="hero__login-passwordForm <?php if(!empty($err_ms['login-pass'])) echo 'err'; ?>" type="password" name="login-pass" placeholder="Password" value="<?php if(!empty($_POST['login-pass'])) echo $_POST['login-pass']; ?>">
+                  <input class="hero__login-passwordForm <?php if(!empty($loginFormTransmission->getPassErr_ms())) echo 'err'; ?>" type="password" name="login-pass" placeholder="Password" value="<?php if(!empty($loginFormTransmission->getPassErr_ms())) echo $loginFormTransmission->getLoginPass(); ?>">
                   <div class="hero__login-areaMsg">
                     <?php
-                    if(!empty($err_ms['login-pass'])) echo $err_ms['login-pass'];
+                    if(!empty($loginFormTransmission->getPassErr_ms())) echo $loginFormTransmission->getPassErr_ms();
                     ?>
                   </div>
                 </div>
 
                 <div class="hero__login-registerBtnField">
-                  <input class="hero__login-registerBtn" type="submit" name="user_login" value="ログイン" <?php $form_flg = 1?>>
+                  <input class="hero__login-registerBtn" type="submit" name="user_login" value="ログイン">
                 </div>
             </form>
 

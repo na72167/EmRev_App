@@ -1,13 +1,15 @@
 <?php
-//共通変数・関数ファイルを読込み
-require('function.php');
 
-debug('「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「');
-debug('「　ログアウトページ　');
-debug('「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「');
-debugLogStart();
+require('vendor/autoload.php');
+use classes\debug\debugFunction;
 
-debug('ログアウトします。');
+debugFunction::logSessionSetUp();
+debugFunction::debug('「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「');
+debugFunction::debug('「　ログアウトページ　');
+debugFunction::debug('「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「');
+debugFunction::debugLogStart();
+
+debugFunction::debug('ログアウトします。');
 
 // セッションを削除（ログアウトする）
 // session_destroy()を使うとセッションの再起動が必要になってエラーメッセージを入れる事ができなくなるので
@@ -15,10 +17,13 @@ debug('ログアウトします。');
 $_SESSION = [];
 
 // エラーメッセージの代入
-$_SESSION['msg_success'] = SUCCESS_MS_01;
+$_SESSION['msg_success'] = 'エラーが発生しました。しばらく経ってからやり直してください。';
 
-debug('ホーム画面へ遷移します。');
+debugFunction::debug('ホーム画面へ遷移します。');
 
-debug('セッション変数の中身：'.print_r($_SESSION['msg_success'],true));
+debugFunction::debug('セッション変数の中身：'.print_r($_SESSION['msg_success'],true));
+
 // ホーム画面へ
 header("Location:index.php");
+
+?>

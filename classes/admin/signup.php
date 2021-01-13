@@ -1,4 +1,5 @@
 <?php
+
   declare(strict_types=1);
   namespace classes\admin;
   use classes\etc\etc;
@@ -19,6 +20,7 @@ class signup extends validation{
   //配列内に別の配列ができてしまい、管理が面倒になった。(挿入先の変数名と挿入データの変数を合わせても✗)。
   //3.別ファイルにエラーメッセージ管理用変数を用意。バリ関数内でグローバル宣言をして管理する。
   //->他機能を追加時にバグの温床になりそうなので✗。
+  //現在は各エラーメッセージ毎に切り分けている
 
   protected $email;
   protected $pass;
@@ -30,7 +32,7 @@ class signup extends validation{
 
 
   //=========コンストラクタ=========
-  public function __construct($email, $pass, $password_re,$err_msEmail,$err_msPass,$err_msPassRe,$err_msCommon) {
+  public function __construct($email, $pass, $password_re,$err_msEmail,$err_msPass,$err_msPassRe,$err_msCommon){
     $this->email = $email;
     $this->pass = $pass;
     $this->password_re = $password_re;
@@ -53,7 +55,7 @@ class signup extends validation{
   //継承した親クラスvalidationから各バリ関数を呼び出す。
   //その関数内から各フォームに合わせたプロパティを引っ張ってきて,問題が合った場合第二引数で指定したプロパティに沿ってエラー文を挿入する。
 
-  public function setEmail($str){
+  public function setEmail($str):void{
     //emailの未入力チェック
     $this->validRequired($str,'err_msEmail');
     //emailの形式チェック
@@ -62,7 +64,6 @@ class signup extends validation{
     $this->validMaxLenEmail($str,'err_msEmail');
     //重複チェック
     // $this->validEmailDup($str);
-
     //上のバリテーション処理を行い,エラーメッセージが無い場合
     //サニタイズ処理(全ての要素をHTML化->文字列に変更。その後対象プロパティ内を置き換える。)を行う。
     //フォーム内の値に問題が合っても入力フォーム内に再表示させたいので初期化はさせない。
@@ -106,7 +107,7 @@ class signup extends validation{
   }
 
   // 共通エラーメッセージ挿入用セッター
-  public function setCommonErr_ms($str){
+  public function setCommonErr_ms(string $str){
     //エラーメッセージの挿入
     $this->err_msCommon = $str;
   }

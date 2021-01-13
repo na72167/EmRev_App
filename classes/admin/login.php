@@ -5,7 +5,7 @@
   use classes\validate\validation;
   use classes\etc\etc;
 
-  class login{
+  class login extends validation{
 
     // エラーメッセージの内容は基本変わらないので定数でまとめる。
     const ERROR_MS_01 = '入力必須です';
@@ -24,41 +24,43 @@
     protected $loginEmail;
     protected $loginPass;
     protected $loginPassSave;
-    //エラーメッセージの配列はユーザー登録機能ののモノと共有して扱う為,あえて接頭辞を付けてない.
+    protected $err_msEmail;
+    protected $err_msPass;
+    protected $err_msCommon;
 
   //=========生成オブジェクト毎に変数を管理できる様にするコンストラクタ。=========
-  public function __construct($loginEmail,$loginPass,$loginPassSave,$err_ms) {
+  public function __construct($loginEmail,$loginPass,$loginPassSave,$err_msEmail,$err_msPass,$err_msCommon) {
     $this->loginEmail = $loginEmail;
     $this->loginPass = $loginPass;
     $this->loginPassSave = $loginPassSave;
+    $this->err_msEmail = $err_msEmail;
+    $this->err_msPass = $err_msPass;
+    $this->err_msCommon = $err_msCommon;
   }
+
 
   // =====setter=====
 
   // email挿入用セッター
   // セッターを使うことで、直接代入させずにバリデーションチェックを行ってから代入させることができる
-
-
   // アクセス修飾子関係でvalidation::~にエラーが発生した際,trait「validation」をクラスに変更のち
   // $thisでいけるか確認。
 
   // ===========メールアドレスのバリテーション=============
-  //email未入力チェック
-  //email形式チェック
-  //email最大文字数チェック
 
   public function setLoginEmail($str){
-    //未入力チェック
-    $this->err_ms = validation::validRequired($str, 'login-email');
+    //emailの未入力チェック
+    $this->validRequired($str,'err_msEmail');
     //emailの形式チェック
-    $this->err_ms = validation::validEmail($str, 'login-email');
-      //email最大文字数チェック
-    $this->err_ms = validation::validMaxLenEmail($str, 'login-email');
+    $this->validEmail($str,'err_msEmail');
+    //email最大文字数チェック
+    $this->validMaxLenEmail($str,'err_msEmail');
     //重複チェック
-    // $this->err_ms = validation::validEmailDup($str);
+    // $this->validEmailDup($str);
     //上のバリテーション処理を行い,エラーメッセージが無い場合
     //サニタイズ処理(全ての要素をHTML化->文字列に変更。その後対象プロパティ内を置き換える。)を行う。
-    if(empty($this->err_ms)){
+    //フォーム内の値に問題が合っても入力フォーム内に再表示させたいので初期化はさせない。
+    if(empty($this->err_msEmail)){
       $this->loginEmail = etc::sanitize($str);
     }
   }
@@ -73,16 +75,16 @@
   // password挿入用セッター
   public function setLoginPass($str){
     //未入力チェック
-    $this->err_ms = validation::validRequired($str, 'login-pass');
+    $this->validRequired($str,'err_msPass');
     //パスワードの半角英数字チェック
-    $this->err_ms = validation::validHalf($str, 'login-pass');
+    $this->validHalf($str,'err_msPass');
     //最大文字数チェック
-    $this->err_ms = validation::validMaxLen($str, 'login-pass');
+    $this->validMaxLen($str,'err_msPass');
     //最小文字数チェック
-    $this->err_ms = validation::validMinLen($str, 'login-pass');
+    $this->validMinLen($str,'err_msPass');
     //上のバリテーション処理を行い,エラーメッセージが無い場合
     //サニタイズ処理(全ての要素をHTML化->文字列に変更。その後対象プロパティ内を置き換える。)を行う。
-    if(empty($this->err_ms)){
+    if(empty($this->err_msPass)){
       $this->loginPass = etc::sanitize($str);
     }
   }
@@ -94,12 +96,11 @@
     $this->loginPassSave = $str;
   }
 
-  // エラーメッセージ挿入用セッター
-  public function setErr_ms($str){
+  // 共通エラーメッセージ挿入用セッター
+  public function setErr_msCommon($str){
     //エラーメッセージの挿入
-    $this->err_ms = $str;
+    $this->err_msCommon = $str;
   }
-
 
 
   // =====getter=====
@@ -119,9 +120,26 @@
     return $this->loginPassSave;
   }
 
-  // エラーメッセージ取得用ゲッター
+  // エラーメッセージ一括取得用ゲッター
   public function getErr_ms(){
-    return $this->err_ms;
+    return $this->err_msEmail;
+    return $this->err_msPass;
+    return $this->err_msCommon;
+  }
+
+  //Email用エラーメッセージ取得ゲッター
+  public function getEmailErr_ms(){
+    return $this->err_msEmail;
+  }
+
+  //パスワード用エラーメッセージ取得ゲッター
+  public function getPassErr_ms(){
+    return $this->err_msPass;
+  }
+
+  //共通エラーメッセージ取得用ゲッター
+  public function getCommonErr_ms(){
+    return $this->err_msCommon;
   }
 
 }
