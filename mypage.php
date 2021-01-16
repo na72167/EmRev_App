@@ -1,9 +1,15 @@
 <?php
 
-  // debug('「「「「「「「「「「「「「「「「「「「');
-  // debug('マイページ');
-  // debug('「「「「「「「「「「「「「');
-  // debugLogStart();
+  //autoloadやstrict_typesなどクラスでまとめる必要のない基本設定などをまとめている。
+  require('defaultSetting.php');
+
+  use classes\debug\debugFunction;
+
+  debugFunction::logSessionSetUp();
+  debugFunction::debug('「「「「「「「「「「「「「「「「「「「');
+  debugFunction::debug('マイページ');
+  debugFunction::debug('「「「「「「「「「「「「「');
+  debugFunction::debugLogStart();
 
   // タイトルの読み込み
   $Page_Title = 'マイページ';
@@ -23,7 +29,7 @@
   <!-- ページ紹介要素ファイルの読み込み -->
   <?php
     require('./intro.php');
-    require('./designspace.php');
+    require('./designSpace.php');
   ?>
 
   <?php

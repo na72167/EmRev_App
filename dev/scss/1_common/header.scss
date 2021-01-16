@@ -4,12 +4,6 @@
   overflow: hidden;
   width: 100%;
 
-  // jsの処理によって付属されるクラス
-  &.active{
-    position: fixed;
-    z-index:2;
-  }
-
   &__content-wrap{
     height: 100%;
     margin: 0 auto;
@@ -75,3 +69,9 @@
     opacity: 0.9;
   }
 }
+
+ //jsの処理によって付属されるクラス
+  .active{
+    position: fixed;
+    z-index:2;
+  }

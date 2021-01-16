@@ -1,40 +1,43 @@
 <?php
-    //関数関係のファイルを纏めたもの
-  require('function.php');
+    //autoloadやstrict_typesなどクラスでまとめる必要のない基本設定などをまとめている。
+    require('defaultSetting.php');
 
-  debug('「「「「「「「「「「「「「「「「「「「');
-  debug('プロフィール編集ページ');
-  debug('「「「「「「「「「「「「「');
-  debugLogStart();
+    use classes\debug\debugFunction;
+    use classes\db\dbConnectFunction;
+    use classes\etc\etc;
+    use classes\profEdit\profEdit;
 
-  //ログイン認証
-// require('auth.php');
+    debugFunction::debug('「「「「「「「「「「「「「「「「「「「');
+    debugFunction::debug('プロフィール編集ページ');
+    debugFunction::debug('「「「「「「「「「「「「「');
+    debugFunction::debugLogStart();
 
 //================================
 // 画面処理
 //================================
 // DBからユーザーデータを取得
-$dbFormData = getUser($_SESSION['user_id']);
+// getUser関数はセッション内のuser_id情報と同じidを持つユーザーデータを
+// 引っ張ってこれる。
+$dbFormData = etc::getUser($_SESSION['user_id']);
 
-//第二引数にtrueを指定した場合、string型で返す。
-debug('取得したユーザー情報：'.print_r($dbFormData,true));
+//第二引数にtrueを指定した場合,厳密比較が行われる。
+debugFunction::debug('取得したユーザー情報：'.print_r($dbFormData,true));
 
 // post送信されていた場合
 if(!empty($_POST)){
-  debug('POST送信があります。');
-  debug('POST情報：'.print_r($_POST,true));
-  debug('FILE情報：'.print_r($_FILES,true));
+  debugFunction::debug('POST送信があります。');
+  debugFunction::debug('POST情報：'.print_r($_POST,true));
+  debugFunction::debug('FILE情報：'.print_r($_FILES,true));
 
-  //変数にユーザー情報を代入
-  $username = $_POST['username'];
-  $age = $_POST['age'];
-  $tel = $_POST['tel'];
-  $addr = $_POST['address'];
-  $dmState = $_POST['dmState'];
-  $affiliationCompany = $_POST['affiliationCompany'];
-  $incumbent = $_POST['incumbent'];
-  $position = $_POST['position'];
-  $currentDepartment = $_POST['currentDepartment'];
+  // フォームからの送信情報をインスタンスで管理する
+  $profEdit = new profEdit($_POST['username'],$_POST['age'],$_POST['tel'],$_POST['zip'],$_POST['addr'],$_FILES['pic']);
+
+  // 会社員登録用情報
+  // $dmState = $_POST['dmState'];
+  // $affiliationCompany = $_POST['affiliationCompany'];
+  // $incumbent = $_POST['incumbent'];
+  // $position = $_POST['position'];
+  // $currentDepartment = $_POST['currentDepartment'];
 
   // 画像をアップロードし、パスを格納
   // $_file属性は
@@ -45,6 +48,10 @@ if(!empty($_POST)){
   // $_FILES['inputで指定したname']['error']：アップロード時のエラーコード
   // $_FILES['inputで指定したname']['size']：ファイルサイズ（バイト単位）
   // の5種類のデータが格納される
+
+  // インスタンス内にpicの一連情報が保持できていないかも
+  $pic = $profEdit->getProfImg(['pic']['name']);
+
   $pic = ( !empty($_FILES['pic']['name']) ) ? uploadImg($_FILES['pic'],'pic') : '';
 
   // 画像をPOSTしてない（登録していない）が既にDBに登録されている場合、DBのパスを入れる（POSTには反映されないので）
@@ -67,6 +74,7 @@ if(!empty($_POST)){
   // ヘッドの読み込み
   require('./head.php');
 ?>
+
 <body>
 
   <!--ヘッダー読み込み-->
@@ -96,9 +104,17 @@ if(!empty($_POST)){
         if(!empty($err_msg['common'])) echo $err_msg['common'];
         ?>
       </div>
+
+
+      <!-- ユーザープロフ画像の登録 -->
       <div class="profEdiUserProfile__img-wrap">
         <img class="profEdiUserProfile__img">
+
+        <!-- ここが写真の入力フォームになる予定 -->
+        <!-- <input type="file" name="pic" class="profEdiUserProfile__img" style="height:370px;"> -->
+
       </div>
+
 
       <div class="profEdiUserProfile__detail">
 
