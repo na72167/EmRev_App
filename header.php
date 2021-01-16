@@ -38,7 +38,7 @@
   <!-- メニューバーの内容部分 -->
   <nav class="menuAbout">
     <ul class="menuAbout__itemWrap">
-      <li class="menuAbout__itemWrap-item">マイページ</li>
+      <li class="menuAbout__itemWrap-item"><a class="menuLink-color" href="./mypage.php">マイページ</a></li>
       <li class="menuAbout__itemWrap-item">お気に入りレビュー一覧</li>
       <li class="menuAbout__itemWrap-item">登録レビュー一覧</li>
       <li class="menuAbout__itemWrap-item">閲覧履歴</li>

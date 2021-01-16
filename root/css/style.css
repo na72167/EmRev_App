@@ -110,9 +110,6 @@ button {
   background-color: #047aed;
   overflow: hidden;
   width: 100%; }
-  .header.active {
-    position: fixed;
-    z-index: 2; }
   .header__content-wrap {
     height: 100%;
     margin: 0 auto;
@@ -163,6 +160,10 @@ button {
   opacity: 0; }
   .msg-slide.fade-up {
     opacity: 0.9; }
+
+.active {
+  position: fixed;
+  z-index: 2; }
 
 .intro {
   height: 265px;

@@ -4,6 +4,7 @@ $(function(){
   //.js-toggle-sp-menu-targetクラスを持つ要素に対してactiveクラスを持たせる。
   $('.js-toggle-sp-menu').on('click', function () {
     $('.menuAbout').toggleClass('active');
+    $('.header').toggleClass('active');
   });
 
   //signup->loginフォーム切り替え

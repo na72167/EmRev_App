@@ -1,12 +1,8 @@
 <!--アカウント作成関係処理-->
 <?php
 
-  //主にuseを扱う際のルートディレクトリ指定に使ってる。
-  require('vendor/autoload.php');
-  //このファイルのみ名前空間を使うとPDOが上手く使えなくなる為
-  //requireを使う。
-  //継承元ファイル込で二回以上使うとFatal error: Cannot redeclareが出る。
-  require('dbConnectPDO.php');
+  //autoloadやstrict_typesなどクラスでまとめる必要のない基本設定などをまとめている。
+  require('defaultSetting.php');
 
   use classes\admin\signup;
   use classes\admin\login;
@@ -27,9 +23,6 @@
 
   // 名前空間とuse指定後定義。
   $loginFormTransmission = new login('','','','','','');
-
-  // フォーム切り替え用フラグ(html側に切り替え用処理あり)
-  $form_flg = true;
 
   // ユーザー登録フォームから送信されたか判定
   if(!empty($_POST) && $_POST['user_register'] === '登録する'){
@@ -91,9 +84,6 @@
   }else{
     $_POST['user_register'] === '';
   }
-
-
-
 
 
   //次はログイン機能をクラス化する。
