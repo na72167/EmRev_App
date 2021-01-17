@@ -1,15 +1,16 @@
 <?php
 
-  declare(strict_types=1);
   namespace classes\etc;
-  //主にuseを扱う際のルートディレクトリ指定に使ってる。
-  require('vendor/autoload.php');
-  //このファイルのみ名前空間を使うとPDOが上手く使えなくなる為
-  //requireを使う。
+  //php側で予め定義されているクラスを別クラス内で使いたい場合はuseで宣言しておく。
+  use \PDO;
+  use \RuntimeException;
+  use \Exception;
   use classes\db\dbConnectFunction;
+  use classes\db\dbConnectPDO;
   use classes\debug\debugFunction;
 
   class etc{
+
   //sessionを１回だけ取得できる
   public static function getSessionFlash($key){
     if(!empty($_SESSION[$key])){
@@ -24,39 +25,10 @@
     return htmlspecialchars($str,ENT_QUOTES);
   }
 
-  // ユーザー情報の取得
-  public static function getUser($u_id){
-    debugFunction::debug('ユーザー情報を取得します。');
-    //例外処理
-    try {
-      // DBへ接続(dbConnect()内は主に接続情報をまとめている)
-      $dbh = dbConnect();
-
-      // SQL文作成
-      $sql = 'SELECT * FROM users  WHERE id = :u_id';
-      $data = array(':u_id' => $u_id);
-
-      // クエリ実行
-      $stmt = dbConnectFunction::queryPost($dbh, $sql, $data);
-      // クエリ成功の場合
-      if($stmt){
-        debugFunction::debug('クエリ成功。');
-      }else{
-        debugFunction::debug('クエリに失敗しました。');
-      }
-
-    } catch (Exception $e) {
-      error_log('エラー発生:' . $e->getMessage());
-    }
-    // クエリ結果のデータを返却
-    return $stmt->fetch(PDO::FETCH_ASSOC);
-  }
-
-
-
 // 画像処理(後半のバリ関係の処理がまだイマイチなのでも少し詰める)
 public static function uploadImg($file, $key){
   debugFunction::debug('画像アップロード処理開始');
+  // print_rの第二引数にtrueを指定すると出力要素が文字列になる。
   debugFunction::debug('ファイル情報：'.print_r($file,true));
 
   //isset関数は対象変数内に値があるかつnullでは無い事を確認する関数。

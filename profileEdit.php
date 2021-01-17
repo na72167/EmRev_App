@@ -1,27 +1,36 @@
 <?php
-    //autoloadやstrict_typesなどクラスでまとめる必要のない基本設定などをまとめている。
-    require('defaultSetting.php');
 
-    use classes\debug\debugFunction;
-    use classes\db\dbConnectFunction;
-    use classes\etc\etc;
-    use classes\profEdit\profEdit;
+  require('vendor/autoload.php');
 
-    debugFunction::debug('「「「「「「「「「「「「「「「「「「「');
-    debugFunction::debug('プロフィール編集ページ');
-    debugFunction::debug('「「「「「「「「「「「「「');
-    debugFunction::debugLogStart();
+  use \PDO;
+  use \RuntimeException;
+  use \Exception;
+  use classes\db\dbConnectFunction;
+  use classes\db\dbConnectPDO;
+  use classes\profEdit\profEdit;
+  use classes\profEdit\getFormData;
+  use classes\debug\debugFunction;
+  use classes\etc\getUserProp;
+  use classes\etc\etc;
 
-//================================
-// 画面処理
-//================================
-// DBからユーザーデータを取得
-// getUser関数はセッション内のuser_id情報と同じidを持つユーザーデータを
-// 引っ張ってこれる。
-$dbFormData = etc::getUser($_SESSION['user_id']);
+  debugFunction::logSessionSetUp();
+  debugFunction::debug('「「「「「「「「「「「「「「「「「「「');
+  debugFunction::debug('プロフィール編集ページ');
+  debugFunction::debug('「「「「「「「「「「「「「');
+  debugFunction::debugLogStart();
 
-//第二引数にtrueを指定した場合,厳密比較が行われる。
-debugFunction::debug('取得したユーザー情報：'.print_r($dbFormData,true));
+
+  // このあと$_SESSION['user_id']を参照してuserｓテーブルに関した情報のみを管理するuserクラスを作成。
+  // 中のrollプロパティにアクセス。その権限情報とuserクラスを元に一般・社員・管理者・退会済み用のSQLを発行・検索を行う。(退会済みは別)。
+
+  // getUser関数はセッション内のuser_id情報と同じidを持つユーザーデータを
+
+  $dbFormDataInstance = getUserProp::getUserProp($_SESSION['user_id']);
+
+  $dbFormData = new getUserProp('','','','','');
+
+  //第二引数にtrueを指定した場合,厳密比較が行われる。
+  debugFunction::debug('取得したユーザー情報：'.print_r($dbFormData,true));
 
 // post送信されていた場合
 if(!empty($_POST)){
@@ -30,7 +39,8 @@ if(!empty($_POST)){
   debugFunction::debug('FILE情報：'.print_r($_FILES,true));
 
   // フォームからの送信情報をインスタンスで管理する
-  $profEdit = new profEdit($_POST['username'],$_POST['age'],$_POST['tel'],$_POST['zip'],$_POST['addr'],$_FILES['pic']);
+  // プロフ画像(プロパティは左から６つ目が対象)のみ後で挿入する。。
+  $profEdit = new profEdit($_POST['username'],$_POST['age'],$_POST['tel'],$_POST['zip'],$_POST['addr'],'','','','','','');
 
   // 会社員登録用情報
   // $dmState = $_POST['dmState'];
@@ -49,19 +59,42 @@ if(!empty($_POST)){
   // $_FILES['inputで指定したname']['size']：ファイルサイズ（バイト単位）
   // の5種類のデータが格納される
 
-  // インスタンス内にpicの一連情報が保持できていないかも
-  $pic = $profEdit->getProfImg(['pic']['name']);
+   //フォームから画像情報が送信されているか判定。入っている場合は$pic内に定義。ない場合は空文字を定義する。
+    $pic = ( !empty($_FILES['pic']['name']) ) ? etc::uploadImg($_FILES['pic'],'pic') : '';
 
-  $pic = ( !empty($_FILES['pic']['name']) ) ? uploadImg($_FILES['pic'],'pic') : '';
+   // 「1.上の処理を通してフォームから画像が送信されていない」。かつ「2.DB内にプロフィール画像が保持されている」場合は
+   // DB内情報の情報を送信する。
+   // 1.2どちらかのみ当てはまる。もしくはどちらも当てはまらない場合は一つ上の処理で定義された情報をそのまま再定義する。
+    $pic = ( empty($pic) && !empty($dbFormData['pic']) ) ? $dbFormData['pic'] : $pic;
 
-  // 画像をPOSTしてない（登録していない）が既にDBに登録されている場合、DBのパスを入れる（POSTには反映されないので）
-  $pic = ( empty($pic) && !empty($dbFormData['pic']) ) ? $dbFormData['pic'] : $pic;
+    //プロフ画像情報を挿入。
+    $profEdit->setProfImg($pic);
 
-  //DBの情報と入力情報が異なる場合にバリデーションを行う
-  if($dbFormData['username'] !== $username){
-    //名前の最大文字数チェック
-    validMaxLen($username, 'username');
-  }
+    //インスタンス内の確認
+    debugFunction::debug($profEdit);
+
+    //DBの情報と入力情報が異なる場合は各setter関数を通す。
+    if($dbFormData['username'] !== $profEdit->getUserName()){
+      $profEdit->setUserName($profEdit->getUserName());
+    }
+
+    if($dbFormData['tel'] !== $profEdit->getTel()){
+      $profEdit->setTel($profEdit->getTel());
+    }
+
+    if($dbFormData['addr'] !== $profEdit->getAddr()){
+      $profEdit->setAddr($profEdit->getAddr());
+    }
+
+    if( (int)$dbFormData['zip'] !== $profEdit->getZip()){ //DBデータをint型にキャスト（型変換）して比較
+      $profEdit->setZip($profEdit->getZip());
+    }
+
+    if($dbFormData['age'] !== $profEdit->getAge()){
+      $profEdit->setAge($profEdit->getAge());
+    }
+
+    // ここができたあとはエラー発生の確認をしたあとのDB更新処理を挟んでいく。
 
 
 }
@@ -121,7 +154,7 @@ if(!empty($_POST)){
         <label class="<?php if(!empty($err_msg['username'])) echo 'err'; ?>">
           <div class="profEdiUserProfile__name">
               <h1 class="profEdiUserProfile__name-element">name</h1>
-              <input class="profEdiUserProfile__name-output" type="text" name="username" value="<?php echo getFormData('username'); ?>">
+              <input class="profEdiUserProfile__name-output" type="text" name="username" value="<?php echo $dbFormData['username']; ?>">
           </div>
         </label>
 

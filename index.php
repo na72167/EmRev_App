@@ -1,12 +1,17 @@
 <!--アカウント作成関係処理-->
 <?php
 
-  //autoloadやstrict_typesなどクラスでまとめる必要のない基本設定などをまとめている。
-  require('defaultSetting.php');
+  // declare(strict_types=1);
+  //主にuseを扱う際のルートディレクトリ指定に使ってる。
+  require('vendor/autoload.php');
 
+  use \PDO;
+  use \RuntimeException;
+  use \Exception;
   use classes\admin\signup;
   use classes\admin\login;
   use classes\db\dbConnectFunction;
+  use classes\db\dbConnectPDO;
   use classes\debug\debugFunction;
 
   //デバック関係のメッセージも一通りまとめる。
@@ -23,6 +28,9 @@
 
   // 名前空間とuse指定後定義。
   $loginFormTransmission = new login('','','','','','');
+
+  //接続情報をまとめたクラス
+  $dbh = new dbConnectPDO();
 
   // ユーザー登録フォームから送信されたか判定
   if(!empty($_POST) && $_POST['user_register'] === '登録する'){
@@ -51,7 +59,8 @@
       //例外処理
       //dbConnectPDO()を記述したファイルのみクラス・トレイト化・namespaceを使用していない。(PDOが上手く行かない為)
       try {
-        $signupProp = new dbConnectFunction($db = dbConnect(),
+
+        $signupProp = new dbConnectFunction($dbh->getPDO(),
         'INSERT INTO users (email,password,create_date) VALUES(:email,:pass,:create_date)',
         array(':email' => $formTransmission->getEmail(),':pass' => password_hash($formTransmission->getPass(),PASSWORD_DEFAULT),':create_date' => date('Y-m-d H:i:s')));
 
@@ -132,7 +141,7 @@ if(!empty($_POST) && $_POST['user_login'] === 'ログイン'){
     //idが先に来ると照合が上手くいかなくなる。
 
     try {
-      $loginProp = new dbConnectFunction($db = dbConnect(),
+      $loginProp = new dbConnectFunction($dbh->getPDO(),
       'SELECT password,id  FROM users WHERE email = :email AND delete_flg = 0',
       array(':email' => $loginFormTransmission->getLoginEmail()));
 
