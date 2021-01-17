@@ -18,6 +18,8 @@
     const ERROR_MS_07 = 'エラーが発生しました。しばらく経ってからやり直してください。';
     const ERROR_MS_08 = 'そのEmailはすでに登録されています';
     const ERROR_MS_09 = '31文字以内で入力してください';
+    const ERROR_MS_10 = '電話番号の形式が違います';
+    const ERROR_MS_11 = '郵便番号の形式が違います';
 
     // =========サクセスメッセージ関係=========
     const SUCCESS_MS_01 = '31文字以内で入力してください';
@@ -68,6 +70,27 @@
     public function validMaxLen($string,$prop,$max = 255){
       if(mb_strlen($string) > $max){
         $this->$prop = self::ERROR_MS_06;
+      }
+    }
+
+    //電話番号形式チェック
+    function validTel($string, $prop){
+      if(!preg_match("/0\d{1,4}\d{1,4}\d{4}/", $string)){
+        $this->$prop = self::ERROR_MS_10;
+      }
+    }
+
+    //郵便番号形式チェック
+    function validZip($string,$prop){
+      if(!preg_match("/^\d{7}$/", $string)){
+        $this->$prop = self::ERROR_MS_11;
+      }
+    }
+
+    //半角数字チェック
+    function validNumber($string, $prop){
+      if(!preg_match("/^[0-9]+$/", $string)){
+        $this->$prop = self::ERROR_MS_04;
       }
     }
 

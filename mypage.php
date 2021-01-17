@@ -1,8 +1,10 @@
 <?php
 
-  //autoloadやstrict_typesなどクラスでまとめる必要のない基本設定などをまとめている。
-  require('defaultSetting.php');
-
+  declare(strict_types=1);
+  require('vendor/autoload.php');
+  use \PDO;
+  use \RuntimeException;
+  use \Exception;
   use classes\debug\debugFunction;
 
   debugFunction::logSessionSetUp();
