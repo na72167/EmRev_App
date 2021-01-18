@@ -1,9 +1,9 @@
-[17-Jan-2021 20:02:27 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
-[17-Jan-2021 20:02:27 Asia/Tokyo] デバッグ：プロフィール編集ページ
-[17-Jan-2021 20:02:27 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
-[17-Jan-2021 20:02:27 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
-[17-Jan-2021 20:02:27 Asia/Tokyo] デバッグ：セッションID：s5aoj7lhrbvnl9s9fv6nomj2hc
-[17-Jan-2021 20:02:27 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+[18-Jan-2021 23:14:43 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[18-Jan-2021 23:14:43 Asia/Tokyo] デバッグ：プロフィール編集ページ
+[18-Jan-2021 23:14:43 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[18-Jan-2021 23:14:43 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[18-Jan-2021 23:14:43 Asia/Tokyo] デバッグ：セッションID：34qi0r005b9bb4oih5gg380df1
+[18-Jan-2021 23:14:43 Asia/Tokyo] デバッグ：セッション変数の中身：Array
 (
     [msg_success] => 
     [login_date] => 1610875148
@@ -11,117 +11,44 @@
     [user_id] => 2
 )
 
-[17-Jan-2021 20:02:27 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1610881347
-[17-Jan-2021 20:02:27 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1610878748
-[17-Jan-2021 20:02:27 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
-[17-Jan-2021 20:02:27 Asia/Tokyo] デバッグ：クエリ成功。
-[17-Jan-2021 20:02:27 Asia/Tokyo] デバッグ：取得したユーザー情報：Array
+[18-Jan-2021 23:14:43 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1610979283
+[18-Jan-2021 23:14:43 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1610878748
+[18-Jan-2021 23:14:43 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[18-Jan-2021 23:14:43 Asia/Tokyo] デバッグ：クエリ成功。
+[18-Jan-2021 23:14:43 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
 (
-    [id] => 2
-    [email] => test02@example.com
-    [password] => $2y$10$EVhfDF8CeD54Y6VZaY//iODDSciCwPTfDXuItoZSnNZkDZxQUCeZu
-    [roll] => 100
-    [report_flg] => 0
-    [delete_flg] => 0
-    [create_date] => 2021-01-17 18:19:08
-    [update_date] => 2021-01-17 18:19:08
+    [id:protected] => 2
+    [email:protected] => test02@example.com
+    [password:protected] => $2y$10$EVhfDF8CeD54Y6VZaY//iODDSciCwPTfDXuItoZSnNZkDZxQUCeZu
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-17 18:19:08
+    [update_date:protected] => 2021-01-17 18:19:08
 )
 
-[17-Jan-2021 20:02:27 Asia/Tokyo] デバッグ：セッション変数の中身：
-[17-Jan-2021 20:02:27 Asia/Tokyo] PHP Fatal error:  Uncaught Error: Call to undefined function getFormData() in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php:150
-Stack trace:
-#0 {main}
-  thrown in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 150
-[17-Jan-2021 20:11:54 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
-[17-Jan-2021 20:11:54 Asia/Tokyo] デバッグ：プロフィール編集ページ
-[17-Jan-2021 20:11:54 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
-[17-Jan-2021 20:11:54 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
-[17-Jan-2021 20:11:54 Asia/Tokyo] デバッグ：セッションID：eaq9u09v25n1n5a20kkhkv7e8i
-[17-Jan-2021 20:11:54 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+[18-Jan-2021 23:14:43 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[18-Jan-2021 23:14:43 Asia/Tokyo] デバッグ：権限確認処理
+[18-Jan-2021 23:14:43 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[18-Jan-2021 23:14:43 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[18-Jan-2021 23:14:43 Asia/Tokyo] デバッグ：クエリ成功。
+[18-Jan-2021 23:14:43 Asia/Tokyo] デバッグ：取得した一般ユーザー情報：classes\userProp\generalUserProp Object
 (
-    [msg_success] => 
-    [login_date] => 1610875148
-    [login_limit] => 3600
-    [user_id] => 2
+    [id:protected] => 
+    [email:protected] => test02@example.com
+    [password:protected] => $2y$10$EVhfDF8CeD54Y6VZaY//iODDSciCwPTfDXuItoZSnNZkDZxQUCeZu
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 
+    [user_id:protected] => 
+    [username:protected] => 
+    [age:protected] => 
+    [tel:protected] => 
+    [profImg:protected] => 
+    [zip:protected] => 
+    [addr:protected] => 
+    [create_date:protected] => 
+    [update_date:protected] => 
 )
 
-[17-Jan-2021 20:11:54 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1610881914
-[17-Jan-2021 20:11:54 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1610878748
-[17-Jan-2021 20:11:54 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
-[17-Jan-2021 20:11:54 Asia/Tokyo] デバッグ：クエリ成功。
-[17-Jan-2021 20:11:54 Asia/Tokyo] デバッグ：取得したユーザー情報：Array
-(
-    [id] => 
-    [email] => test02@example.com
-    [password] => $2y$10$EVhfDF8CeD54Y6VZaY//iODDSciCwPTfDXuItoZSnNZkDZxQUCeZu
-    [roll] => 100
-    [report_flg] => 0
-    [delete_flg] => 
-    [create_date] => 
-    [update_date] => 
-    [general_id] => 
-    [user_id] => 
-    [user_name] => 
-    [age] => 
-    [tel] => 
-    [zip] => 
-    [addr] => 
-    [affiliation_company] => 
-    [incumbent] => 
-    [currently_department] => 
-    [currently_position] => 
-    [dm_state] => 
-)
-
-[17-Jan-2021 20:11:54 Asia/Tokyo] デバッグ：セッション変数の中身：
-[17-Jan-2021 20:11:54 Asia/Tokyo] PHP Fatal error:  Uncaught Error: Call to undefined function getFormData() in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php:150
-Stack trace:
-#0 {main}
-  thrown in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 150
-[17-Jan-2021 21:03:38 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
-[17-Jan-2021 21:03:38 Asia/Tokyo] デバッグ：プロフィール編集ページ
-[17-Jan-2021 21:03:38 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
-[17-Jan-2021 21:03:38 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
-[17-Jan-2021 21:03:38 Asia/Tokyo] デバッグ：セッションID：rrrernq6of89bu36pbh4cs1m0q
-[17-Jan-2021 21:03:38 Asia/Tokyo] デバッグ：セッション変数の中身：Array
-(
-    [msg_success] => 
-    [login_date] => 1610875148
-    [login_limit] => 3600
-    [user_id] => 2
-)
-
-[17-Jan-2021 21:03:38 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1610885018
-[17-Jan-2021 21:03:38 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1610878748
-[17-Jan-2021 21:03:38 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
-[17-Jan-2021 21:03:38 Asia/Tokyo] デバッグ：クエリ成功。
-[17-Jan-2021 21:03:38 Asia/Tokyo] デバッグ：取得したユーザー情報：Array
-(
-    [id] => 
-    [email] => test02@example.com
-    [password] => $2y$10$EVhfDF8CeD54Y6VZaY//iODDSciCwPTfDXuItoZSnNZkDZxQUCeZu
-    [roll] => 100
-    [report_flg] => 0
-    [delete_flg] => 
-    [create_date] => 
-    [update_date] => 
-    [general_id] => 
-    [user_id] => 
-    [user_name] => 
-    [age] => 
-    [tel] => 
-    [zip] => 
-    [addr] => 
-    [affiliation_company] => 
-    [incumbent] => 
-    [currently_department] => 
-    [currently_position] => 
-    [dm_state] => 
-)
-
-[17-Jan-2021 21:03:38 Asia/Tokyo] デバッグ：セッション変数の中身：
-[17-Jan-2021 21:03:38 Asia/Tokyo] PHP Notice:  Undefined index: username in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 150
-[17-Jan-2021 21:03:38 Asia/Tokyo] PHP Fatal error:  Uncaught Error: Call to undefined function getFormData() in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php:159
-Stack trace:
-#0 {main}
-  thrown in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 159
+[18-Jan-2021 23:14:43 Asia/Tokyo] デバッグ：セッション変数の中身：

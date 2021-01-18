@@ -4,7 +4,6 @@
 
   class getFormData{
 
-
     //プロフフォームにユーザーが以前登録した個人情報やバリにひっかかった入力情報を再表示させるための処理
     function getFormData($string){
       global $dbFormData;
