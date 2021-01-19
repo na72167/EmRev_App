@@ -119,7 +119,6 @@ if(!empty($_POST['update-button'] === '変更する') && $userDate->getRoll() ==
       $profEdit->setAge($profEdit->getAge());
     }
 
-  // 次はDB更新処理を書いていく。
   if(empty($profEdit->getErr_msAll())){
     debugFunction::debug('一般ユーザーフォーム、バリデーションOKです。');
 
