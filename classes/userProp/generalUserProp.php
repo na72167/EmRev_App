@@ -26,8 +26,14 @@
     protected $addr;
     protected $create_date;
     protected $update_date;
+    protected $err_msUsername;
+    protected $err_msAge;
+    protected $err_msTel;
+    protected $err_msZip;
+    protected $err_msAddr;
+    protected $err_msCommon;
 
-    public function __construct($id,$email,$password,$roll,$report_flg,$delete_flg,$user_id,$username,$age,$tel,$profImg,$zip,$addr,$create_date,$update_date){
+    public function __construct($id,$email,$password,$roll,$report_flg,$delete_flg,$user_id,$username,$age,$tel,$profImg,$zip,$addr,$create_date,$update_date,$err_msUsername,$err_msAge,$err_msTel,$err_msZip,$err_msAddr,$err_msCommon){
       $this->id = $id;
       $this->email = $email;
       $this->password = $password;
@@ -43,11 +49,17 @@
       $this->addr = $addr;
       $this->create_date = $create_date;
       $this->update_date = $update_date;
+      $this->err_msUsername = $err_msUsername;
+      $this->err_msAge = $err_msAge;
+      $this->err_msTel = $err_msTel;
+      $this->err_msZip = $err_msZip;
+      $this->err_msAddr = $err_msAddr;
+      $this->err_msCommon = $err_msCommon;
     }
 
     // ユーザーのプロフィール情報の取得
-    public static function getGeneralUserProp($u_id){
-      debugFunction::debug('ユーザー情報を取得します。');
+    public static function getGeneralUserProp(int $u_id){
+      debugFunction::debug('一般ユーザーの情報を取得します。');
       //例外処理
       try {
         //接続情報をまとめたクラス
@@ -70,6 +82,13 @@
       }
       // クエリ結果のデータを返却
       return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    // ============setter関数============
+    // 共通エラーメッセージ挿入用セッター
+    public function setErr_msCommon(string $str):void{
+      //エラーメッセージの挿入
+      $this->err_msCommon = $str;
     }
 
     // ============getter関数============
@@ -104,19 +123,25 @@
       return $this->user_id;
     }
 
-    public function getUsername(): ?self{
+    public function getUsername(): ?string{
       return $this->username;
     }
-    public function getAge(): ?self{
+
+    public function getAge(): ?int{
       return $this->age;
     }
-    public function getTel(): ?self{
+
+    public function getProfImg(): ?string{
+      return $this->ProfImg;
+    }
+
+    public function getTel(): ?int{
       return $this->tel;
     }
-    public function getZip(): ?self{
+    public function getZip(): ?int{
       return $this->zip;
     }
-    public function getAddr(): ?self{
+    public function getAddr(): ?string{
       return $this->addr;
     }
 
@@ -126,6 +151,30 @@
 
     public function getUpdate_date():self{
       return $this->update_date;
+    }
+
+    public function getErr_msUsername(): ?string{
+      return $this->err_msUsername;
+    }
+
+    public function getErr_msAge(): ?string{
+      return $this->err_msAge;
+    }
+
+    public function getErr_msTel(): ?string{
+      return $this->err_msTel;
+    }
+
+    public function getErr_msZip(): ?string{
+      return $this->err_msZip;
+    }
+
+    public function getErr_msAddr(): ?string{
+      return $this->err_msAddr;
+    }
+
+    public function getErr_msCommon(): ?string{
+      return $this->err_msCommon;
     }
 
   }
