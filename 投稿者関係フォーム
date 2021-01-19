@@ -1,0 +1,65 @@
+<label class="<?php if(!empty($err_msg['dmState'])) echo 'err'; ?>">
+          <div class="profEdiUserProfile__dmState">
+              <div class="profEdiUserProfile__dmState-areaMsg">
+                <?php
+                if(!empty($formTransmission->getPassErr_ms())) echo $formTransmission->getPassErr_ms();
+                ?>
+              </div>
+              <div class="profEdiUserProfile__dmState-element">DM可否</div>
+                <!-- 許可か拒否の二択から選択できる様にする。 -->
+                <input class="profEdiUserProfile__dmState-output" type="text" name="dmState" value="">
+              </div>
+          </div>
+        </label>
+
+      <div class="profEdiUserProfile__employeeInfoWrap">
+        <label class="<?php if(!empty($err_msg['affiliationCompany'])) echo 'err'; ?>">
+          <div class="profEdiUserProfile__affiliationCompany">
+            <div class="profEdiUserProfile__affiliationCompany-areaMsg">
+                <?php
+                if(!empty($formTransmission->getPassErr_ms())) echo $formTransmission->getPassErr_ms();
+                ?>
+            </div>
+            <h1 class="profEdiUserProfile__affiliationCompany-element">現所属会社</h1>
+            <input class="profEdiUserProfile__affiliationCompany-output" type="text" name="affiliationCompany" value="">
+          </div>
+        </label>
+
+        <div class="profEdiUserProfile__incumbentPositionWrap">
+          <label class="<?php if(!empty($err_msg['incumbent'])) echo 'err'; ?>">
+            <div class="profEdiUserProfile__incumbent">
+              <div class="profEdiUserProfile__incumbent-areaMsg">
+                  <?php
+                  if(!empty($formTransmission->getPassErr_ms())) echo $formTransmission->getPassErr_ms();
+                  ?>
+              </div>
+              <div class="profEdiUserProfile__incumbent-element">現職</div>
+              <input class="profEdiUserProfile__incumbent-output" type="text" name="incumbent" value="">
+            </div>
+          </label>
+
+          <label class="<?php if(!empty($err_msg['position'])) echo 'err'; ?>">
+            <div class="profEdiUserProfile__Position">
+              <div class="profEdiUserProfile__Position-areaMsg">
+                  <?php
+                  if(!empty($formTransmission->getPassErr_ms())) echo $formTransmission->getPassErr_ms();
+                  ?>
+              </div>
+              <div class="profEdiUserProfile__Position-element">現役職</div>
+              <input class="profEdiUserProfile__Position-output" type="text" name="position" value="">
+            </div>
+          </label>
+        </div>
+
+        <label class="<?php if(!empty($err_msg['currentDepartment'])) echo 'err'; ?>">
+          <div class="profEdiUserProfile__currentDepartment">
+            <div class="profEdiUserProfile__currentDepartment-areaMsg">
+                <?php
+                if(!empty($formTransmission->getPassErr_ms())) echo $formTransmission->getPassErr_ms();
+                ?>
+            </div>
+            <div class="profEdiUserProfile__currentDepartment-element">現部署</div>
+            <input class="profEdiUserProfile__currentDepartment-output" type="text" name="currentDepartment" value="">
+          </div>
+        </label>
+      </div>

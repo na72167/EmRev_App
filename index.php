@@ -211,8 +211,6 @@ if(!empty($_POST) && $_POST['user_login'] === 'ログイン'){
 ?>
 
 <?php
-  //ユーザー登録画面(あとで機能を切り分けるかも)
-  // require('./function/signUp.php');
   // タイトルの読み込み
   $Page_Title = 'ホーム';
   // ヘッドの読み込み
