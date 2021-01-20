@@ -154,6 +154,10 @@ if(!empty($_POST['update-button'] === '変更する') && $userDate->getRoll() ==
     // $position = $_POST['position'];
     // $currentDepartment = $_POST['currentDepartment'];
   }elseif(!empty($_POST) && $userDate->getRoll() === 1){
+    // 管理者権限持ち情報
+  }else{
+    // 権限周りが取得できなかった場合はフラッシュメッセージで「権限が取得できませんでした」
+    // と表示させる処理を出力させる。
 }
 
 if(!empty($_POST['cancel-button'] === '変更を取り消す')){
@@ -189,11 +193,111 @@ if(!empty($_POST['cancel-button'] === '変更を取り消す')){
   ?>
 
 
+<!-- ログインユーザーが一般会員の場合 -->
+    <?php
+      if(!empty($userDate->getRoll() === 100)){
+    ?>
+      <!-- 直書きスタイルは一般会員ユーザー用のもの -->
+      <section class="profEdiUserProfile" style='height:320px; margin-top:50px;'>
+
+      <!-- 一般ユーザーの場合 -->
+      <!-- enctype属性・・・送信する情報のエンコードタイプを指定する。form-dataはフォームにファイルを送信する機能がある場合に指定する。 -->
+        <form action="" method="post" enctype="multipart/form-data">
+
+          <!-- 共通エラーの出力 -->
+          <div class="area-msg">
+            <?php
+              if(!empty($generalUserDate->getErr_msCommon())) echo $generalUserDate->getErr_msCommon();
+            ?>
+          </div>
+
+        <!-- ユーザープロフ画像の登録 -->
+        <div class="profEdiUserProfile__img-wrap">
+          <img class="profEdiUserProfile__img">
+
+          <!-- ここが写真の入力フォームになる予定 -->
+          <!-- <input type="file" name="pic" class="profEdiUserProfile__img" style="height:370px;"> -->
+
+        </div>
+
+
+        <div class="profEdiUserProfile__detail">
+
+          <label class="<?php if(!empty($generalUserDate->getErr_msUserName())) echo 'err'; ?>">
+            <div class="profEdiUserProfile__name">
+                <div class="profEdiUserProfile__name-areaMsg">
+                  <?php
+                    if(!empty($generalUserDate->getErr_msUserName())) echo $generalUserDate->getErr_msUserName();
+                  ?>
+                </div>
+                <h1 class="profEdiUserProfile__name-element">name</h1>
+                <input class="profEdiUserProfile__name-output" type="text" name="username" value="<?php if(!empty($generalUserDate->getUsername())) echo $generalUserDate->getUsername(); ?>">
+            </div>
+          </label>
+
+          <div class="profEdiUserProfile__ageTel-Wrap">
+
+          <label class="<?php if(!empty($generalUserDate->getErr_msAge())) echo 'err'; ?>">
+            <div class="profEdiUserProfile__age">
+                <div class="profEdiUserProfile__age-areaMsg">
+                      <?php
+                      if(!empty($generalUserDate->getErr_msAge())) echo $generalUserDate->getErr_msAge();
+                      ?>
+                </div>
+                <div class="profEdiUserProfile__age-element">age</div>
+                <input class="profEdiUserProfile__age-output" type="text" name="age" value="<?php echo $generalUserDate->getAge(); ?>">
+            </div>
+          </label>
+
+          <label class="<?php if(!empty($generalUserDate->getErr_msTel())) echo 'err'; ?>">
+            <div class="profEdiUserProfile__tel">
+            <div class="profEdiUserProfile__tel-areaMsg">
+                  <?php
+                    if(!empty($generalUserDate->getErr_msTel())) echo $generalUserDate->getErr_msTel();
+                  ?>
+                </div>
+                <div class="profEdiUserProfile__tel-element">tel</div>
+                <input class="profEdiUserProfile__tel-output" type="text" name="tel" value="<?php echo $generalUserDate->getTel(); ?>">
+            </div>
+          </label>
+
+          </div>
+
+          <label class="<?php if(!empty($generalUserDate->getErr_msAddr())) echo 'err'; ?>">
+            <div class="profEdiUserProfile__address">
+                <div class="profEdiUserProfile__address-areaMsg">
+                  <?php
+                  if(!empty($generalUserDate->getErr_msAddr())) echo $generalUserDate->getErr_msAddr();
+                  ?>
+                </div>
+                <div class="profEdiUserProfile__address-element">address</div>
+                <input class="profEdiUserProfile__address-output" type="text" name="address" value="<?php echo $generalUserDate->getAddr(); ?>">
+            </div>
+          </label>
+
+      </section>
+
+      <div class="profEdiUserProfile__bottom-wrap" style="margin-bottom:5px;">
+        <!-- post内容を初期化したのち、マイページへ移動 -->
+        <input type="submit" name='cancel-button' class="profEdiUserProfile__bottom-return" value="変更を取り消す">
+        <!-- 送信処理に沿って画面遷移 -->
+        <input type="submit" name='update-button' class="profEdiUserProfile__bottom-next" value="変更する">
+      </div>
+
+    </form>
+
+    <?php
+        // ログインユーザーが投稿者登録をしていた場合
+        }elseif(empty($userDate->getRoll() === 50)){
+    ?>
+
+    <!-- 直書きスタイルは一般会員ユーザー用のもの -->
     <section class="profEdiUserProfile">
 
     <!-- 一般ユーザーの場合 -->
     <!-- enctype属性・・・送信する情報のエンコードタイプを指定する。form-dataはフォームにファイルを送信する機能がある場合に指定する。 -->
       <form action="" method="post" enctype="multipart/form-data">
+
         <!-- 共通エラーの出力 -->
         <div class="area-msg">
           <?php
@@ -265,25 +369,90 @@ if(!empty($_POST['cancel-button'] === '変更を取り消す')){
           </div>
         </label>
 
+        <label class="<?php if(!empty($err_msg['dmState'])) echo 'err'; ?>">
+          <div class="profEdiUserProfile__dmState">
+              <div class="profEdiUserProfile__dmState-areaMsg">
+                <?php
+                if(!empty($formTransmission->getPassErr_ms())) echo $formTransmission->getPassErr_ms();
+                ?>
+              </div>
+              <div class="profEdiUserProfile__dmState-element">DM可否</div>
+                <!-- 許可か拒否の二択から選択できる様にする。 -->
+                <input class="profEdiUserProfile__dmState-output" type="text" name="dmState" value="">
+              </div>
+          </div>
+        </label>
 
+        <div class="profEdiUserProfile__employeeInfoWrap">
+          <label class="<?php if(!empty($err_msg['affiliationCompany'])) echo 'err'; ?>">
+            <div class="profEdiUserProfile__affiliationCompany">
+              <div class="profEdiUserProfile__affiliationCompany-areaMsg">
+                  <?php
+                  if(!empty($formTransmission->getPassErr_ms())) echo $formTransmission->getPassErr_ms();
+                  ?>
+              </div>
+              <h1 class="profEdiUserProfile__affiliationCompany-element">現所属会社</h1>
+              <input class="profEdiUserProfile__affiliationCompany-output" type="text" name="affiliationCompany" value="">
+            </div>
+          </label>
 
-        <!-- ======================ここから投稿者関係フォーム======================= -->
+          <div class="profEdiUserProfile__incumbentPositionWrap">
+            <label class="<?php if(!empty($err_msg['incumbent'])) echo 'err'; ?>">
+              <div class="profEdiUserProfile__incumbent">
+                <div class="profEdiUserProfile__incumbent-areaMsg">
+                    <?php
+                    if(!empty($formTransmission->getPassErr_ms())) echo $formTransmission->getPassErr_ms();
+                    ?>
+                </div>
+                <div class="profEdiUserProfile__incumbent-element">現職</div>
+                <input class="profEdiUserProfile__incumbent-output" type="text" name="incumbent" value="">
+              </div>
+            </label>
 
-        <!-- ここの投稿者関係フォーム関係は一旦「投稿者関係フォーム」ファイルにおいてある。 -->
+            <label class="<?php if(!empty($err_msg['position'])) echo 'err'; ?>">
+              <div class="profEdiUserProfile__Position">
+                <div class="profEdiUserProfile__Position-areaMsg">
+                    <?php
+                    if(!empty($formTransmission->getPassErr_ms())) echo $formTransmission->getPassErr_ms();
+                    ?>
+                </div>
+                <div class="profEdiUserProfile__Position-element">現役職</div>
+                <input class="profEdiUserProfile__Position-output" type="text" name="position" value="">
+              </div>
+            </label>
+          </div>
 
-    <!-- ======================ここまで投稿者関係フォーム======================= -->
+          <label class="<?php if(!empty($err_msg['currentDepartment'])) echo 'err'; ?>">
+            <div class="profEdiUserProfile__currentDepartment">
+              <div class="profEdiUserProfile__currentDepartment-areaMsg">
+                  <?php
+                  if(!empty($formTransmission->getPassErr_ms())) echo $formTransmission->getPassErr_ms();
+                  ?>
+              </div>
+              <div class="profEdiUserProfile__currentDepartment-element">現部署</div>
+              <input class="profEdiUserProfile__currentDepartment-output" type="text" name="currentDepartment" value="">
+            </div>
+          </label>
+        </div>
 
-    </section>
+      </section>
 
-    <div class="profEdiUserProfile__bottom-wrap">
-      <!-- post内容を初期化したのち、マイページへ移動 -->
-      <input type="submit" name='cancel-button' class="profEdiUserProfile__bottom-return" value="変更を取り消す">
-      <!-- 送信処理に沿って画面遷移 -->
-      <input type="submit" name='update-button' class="profEdiUserProfile__bottom-next" value="変更する">
+      <div class="profEdiUserProfile__bottom-wrap" style="margin-bottom:5px;">
+        <!-- post内容を初期化したのち、マイページへ移動 -->
+        <input type="submit" name='cancel-button' class="profEdiUserProfile__bottom-return" value="変更を取り消す">
+        <!-- 送信処理に沿って画面遷移 -->
+        <input type="submit" name='update-button' class="profEdiUserProfile__bottom-next" value="変更する">
+      </div>
 
-    </div>
-  </form>
+    </form>
 
+  <?php
+    }elseif(empty($userDate->getRoll() === 1)){
+  ?>
+
+  <?php
+  }
+  ?>
   <?php
   // フッター要素の読み込み
     require('./footer.php');
