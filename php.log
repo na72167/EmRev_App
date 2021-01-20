@@ -1,0 +1,1121 @@
+[20-Jan-2021 15:08:03 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 15:08:03 Asia/Tokyo] デバッグ：プロフィール編集ページ
+[20-Jan-2021 15:08:03 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 15:08:03 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[20-Jan-2021 15:08:03 Asia/Tokyo] デバッグ：セッションID：bnfvhml1d41ss6tejtfmr10u5u
+[20-Jan-2021 15:08:03 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+(
+    [login_date] => 1611041739
+    [login_limit] => 3600
+    [user_id] => 1
+    [msg_success] => 
+)
+
+[20-Jan-2021 15:08:03 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611122883
+[20-Jan-2021 15:08:03 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611045339
+[20-Jan-2021 15:08:03 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[20-Jan-2021 15:08:03 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 15:08:03 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-13 21:18:08
+    [update_date:protected] => 2021-01-13 21:18:08
+)
+
+[20-Jan-2021 15:08:03 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 15:08:03 Asia/Tokyo] デバッグ：権限確認処理
+[20-Jan-2021 15:08:03 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 15:08:03 Asia/Tokyo] デバッグ：一般ユーザーの情報を取得します。
+[20-Jan-2021 15:08:03 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 15:08:03 Asia/Tokyo] デバッグ：取得した一般ユーザー情報：classes\userProp\generalUserProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [user_id:protected] => 1
+    [username:protected] => test
+    [age:protected] => 22
+    [tel:protected] => 1
+    [profImg:protected] => 
+    [zip:protected] => 0
+    [addr:protected] => 
+    [create_date:protected] => 2021-01-19 19:21:07
+    [update_date:protected] => 2021-01-19 22:49:46
+    [err_msUsername:protected] => 
+    [err_msAge:protected] => 
+    [err_msTel:protected] => 
+    [err_msZip:protected] => 
+    [err_msAddr:protected] => 
+    [err_msCommon:protected] => 
+)
+
+[20-Jan-2021 15:08:03 Asia/Tokyo] PHP Notice:  Undefined index: update-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 67
+[20-Jan-2021 15:08:03 Asia/Tokyo] PHP Notice:  Undefined index: cancel-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 159
+[20-Jan-2021 15:08:03 Asia/Tokyo] デバッグ：セッション変数の中身：
+[20-Jan-2021 15:12:09 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 15:12:09 Asia/Tokyo] デバッグ：プロフィール編集ページ
+[20-Jan-2021 15:12:09 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 15:12:09 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[20-Jan-2021 15:12:09 Asia/Tokyo] デバッグ：セッションID：mdq3lshvcufhfbl81e96jqveo0
+[20-Jan-2021 15:12:09 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+(
+    [login_date] => 1611041739
+    [login_limit] => 3600
+    [user_id] => 1
+    [msg_success] => 
+)
+
+[20-Jan-2021 15:12:09 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611123129
+[20-Jan-2021 15:12:09 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611045339
+[20-Jan-2021 15:12:09 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[20-Jan-2021 15:12:09 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 15:12:09 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-13 21:18:08
+    [update_date:protected] => 2021-01-13 21:18:08
+)
+
+[20-Jan-2021 15:12:09 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 15:12:09 Asia/Tokyo] デバッグ：権限確認処理
+[20-Jan-2021 15:12:09 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 15:12:09 Asia/Tokyo] デバッグ：一般ユーザーの情報を取得します。
+[20-Jan-2021 15:12:09 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 15:12:09 Asia/Tokyo] デバッグ：取得した一般ユーザー情報：classes\userProp\generalUserProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [user_id:protected] => 1
+    [username:protected] => test
+    [age:protected] => 22
+    [tel:protected] => 1
+    [profImg:protected] => 
+    [zip:protected] => 0
+    [addr:protected] => 
+    [create_date:protected] => 2021-01-19 19:21:07
+    [update_date:protected] => 2021-01-19 22:49:46
+    [err_msUsername:protected] => 
+    [err_msAge:protected] => 
+    [err_msTel:protected] => 
+    [err_msZip:protected] => 
+    [err_msAddr:protected] => 
+    [err_msCommon:protected] => 
+)
+
+[20-Jan-2021 15:12:09 Asia/Tokyo] PHP Notice:  Undefined index: update-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 67
+[20-Jan-2021 15:12:09 Asia/Tokyo] PHP Notice:  Undefined index: cancel-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 159
+[20-Jan-2021 15:12:09 Asia/Tokyo] デバッグ：セッション変数の中身：
+[20-Jan-2021 15:12:19 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 15:12:19 Asia/Tokyo] デバッグ：プロフィール編集ページ
+[20-Jan-2021 15:12:19 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 15:12:19 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[20-Jan-2021 15:12:19 Asia/Tokyo] デバッグ：セッションID：fho0irvbdlf31p4tcf2a6n4e5l
+[20-Jan-2021 15:12:19 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+(
+    [login_date] => 1611041739
+    [login_limit] => 3600
+    [user_id] => 1
+    [msg_success] => 
+)
+
+[20-Jan-2021 15:12:19 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611123139
+[20-Jan-2021 15:12:19 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611045339
+[20-Jan-2021 15:12:19 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[20-Jan-2021 15:12:19 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 15:12:19 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-13 21:18:08
+    [update_date:protected] => 2021-01-13 21:18:08
+)
+
+[20-Jan-2021 15:12:19 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 15:12:19 Asia/Tokyo] デバッグ：権限確認処理
+[20-Jan-2021 15:12:19 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 15:12:19 Asia/Tokyo] デバッグ：一般ユーザーの情報を取得します。
+[20-Jan-2021 15:12:19 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 15:12:19 Asia/Tokyo] デバッグ：取得した一般ユーザー情報：classes\userProp\generalUserProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [user_id:protected] => 1
+    [username:protected] => test
+    [age:protected] => 22
+    [tel:protected] => 1
+    [profImg:protected] => 
+    [zip:protected] => 0
+    [addr:protected] => 
+    [create_date:protected] => 2021-01-19 19:21:07
+    [update_date:protected] => 2021-01-19 22:49:46
+    [err_msUsername:protected] => 
+    [err_msAge:protected] => 
+    [err_msTel:protected] => 
+    [err_msZip:protected] => 
+    [err_msAddr:protected] => 
+    [err_msCommon:protected] => 
+)
+
+[20-Jan-2021 15:12:19 Asia/Tokyo] PHP Notice:  Undefined index: update-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 67
+[20-Jan-2021 15:12:19 Asia/Tokyo] PHP Notice:  Undefined index: cancel-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 159
+[20-Jan-2021 15:12:19 Asia/Tokyo] デバッグ：セッション変数の中身：
+[20-Jan-2021 15:12:28 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 15:12:28 Asia/Tokyo] デバッグ：プロフィール編集ページ
+[20-Jan-2021 15:12:28 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 15:12:28 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[20-Jan-2021 15:12:28 Asia/Tokyo] デバッグ：セッションID：erp9kprh5ve46m1a3drpahteu4
+[20-Jan-2021 15:12:28 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+(
+    [login_date] => 1611041739
+    [login_limit] => 3600
+    [user_id] => 1
+    [msg_success] => 
+)
+
+[20-Jan-2021 15:12:28 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611123148
+[20-Jan-2021 15:12:28 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611045339
+[20-Jan-2021 15:12:28 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[20-Jan-2021 15:12:28 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 15:12:28 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-13 21:18:08
+    [update_date:protected] => 2021-01-13 21:18:08
+)
+
+[20-Jan-2021 15:12:28 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 15:12:28 Asia/Tokyo] デバッグ：権限確認処理
+[20-Jan-2021 15:12:28 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 15:12:28 Asia/Tokyo] デバッグ：一般ユーザーの情報を取得します。
+[20-Jan-2021 15:12:28 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 15:12:28 Asia/Tokyo] デバッグ：取得した一般ユーザー情報：classes\userProp\generalUserProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [user_id:protected] => 1
+    [username:protected] => test
+    [age:protected] => 22
+    [tel:protected] => 1
+    [profImg:protected] => 
+    [zip:protected] => 0
+    [addr:protected] => 
+    [create_date:protected] => 2021-01-19 19:21:07
+    [update_date:protected] => 2021-01-19 22:49:46
+    [err_msUsername:protected] => 
+    [err_msAge:protected] => 
+    [err_msTel:protected] => 
+    [err_msZip:protected] => 
+    [err_msAddr:protected] => 
+    [err_msCommon:protected] => 
+)
+
+[20-Jan-2021 15:12:28 Asia/Tokyo] PHP Notice:  Undefined index: update-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 67
+[20-Jan-2021 15:12:28 Asia/Tokyo] PHP Notice:  Undefined index: cancel-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 159
+[20-Jan-2021 15:12:28 Asia/Tokyo] デバッグ：セッション変数の中身：
+[20-Jan-2021 15:13:09 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 15:13:09 Asia/Tokyo] デバッグ：プロフィール編集ページ
+[20-Jan-2021 15:13:09 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 15:13:09 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[20-Jan-2021 15:13:09 Asia/Tokyo] デバッグ：セッションID：fa153hd7gmashh580c1bjhqj84
+[20-Jan-2021 15:13:09 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+(
+    [login_date] => 1611041739
+    [login_limit] => 3600
+    [user_id] => 1
+    [msg_success] => 
+)
+
+[20-Jan-2021 15:13:09 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611123189
+[20-Jan-2021 15:13:09 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611045339
+[20-Jan-2021 15:13:09 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[20-Jan-2021 15:13:09 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 15:13:09 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-13 21:18:08
+    [update_date:protected] => 2021-01-13 21:18:08
+)
+
+[20-Jan-2021 15:13:09 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 15:13:09 Asia/Tokyo] デバッグ：権限確認処理
+[20-Jan-2021 15:13:09 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 15:13:09 Asia/Tokyo] デバッグ：一般ユーザーの情報を取得します。
+[20-Jan-2021 15:13:09 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 15:13:09 Asia/Tokyo] デバッグ：取得した一般ユーザー情報：classes\userProp\generalUserProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [user_id:protected] => 1
+    [username:protected] => test
+    [age:protected] => 22
+    [tel:protected] => 1
+    [profImg:protected] => 
+    [zip:protected] => 0
+    [addr:protected] => 
+    [create_date:protected] => 2021-01-19 19:21:07
+    [update_date:protected] => 2021-01-19 22:49:46
+    [err_msUsername:protected] => 
+    [err_msAge:protected] => 
+    [err_msTel:protected] => 
+    [err_msZip:protected] => 
+    [err_msAddr:protected] => 
+    [err_msCommon:protected] => 
+)
+
+[20-Jan-2021 15:13:09 Asia/Tokyo] PHP Notice:  Undefined index: update-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 67
+[20-Jan-2021 15:13:09 Asia/Tokyo] PHP Notice:  Undefined index: cancel-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 159
+[20-Jan-2021 15:13:09 Asia/Tokyo] デバッグ：セッション変数の中身：
+[20-Jan-2021 15:13:20 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 15:13:20 Asia/Tokyo] デバッグ：プロフィール編集ページ
+[20-Jan-2021 15:13:20 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 15:13:20 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[20-Jan-2021 15:13:20 Asia/Tokyo] デバッグ：セッションID：uh6bg487nqdglf7ee1isee8o9c
+[20-Jan-2021 15:13:20 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+(
+    [login_date] => 1611041739
+    [login_limit] => 3600
+    [user_id] => 1
+    [msg_success] => 
+)
+
+[20-Jan-2021 15:13:20 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611123200
+[20-Jan-2021 15:13:20 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611045339
+[20-Jan-2021 15:13:20 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[20-Jan-2021 15:13:20 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 15:13:20 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-13 21:18:08
+    [update_date:protected] => 2021-01-13 21:18:08
+)
+
+[20-Jan-2021 15:13:20 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 15:13:20 Asia/Tokyo] デバッグ：権限確認処理
+[20-Jan-2021 15:13:20 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 15:13:20 Asia/Tokyo] デバッグ：一般ユーザーの情報を取得します。
+[20-Jan-2021 15:13:20 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 15:13:20 Asia/Tokyo] デバッグ：取得した一般ユーザー情報：classes\userProp\generalUserProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [user_id:protected] => 1
+    [username:protected] => test
+    [age:protected] => 22
+    [tel:protected] => 1
+    [profImg:protected] => 
+    [zip:protected] => 0
+    [addr:protected] => 
+    [create_date:protected] => 2021-01-19 19:21:07
+    [update_date:protected] => 2021-01-19 22:49:46
+    [err_msUsername:protected] => 
+    [err_msAge:protected] => 
+    [err_msTel:protected] => 
+    [err_msZip:protected] => 
+    [err_msAddr:protected] => 
+    [err_msCommon:protected] => 
+)
+
+[20-Jan-2021 15:13:20 Asia/Tokyo] PHP Notice:  Undefined index: update-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 67
+[20-Jan-2021 15:13:20 Asia/Tokyo] PHP Notice:  Undefined index: cancel-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 159
+[20-Jan-2021 15:13:20 Asia/Tokyo] デバッグ：セッション変数の中身：
+[20-Jan-2021 15:14:00 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 15:14:00 Asia/Tokyo] デバッグ：プロフィール編集ページ
+[20-Jan-2021 15:14:00 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 15:14:00 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[20-Jan-2021 15:14:00 Asia/Tokyo] デバッグ：セッションID：0p54l6fa96ej3ge5jn2kper3me
+[20-Jan-2021 15:14:00 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+(
+    [login_date] => 1611041739
+    [login_limit] => 3600
+    [user_id] => 1
+    [msg_success] => 
+)
+
+[20-Jan-2021 15:14:00 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611123240
+[20-Jan-2021 15:14:00 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611045339
+[20-Jan-2021 15:14:00 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[20-Jan-2021 15:14:00 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 15:14:00 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-13 21:18:08
+    [update_date:protected] => 2021-01-13 21:18:08
+)
+
+[20-Jan-2021 15:14:00 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 15:14:00 Asia/Tokyo] デバッグ：権限確認処理
+[20-Jan-2021 15:14:00 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 15:14:00 Asia/Tokyo] デバッグ：一般ユーザーの情報を取得します。
+[20-Jan-2021 15:14:00 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 15:14:00 Asia/Tokyo] デバッグ：取得した一般ユーザー情報：classes\userProp\generalUserProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [user_id:protected] => 1
+    [username:protected] => test
+    [age:protected] => 22
+    [tel:protected] => 1
+    [profImg:protected] => 
+    [zip:protected] => 0
+    [addr:protected] => 
+    [create_date:protected] => 2021-01-19 19:21:07
+    [update_date:protected] => 2021-01-19 22:49:46
+    [err_msUsername:protected] => 
+    [err_msAge:protected] => 
+    [err_msTel:protected] => 
+    [err_msZip:protected] => 
+    [err_msAddr:protected] => 
+    [err_msCommon:protected] => 
+)
+
+[20-Jan-2021 15:14:00 Asia/Tokyo] PHP Notice:  Undefined index: update-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 67
+[20-Jan-2021 15:14:00 Asia/Tokyo] PHP Notice:  Undefined index: cancel-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 159
+[20-Jan-2021 15:14:00 Asia/Tokyo] デバッグ：セッション変数の中身：
+[20-Jan-2021 15:14:14 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 15:14:14 Asia/Tokyo] デバッグ：プロフィール編集ページ
+[20-Jan-2021 15:14:14 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 15:14:14 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[20-Jan-2021 15:14:14 Asia/Tokyo] デバッグ：セッションID：vedcbtcg08vsu0ksnr5l3t6u9e
+[20-Jan-2021 15:14:14 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+(
+    [login_date] => 1611041739
+    [login_limit] => 3600
+    [user_id] => 1
+    [msg_success] => 
+)
+
+[20-Jan-2021 15:14:14 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611123254
+[20-Jan-2021 15:14:14 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611045339
+[20-Jan-2021 15:14:14 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[20-Jan-2021 15:14:14 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 15:14:14 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-13 21:18:08
+    [update_date:protected] => 2021-01-13 21:18:08
+)
+
+[20-Jan-2021 15:14:14 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 15:14:14 Asia/Tokyo] デバッグ：権限確認処理
+[20-Jan-2021 15:14:14 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 15:14:14 Asia/Tokyo] デバッグ：一般ユーザーの情報を取得します。
+[20-Jan-2021 15:14:14 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 15:14:14 Asia/Tokyo] デバッグ：取得した一般ユーザー情報：classes\userProp\generalUserProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [user_id:protected] => 1
+    [username:protected] => test
+    [age:protected] => 22
+    [tel:protected] => 1
+    [profImg:protected] => 
+    [zip:protected] => 0
+    [addr:protected] => 
+    [create_date:protected] => 2021-01-19 19:21:07
+    [update_date:protected] => 2021-01-19 22:49:46
+    [err_msUsername:protected] => 
+    [err_msAge:protected] => 
+    [err_msTel:protected] => 
+    [err_msZip:protected] => 
+    [err_msAddr:protected] => 
+    [err_msCommon:protected] => 
+)
+
+[20-Jan-2021 15:14:14 Asia/Tokyo] PHP Notice:  Undefined index: update-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 67
+[20-Jan-2021 15:14:14 Asia/Tokyo] PHP Notice:  Undefined index: cancel-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 159
+[20-Jan-2021 15:14:14 Asia/Tokyo] デバッグ：セッション変数の中身：
+[20-Jan-2021 15:14:21 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 15:14:21 Asia/Tokyo] デバッグ：プロフィール編集ページ
+[20-Jan-2021 15:14:21 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 15:14:21 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[20-Jan-2021 15:14:21 Asia/Tokyo] デバッグ：セッションID：69ar05hik9dc1kks3lvv9961s7
+[20-Jan-2021 15:14:21 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+(
+    [login_date] => 1611041739
+    [login_limit] => 3600
+    [user_id] => 1
+    [msg_success] => 
+)
+
+[20-Jan-2021 15:14:21 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611123261
+[20-Jan-2021 15:14:21 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611045339
+[20-Jan-2021 15:14:21 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[20-Jan-2021 15:14:21 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 15:14:21 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-13 21:18:08
+    [update_date:protected] => 2021-01-13 21:18:08
+)
+
+[20-Jan-2021 15:14:21 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 15:14:21 Asia/Tokyo] デバッグ：権限確認処理
+[20-Jan-2021 15:14:21 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 15:14:21 Asia/Tokyo] デバッグ：一般ユーザーの情報を取得します。
+[20-Jan-2021 15:14:21 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 15:14:21 Asia/Tokyo] デバッグ：取得した一般ユーザー情報：classes\userProp\generalUserProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [user_id:protected] => 1
+    [username:protected] => test
+    [age:protected] => 22
+    [tel:protected] => 1
+    [profImg:protected] => 
+    [zip:protected] => 0
+    [addr:protected] => 
+    [create_date:protected] => 2021-01-19 19:21:07
+    [update_date:protected] => 2021-01-19 22:49:46
+    [err_msUsername:protected] => 
+    [err_msAge:protected] => 
+    [err_msTel:protected] => 
+    [err_msZip:protected] => 
+    [err_msAddr:protected] => 
+    [err_msCommon:protected] => 
+)
+
+[20-Jan-2021 15:14:21 Asia/Tokyo] PHP Notice:  Undefined index: update-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 67
+[20-Jan-2021 15:14:21 Asia/Tokyo] PHP Notice:  Undefined index: cancel-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 159
+[20-Jan-2021 15:14:21 Asia/Tokyo] デバッグ：セッション変数の中身：
+[20-Jan-2021 15:14:31 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 15:14:31 Asia/Tokyo] デバッグ：プロフィール編集ページ
+[20-Jan-2021 15:14:31 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 15:14:31 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[20-Jan-2021 15:14:31 Asia/Tokyo] デバッグ：セッションID：rerfglfbvtp73p7t8gkkk34h2b
+[20-Jan-2021 15:14:31 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+(
+    [login_date] => 1611041739
+    [login_limit] => 3600
+    [user_id] => 1
+    [msg_success] => 
+)
+
+[20-Jan-2021 15:14:31 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611123271
+[20-Jan-2021 15:14:31 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611045339
+[20-Jan-2021 15:14:31 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[20-Jan-2021 15:14:31 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 15:14:31 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-13 21:18:08
+    [update_date:protected] => 2021-01-13 21:18:08
+)
+
+[20-Jan-2021 15:14:31 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 15:14:31 Asia/Tokyo] デバッグ：権限確認処理
+[20-Jan-2021 15:14:31 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 15:14:31 Asia/Tokyo] デバッグ：一般ユーザーの情報を取得します。
+[20-Jan-2021 15:14:31 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 15:14:31 Asia/Tokyo] デバッグ：取得した一般ユーザー情報：classes\userProp\generalUserProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [user_id:protected] => 1
+    [username:protected] => test
+    [age:protected] => 22
+    [tel:protected] => 1
+    [profImg:protected] => 
+    [zip:protected] => 0
+    [addr:protected] => 
+    [create_date:protected] => 2021-01-19 19:21:07
+    [update_date:protected] => 2021-01-19 22:49:46
+    [err_msUsername:protected] => 
+    [err_msAge:protected] => 
+    [err_msTel:protected] => 
+    [err_msZip:protected] => 
+    [err_msAddr:protected] => 
+    [err_msCommon:protected] => 
+)
+
+[20-Jan-2021 15:14:31 Asia/Tokyo] PHP Notice:  Undefined index: update-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 67
+[20-Jan-2021 15:14:31 Asia/Tokyo] PHP Notice:  Undefined index: cancel-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 159
+[20-Jan-2021 15:14:31 Asia/Tokyo] デバッグ：セッション変数の中身：
+[20-Jan-2021 15:14:41 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 15:14:41 Asia/Tokyo] デバッグ：プロフィール編集ページ
+[20-Jan-2021 15:14:41 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 15:14:41 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[20-Jan-2021 15:14:41 Asia/Tokyo] デバッグ：セッションID：mbhcjk208mm3t0eqrd3mnegqfl
+[20-Jan-2021 15:14:41 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+(
+    [login_date] => 1611041739
+    [login_limit] => 3600
+    [user_id] => 1
+    [msg_success] => 
+)
+
+[20-Jan-2021 15:14:41 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611123281
+[20-Jan-2021 15:14:41 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611045339
+[20-Jan-2021 15:14:41 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[20-Jan-2021 15:14:41 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 15:14:41 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-13 21:18:08
+    [update_date:protected] => 2021-01-13 21:18:08
+)
+
+[20-Jan-2021 15:14:41 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 15:14:41 Asia/Tokyo] デバッグ：権限確認処理
+[20-Jan-2021 15:14:41 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 15:14:41 Asia/Tokyo] デバッグ：一般ユーザーの情報を取得します。
+[20-Jan-2021 15:14:41 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 15:14:41 Asia/Tokyo] デバッグ：取得した一般ユーザー情報：classes\userProp\generalUserProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [user_id:protected] => 1
+    [username:protected] => test
+    [age:protected] => 22
+    [tel:protected] => 1
+    [profImg:protected] => 
+    [zip:protected] => 0
+    [addr:protected] => 
+    [create_date:protected] => 2021-01-19 19:21:07
+    [update_date:protected] => 2021-01-19 22:49:46
+    [err_msUsername:protected] => 
+    [err_msAge:protected] => 
+    [err_msTel:protected] => 
+    [err_msZip:protected] => 
+    [err_msAddr:protected] => 
+    [err_msCommon:protected] => 
+)
+
+[20-Jan-2021 15:14:41 Asia/Tokyo] PHP Notice:  Undefined index: update-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 67
+[20-Jan-2021 15:14:41 Asia/Tokyo] PHP Notice:  Undefined index: cancel-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 159
+[20-Jan-2021 15:14:41 Asia/Tokyo] デバッグ：セッション変数の中身：
+[20-Jan-2021 15:16:12 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 15:16:12 Asia/Tokyo] デバッグ：プロフィール編集ページ
+[20-Jan-2021 15:16:12 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 15:16:12 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[20-Jan-2021 15:16:12 Asia/Tokyo] デバッグ：セッションID：tid120v44mk0ks50muvdcjh05a
+[20-Jan-2021 15:16:12 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+(
+    [login_date] => 1611041739
+    [login_limit] => 3600
+    [user_id] => 1
+    [msg_success] => 
+)
+
+[20-Jan-2021 15:16:12 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611123372
+[20-Jan-2021 15:16:12 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611045339
+[20-Jan-2021 15:16:12 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[20-Jan-2021 15:16:12 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 15:16:12 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-13 21:18:08
+    [update_date:protected] => 2021-01-13 21:18:08
+)
+
+[20-Jan-2021 15:16:12 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 15:16:12 Asia/Tokyo] デバッグ：権限確認処理
+[20-Jan-2021 15:16:12 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 15:16:12 Asia/Tokyo] デバッグ：一般ユーザーの情報を取得します。
+[20-Jan-2021 15:16:12 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 15:16:12 Asia/Tokyo] デバッグ：取得した一般ユーザー情報：classes\userProp\generalUserProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [user_id:protected] => 1
+    [username:protected] => test
+    [age:protected] => 22
+    [tel:protected] => 1
+    [profImg:protected] => 
+    [zip:protected] => 0
+    [addr:protected] => 
+    [create_date:protected] => 2021-01-19 19:21:07
+    [update_date:protected] => 2021-01-19 22:49:46
+    [err_msUsername:protected] => 
+    [err_msAge:protected] => 
+    [err_msTel:protected] => 
+    [err_msZip:protected] => 
+    [err_msAddr:protected] => 
+    [err_msCommon:protected] => 
+)
+
+[20-Jan-2021 15:16:12 Asia/Tokyo] PHP Notice:  Undefined index: update-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 67
+[20-Jan-2021 15:16:12 Asia/Tokyo] PHP Notice:  Undefined index: cancel-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 159
+[20-Jan-2021 15:16:12 Asia/Tokyo] デバッグ：セッション変数の中身：
+[20-Jan-2021 15:16:28 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 15:16:28 Asia/Tokyo] デバッグ：プロフィール編集ページ
+[20-Jan-2021 15:16:28 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 15:16:28 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[20-Jan-2021 15:16:28 Asia/Tokyo] デバッグ：セッションID：1poo8hkm0lmpoc704873blq3p7
+[20-Jan-2021 15:16:28 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+(
+    [login_date] => 1611041739
+    [login_limit] => 3600
+    [user_id] => 1
+    [msg_success] => 
+)
+
+[20-Jan-2021 15:16:28 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611123388
+[20-Jan-2021 15:16:28 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611045339
+[20-Jan-2021 15:16:28 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[20-Jan-2021 15:16:28 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 15:16:28 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-13 21:18:08
+    [update_date:protected] => 2021-01-13 21:18:08
+)
+
+[20-Jan-2021 15:16:28 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 15:16:28 Asia/Tokyo] デバッグ：権限確認処理
+[20-Jan-2021 15:16:28 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 15:16:28 Asia/Tokyo] デバッグ：一般ユーザーの情報を取得します。
+[20-Jan-2021 15:16:28 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 15:16:28 Asia/Tokyo] デバッグ：取得した一般ユーザー情報：classes\userProp\generalUserProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [user_id:protected] => 1
+    [username:protected] => test
+    [age:protected] => 22
+    [tel:protected] => 1
+    [profImg:protected] => 
+    [zip:protected] => 0
+    [addr:protected] => 
+    [create_date:protected] => 2021-01-19 19:21:07
+    [update_date:protected] => 2021-01-19 22:49:46
+    [err_msUsername:protected] => 
+    [err_msAge:protected] => 
+    [err_msTel:protected] => 
+    [err_msZip:protected] => 
+    [err_msAddr:protected] => 
+    [err_msCommon:protected] => 
+)
+
+[20-Jan-2021 15:16:28 Asia/Tokyo] PHP Notice:  Undefined index: update-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 67
+[20-Jan-2021 15:16:28 Asia/Tokyo] PHP Notice:  Undefined index: cancel-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 159
+[20-Jan-2021 15:16:28 Asia/Tokyo] デバッグ：セッション変数の中身：
+[20-Jan-2021 16:14:10 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 16:14:10 Asia/Tokyo] デバッグ：プロフィール編集ページ
+[20-Jan-2021 16:14:10 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 16:14:10 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[20-Jan-2021 16:14:10 Asia/Tokyo] デバッグ：セッションID：4b5gloin2kqigh6r4lft1645g4
+[20-Jan-2021 16:14:10 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+(
+    [login_date] => 1611041739
+    [login_limit] => 3600
+    [user_id] => 1
+    [msg_success] => 
+)
+
+[20-Jan-2021 16:14:10 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611126850
+[20-Jan-2021 16:14:10 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611045339
+[20-Jan-2021 16:14:10 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[20-Jan-2021 16:14:10 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 16:14:10 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-13 21:18:08
+    [update_date:protected] => 2021-01-13 21:18:08
+)
+
+[20-Jan-2021 16:14:10 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 16:14:10 Asia/Tokyo] デバッグ：権限確認処理
+[20-Jan-2021 16:14:10 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 16:14:10 Asia/Tokyo] デバッグ：一般ユーザーの情報を取得します。
+[20-Jan-2021 16:14:10 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 16:14:10 Asia/Tokyo] デバッグ：取得した一般ユーザー情報：classes\userProp\generalUserProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [user_id:protected] => 1
+    [username:protected] => test
+    [age:protected] => 22
+    [tel:protected] => 1
+    [profImg:protected] => 
+    [zip:protected] => 0
+    [addr:protected] => 
+    [create_date:protected] => 2021-01-19 19:21:07
+    [update_date:protected] => 2021-01-19 22:49:46
+    [err_msUsername:protected] => 
+    [err_msAge:protected] => 
+    [err_msTel:protected] => 
+    [err_msZip:protected] => 
+    [err_msAddr:protected] => 
+    [err_msCommon:protected] => 
+)
+
+[20-Jan-2021 16:14:10 Asia/Tokyo] PHP Notice:  Undefined index: update-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 67
+[20-Jan-2021 16:14:10 Asia/Tokyo] PHP Notice:  Undefined index: cancel-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 163
+[20-Jan-2021 16:14:10 Asia/Tokyo] デバッグ：セッション変数の中身：
+[20-Jan-2021 16:14:10 Asia/Tokyo] PHP Notice:  Undefined variable: formTransmission in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 303
+[20-Jan-2021 16:14:10 Asia/Tokyo] PHP Fatal error:  Uncaught Error: Call to a member function getPassErr_ms() on null in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php:303
+Stack trace:
+#0 {main}
+  thrown in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 303
+[20-Jan-2021 16:14:43 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 16:14:43 Asia/Tokyo] デバッグ：プロフィール編集ページ
+[20-Jan-2021 16:14:43 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 16:14:43 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[20-Jan-2021 16:14:43 Asia/Tokyo] デバッグ：セッションID：vqrbutvrrrfcomhbm0ce1sr4ls
+[20-Jan-2021 16:14:43 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+(
+    [login_date] => 1611041739
+    [login_limit] => 3600
+    [user_id] => 1
+    [msg_success] => 
+)
+
+[20-Jan-2021 16:14:43 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611126883
+[20-Jan-2021 16:14:43 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611045339
+[20-Jan-2021 16:14:43 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[20-Jan-2021 16:14:43 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 16:14:43 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-13 21:18:08
+    [update_date:protected] => 2021-01-13 21:18:08
+)
+
+[20-Jan-2021 16:14:43 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 16:14:43 Asia/Tokyo] デバッグ：権限確認処理
+[20-Jan-2021 16:14:43 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 16:14:43 Asia/Tokyo] デバッグ：一般ユーザーの情報を取得します。
+[20-Jan-2021 16:14:43 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 16:14:43 Asia/Tokyo] デバッグ：取得した一般ユーザー情報：classes\userProp\generalUserProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [user_id:protected] => 1
+    [username:protected] => test
+    [age:protected] => 22
+    [tel:protected] => 1
+    [profImg:protected] => 
+    [zip:protected] => 0
+    [addr:protected] => 
+    [create_date:protected] => 2021-01-19 19:21:07
+    [update_date:protected] => 2021-01-19 22:49:46
+    [err_msUsername:protected] => 
+    [err_msAge:protected] => 
+    [err_msTel:protected] => 
+    [err_msZip:protected] => 
+    [err_msAddr:protected] => 
+    [err_msCommon:protected] => 
+)
+
+[20-Jan-2021 16:14:43 Asia/Tokyo] PHP Notice:  Undefined index: update-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 67
+[20-Jan-2021 16:14:43 Asia/Tokyo] PHP Notice:  Undefined index: cancel-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 163
+[20-Jan-2021 16:14:43 Asia/Tokyo] デバッグ：セッション変数の中身：
+[20-Jan-2021 16:18:15 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 16:18:15 Asia/Tokyo] デバッグ：プロフィール編集ページ
+[20-Jan-2021 16:18:15 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 16:18:15 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[20-Jan-2021 16:18:15 Asia/Tokyo] デバッグ：セッションID：2if3u0h352p45dfal05e45dpma
+[20-Jan-2021 16:18:15 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+(
+    [login_date] => 1611041739
+    [login_limit] => 3600
+    [user_id] => 1
+    [msg_success] => 
+)
+
+[20-Jan-2021 16:18:15 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611127095
+[20-Jan-2021 16:18:15 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611045339
+[20-Jan-2021 16:18:15 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[20-Jan-2021 16:18:15 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 16:18:15 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-13 21:18:08
+    [update_date:protected] => 2021-01-13 21:18:08
+)
+
+[20-Jan-2021 16:18:15 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 16:18:15 Asia/Tokyo] デバッグ：権限確認処理
+[20-Jan-2021 16:18:15 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 16:18:15 Asia/Tokyo] デバッグ：一般ユーザーの情報を取得します。
+[20-Jan-2021 16:18:15 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 16:18:15 Asia/Tokyo] デバッグ：取得した一般ユーザー情報：classes\userProp\generalUserProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [user_id:protected] => 1
+    [username:protected] => test
+    [age:protected] => 22
+    [tel:protected] => 1
+    [profImg:protected] => 
+    [zip:protected] => 0
+    [addr:protected] => 
+    [create_date:protected] => 2021-01-19 19:21:07
+    [update_date:protected] => 2021-01-19 22:49:46
+    [err_msUsername:protected] => 
+    [err_msAge:protected] => 
+    [err_msTel:protected] => 
+    [err_msZip:protected] => 
+    [err_msAddr:protected] => 
+    [err_msCommon:protected] => 
+)
+
+[20-Jan-2021 16:18:15 Asia/Tokyo] PHP Notice:  Undefined index: update-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 67
+[20-Jan-2021 16:18:15 Asia/Tokyo] PHP Notice:  Undefined index: cancel-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 163
+[20-Jan-2021 16:18:15 Asia/Tokyo] デバッグ：セッション変数の中身：
+[20-Jan-2021 16:18:31 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 16:18:31 Asia/Tokyo] デバッグ：プロフィール編集ページ
+[20-Jan-2021 16:18:31 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 16:18:31 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[20-Jan-2021 16:18:31 Asia/Tokyo] デバッグ：セッションID：qbhg8r4gr4ubtnrnjanajo6ro7
+[20-Jan-2021 16:18:31 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+(
+    [login_date] => 1611041739
+    [login_limit] => 3600
+    [user_id] => 1
+    [msg_success] => 
+)
+
+[20-Jan-2021 16:18:31 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611127111
+[20-Jan-2021 16:18:31 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611045339
+[20-Jan-2021 16:18:31 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[20-Jan-2021 16:18:31 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 16:18:31 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-13 21:18:08
+    [update_date:protected] => 2021-01-13 21:18:08
+)
+
+[20-Jan-2021 16:18:31 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 16:18:31 Asia/Tokyo] デバッグ：権限確認処理
+[20-Jan-2021 16:18:31 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 16:18:31 Asia/Tokyo] デバッグ：一般ユーザーの情報を取得します。
+[20-Jan-2021 16:18:31 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 16:18:31 Asia/Tokyo] デバッグ：取得した一般ユーザー情報：classes\userProp\generalUserProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [user_id:protected] => 1
+    [username:protected] => test
+    [age:protected] => 22
+    [tel:protected] => 1
+    [profImg:protected] => 
+    [zip:protected] => 0
+    [addr:protected] => 
+    [create_date:protected] => 2021-01-19 19:21:07
+    [update_date:protected] => 2021-01-19 22:49:46
+    [err_msUsername:protected] => 
+    [err_msAge:protected] => 
+    [err_msTel:protected] => 
+    [err_msZip:protected] => 
+    [err_msAddr:protected] => 
+    [err_msCommon:protected] => 
+)
+
+[20-Jan-2021 16:18:31 Asia/Tokyo] PHP Notice:  Undefined index: update-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 67
+[20-Jan-2021 16:18:31 Asia/Tokyo] PHP Notice:  Undefined index: cancel-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 163
+[20-Jan-2021 16:18:31 Asia/Tokyo] デバッグ：セッション変数の中身：
+[20-Jan-2021 16:20:07 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 16:20:07 Asia/Tokyo] デバッグ：プロフィール編集ページ
+[20-Jan-2021 16:20:07 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 16:20:07 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[20-Jan-2021 16:20:07 Asia/Tokyo] デバッグ：セッションID：1o2vk52o0dm2budpdusbg0d3jv
+[20-Jan-2021 16:20:07 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+(
+    [login_date] => 1611041739
+    [login_limit] => 3600
+    [user_id] => 1
+    [msg_success] => 
+)
+
+[20-Jan-2021 16:20:07 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611127207
+[20-Jan-2021 16:20:07 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611045339
+[20-Jan-2021 16:20:07 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[20-Jan-2021 16:20:07 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 16:20:07 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-13 21:18:08
+    [update_date:protected] => 2021-01-13 21:18:08
+)
+
+[20-Jan-2021 16:20:07 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[20-Jan-2021 16:20:07 Asia/Tokyo] デバッグ：権限確認処理
+[20-Jan-2021 16:20:07 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[20-Jan-2021 16:20:07 Asia/Tokyo] デバッグ：一般ユーザーの情報を取得します。
+[20-Jan-2021 16:20:07 Asia/Tokyo] デバッグ：クエリ成功。
+[20-Jan-2021 16:20:07 Asia/Tokyo] デバッグ：取得した一般ユーザー情報：classes\userProp\generalUserProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 100
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [user_id:protected] => 1
+    [username:protected] => test
+    [age:protected] => 22
+    [tel:protected] => 1
+    [profImg:protected] => 
+    [zip:protected] => 0
+    [addr:protected] => 
+    [create_date:protected] => 2021-01-19 19:21:07
+    [update_date:protected] => 2021-01-19 22:49:46
+    [err_msUsername:protected] => 
+    [err_msAge:protected] => 
+    [err_msTel:protected] => 
+    [err_msZip:protected] => 
+    [err_msAddr:protected] => 
+    [err_msCommon:protected] => 
+)
+
+[20-Jan-2021 16:20:07 Asia/Tokyo] PHP Notice:  Undefined index: update-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 67
+[20-Jan-2021 16:20:07 Asia/Tokyo] PHP Notice:  Undefined index: cancel-button in /Applications/MAMP/htdocs/EmRev/EmRev_app/profileEdit.php on line 163
+[20-Jan-2021 16:20:07 Asia/Tokyo] デバッグ：セッション変数の中身：
