@@ -279,7 +279,7 @@ if(!empty($_POST['cancel-button'] === '変更を取り消す')){
 
       <div class="profEdiUserProfile__bottom-wrap" style="margin-bottom:5px;">
         <!-- post内容を初期化したのち、マイページへ移動 -->
-        <input type="submit" name='cancel-button' class="profEdiUserProfile__bottom-return" value="変更を取り消す">
+        <input type="submit" name='cancel-button' class="profEdiUserProfile__bottom-return" onclick="location.href='mypage.php'" value="変更を取り消す">
         <!-- 送信処理に沿って画面遷移 -->
         <input type="submit" name='update-button' class="profEdiUserProfile__bottom-next" value="変更する">
       </div>

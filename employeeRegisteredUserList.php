@@ -1,6 +1,21 @@
 <?php
+ // declare(strict_types=1);
+  //主にuseを扱う際のルートディレクトリ指定に使ってる。
+  require('vendor/autoload.php');
+
+  use \PDO;
+  use \RuntimeException;
+  use \Exception;
+  use classes\admin\signup;
+  use classes\admin\login;
+  use classes\db\dbConnectFunction;
+  use classes\db\dbConnectPDO;
+  use classes\debug\debugFunction;
+?>
+
+<?php
   // タイトルの読み込み
-  $Page_Title = ‘マイページ’;
+  $Page_Title = 'マイページ';
   $Intro__Text_Title ='Employee UserList';
   $Intro__Text_Sub ='社員登録済みユーザー一覧画面';
   $Intro__Img = 'src="src/img/docs.png"';

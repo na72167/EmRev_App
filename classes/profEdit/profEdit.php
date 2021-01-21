@@ -146,12 +146,8 @@
       return $this->err_msAge;
     }
 
-    public function getErr_msAll():?string{
-      return $this->err_msUsername;
-      return $this->err_msTel;
-      return $this->err_msAddr;
-      return $this->err_msZip;
-      return $this->err_msAge;
+    public function getErr_msAll():?array{
+      return [$this->err_msUsername,$this->err_msTel,$this->err_msAddr,$this->err_msZip,$this->err_msAge];
     }
   }
 

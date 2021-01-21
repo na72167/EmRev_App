@@ -113,6 +113,11 @@ class signup extends validation{
 
   // =====getter=====
 
+  // id情報取得用ゲッター
+  public function getId(){
+    return $this->id;
+  }
+
   // email情報取得用ゲッター
   public function getEmail(){
     return $this->email;
@@ -151,11 +156,8 @@ class signup extends validation{
   }
 
   // エラーメッセージ一括取得用ゲッター
-  public function getErr_ms(){
-    return $this->err_msEmail;
-    return $this->err_msPass;
-    return $this->err_msPassRe;
-    return $this->err_msCommon;
+  public function getErr_ms():?array{
+    return [$this->err_msEmail,$this->err_msPass,$this->err_msPassRe,$this->err_msCommon];
   }
 }
 ?>
