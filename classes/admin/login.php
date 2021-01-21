@@ -121,10 +121,8 @@
   }
 
   // エラーメッセージ一括取得用ゲッター
-  public function getErr_ms(){
-    return $this->err_msEmail;
-    return $this->err_msPass;
-    return $this->err_msCommon;
+  public function getErr_ms():?array{
+    return [$this->err_msEmail,$this->err_msPass,$this->err_msCommon];
   }
 
   //Email用エラーメッセージ取得ゲッター

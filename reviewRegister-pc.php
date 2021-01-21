@@ -1,4 +1,17 @@
 <?php
+ // declare(strict_types=1);
+  //主にuseを扱う際のルートディレクトリ指定に使ってる。
+  require('vendor/autoload.php');
+
+  use \PDO;
+  use \RuntimeException;
+  use \Exception;
+  use classes\db\dbConnectFunction;
+  use classes\db\dbConnectPDO;
+  use classes\debug\debugFunction;
+?>
+
+<?php
   // タイトルの読み込み
   $Page_Title = 'レビュー登録画面';
   $Intro__Text_Title ='Review Register';

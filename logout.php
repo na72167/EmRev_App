@@ -1,6 +1,6 @@
 <?php
-  //autoloadやstrict_typesなどクラスでまとめる必要のない基本設定などをまとめている。
-  require('defaultSetting.php');
+
+require('vendor/autoload.php');
 
 use classes\debug\debugFunction;
 

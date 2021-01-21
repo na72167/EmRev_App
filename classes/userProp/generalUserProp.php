@@ -99,7 +99,7 @@
       return $this->id;
     }
 
-    public function getEmail():self{
+    public function getEmail():?string{
       return $this->email;
     }
 

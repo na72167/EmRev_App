@@ -42,10 +42,10 @@
       <li class="menuAbout__itemWrap-item">お気に入りレビュー一覧</li>
       <li class="menuAbout__itemWrap-item">登録レビュー一覧</li>
       <li class="menuAbout__itemWrap-item">閲覧履歴</li>
-      <li class="menuAbout__itemWrap-item">会社側登録</li>
+      <li class="menuAbout__itemWrap-item"><a class="menuLink-color" href="./employeeRegistration.php">投稿者登録</a></li>
       <li class="menuAbout__itemWrap-item">登録社員一覧</li>
       <li class="menuAbout__itemWrap-item">パスワード変更</li>
-      <li class="menuAbout__itemWrap-item">レビュー会社登録申請</li>
+      <li class="menuAbout__itemWrap-item"><a class="menuLink-color" href="./reviewCompanyRegistration.php">レビュー会社登録申請</li>
       <li class="menuAbout__itemWrap-item"><a class="menuLink-color" href="./withdrawal.php">退会する</a></li>
     </ul>
   </nav>

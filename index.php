@@ -50,25 +50,50 @@
 
     //キー定義されていないものを指定してvar_dump()するとstring(1) "�"が出力される。
     debugFunction::debug($formTransmission);
+    debugFunction::debug($formTransmission->getErr_ms(),true);
 
     //問題があった場合,バリテーション関数からエラーメッセージが返ってきてるはずなので
-    if(empty($formTransmission->getErr_ms())){
+    //getErr_msメソッドは返り値が配列になっている。
+    //emptyそのままだとkeyのみ割り振られている配列もfalseが返ってくるので
+    //keyのみ・value無しの要素は削除する必要があるので
+    //array_filterを挟んでいる。
+    // https://qiita.com/wonda/items/b4a425edd73880a13e62
+    if(empty(array_filter($formTransmission->getErr_ms()))){
 
       debugFunction::debug('バリデーションOKです。');
 
       //例外処理
-      //dbConnectPDO()を記述したファイルのみクラス・トレイト化・namespaceを使用していない。(PDOが上手く行かない為)
       try {
+
+      // ========================ユーザー登録処理==============================
 
         $signupProp = new dbConnectFunction($dbh->getPDO(),
         'INSERT INTO users (email,password,create_date) VALUES(:email,:pass,:create_date)',
         array(':email' => $formTransmission->getEmail(),':pass' => password_hash($formTransmission->getPass(),PASSWORD_DEFAULT),':create_date' => date('Y-m-d H:i:s')));
 
-        //sql文を実際に実行。insert文を使ってuserデータを登録する。
-        $stmt = dbConnectFunction::queryPost($signupProp->getDbh(), $signupProp->getSql(), $signupProp->getData());
+         //sql文を実際に実行。insert文を使ってuserデータを登録する。
+        $stmt1 = dbConnectFunction::queryPost($signupProp->getDbh(), $signupProp->getSql(), $signupProp->getData());
+
+        // ============================ここまで==========================
+
+        // ========================上で登録した新規ユーザーに紐付いたgeneral_profs関係のレコードを挿入==============================
+
+        // DBへ接続
+        $dbh2 = new dbConnectPDO();
+        // SQL文作成
+        //$signupProp->getDbh()->lastInsertId()で最後に追加したusersテーブル内レコードのidを取得。
+        //最後に追加したレコードは直前のINSERT INTO users~なので必ず紐付いたgeneral_profsテーブルのレコードが生成できる。
+        $sql2 = 'INSERT INTO general_profs (`user_id`) VALUES(:user_id)';
+        $data2 = array(':user_id' => $signupProp->getDbh()->lastInsertId());
+
+        debugFunction::debug('取得したdata：'.print_r($data2,true));
+        // クエリ実行
+        $stmt2 = dbConnectFunction::queryPost($dbh2->getPDO(), $sql2, $data2);
+
+      // ============================ここまで==========================
 
         // insert成功の場合
-        if($stmt){
+        if($stmt1 && $stmt2){
         //ログイン有効期限（デフォルトを１時間とする）
         $sesLimit = 60*60;
         // 最終ログイン日時を現在日時に
@@ -130,7 +155,7 @@ if(!empty($_POST) && $_POST['user_login'] === 'ログイン'){
   debugFunction::debug($loginFormTransmission);
 
   //問題があった場合set関数内のバリテーションで変数err_ms内にメッセージが入るのでそれを元に判定する
-  if(empty($loginFormTransmission->getErr_ms())){
+  if(empty(array_filter($loginFormTransmission->getErr_ms()))){
 
     debugFunction::debug('バリデーションOKです。');
 
@@ -149,6 +174,7 @@ if(!empty($_POST) && $_POST['user_login'] === 'ログイン'){
       //合致した場合、対応レコードが保持するpassword・id情報を取得する。
       $stmt = dbConnectFunction::queryPost($loginProp->getDbh(), $loginProp->getSql(), $loginProp->getData());
 
+      debugFunction::debug($stmt);
       //クエリ文の実行結果から取得したレコードをfetch関数を使ってkey・valueの連想配列配形式で管理する。
       //カラムがkey。レコードがvalueになる。
       //emailはuniqueである為、取得レコードは1つのみになるのでfetch。
@@ -241,6 +267,7 @@ if(!empty($_POST) && $_POST['user_login'] === 'ログイン'){
         <div class="hero__signup-loginWrap">
           <!-- 会員登録関係 -->
           <div class="hero__signup js-signup-style">
+
             <form action="" method="post" class="hero__signup-formStyle">
               <h2 class="hero__signup-title">SignUp</h2>
                 <div class="hero__signup-commonMsgArea">
