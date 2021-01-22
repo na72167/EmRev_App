@@ -61,9 +61,10 @@
     debugFunction::debug('会社情報申請処理に入りました。');
     debugFunction::debug('「「「「「「「「「「「「「');
 
-    $formTransmission = new companyApply($_POST['representative'],$_POST['location'],$_POST['industry'],$_POST['year_of_establishment'],$_POST['listed_year'],$_POST['number_of_employees'],$_POST['average_annual_income'],
-    $_POST['average_age'],'','','','','','','','','');
+    $formTransmission = new companyApply($_POST['company_name'],$_POST['representative'],$_POST['location'],$_POST['industry'],$_POST['year_of_establishment'],$_POST['listed_year'],$_POST['number_of_employees'],$_POST['average_annual_income'],
+    $_POST['average_age'],'','','','','','','','','','');
 
+    $formTransmission->setCompany_name($formTransmission->getCompany_name());
     $formTransmission->setRepresentative($formTransmission->getRepresentative());
     $formTransmission->setLocation($formTransmission->getLocation());
     $formTransmission->setIndustry($formTransmission->getIndustry());
@@ -72,35 +73,44 @@
     $formTransmission->setNumberOfEmployees($formTransmission->getNumber_of_employees());
     $formTransmission->setAverageAnnualIncome($formTransmission->getAverage_annual_income());
     $formTransmission->setAverageAge($formTransmission->getAverage_age());
-      if(empty(array_filter($formTransmission->getErr_msAll()))){
-        debugFunction::debug('バリデーションOKです。');
-            //例外処理
-        try {
-          // DBへ接続
-          $dbh = new dbConnectPDO();
-          // SQL文作成
-          $sql = 'INSERT INTO contributor_profs (`contributor_id`,`user_id`) VALUES(:contributor_id,:user_id)';
-          $data = array(':gp_name' => $profEdit->getUserName(),':gp_tel' => $profEdit->getTel(), ':gp_zip' => $profEdit->getZip(), ':gp_addr' => $profEdit->getAddr(), ':gp_age' => $profEdit->getAge(),  ':gp_profImg' => $profEdit->getProfImg(),':u_id' => $userDate->getID());
-          debugFunction::debug('取得したdata：'.print_r($data,true));
-          // クエリ実行
-          $stmt = dbConnectFunction::queryPost($dbh->getPDO(), $sql, $data);
 
-          // クエリ成功の場合
-          if($stmt){
-            $_SESSION['msg_success'] = 'プロフィールを更新しました。';
-            debugFunction::debug('マイページへ遷移します。');
-            header("Location:mypage.php"); //マイページへ
-          }
+    //ログインユーザーのidと同じ値をcontributor_idと紐付ける。
 
-        } catch (Exception $e) {
-          error_log('エラー発生:' . $e->getMessage());
-          $err_msg['common'] = 'エラーが発生しました。しばらく経ってからやり直してください。';
+    if(empty(array_filter($formTransmission->getErr_msAll()))){
+      debugFunction::debug('会社申請情報のバリデーションOKです。');
+
+      //例外処理
+      try {
+        // DBへ接続
+        $dbh = new dbConnectPDO();
+        // SQL文作成(1で代用している分はあとで書き換える)
+        $sql = 'INSERT INTO company_informations(`employee_review_id`,`company_name`,`industry`,`company_url`,`zip1`,`zip2`,`zip3`,`location`,`number_of_employees`,`year_of_establishment`,`representative`,`listed_year`,`average_annual_income`,`average_age`,`number_of_reviews`) VALUES(:employee_review_id,:company_name,:industry,:company_url,:zip1,:zip2,:zip3,:location,:number_of_employees,
+        :year_of_establishment,:representative,:listed_year,:average_annual_income,:average_age,:number_of_reviews)';
+        $data = array(':employee_review_id' => $userDate->getId(),':company_name' => $formTransmission->getCompany_name(),':industry' => $formTransmission->getIndustry(),':company_url' =>1,
+        ':zip1' =>1,':zip2' =>1,':zip3' =>1,':location' =>$formTransmission->getLocation(),':number_of_employees' =>$formTransmission->getNumber_of_employees(),
+        ':year_of_establishment' =>$formTransmission->getYearOfEstablishment(),':representative' =>$formTransmission->getRepresentative(),':listed_year' =>$formTransmission->getListed_year(),
+        ':average_annual_income' =>$formTransmission->getAverage_annual_income(),':average_age' =>$formTransmission->getAverage_age(),':number_of_reviews' =>1);
+        debugFunction::debug('取得したdata：'.print_r($data,true));
+        // クエリ実行
+        $stmt = dbConnectFunction::queryPost($dbh->getPDO(), $sql, $data);
+
+        // クエリ成功の場合
+        if($stmt){
+          $_SESSION['msg_success'] = 'プロフィールを更新しました。';
+          debugFunction::debug('マイページへ遷移します。');
+          header("Location:mypage.php"); //マイページへ
         }
+
+      } catch (Exception $e) {
+        error_log('エラー発生:' . $e->getMessage());
+        $err_msg['common'] = 'エラーが発生しました。しばらく経ってからやり直してください。';
       }
-  }elseif(!empty($_POST) && $_POST['cancel'] === 'キャンセル'){
-    // マイページへ遷移する。
-    header("Location:mypage.php");
-  }
+    }
+    }elseif(!empty($_POST) && $_POST['cancel'] === 'キャンセル'){
+      debugFunction::debug('会社情報申請をキャンセルします。');
+      // マイページへ遷移する。
+      header("Location:mypage.php");
+    }
 ?>
 
 <?php
