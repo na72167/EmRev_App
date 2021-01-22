@@ -21,6 +21,7 @@ class companyApply extends validation{
   //->他機能を追加時にバグの温床になりそうなので✗。
   //現在は各エラーメッセージ毎に切り分けている
 
+  protected $company_name;
   protected $representative;
   protected $location;
   protected $industry;
@@ -30,6 +31,7 @@ class companyApply extends validation{
   protected $average_annual_income;
   protected $average_age;
 
+  protected $err_msCompany_name;
   protected $err_msRepresentative;
   protected $err_msLocation;
   protected $err_msIndustry;
@@ -41,8 +43,9 @@ class companyApply extends validation{
   protected $err_msCommon;
 
   //=========コンストラクタ=========
-  public function __construct($representative,$location,$industry,$year_of_establishment,$listed_year,$number_of_employees,$average_annual_income,$average_age,$err_msRepresentative
-  ,$err_msLocation,$err_msIndustry,$err_msYear_of_establishment,$err_msListed_year,$err_msNumber_of_employees,$err_msAverage_annual_income,$err_msAverage_age,$err_msCommon){
+  public function __construct($company_name,$representative,$location,$industry,$year_of_establishment,$listed_year,$number_of_employees,$average_annual_income,$average_age,
+  $err_msCompany_name,$err_msRepresentative,$err_msLocation,$err_msIndustry,$err_msYear_of_establishment,$err_msListed_year,$err_msNumber_of_employees,$err_msAverage_annual_income,$err_msAverage_age,$err_msCommon){
+    $this->company_name = $company_name;
     $this->representative = $representative;
     $this->location = $location;
     $this->industry = $industry;
@@ -52,6 +55,7 @@ class companyApply extends validation{
     $this->average_annual_income = $average_annual_income;
     $this->average_age = $average_age;
 
+    $this->err_msCompany_name = $err_msCompany_name;
     $this->err_msRepresentative = $err_msRepresentative;
     $this->err_msLocation = $err_msLocation;
     $this->err_msIndustry = $err_msIndustry;
@@ -64,6 +68,21 @@ class companyApply extends validation{
   }
 
   //===============setter関数関係=================
+
+  // 会社名情報挿入用セッター
+  public function setCompany_name(string $str):void{
+    //未入力チェック
+    $this->validRequired($str,'err_msCompany_name');
+    //最大文字数チェック
+    $this->validMaxLen($str,'err_msCompany_name');
+    //最小文字数チェック
+    $this->validMinLen($str,'err_msCompany_name');
+    //上のバリテーション処理を行い,エラーメッセージが無い場合
+    //サニタイズ処理(全ての要素をHTML化->文字列に変更。その後対象プロパティ内を置き換える。)を行う。
+    if(empty($this->err_msCompany_name)){
+      $this->company_name = etc::sanitize($str);
+    }
+  }
 
   // 代表者情報挿入用セッター
   public function setRepresentative(string $str):void{
@@ -126,7 +145,7 @@ class companyApply extends validation{
   }
 
   // 上場年情報挿入用セッター
-  public function setListed_year(string $str):void{
+  public function setListed_year(int $str):void{
     //未入力チェック
     $this->validRequired($str,'err_msRepresentative');
     //最大文字数チェック
@@ -141,7 +160,7 @@ class companyApply extends validation{
   }
 
   // 従業員数情報挿入用セッター
-  public function setNumberOfEmployees(string $str):void{
+  public function setNumberOfEmployees(int $str):void{
     //未入力チェック
     $this->validRequired($str,'err_msNumber_of_employees');
     //最大文字数チェック
@@ -171,7 +190,7 @@ class companyApply extends validation{
   }
 
   // 平均年齢情報挿入用セッター
-  public function setAverageAge(string $str):void{
+  public function setAverageAge(int $str):void{
     //未入力チェック
     $this->validRequired($str,'err_msAverage_age');
     //最大文字数チェック
@@ -192,6 +211,10 @@ class companyApply extends validation{
   }
 
   //===============getter関数関係=================
+
+  public function getCompany_name():string{
+    return $this->company_name;
+  }
 
   public function getRepresentative():string{
     return $this->representative;
@@ -257,8 +280,8 @@ class companyApply extends validation{
     return $this->err_msCommon;
   }
 
-  public function getErr_msAll(){
-    return [$this->err_msRepresentative,$this->err_msLocation,$this->err_msIndustry,
+  public function getErr_msAll():?array{
+    return [$this->err_msCompany_name,$this->err_msRepresentative,$this->err_msLocation,$this->err_msIndustry,
     $this->err_msYear_of_establishment,$this->err_msListed_year,$this->err_msNumber_of_employees,$this->err_msAverage_age,$this->err_msCommon];
   }
 }

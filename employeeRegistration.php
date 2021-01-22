@@ -68,6 +68,7 @@
       //セッション情報破棄後index.phpへ飛ばす。
   }
 
+
   // post送信されていてなおかつ一般ユーザーだった場合。
   if(!empty($_POST['empregEmployeeRegister'] === '登録する') && $userDate->getRoll() === 100){
 
