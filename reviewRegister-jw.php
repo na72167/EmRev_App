@@ -14,7 +14,7 @@
 <!-- jwは「joinedGap・workの略」 -->
 <?php
   // タイトルの読み込み
-  $Page_Title = ‘レビュー登録画面’;
+  $Page_Title = "レビュー登録画面";
   $Intro__Text_Title ='Review Register';
   $Intro__Text_Sub ='入社後のギャップや働きがい';
   $Intro__Img = 'src="src/img/docs.png"';

@@ -1,4 +1,5 @@
 <?php
+
  // declare(strict_types=1);
   //主にuseを扱う際のルートディレクトリ指定に使ってる。
   require('vendor/autoload.php');
@@ -9,6 +10,140 @@
   use classes\db\dbConnectFunction;
   use classes\db\dbConnectPDO;
   use classes\debug\debugFunction;
+  use classes\userProp\userProp;
+  use classes\reviewRegister\reviewRegisterJr;
+  use classes\userProp\generalUserProp;
+  use classes\userProp\contributorUserProp;
+  use classes\etc\etc;
+
+  debugFunction::logSessionSetUp();
+  debugFunction::debug('「「「「「「「「「「「「「「「「「「「');
+  debugFunction::debug('レビュー投稿ページ(入社経路や在籍状況)');
+  debugFunction::debug('「「「「「「「「「「「「「');
+  debugFunction::debugLogStart();
+
+    // このあと$_SESSION['user_id']を参照してuserｓテーブルに関した情報のみを管理するuserクラスを作成。
+  // 中のrollプロパティにアクセス。その権限情報とuserクラスを元に一般・社員・管理者・退会済み用のSQLを発行・検索を行う。(退会済みは別)。
+  // getUserPropクラスを切り分ける。
+
+  //ログインデータ($_SESSION['user_id']の数字)に一致するUsers情報を取得する。
+  $userProp = userProp::getUserProp($_SESSION['user_id']);
+
+  //取得した情報をオブジェクト管理する。
+  $userDate = new userProp($userProp['id'],$userProp['email'],$userProp['password'],$userProp['roll'],$userProp['report_flg'],$userProp['delete_flg'],$userProp['create_date'],$userProp['update_date']);
+
+  //第二引数にtrueを指定した場合,string型で出力される様になる。
+  debugFunction::debug('取得したユーザー情報：'.print_r($userDate,true));
+
+  debugFunction::debug('「「「「「「「「「「「「「「「「「「「');
+  debugFunction::debug('権限確認処理');
+  debugFunction::debug('「「「「「「「「「「「「「');
+
+  // ログインユーザーの権限チェック
+  if($userDate->getRoll() === 100){
+      debugFunction::debug('取得した一般ユーザー情報：'.print_r($generalUserDate,true));
+      $_SESSION['msg_success'] = 'この機能を使うには投稿者登録する必要があります。';
+      debugFunction::debug('マイページへ遷移します。');
+      header("Location:mypage.php"); //マイページへ
+    }elseif($userDate->getRoll() === 50){
+      //投稿者ユーザー
+      $contributorUserProp = contributorUserProp::getContributorUserProp($userDate->getId());
+      //取得したレコードをオブジェクト単位で管理する。
+      $contributorUserDate = new contributorUserProp($contributorUserProp['id'],$contributorUserProp['username'],$contributorUserProp['age'],$contributorUserProp['tel'],$contributorUserProp['zip'],$contributorUserProp['addr'],$contributorUserProp['affiliation_company'],$contributorUserProp['incumbent'],$contributorUserProp['currently_department'],$contributorUserProp['currently_position'],$contributorUserProp['dm_state'],$contributorUserProp['delete_flg'],$contributorUserProp['create_date'],$contributorUserProp['update_date'],'');
+      debugFunction::debug('取得した投稿ユーザー情報：'.print_r($contributorUserDate,true));
+    }elseif($userDate->getRoll() === 1){
+      //管理者権限持ち
+    }elseif($userDate->getRoll() === 150){
+      //退会済み
+    }else{
+      //フラッシュメッセージで「権限が取得できません。ホームへ戻ります。」と表示
+      //セッション情報破棄後index.phpへ飛ばす。
+  }
+
+  // post送信されていてなおかつ投稿者登録ユーザーだった場合。
+  if(!empty($_POST['next'] === '次の項目へ') && $userDate->getRoll() === 50){
+
+    debugFunction::debug('POST送信があります。');
+    debugFunction::debug('POST情報：'.print_r($_POST,true));
+    debugFunction::debug('FILE情報：'.print_r($_FILES,true));
+
+    //フォーム送信前にもprofEdit関係のメソッドを扱いたいので先にインスタンス生成する。
+    $formTransmission = new reviewRegisterJr($_POST['joining_route'],$_POST['enrollment_status'],$_POST['occupation'],$_POST['position'],$_POST['enrollment_period']
+    ,$_POST['employment_status'],$_POST['welfare_office_environment'],$_POST['working_hours'],'','','','','','','','');
+
+    $formTransmission->setJoining_route($formTransmission->getJoining_route());
+    $formTransmission->setOccupation($formTransmission->getOccupation());
+    $formTransmission->setPosition($formTransmission->getPosition());
+    $formTransmission->setEnrollment_period($formTransmission->getEnrollment_period());
+    $formTransmission->setEnrollment_status($formTransmission->getEmployment_status());
+    $formTransmission->setEmployment_status($formTransmission->getEmployment_status());
+    $formTransmission->setWelfare_office_environment($formTransmission->getWelfare_office_environment());
+    $formTransmission->setWorking_hours($formTransmission->getWorking_hours());
+
+    //キー定義されていないものを指定してvar_dump()するとstring(1) "�"が出力される。
+    debugFunction::debug($formTransmission);
+    debugFunction::debug($formTransmission->getErr_msAll(),true);
+
+    //問題があった場合,バリテーション関数からエラーメッセージが返ってきてるはずなので
+    //getErr_msメソッドは返り値が配列になっている。
+    //emptyそのままだとkeyのみ割り振られている配列もfalseが返ってくるので
+    //keyのみ・value無しの要素は削除する必要があるので
+    //array_filterを挟んでいる。
+    //https://qiita.com/wonda/items/b4a425edd73880a13e62
+    if(empty(array_filter($formTransmission->getErr_msAll()))){
+
+      debugFunction::debug('バリデーションOKです。');
+
+      //例外処理
+      try {
+
+          debugFunction::debug('登録処理に入ります。');
+
+          // DBへ接続
+          $dbh = new dbConnectPDO();
+          // SQL文作成
+          //$signupProp->getDbh()->lastInsertId()で最後に追加したusersテーブル内レコードのidを取得。
+          //最後に追加したレコードは直前のINSERT INTO users~なので必ず紐付いたgeneral_profsテーブルのレコードが生成できる。
+          $sql = 'INSERT INTO employee_reviews (`employee_id`,`joining_route`,`occupation`,`position`,`enrollment_period`,`
+          enrollment_status`,`employment_status`,`welfare_office_environment`)
+          VALUES(:employee_id,:joining_route,:occupation,:position,:enrollment_period,:enrollment_status,:employment_status,
+          :welfare_office_environment,:working_hours)';
+          $data = array(':employee_id' => $signupProp->getDbh()->lastInsertId(),':joining_route' => ,':occupation' => ,':position' =>,'enrollment_period'=>,
+          ':enrollment_status' => ,'employment_status' => ,'welfare_office_environment' =>);
+
+          debugFunction::debug('取得したdata：'.print_r($data,true));
+          // クエリ実行
+          $stmt = dbConnectFunction::queryPost($dbh->getPDO(), $sql, $data);
+
+
+          // insert成功の場合
+          if($stmt){
+          //ログイン有効期限（デフォルトを１時間とする）
+          $sesLimit = 60*60;
+          // 最終ログイン日時を現在日時に
+          $_SESSION['login_date'] = time();
+          $_SESSION['login_limit'] = $sesLimit;
+          // ユーザーIDを格納
+          // 新しくユーザー登録をした = 対応テーブル最後尾にデータ追加されるのでlastInsertId()でID属性を取得してくる。
+          $_SESSION['user_id'] = $signupProp->getDbh()->lastInsertId();
+
+          // ポスト内情報の初期化
+          $_POST = [];
+          debugFunction::debug('セッション変数の中身：'.print_r($_SESSION,true));
+          header("Location:mypage.php"); //マイページへ
+          }
+        } catch (Exception $e) {
+          error_log('エラー発生:' . $e->getMessage());
+          $formTransmission->setCommonErr_ms('エラーが発生しました。しばらく経ってからやり直してください。');
+          header("Location:index.php");
+        }
+    }
+
+  }elseif(!empty($_POST['cancel'] === 'レビューを取り消す') && $userDate->getRoll() === 50){
+  //フラッシュメッセージ挟む。
+  debugFunction::debug('変更を取り消しました。マイページへ遷移します。');
+  header("Location:mypage.php");
+  }
 ?>
 
 <!-- jrはjointed routeの略 -->
@@ -47,19 +182,20 @@
           <h1 class="revRegistJr-content__sub">入社経路や在籍状況について</h1>
           <form  class="revRegistJr-content__form">
             <div class="revRegistJr-content__input-wrap">
-              <input class="revRegistJr-content__input" placeholder="入社経路">
-              <input class="revRegistJr-content__input" placeholder="在籍状況">
-              <input class="revRegistJr-content__input" placeholder="在籍時の職種">
-              <input class="revRegistJr-content__input" placeholder="在籍時の役職">
-              <input class="revRegistJr-content__input" placeholder="在籍期間">
-              <input class="revRegistJr-content__input" placeholder="在籍形態">
-              <input class="revRegistJr-content__input" placeholder="福利厚生">
-              <input class="revRegistJr-content__input" placeholder="勤務時間">
+              <!-- あとでここにgetでバリュー入れる。 -->
+              <input class="revRegistJr-content__input" name="joining_route" placeholder="入社経路" value="">
+              <input class="revRegistJr-content__input" name="enrollment_status" placeholder="在籍状況" value="">
+              <input class="revRegistJr-content__input" name="occupation" placeholder="在籍時の職種" value="">
+              <input class="revRegistJr-content__input" name="position" placeholder="在籍時の役職" value="">
+              <input class="revRegistJr-content__input" name="enrollment_period" placeholder="在籍期間" value="">
+              <input class="revRegistJr-content__input" name="employment_status" placeholder="在籍形態" value="">
+              <input class="revRegistJr-content__input" name="welfare_office_environment" placeholder="福利厚生" value="">
+              <input class="revRegistJr-content__input" name="working_hours" placeholder="勤務時間" value="">
             </div>
 
             <div class="revRegistJr-content__bottom-wrap">
-              <a href="mypage.php" class="revRegistJr-content__bottom-link"><bottom class="revRegistJr-content__bottom-cancel" href="mypage.php">レビューを取り消す</bottom></a>
-              <a href="reviewRegister-cc.php" class="revRegistJr-content__bottom-link"><bottom class="revRegistJr-content__bottom-next" href="reviewRegister-cc.php">次の項目へ</bottom></a>
+              <input class="revRegistJr-content__bottom-cancel" name="cancel" value="レビューを取り消す">
+              <input class="revRegistJr-content__bottom-next revRegistJr-content__bottom-link" name="next" value="次の項目へ">
             </div>
 
           </form>
