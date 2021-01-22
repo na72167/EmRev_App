@@ -1,9 +1,9 @@
-[22-Jan-2021 14:49:57 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
-[22-Jan-2021 14:49:57 Asia/Tokyo] デバッグ：レビュー会社登録申請画面
-[22-Jan-2021 14:49:57 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
-[22-Jan-2021 14:49:57 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
-[22-Jan-2021 14:49:57 Asia/Tokyo] デバッグ：セッションID：1m6a6ao3f90ktco9mv9tukf0mc
-[22-Jan-2021 14:49:57 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+[22-Jan-2021 16:20:43 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[22-Jan-2021 16:20:43 Asia/Tokyo] デバッグ：マイページ
+[22-Jan-2021 16:20:43 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[22-Jan-2021 16:20:43 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[22-Jan-2021 16:20:43 Asia/Tokyo] デバッグ：セッションID：n7m5mutuegpb42stri17j0fa2p
+[22-Jan-2021 16:20:43 Asia/Tokyo] デバッグ：セッション変数の中身：Array
 (
     [msg_success] => 
     [login_date] => 1611159555
@@ -11,11 +11,85 @@
     [user_id] => 7
 )
 
-[22-Jan-2021 14:49:57 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611294597
-[22-Jan-2021 14:49:57 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611163155
-[22-Jan-2021 14:49:57 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
-[22-Jan-2021 14:49:57 Asia/Tokyo] デバッグ：クエリ成功。
-[22-Jan-2021 14:49:57 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
+[22-Jan-2021 16:20:43 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611300043
+[22-Jan-2021 16:20:43 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611163155
+[22-Jan-2021 16:20:43 Asia/Tokyo] デバッグ：セッション変数の中身：
+[22-Jan-2021 16:22:09 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[22-Jan-2021 16:22:09 Asia/Tokyo] デバッグ：マイページ
+[22-Jan-2021 16:22:09 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[22-Jan-2021 16:22:09 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[22-Jan-2021 16:22:09 Asia/Tokyo] デバッグ：セッションID：t5fkgajltq7og1jjosa2t28ko7
+[22-Jan-2021 16:22:09 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+(
+    [msg_success] => 
+    [login_date] => 1611159555
+    [login_limit] => 3600
+    [user_id] => 7
+)
+
+[22-Jan-2021 16:22:09 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611300129
+[22-Jan-2021 16:22:09 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611163155
+[22-Jan-2021 16:22:09 Asia/Tokyo] デバッグ：セッション変数の中身：
+[22-Jan-2021 16:31:19 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[22-Jan-2021 16:31:19 Asia/Tokyo] デバッグ：レビュー投稿ページ(入社経路や在籍状況)
+[22-Jan-2021 16:31:19 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[22-Jan-2021 16:31:19 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[22-Jan-2021 16:31:19 Asia/Tokyo] デバッグ：セッションID：uh2ucideabmioufojvei26albk
+[22-Jan-2021 16:31:19 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+(
+    [msg_success] => 
+    [login_date] => 1611159555
+    [login_limit] => 3600
+    [user_id] => 7
+)
+
+[22-Jan-2021 16:31:19 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611300679
+[22-Jan-2021 16:31:19 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611163155
+[22-Jan-2021 16:31:19 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[22-Jan-2021 16:31:19 Asia/Tokyo] デバッグ：クエリ成功。
+[22-Jan-2021 16:31:19 Asia/Tokyo] PHP Fatal error:  Uncaught Error: Class 'profEdit' not found in /Applications/MAMP/htdocs/EmRev/EmRev_app/reviewRegister-jr.php:35
+Stack trace:
+#0 {main}
+  thrown in /Applications/MAMP/htdocs/EmRev/EmRev_app/reviewRegister-jr.php on line 35
+[22-Jan-2021 16:31:20 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[22-Jan-2021 16:31:20 Asia/Tokyo] デバッグ：レビュー投稿ページ(入社経路や在籍状況)
+[22-Jan-2021 16:31:20 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[22-Jan-2021 16:31:20 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[22-Jan-2021 16:31:20 Asia/Tokyo] デバッグ：セッションID：i8836sl9bi0u4s1v353ggimadl
+[22-Jan-2021 16:31:20 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+(
+    [msg_success] => 
+    [login_date] => 1611159555
+    [login_limit] => 3600
+    [user_id] => 7
+)
+
+[22-Jan-2021 16:31:20 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611300680
+[22-Jan-2021 16:31:20 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611163155
+[22-Jan-2021 16:31:20 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[22-Jan-2021 16:31:20 Asia/Tokyo] デバッグ：クエリ成功。
+[22-Jan-2021 16:31:20 Asia/Tokyo] PHP Fatal error:  Uncaught Error: Class 'profEdit' not found in /Applications/MAMP/htdocs/EmRev/EmRev_app/reviewRegister-jr.php:35
+Stack trace:
+#0 {main}
+  thrown in /Applications/MAMP/htdocs/EmRev/EmRev_app/reviewRegister-jr.php on line 35
+[22-Jan-2021 16:31:41 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[22-Jan-2021 16:31:41 Asia/Tokyo] デバッグ：レビュー投稿ページ(入社経路や在籍状況)
+[22-Jan-2021 16:31:41 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[22-Jan-2021 16:31:41 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[22-Jan-2021 16:31:41 Asia/Tokyo] デバッグ：セッションID：irbubekmv9tg2vb372bbeqn0vi
+[22-Jan-2021 16:31:41 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+(
+    [msg_success] => 
+    [login_date] => 1611159555
+    [login_limit] => 3600
+    [user_id] => 7
+)
+
+[22-Jan-2021 16:31:41 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611300701
+[22-Jan-2021 16:31:41 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611163155
+[22-Jan-2021 16:31:41 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[22-Jan-2021 16:31:41 Asia/Tokyo] デバッグ：クエリ成功。
+[22-Jan-2021 16:31:41 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
 (
     [id:protected] => 7
     [email:protected] => test7@example.com
@@ -27,12 +101,12 @@
     [update_date:protected] => 2021-01-21 01:26:52
 )
 
-[22-Jan-2021 14:49:57 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
-[22-Jan-2021 14:49:57 Asia/Tokyo] デバッグ：権限確認処理
-[22-Jan-2021 14:49:57 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
-[22-Jan-2021 14:49:57 Asia/Tokyo] デバッグ：投稿者ユーザーの情報を取得します。
-[22-Jan-2021 14:49:57 Asia/Tokyo] デバッグ：クエリ成功。
-[22-Jan-2021 14:49:57 Asia/Tokyo] デバッグ：取得した投稿ユーザー情報：classes\userProp\contributorUserProp Object
+[22-Jan-2021 16:31:41 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[22-Jan-2021 16:31:41 Asia/Tokyo] デバッグ：権限確認処理
+[22-Jan-2021 16:31:41 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[22-Jan-2021 16:31:41 Asia/Tokyo] デバッグ：投稿者ユーザーの情報を取得します。
+[22-Jan-2021 16:31:41 Asia/Tokyo] デバッグ：クエリ成功。
+[22-Jan-2021 16:31:41 Asia/Tokyo] デバッグ：取得した投稿ユーザー情報：classes\userProp\contributorUserProp Object
 (
     [id:protected] => 2
     [username:protected] => 
@@ -51,52 +125,13 @@
     [err_msCommon:protected] => 
 )
 
-[22-Jan-2021 14:49:57 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
-[22-Jan-2021 14:49:57 Asia/Tokyo] デバッグ：会社情報申請処理に入りました。
-[22-Jan-2021 14:49:57 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
-[22-Jan-2021 14:49:57 Asia/Tokyo] デバッグ：classes\companyApply\companyApply Object
-(
-    [company_name:protected] => 
-    [representative:protected] => testtesttesttest
-    [location:protected] => testtesttesttest
-    [industry:protected] => testtesttesttest
-    [year_of_establishment:protected] => 199999
-    [listed_year:protected] => 199999
-    [number_of_employees:protected] => 199999
-    [average_annual_income:protected] => 199999
-    [average_age:protected] => 199999
-    [err_msCompany_name:protected] => 
-    [err_msRepresentative:protected] => 
-    [err_msLocation:protected] => 
-    [err_msIndustry:protected] => 
-    [err_msYear_of_establishment:protected] => 
-    [err_msListed_year:protected] => 
-    [err_msNumber_of_employees:protected] => 
-    [err_msAverage_annual_income:protected] => 
-    [err_msAverage_age:protected] => 
-    [err_msCommon:protected] => 
-)
-
-[22-Jan-2021 14:49:57 Asia/Tokyo] デバッグ：Array
-(
-    [0] => 
-    [1] => 6文字以上で入力してください
-    [2] => 
-    [3] => 
-    [4] => 
-    [5] => 
-    [6] => 
-    [7] => 
-    [8] => 
-)
-
-[22-Jan-2021 14:49:57 Asia/Tokyo] デバッグ：セッション変数の中身：
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：レビュー会社登録申請画面
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：セッションID：a650rr00j8m9gi1v60csdrs957
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+[22-Jan-2021 16:31:41 Asia/Tokyo] デバッグ：セッション変数の中身：
+[22-Jan-2021 16:32:36 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[22-Jan-2021 16:32:36 Asia/Tokyo] デバッグ：レビュー投稿ページ(入社経路や在籍状況)
+[22-Jan-2021 16:32:36 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[22-Jan-2021 16:32:36 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[22-Jan-2021 16:32:36 Asia/Tokyo] デバッグ：セッションID：6kfo92pi5aviivc4m7hg4f7s3h
+[22-Jan-2021 16:32:36 Asia/Tokyo] デバッグ：セッション変数の中身：Array
 (
     [msg_success] => 
     [login_date] => 1611159555
@@ -104,11 +139,11 @@
     [user_id] => 7
 )
 
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611295004
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611163155
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：クエリ成功。
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
+[22-Jan-2021 16:32:36 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611300756
+[22-Jan-2021 16:32:36 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611163155
+[22-Jan-2021 16:32:36 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[22-Jan-2021 16:32:36 Asia/Tokyo] デバッグ：クエリ成功。
+[22-Jan-2021 16:32:36 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
 (
     [id:protected] => 7
     [email:protected] => test7@example.com
@@ -120,12 +155,12 @@
     [update_date:protected] => 2021-01-21 01:26:52
 )
 
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：権限確認処理
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：投稿者ユーザーの情報を取得します。
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：クエリ成功。
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：取得した投稿ユーザー情報：classes\userProp\contributorUserProp Object
+[22-Jan-2021 16:32:36 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[22-Jan-2021 16:32:36 Asia/Tokyo] デバッグ：権限確認処理
+[22-Jan-2021 16:32:36 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[22-Jan-2021 16:32:36 Asia/Tokyo] デバッグ：投稿者ユーザーの情報を取得します。
+[22-Jan-2021 16:32:36 Asia/Tokyo] デバッグ：クエリ成功。
+[22-Jan-2021 16:32:36 Asia/Tokyo] デバッグ：取得した投稿ユーザー情報：classes\userProp\contributorUserProp Object
 (
     [id:protected] => 2
     [username:protected] => 
@@ -144,37 +179,13 @@
     [err_msCommon:protected] => 
 )
 
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：会社情報申請処理に入りました。
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：会社申請情報のバリデーションOKです。
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：取得したdata：Array
-(
-    [:employee_review_id] => 7
-    [:company_name] => testtesttest
-    [:industry] => testtesttesttest
-    [:company_url] => 1
-    [:zip1] => 1
-    [:zip2] => 1
-    [:zip3] => 1
-    [:location] => testtesttesttest
-    [:number_of_employees] => 199999
-    [:year_of_establishment] => 199999
-    [:representative] => testtesttesttest
-    [:listed_year] => 199999
-    [:average_annual_income] => 199999
-    [:average_age] => 199999
-    [:number_of_reviews] => 1
-)
-
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：マイページへ遷移します。
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：セッション変数の中身：プロフィールを更新しました。
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：マイページ
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：セッションID：48cchmcv0anv0iirn6g1bfhh2b
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+[22-Jan-2021 16:32:36 Asia/Tokyo] デバッグ：セッション変数の中身：
+[22-Jan-2021 16:32:44 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[22-Jan-2021 16:32:44 Asia/Tokyo] デバッグ：レビュー投稿ページ(入社経路や在籍状況)
+[22-Jan-2021 16:32:44 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[22-Jan-2021 16:32:44 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[22-Jan-2021 16:32:44 Asia/Tokyo] デバッグ：セッションID：5jhprji4lns45jn8qop0sifkfk
+[22-Jan-2021 16:32:44 Asia/Tokyo] デバッグ：セッション変数の中身：Array
 (
     [msg_success] => 
     [login_date] => 1611159555
@@ -182,6 +193,368 @@
     [user_id] => 7
 )
 
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611295004
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611163155
-[22-Jan-2021 14:56:44 Asia/Tokyo] デバッグ：セッション変数の中身：
+[22-Jan-2021 16:32:44 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611300764
+[22-Jan-2021 16:32:44 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611163155
+[22-Jan-2021 16:32:44 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[22-Jan-2021 16:32:44 Asia/Tokyo] デバッグ：クエリ成功。
+[22-Jan-2021 16:32:44 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
+(
+    [id:protected] => 7
+    [email:protected] => test7@example.com
+    [password:protected] => $2y$10$kael7npLL4jj1GZIG/o/kubEDLKduMRxrn9Q68soezEF6hzrJHY72
+    [roll:protected] => 50
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-21 01:19:15
+    [update_date:protected] => 2021-01-21 01:26:52
+)
+
+[22-Jan-2021 16:32:44 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[22-Jan-2021 16:32:44 Asia/Tokyo] デバッグ：権限確認処理
+[22-Jan-2021 16:32:44 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[22-Jan-2021 16:32:44 Asia/Tokyo] デバッグ：投稿者ユーザーの情報を取得します。
+[22-Jan-2021 16:32:44 Asia/Tokyo] デバッグ：クエリ成功。
+[22-Jan-2021 16:32:44 Asia/Tokyo] デバッグ：取得した投稿ユーザー情報：classes\userProp\contributorUserProp Object
+(
+    [id:protected] => 2
+    [username:protected] => 
+    [age:protected] => 
+    [tel:protected] => 
+    [zip:protected] => 
+    [addr:protected] => 
+    [affiliation_company:protected] => 
+    [incumbent:protected] => 
+    [currently_department:protected] => 
+    [currently_position:protected] => 
+    [dm_state:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-21 01:26:52
+    [update_date:protected] => 2021-01-21 01:26:52
+    [err_msCommon:protected] => 
+)
+
+[22-Jan-2021 16:32:44 Asia/Tokyo] デバッグ：セッション変数の中身：
+[22-Jan-2021 16:34:06 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[22-Jan-2021 16:34:06 Asia/Tokyo] デバッグ：レビュー投稿ページ(入社経路や在籍状況)
+[22-Jan-2021 16:34:06 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[22-Jan-2021 16:34:06 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[22-Jan-2021 16:34:06 Asia/Tokyo] デバッグ：セッションID：n7rl4573uhj3cpsg83nt5ct4sb
+[22-Jan-2021 16:34:06 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+(
+    [msg_success] => 
+    [login_date] => 1611159555
+    [login_limit] => 3600
+    [user_id] => 7
+)
+
+[22-Jan-2021 16:34:06 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611300846
+[22-Jan-2021 16:34:06 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611163155
+[22-Jan-2021 16:34:06 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[22-Jan-2021 16:34:06 Asia/Tokyo] デバッグ：クエリ成功。
+[22-Jan-2021 16:34:06 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
+(
+    [id:protected] => 7
+    [email:protected] => test7@example.com
+    [password:protected] => $2y$10$kael7npLL4jj1GZIG/o/kubEDLKduMRxrn9Q68soezEF6hzrJHY72
+    [roll:protected] => 50
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-21 01:19:15
+    [update_date:protected] => 2021-01-21 01:26:52
+)
+
+[22-Jan-2021 16:34:06 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[22-Jan-2021 16:34:06 Asia/Tokyo] デバッグ：権限確認処理
+[22-Jan-2021 16:34:06 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[22-Jan-2021 16:34:06 Asia/Tokyo] デバッグ：投稿者ユーザーの情報を取得します。
+[22-Jan-2021 16:34:06 Asia/Tokyo] デバッグ：クエリ成功。
+[22-Jan-2021 16:34:06 Asia/Tokyo] デバッグ：取得した投稿ユーザー情報：classes\userProp\contributorUserProp Object
+(
+    [id:protected] => 2
+    [username:protected] => 
+    [age:protected] => 
+    [tel:protected] => 
+    [zip:protected] => 
+    [addr:protected] => 
+    [affiliation_company:protected] => 
+    [incumbent:protected] => 
+    [currently_department:protected] => 
+    [currently_position:protected] => 
+    [dm_state:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-21 01:26:52
+    [update_date:protected] => 2021-01-21 01:26:52
+    [err_msCommon:protected] => 
+)
+
+[22-Jan-2021 16:34:06 Asia/Tokyo] デバッグ：セッション変数の中身：
+[22-Jan-2021 16:34:20 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[22-Jan-2021 16:34:20 Asia/Tokyo] デバッグ：レビュー投稿ページ(入社経路や在籍状況)
+[22-Jan-2021 16:34:20 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[22-Jan-2021 16:34:20 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[22-Jan-2021 16:34:20 Asia/Tokyo] デバッグ：セッションID：96rkd3o644o08vj9l7mms51j2n
+[22-Jan-2021 16:34:20 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+(
+    [msg_success] => 
+    [login_date] => 1611159555
+    [login_limit] => 3600
+    [user_id] => 7
+)
+
+[22-Jan-2021 16:34:20 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611300860
+[22-Jan-2021 16:34:20 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611163155
+[22-Jan-2021 16:34:20 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[22-Jan-2021 16:34:20 Asia/Tokyo] デバッグ：クエリ成功。
+[22-Jan-2021 16:34:20 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
+(
+    [id:protected] => 7
+    [email:protected] => test7@example.com
+    [password:protected] => $2y$10$kael7npLL4jj1GZIG/o/kubEDLKduMRxrn9Q68soezEF6hzrJHY72
+    [roll:protected] => 50
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-21 01:19:15
+    [update_date:protected] => 2021-01-21 01:26:52
+)
+
+[22-Jan-2021 16:34:20 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[22-Jan-2021 16:34:20 Asia/Tokyo] デバッグ：権限確認処理
+[22-Jan-2021 16:34:20 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[22-Jan-2021 16:34:20 Asia/Tokyo] デバッグ：投稿者ユーザーの情報を取得します。
+[22-Jan-2021 16:34:20 Asia/Tokyo] デバッグ：クエリ成功。
+[22-Jan-2021 16:34:20 Asia/Tokyo] デバッグ：取得した投稿ユーザー情報：classes\userProp\contributorUserProp Object
+(
+    [id:protected] => 2
+    [username:protected] => 
+    [age:protected] => 
+    [tel:protected] => 
+    [zip:protected] => 
+    [addr:protected] => 
+    [affiliation_company:protected] => 
+    [incumbent:protected] => 
+    [currently_department:protected] => 
+    [currently_position:protected] => 
+    [dm_state:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-21 01:26:52
+    [update_date:protected] => 2021-01-21 01:26:52
+    [err_msCommon:protected] => 
+)
+
+[22-Jan-2021 16:34:20 Asia/Tokyo] デバッグ：セッション変数の中身：
+[22-Jan-2021 16:35:00 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[22-Jan-2021 16:35:00 Asia/Tokyo] デバッグ：レビュー投稿ページ(入社経路や在籍状況)
+[22-Jan-2021 16:35:00 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[22-Jan-2021 16:35:00 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[22-Jan-2021 16:35:00 Asia/Tokyo] デバッグ：セッションID：i7hps7paedu0mhn20bikk31405
+[22-Jan-2021 16:35:00 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+(
+    [msg_success] => 
+    [login_date] => 1611159555
+    [login_limit] => 3600
+    [user_id] => 7
+)
+
+[22-Jan-2021 16:35:00 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611300900
+[22-Jan-2021 16:35:00 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611163155
+[22-Jan-2021 16:35:00 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[22-Jan-2021 16:35:00 Asia/Tokyo] デバッグ：クエリ成功。
+[22-Jan-2021 16:35:00 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
+(
+    [id:protected] => 7
+    [email:protected] => test7@example.com
+    [password:protected] => $2y$10$kael7npLL4jj1GZIG/o/kubEDLKduMRxrn9Q68soezEF6hzrJHY72
+    [roll:protected] => 50
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-21 01:19:15
+    [update_date:protected] => 2021-01-21 01:26:52
+)
+
+[22-Jan-2021 16:35:00 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[22-Jan-2021 16:35:00 Asia/Tokyo] デバッグ：権限確認処理
+[22-Jan-2021 16:35:00 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[22-Jan-2021 16:35:00 Asia/Tokyo] デバッグ：投稿者ユーザーの情報を取得します。
+[22-Jan-2021 16:35:00 Asia/Tokyo] デバッグ：クエリ成功。
+[22-Jan-2021 16:35:00 Asia/Tokyo] デバッグ：取得した投稿ユーザー情報：classes\userProp\contributorUserProp Object
+(
+    [id:protected] => 2
+    [username:protected] => 
+    [age:protected] => 
+    [tel:protected] => 
+    [zip:protected] => 
+    [addr:protected] => 
+    [affiliation_company:protected] => 
+    [incumbent:protected] => 
+    [currently_department:protected] => 
+    [currently_position:protected] => 
+    [dm_state:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-21 01:26:52
+    [update_date:protected] => 2021-01-21 01:26:52
+    [err_msCommon:protected] => 
+)
+
+[22-Jan-2021 16:35:00 Asia/Tokyo] デバッグ：セッション変数の中身：
+[22-Jan-2021 16:36:32 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[22-Jan-2021 16:36:32 Asia/Tokyo] デバッグ：レビュー投稿ページ(入社経路や在籍状況)
+[22-Jan-2021 16:36:32 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[22-Jan-2021 16:36:32 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[22-Jan-2021 16:36:32 Asia/Tokyo] デバッグ：セッションID：s95nqhhroc1n65n8cfec0oeaqj
+[22-Jan-2021 16:36:32 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+(
+    [msg_success] => 
+    [login_date] => 1611159555
+    [login_limit] => 3600
+    [user_id] => 7
+)
+
+[22-Jan-2021 16:36:32 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611300992
+[22-Jan-2021 16:36:32 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611163155
+[22-Jan-2021 16:36:32 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[22-Jan-2021 16:36:32 Asia/Tokyo] デバッグ：クエリ成功。
+[22-Jan-2021 16:36:32 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
+(
+    [id:protected] => 7
+    [email:protected] => test7@example.com
+    [password:protected] => $2y$10$kael7npLL4jj1GZIG/o/kubEDLKduMRxrn9Q68soezEF6hzrJHY72
+    [roll:protected] => 50
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-21 01:19:15
+    [update_date:protected] => 2021-01-21 01:26:52
+)
+
+[22-Jan-2021 16:36:32 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[22-Jan-2021 16:36:32 Asia/Tokyo] デバッグ：権限確認処理
+[22-Jan-2021 16:36:32 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[22-Jan-2021 16:36:32 Asia/Tokyo] デバッグ：投稿者ユーザーの情報を取得します。
+[22-Jan-2021 16:36:32 Asia/Tokyo] デバッグ：クエリ成功。
+[22-Jan-2021 16:36:32 Asia/Tokyo] デバッグ：取得した投稿ユーザー情報：classes\userProp\contributorUserProp Object
+(
+    [id:protected] => 2
+    [username:protected] => 
+    [age:protected] => 
+    [tel:protected] => 
+    [zip:protected] => 
+    [addr:protected] => 
+    [affiliation_company:protected] => 
+    [incumbent:protected] => 
+    [currently_department:protected] => 
+    [currently_position:protected] => 
+    [dm_state:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-21 01:26:52
+    [update_date:protected] => 2021-01-21 01:26:52
+    [err_msCommon:protected] => 
+)
+
+[22-Jan-2021 16:36:32 Asia/Tokyo] デバッグ：セッション変数の中身：
+[22-Jan-2021 16:36:37 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[22-Jan-2021 16:36:37 Asia/Tokyo] デバッグ：レビュー投稿ページ(入社経路や在籍状況)
+[22-Jan-2021 16:36:37 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[22-Jan-2021 16:36:37 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[22-Jan-2021 16:36:37 Asia/Tokyo] デバッグ：セッションID：6fp4dq020jjtrcospfcq3ggj8l
+[22-Jan-2021 16:36:37 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+(
+    [msg_success] => 
+    [login_date] => 1611159555
+    [login_limit] => 3600
+    [user_id] => 7
+)
+
+[22-Jan-2021 16:36:37 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611300997
+[22-Jan-2021 16:36:37 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611163155
+[22-Jan-2021 16:36:37 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[22-Jan-2021 16:36:37 Asia/Tokyo] デバッグ：クエリ成功。
+[22-Jan-2021 16:36:37 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
+(
+    [id:protected] => 7
+    [email:protected] => test7@example.com
+    [password:protected] => $2y$10$kael7npLL4jj1GZIG/o/kubEDLKduMRxrn9Q68soezEF6hzrJHY72
+    [roll:protected] => 50
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-21 01:19:15
+    [update_date:protected] => 2021-01-21 01:26:52
+)
+
+[22-Jan-2021 16:36:37 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[22-Jan-2021 16:36:37 Asia/Tokyo] デバッグ：権限確認処理
+[22-Jan-2021 16:36:37 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[22-Jan-2021 16:36:37 Asia/Tokyo] デバッグ：投稿者ユーザーの情報を取得します。
+[22-Jan-2021 16:36:37 Asia/Tokyo] デバッグ：クエリ成功。
+[22-Jan-2021 16:36:37 Asia/Tokyo] デバッグ：取得した投稿ユーザー情報：classes\userProp\contributorUserProp Object
+(
+    [id:protected] => 2
+    [username:protected] => 
+    [age:protected] => 
+    [tel:protected] => 
+    [zip:protected] => 
+    [addr:protected] => 
+    [affiliation_company:protected] => 
+    [incumbent:protected] => 
+    [currently_department:protected] => 
+    [currently_position:protected] => 
+    [dm_state:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-21 01:26:52
+    [update_date:protected] => 2021-01-21 01:26:52
+    [err_msCommon:protected] => 
+)
+
+[22-Jan-2021 16:36:37 Asia/Tokyo] デバッグ：セッション変数の中身：
+[22-Jan-2021 16:38:31 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[22-Jan-2021 16:38:31 Asia/Tokyo] デバッグ：レビュー投稿ページ(入社経路や在籍状況)
+[22-Jan-2021 16:38:31 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[22-Jan-2021 16:38:31 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[22-Jan-2021 16:38:31 Asia/Tokyo] デバッグ：セッションID：c466hggfci0sg13pg1cd69cip5
+[22-Jan-2021 16:38:31 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+(
+    [msg_success] => 
+    [login_date] => 1611159555
+    [login_limit] => 3600
+    [user_id] => 7
+)
+
+[22-Jan-2021 16:38:31 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611301111
+[22-Jan-2021 16:38:31 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611163155
+[22-Jan-2021 16:38:31 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[22-Jan-2021 16:38:31 Asia/Tokyo] デバッグ：クエリ成功。
+[22-Jan-2021 16:38:31 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
+(
+    [id:protected] => 7
+    [email:protected] => test7@example.com
+    [password:protected] => $2y$10$kael7npLL4jj1GZIG/o/kubEDLKduMRxrn9Q68soezEF6hzrJHY72
+    [roll:protected] => 50
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-21 01:19:15
+    [update_date:protected] => 2021-01-21 01:26:52
+)
+
+[22-Jan-2021 16:38:31 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[22-Jan-2021 16:38:31 Asia/Tokyo] デバッグ：権限確認処理
+[22-Jan-2021 16:38:31 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[22-Jan-2021 16:38:31 Asia/Tokyo] デバッグ：投稿者ユーザーの情報を取得します。
+[22-Jan-2021 16:38:31 Asia/Tokyo] デバッグ：クエリ成功。
+[22-Jan-2021 16:38:31 Asia/Tokyo] デバッグ：取得した投稿ユーザー情報：classes\userProp\contributorUserProp Object
+(
+    [id:protected] => 2
+    [username:protected] => 
+    [age:protected] => 
+    [tel:protected] => 
+    [zip:protected] => 
+    [addr:protected] => 
+    [affiliation_company:protected] => 
+    [incumbent:protected] => 
+    [currently_department:protected] => 
+    [currently_position:protected] => 
+    [dm_state:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-21 01:26:52
+    [update_date:protected] => 2021-01-21 01:26:52
+    [err_msCommon:protected] => 
+)
+
+[22-Jan-2021 16:38:31 Asia/Tokyo] デバッグ：セッション変数の中身：

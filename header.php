@@ -21,7 +21,7 @@
         <!-- ナビゲーション(ログイン後のもの。セッション内容で切り替える。) -->
         <nav class="header__nav">
           <li class="header__nav-list js-toggle-sp-menu">MENU</li>
-          <li class="header__nav-list" href="./reviewRegister-jr.php">REVIEW REGISTRATION</li>
+          <li class="header__nav-list" ><a href="./reviewRegister-jr.php">REVIEW REGISTRATION</a></li>
           <li class="header__nav-list"><a href="./logout.php">LOGOUT</a></li>
         </nav>
       <?php
