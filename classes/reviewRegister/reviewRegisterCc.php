@@ -36,7 +36,7 @@
 
     // =====setter=====
 
-    //社内制度用セッター用セッター
+    //社内制度用セッター
   public function setIn_company_system(string $str):void{
     //未入力チェック
     $this->validRequired($str,'err_msIn_company_system');
@@ -51,7 +51,7 @@
     }
   }
 
-//企業文化用セッター用セッター
+  //企業文化用セッター
   public function setCorporate_culture(string $str):void{
     //未入力チェック
     $this->validRequired($str,'err_msCorporate_culture');
