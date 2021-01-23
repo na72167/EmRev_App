@@ -25,7 +25,7 @@
   debugFunction::debug('「「「「「「「「「「「「「');
   debugFunction::debugLogStart();
 
-    // このあと$_SESSION['user_id']を参照してuserｓテーブルに関した情報のみを管理するuserクラスを作成。
+  // このあと$_SESSION['user_id']を参照してuserｓテーブルに関した情報のみを管理するuserクラスを作成。
   // 中のrollプロパティにアクセス。その権限情報とuserクラスを元に一般・社員・管理者・退会済み用のSQLを発行・検索を行う。(退会済みは別)。
   // getUserPropクラスを切り分ける。
 
