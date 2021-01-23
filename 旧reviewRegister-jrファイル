@@ -1,3 +1,6 @@
+//ここのファイルは更新をDB中心で行っています。
+//現在はセッション中心で行っている。
+
 <?php
 
  // declare(strict_types=1);
@@ -7,9 +10,12 @@
   use \PDO;
   use \RuntimeException;
   use \Exception;
+  use classes\db\dbConnectFunction;
+  use classes\db\dbConnectPDO;
   use classes\debug\debugFunction;
   use classes\userProp\userProp;
   use classes\reviewRegister\reviewRegisterJr;
+  use classes\userProp\generalUserProp;
   use classes\userProp\contributorUserProp;
   use classes\etc\etc;
 
@@ -19,7 +25,7 @@
   debugFunction::debug('「「「「「「「「「「「「「');
   debugFunction::debugLogStart();
 
-  // このあと$_SESSION['user_id']を参照してuserｓテーブルに関した情報のみを管理するuserクラスを作成。
+    // このあと$_SESSION['user_id']を参照してuserｓテーブルに関した情報のみを管理するuserクラスを作成。
   // 中のrollプロパティにアクセス。その権限情報とuserクラスを元に一般・社員・管理者・退会済み用のSQLを発行・検索を行う。(退会済みは別)。
   // getUserPropクラスを切り分ける。
 
@@ -89,44 +95,53 @@
 
       debugFunction::debug('バリデーションOKです。');
 
-      //セッション内に保持されている情報とフォームから送信されている情報を比較。違う場合は書き換える。
-      if($_SESSION['joining_route'] !== $formTransmission->getJoining_route()){
-        $_SESSION['joining_route'] = $formTransmission->getJoining_route();
-      }
+      //例外処理
+      try {
 
-      if($_SESSION['occupation'] !== $formTransmission->getOccupation()){
-        $_SESSION['occupation'] = $formTransmission->getOccupation();
-      }
+          debugFunction::debug('登録処理に入ります。');
 
-      if($_SESSION['position'] !== $formTransmission->getPosition()){
-        $_SESSION['position'] = $formTransmission->getPosition();
-      }
+          // DBへ接続
+          $dbh = new dbConnectPDO();
 
-      if($_SESSION['enrollment_period'] !== $formTransmission->getEnrollment_period()){
-        $_SESSION['enrollment_period'] = $formTransmission->getEnrollment_period();
-      }
+          //短時間に比較的多めの情報をページ間でやりとりする方法のにちょうど良さそうなものを調べる。
+          //今の様に毎回DBに保存するのは、あまり効率が良くなさそう。
 
-      if($_SESSION['employment_status'] !== $formTransmission->getEmployment_status()){
-        $_SESSION['employment_status'] = $formTransmission->getEmployment_status();
-      }
+          //上のやり方だと途中でブラウザバックなどを挟む事で不自然にDBへデータが残ってしまうので
+          //改善案を考える。
 
-      if($_SESSION['welfare_office_environment'] !== $formTransmission->getWelfare_office_environment()){
-        $_SESSION['welfare_office_environment'] = $formTransmission->getWelfare_office_environment();
-      }
+          // SQL文作成
+          //$signupProp->getDbh()->lastInsertId()で最後に追加したusersテーブル内レコードのidを取得。
+          //最後に追加したレコードは直前のINSERT INTO users~なので必ず紐付いたgeneral_profsテーブルのレコードが生成できる。
+          $sql = 'INSERT INTO employee_reviews (`employee_id`,`joining_route`,`occupation`,`position`,`enrollment_period`,`
+          enrollment_status`,`employment_status`,`welfare_office_environment`,`working_hours`)
+          VALUES(:employee_id,:joining_route,:occupation,:position,:enrollment_period,:enrollment_status,:employment_status,
+          :welfare_office_environment,:working_hours)';
+          $data = array(':employee_id' => $contributorUserDate->getContributor_id(),':joining_route' => $formTransmission->getJoining_route()
+          ,':occupation' => $formTransmission->getOccupation(),':position' => $formTransmission->getPosition(),
+          'enrollment_period'=>$formTransmission->getEnrollment_period(),':enrollment_status' => $formTransmission->getEmployment_status(),
+          ':employment_status' => $formTransmission->getEmployment_status(),':welfare_office_environment' => $formTransmission->getWelfare_office_environment(),
+          ':working_hours' => $formTransmission->getWorking_hours());
 
-      if($_SESSION['working_hours'] !== $formTransmission->getWorking_hours()){
-        $_SESSION['working_hours'] = $formTransmission->getWorking_hours();
-      }
+          debugFunction::debug('取得したdata：'.print_r($data,true));
+          // クエリ実行
+          $stmt = dbConnectFunction::queryPost($dbh->getPDO(), $sql, $data);
 
-      //ログイン有効期限（デフォルトを１時間とする）
-      $sesLimit = 60*60;
-      // 最終ログイン日時を現在日時に
-      $_SESSION['login_date'] = time();
-      $_SESSION['login_limit'] = $sesLimit;
+        // insert成功の場合
+        if($stmt){
+            //ログイン有効期限（デフォルトを１時間とする）
+            $sesLimit = 60*60;
+            // 最終ログイン日時を現在日時に
+            $_SESSION['login_date'] = time();
+            $_SESSION['login_limit'] = $sesLimit;
 
-      debugFunction::debug('セッション変数の中身：'.print_r($_SESSION,true));
-      header("Location:reviewRegister-cc.php"); //社内制度や企業文化について
-
+            debugFunction::debug('セッション変数の中身：'.print_r($_SESSION,true));
+            header("Location:reviewRegister-Cc.php"); //社内制度や企業文化について
+          }
+        } catch (Exception $e) {
+          error_log('エラー発生:' . $e->getMessage());
+          $formTransmission->setCommonErr_ms('エラーが発生しました。しばらく経ってからやり直してください。');
+          header("Location:index.php");
+        }
     }elseif(!empty(array_filter($formTransmission->getErr_msAll()))){
       debugFunction::debug('バリデーションNGです。');
       debugFunction::debug($formTransmission->getErr_msAll());
@@ -175,7 +190,7 @@
           <h1 class="revRegistJr-content__sub">入社経路や在籍状況について</h1>
           <form method="post" class="revRegistJr-content__form">
             <div class="revRegistJr-content__input-wrap">
-              <!-- あとでここにgetでセッション入れる。 -->
+              <!-- あとでここにgetでバリュー入れる。 -->
               <input class="revRegistJr-content__input" name="joining_route" placeholder="入社経路" value="">
               <input class="revRegistJr-content__input" name="enrollment_status" placeholder="在籍状況" value="">
               <input class="revRegistJr-content__input" name="occupation" placeholder="在籍時の職種" value="">

@@ -1,41 +1,40 @@
-[23-Jan-2021 14:00:30 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
-[23-Jan-2021 14:00:30 Asia/Tokyo] デバッグ：レビュー投稿ページ(入社経路や在籍状況)
-[23-Jan-2021 14:00:30 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
-[23-Jan-2021 14:00:30 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
-[23-Jan-2021 14:00:30 Asia/Tokyo] デバッグ：セッションID：l5627e6u18lrj31k4cpsscdp7b
-[23-Jan-2021 14:00:30 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+[23-Jan-2021 20:03:26 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[23-Jan-2021 20:03:26 Asia/Tokyo] デバッグ：レビュー投稿ページ(社内制度や企業文化について)
+[23-Jan-2021 20:03:26 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[23-Jan-2021 20:03:26 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[23-Jan-2021 20:03:26 Asia/Tokyo] デバッグ：セッションID：c3sbs409dhfff3vfdik191qouq
+[23-Jan-2021 20:03:26 Asia/Tokyo] デバッグ：セッション変数の中身：Array
 (
-    [msg_success] => 
-    [login_date] => 1611377940
+    [login_date] => 1611399512
     [login_limit] => 3600
-    [user_id] => 7
+    [user_id] => 1
 )
 
-[23-Jan-2021 14:00:30 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611378030
-[23-Jan-2021 14:00:30 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611381540
-[23-Jan-2021 14:00:30 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
-[23-Jan-2021 14:00:30 Asia/Tokyo] デバッグ：クエリ成功。
-[23-Jan-2021 14:00:30 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
+[23-Jan-2021 20:03:26 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611399806
+[23-Jan-2021 20:03:26 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611403112
+[23-Jan-2021 20:03:26 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[23-Jan-2021 20:03:26 Asia/Tokyo] デバッグ：クエリ成功。
+[23-Jan-2021 20:03:26 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
 (
-    [id:protected] => 7
-    [email:protected] => test7@example.com
-    [password:protected] => $2y$10$kael7npLL4jj1GZIG/o/kubEDLKduMRxrn9Q68soezEF6hzrJHY72
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
     [roll:protected] => 50
     [report_flg:protected] => 0
     [delete_flg:protected] => 0
-    [create_date:protected] => 2021-01-21 01:19:15
-    [update_date:protected] => 2021-01-21 01:26:52
+    [create_date:protected] => 2021-01-13 21:18:08
+    [update_date:protected] => 2021-01-20 22:36:22
 )
 
-[23-Jan-2021 14:00:30 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
-[23-Jan-2021 14:00:30 Asia/Tokyo] デバッグ：権限確認処理
-[23-Jan-2021 14:00:30 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
-[23-Jan-2021 14:00:30 Asia/Tokyo] デバッグ：投稿者ユーザーの情報を取得します。
-[23-Jan-2021 14:00:30 Asia/Tokyo] デバッグ：クエリ成功。
-[23-Jan-2021 14:00:30 Asia/Tokyo] デバッグ：取得した投稿ユーザー情報：classes\userProp\contributorUserProp Object
+[23-Jan-2021 20:03:26 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[23-Jan-2021 20:03:26 Asia/Tokyo] デバッグ：権限確認処理
+[23-Jan-2021 20:03:26 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[23-Jan-2021 20:03:26 Asia/Tokyo] デバッグ：投稿者ユーザーの情報を取得します。
+[23-Jan-2021 20:03:26 Asia/Tokyo] デバッグ：クエリ成功。
+[23-Jan-2021 20:03:26 Asia/Tokyo] デバッグ：取得した投稿ユーザー情報：classes\userProp\contributorUserProp Object
 (
-    [id:protected] => 2
-    [contributor_id:protected] => 7
+    [id:protected] => 1
+    [contributor_id:protected] => 1
     [username:protected] => 
     [age:protected] => 
     [tel:protected] => 
@@ -47,11 +46,66 @@
     [currently_position:protected] => 
     [dm_state:protected] => 0
     [delete_flg:protected] => 0
-    [create_date:protected] => 2021-01-21 01:26:52
-    [update_date:protected] => 2021-01-21 01:26:52
+    [create_date:protected] => 2021-01-20 22:28:30
+    [update_date:protected] => 2021-01-20 22:37:59
     [err_msCommon:protected] => 
 )
 
-[23-Jan-2021 14:00:30 Asia/Tokyo] PHP Notice:  Undefined index: next in /Applications/MAMP/htdocs/EmRev/EmRev_app/reviewRegister-jr.php on line 64
-[23-Jan-2021 14:00:30 Asia/Tokyo] PHP Notice:  Undefined index: cancel in /Applications/MAMP/htdocs/EmRev/EmRev_app/reviewRegister-jr.php on line 144
-[23-Jan-2021 14:00:30 Asia/Tokyo] デバッグ：セッション変数の中身：
+[23-Jan-2021 20:03:26 Asia/Tokyo] デバッグ：POST送信があります。
+[23-Jan-2021 20:03:26 Asia/Tokyo] デバッグ：POST情報：Array
+(
+    [in_company_system] => testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+    [corporate_culture] => testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+    [holiday] => testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+    [organizational_structure] => testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+    [ease_of_work_for_women] => testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+    [next] => 次の項目へ
+)
+
+[23-Jan-2021 20:03:26 Asia/Tokyo] デバッグ：classes\reviewRegister\reviewRegisterCc Object
+(
+    [in_company_system:protected] => testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+    [corporate_culture:protected] => testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+    [holiday:protected] => testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+    [organizational_structure:protected] => testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+    [ease_of_work_for_women:protected] => testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+    [err_msIn_company_system:protected] => 
+    [err_msCorporate_culture:protected] => 
+    [err_msHoliday:protected] => 
+    [err_msOrganizational_structure:protected] => 
+    [err_msEase_of_work_for_women:protected] => 
+    [err_msCommon:protected] => 
+)
+
+[23-Jan-2021 20:03:26 Asia/Tokyo] デバッグ：バリデーションOKです。
+[23-Jan-2021 20:03:26 Asia/Tokyo] PHP Notice:  Undefined index: in_company_system in /Applications/MAMP/htdocs/EmRev/EmRev_app/reviewRegister-cc.php on line 89
+[23-Jan-2021 20:03:26 Asia/Tokyo] PHP Notice:  Undefined index: occupation in /Applications/MAMP/htdocs/EmRev/EmRev_app/reviewRegister-cc.php on line 93
+[23-Jan-2021 20:03:26 Asia/Tokyo] PHP Notice:  Undefined index: holiday in /Applications/MAMP/htdocs/EmRev/EmRev_app/reviewRegister-cc.php on line 97
+[23-Jan-2021 20:03:26 Asia/Tokyo] PHP Notice:  Undefined index: organizational_structure in /Applications/MAMP/htdocs/EmRev/EmRev_app/reviewRegister-cc.php on line 101
+[23-Jan-2021 20:03:26 Asia/Tokyo] PHP Notice:  Undefined index: ease_of_work_for_women in /Applications/MAMP/htdocs/EmRev/EmRev_app/reviewRegister-cc.php on line 105
+[23-Jan-2021 20:03:26 Asia/Tokyo] デバッグ：Array
+(
+    [login_date] => 1611399512
+    [login_limit] => 3600
+    [user_id] => 1
+    [in_corporate_culture] => testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+    [occupation] => testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+    [holiday] => testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+    [organizational_structure] => testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+    [ease_of_work_for_women] => testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+)
+
+[23-Jan-2021 20:03:26 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+(
+    [login_date] => 1611399806
+    [login_limit] => 3600
+    [user_id] => 1
+    [in_corporate_culture] => testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+    [occupation] => testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+    [holiday] => testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+    [organizational_structure] => testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+    [ease_of_work_for_women] => testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+)
+
+[23-Jan-2021 20:03:26 Asia/Tokyo] PHP Notice:  Undefined index: msg_success in /Applications/MAMP/htdocs/EmRev/EmRev_app/header.php on line 34
+[23-Jan-2021 20:03:26 Asia/Tokyo] デバッグ：セッション変数の中身：

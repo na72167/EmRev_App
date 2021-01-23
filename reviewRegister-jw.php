@@ -44,7 +44,7 @@
       <div class="revRegistJw-content__form-wrap">
           <h4 class="revRegistJw-content__title">Post Company Review</h4>
           <h1 class="revRegistJw-content__sub">入社後のギャップや働きがい</h1>
-          <from action="" class="revRegistJw-content__wrap">
+          <from action="" method="post" class="revRegistJw-content__wrap">
             <div class="revRegistJw-content__form-title">入社前とのギャップ</div>
             <textarea class="revRegistJw-content__form-areaForm" placeholder="入社前とのギャップ"></textarea>
 
@@ -65,6 +65,7 @@
               <a href="reviewRegister-gc.php" class="revRegistJw-content__bottom-link"><bottom class="revRegistJw-content__bottom-next">次の項目へ</bottom></a>
             </div>
           </from>
+
         </div>
       </div>
     </div>
