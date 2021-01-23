@@ -58,7 +58,7 @@
   }
 
   // post送信されていてなおかつ投稿者登録ユーザーだった場合。
-  if(!empty($_POST)){
+  if(!empty($_POST['next'] === '次の項目へ' && $userDate->getRoll() === 50)){
 
     debugFunction::debug('POST送信があります。');
     debugFunction::debug('POST情報：'.print_r($_POST,true));
@@ -125,6 +125,7 @@
 
   }elseif(!empty($_POST['back'] === '前の項目へ') && $userDate->getRoll() === 50){
   //フラッシュメッセージ挟む。
+  //ここのフォームで挿入したセッション情報を削除する。
   debugFunction::debug('「社内制度や企業文化について」のページへ戻ります。');
   header("Location:mypage.php");
   }
@@ -161,6 +162,7 @@
         <div class="revRegistCc-content__form-wrap">
           <h4 class="revRegistCc-content__title">Post Company Review</h4>
           <h1 class="revRegistCc-content__sub">社内制度や企業文化について</h1>
+
             <from action="" method="post" class="revRegistCc-content__wrap">
 
               <form method="post" class="revRegistJr-content__form">
@@ -184,7 +186,7 @@
                 <input type="submit" class="revRegistCc-content__bottom-next revRegistCc-content__bottom-link" name="next" value="次の項目へ">
               </div>
 
-          </form>
+            </form>
 
         </div>
       </div>
