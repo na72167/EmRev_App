@@ -1,0 +1,69 @@
+[24-Jan-2021 02:37:03 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[24-Jan-2021 02:37:03 Asia/Tokyo] デバッグ：投稿内容の確認
+[24-Jan-2021 02:37:03 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[24-Jan-2021 02:37:03 Asia/Tokyo] デバッグ：>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 画面表示処理開始
+[24-Jan-2021 02:37:03 Asia/Tokyo] デバッグ：セッションID：o3qpfaigtmcabg1ql9boidhskh
+[24-Jan-2021 02:37:03 Asia/Tokyo] デバッグ：セッション変数の中身：Array
+(
+    [login_date] => 1611413573
+    [login_limit] => 3600
+    [user_id] => 1
+    [in_corporate_culture] => testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+    [occupation] => testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+    [holiday] => testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+    [organizational_structure] => testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+    [ease_of_work_for_women] => testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+    [image_gap] => testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+    [rewarding_work] => testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+    [strengths_and_weaknesses] => testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+    [annual_income_salary] => testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+    [business_outlook] => testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+    [general_estimation_title] => sadsadasd
+    [general_estimation] => dsadasdasdsad
+)
+
+[24-Jan-2021 02:37:03 Asia/Tokyo] デバッグ：現在日時タイムスタンプ：1611423423
+[24-Jan-2021 02:37:03 Asia/Tokyo] デバッグ：ログイン期限日時タイムスタンプ：1611417173
+[24-Jan-2021 02:37:03 Asia/Tokyo] デバッグ：ユーザー情報を取得します。
+[24-Jan-2021 02:37:03 Asia/Tokyo] デバッグ：クエリ成功。
+[24-Jan-2021 02:37:03 Asia/Tokyo] デバッグ：取得したユーザー情報：classes\userProp\userProp Object
+(
+    [id:protected] => 1
+    [email:protected] => test@example.com
+    [password:protected] => $2y$10$IHQ/L9f5VXfJCp8W2QmwsOsV9ua4TblB3AFbCLLkbqSYewksi6mXm
+    [roll:protected] => 50
+    [report_flg:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-13 21:18:08
+    [update_date:protected] => 2021-01-20 22:36:22
+)
+
+[24-Jan-2021 02:37:03 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「「「「「「「
+[24-Jan-2021 02:37:03 Asia/Tokyo] デバッグ：権限確認処理
+[24-Jan-2021 02:37:03 Asia/Tokyo] デバッグ：「「「「「「「「「「「「「
+[24-Jan-2021 02:37:03 Asia/Tokyo] デバッグ：投稿者ユーザーの情報を取得します。
+[24-Jan-2021 02:37:03 Asia/Tokyo] デバッグ：クエリ成功。
+[24-Jan-2021 02:37:03 Asia/Tokyo] デバッグ：取得した投稿ユーザー情報：classes\userProp\contributorUserProp Object
+(
+    [id:protected] => 1
+    [contributor_id:protected] => 1
+    [username:protected] => 
+    [age:protected] => 
+    [tel:protected] => 
+    [zip:protected] => 
+    [addr:protected] => 
+    [affiliation_company:protected] => 
+    [incumbent:protected] => 
+    [currently_department:protected] => 
+    [currently_position:protected] => 
+    [dm_state:protected] => 0
+    [delete_flg:protected] => 0
+    [create_date:protected] => 2021-01-20 22:28:30
+    [update_date:protected] => 2021-01-20 22:37:59
+    [err_msCommon:protected] => 
+)
+
+[24-Jan-2021 02:37:03 Asia/Tokyo] PHP Notice:  Undefined index: next in /Applications/MAMP/htdocs/EmRev/EmRev_app/reviewRegister-Pc.php on line 61
+[24-Jan-2021 02:37:03 Asia/Tokyo] PHP Notice:  Undefined index: cancel in /Applications/MAMP/htdocs/EmRev/EmRev_app/reviewRegister-Pc.php on line 165
+[24-Jan-2021 02:37:03 Asia/Tokyo] PHP Notice:  Undefined index: msg_success in /Applications/MAMP/htdocs/EmRev/EmRev_app/header.php on line 34
+[24-Jan-2021 02:37:03 Asia/Tokyo] デバッグ：セッション変数の中身：

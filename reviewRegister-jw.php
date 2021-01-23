@@ -15,7 +15,7 @@
 
   debugFunction::logSessionSetUp();
   debugFunction::debug('「「「「「「「「「「「「「「「「「「「');
-  debugFunction::debug('レビュー投稿ページ(社内制度や企業文化について)');
+  debugFunction::debug('レビュー投稿ページ(入社後のギャップや働きがい)');
   debugFunction::debug('「「「「「「「「「「「「「');
   debugFunction::debugLogStart();
 
