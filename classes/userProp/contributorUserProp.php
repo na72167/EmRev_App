@@ -10,6 +10,7 @@
   class contributorUserProp{
 
     protected $id;
+    protected $contributor_id;
     protected $username;
     protected $age;
     protected $tel;
@@ -25,8 +26,9 @@
     protected $update_date;
     protected $err_msCommon;
 
-    public function __construct($id,$username,$age,$tel,$zip,$addr,$affiliation_company,$incumbent,$currently_department,$currently_position,$dm_state,$delete_flg,$create_date,$update_date,$err_msCommon){
+    public function __construct($id,$contributor_id,$username,$age,$tel,$zip,$addr,$affiliation_company,$incumbent,$currently_department,$currently_position,$dm_state,$delete_flg,$create_date,$update_date,$err_msCommon){
       $this->id = $id;
+      $this->contributor_id = $contributor_id;
       $this->username = $username;
       $this->age = $age;
       $this->tel = $tel;
@@ -83,6 +85,10 @@
 
     public function getId():self{
       return $this->id;
+    }
+
+    public function getContributor_id():string{
+      return $this->contributor_id;
     }
 
     public function getUsername(): ?self{

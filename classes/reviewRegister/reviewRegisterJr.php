@@ -100,7 +100,7 @@ class reviewRegisterJr extends validation{
     $this->validMinLen($str,'err_msEnrollment_period');
     //上のバリテーション処理を行い,エラーメッセージが無い場合
     //サニタイズ処理(全ての要素をHTML化->文字列に変更。その後対象プロパティ内を置き換える。)を行う。
-    if(empty($this->)){
+    if(empty($this->err_msEnrollment_period)){
       $this->enrollment_period = etc::sanitize($str);
     }
   }
@@ -156,8 +156,6 @@ class reviewRegisterJr extends validation{
     $this->validRequired($str,'err_msWorking_hours');
     //最大文字数チェック
     $this->validMaxLen($str,'err_msWorking_hours');
-    //最小文字数チェック
-    $this->validMinLen($str,'err_msWorking_hours');
     //上のバリテーション処理を行い,エラーメッセージが無い場合
     //サニタイズ処理(全ての要素をHTML化->文字列に変更。その後対象プロパティ内を置き換える。)を行う。
     if(empty($this->err_msWorking_hours)){
@@ -249,6 +247,6 @@ class reviewRegisterJr extends validation{
     return [$this->err_msJoining_route,$this->err_msEnrollment_status,
     $this->err_msOccupation,$this->err_msPosition,
     $this->err_msEnrollment_period,$this->err_msEmployment_status,
-    $this->err_msWelfare_office_environment,$this->err_msWorking_hours]
+    $this->err_msWelfare_office_environment,$this->err_msWorking_hours];
   }
 }
