@@ -163,9 +163,7 @@
           <h4 class="revRegistCc-content__title">Post Company Review</h4>
           <h1 class="revRegistCc-content__sub">社内制度や企業文化について</h1>
 
-            <from action="" method="post" class="revRegistCc-content__wrap">
-
-              <form method="post" class="revRegistJr-content__form">
+            <form method="post" class="revRegistJr-content__form">
               <div class="revRegistCc-content__form-title">社内制度</div>
               <textarea class="revRegistCc-content__form-areaForm" name="in_company_system" placeholder="社内制度について" value=""></textarea>
 
