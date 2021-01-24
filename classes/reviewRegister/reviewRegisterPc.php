@@ -3,7 +3,7 @@
   namespace classes\reviewRegister;
   use classes\etc\etc;
   use classes\validate\validation;
-  enrollment_status
+
 class reviewRegisterPc extends validation{
   protected $joining_route;
   protected $enrollment_status;
