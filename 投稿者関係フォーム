@@ -63,3 +63,56 @@
           </div>
         </label>
       </div>
+
+
+
+
+
+
+
+
+
+
+
+        [:joining_route] => testtesttesttesttesttesttesttesttesttesttesttest
+    [:occupation] => testtesttesttesttesttesttesttesttesttesttesttest
+    [:position] => testtesttesttesttesttesttesttesttesttesttesttest
+    [:enrollment_period] => testtesttesttesttesttesttesttesttesttesttesttest
+    [:enrollment_status] => testtesttesttesttesttesttesttesttesttesttesttest
+    [:employment_status] => testtesttesttesttesttesttesttesttesttesttesttest
+    [:welfare_office_environment] => testtesttesttesttesttesttesttesttesttesttesttest
+    [:working_hours] => 11
+    [:in_company_system] => testtesttesttesttesttesttesttesttesttesttesttest
+    [:corporate_culture] => testtesttesttesttesttesttesttesttesttesttesttest
+    [:holiday] => testtesttesttesttesttesttesttesttesttesttesttest
+    [:organizational_structure] => testtesttesttesttesttesttesttesttesttesttesttest
+    [:ease_of_work_for_women] => testtesttesttesttesttesttesttesttesttesttesttest
+    [:image_gap] => testtesttesttesttesttesttesttesttesttesttesttest
+    [:rewarding_work] => testtesttesttesttesttesttesttesttesttesttesttest
+    [:strengths_and_weaknesses] => testtesttesttesttesttesttesttesttesttesttesttest
+    [:annual_income_salary] => testtesttesttesttesttesttesttesttesttesttesttest
+    [:business_outlook] => testtesttesttesttesttesttesttesttesttesttesttest
+    [:general_estimation_title] => testtesttesttesttesttesttesttesttesttesttesttest
+    [:general_estimation] => testtesttesttesttesttesttesttesttesttesttesttest
+
+
+    $data = array(
+    ':joining_route' => $_SESSION['joining_route'],
+    ':occupation' => $_SESSION['occupation'],
+    ':position' => $_SESSION['position'],
+    ':enrollment_period' => $_SESSION['enrollment_period'],
+    ':enrollment_status' => $_SESSION['enrollment_status'] ,
+    ':employment_status' => $_SESSION['employment_status'],
+    ':welfare_office_environment' => $_SESSION['welfare_office_environment'],
+    ':working_hours' => $_SESSION['working_hours'],
+    ':in_company_system' => $_SESSION['in_company_system'],
+    ':corporate_culture' => $_SESSION['corporate_culture'],
+    ':holiday' => $_SESSION['holiday'],':organizational_structure' => $_SESSION['organizational_structure'],
+    ':ease_of_work_for_women' => $_SESSION['ease_of_work_for_women'],
+    ':image_gap' => $_SESSION['image_gap'],'
+    :rewarding_work' => $_SESSION['rewarding_work'],
+    ':strengths_and_weaknesses' => $_SESSION['strengths_and_weaknesses'],
+    ':annual_income_salary' => $_SESSION['annual_income_salary'],
+    ':business_outlook' => $_SESSION['business_outlook'],
+    ':general_estimation_title' => $_SESSION['general_estimation_title'],
+    ':general_estimation' => $_SESSION['general_estimation']);

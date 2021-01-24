@@ -69,29 +69,51 @@
     ,$_POST['ease_of_work_for_women'],$_POST['image_gap'],$_POST['rewarding_work'],$_POST['strengths_and_weaknesses'],$_POST['annual_income_salary'],$_POST['business_outlook'],$_POST['general_estimation_title']
     ,$_POST['general_estimation'],'','','','','','','','','','','','','','','','','','','','','');
 
-    $formTransmission->setJoining_route($formTransmission->getJoining_route());
-    $formTransmission->setOccupation($formTransmission->getOccupation());
-    $formTransmission->setPosition($formTransmission->getPosition());
-    $formTransmission->setEnrollment_period($formTransmission->getEnrollment_period());
-    $formTransmission->setEnrollment_status($formTransmission->getEmployment_status());
-    $formTransmission->setEmployment_status($formTransmission->getEmployment_status());
-    $formTransmission->setWelfare_office_environment($formTransmission->getWelfare_office_environment());
-    $formTransmission->setWorking_hours($formTransmission->getWorking_hours());
-    $formTransmission->setIn_company_system($formTransmission->getIn_company_system());
-    $formTransmission->setCorporate_culture($formTransmission->getCorporate_culture());
-    $formTransmission->setHoliday($formTransmission->getHoliday());
-    $formTransmission->setOrganizational_structure($formTransmission->getOrganizational_structure());
-    $formTransmission->setEase_of_work_for_women($formTransmission->getEase_of_work_for_women());
-    $formTransmission->setImage_gap($formTransmission->getImage_gap());
-    $formTransmission->setRewarding_work($formTransmission->getRewarding_work());
-    $formTransmission->setStrengths_and_weaknesses($formTransmission->getStrengths_and_weaknesses());
-    $formTransmission->setAnnual_income_salary($formTransmission->getAnnual_income_salary());
-    $formTransmission->setBusiness_outlook($formTransmission->getBusiness_outlook());
-    $formTransmission->setGeneral_estimation_title($formTransmission->getGeneral_estimation_title());
-    $formTransmission->setGeneral_estimation($formTransmission->getGeneral_estimation());
-
     //キー定義されていないものを指定してvar_dump()するとstring(1) "�"が出力される。
     debugFunction::debug($formTransmission);
+
+    // バリテーションなど
+
+    //入社経路
+    $formTransmission->setJoining_route($formTransmission->getJoining_route());
+    //在籍状況
+    $formTransmission->setEnrollment_status($formTransmission->getEnrollment_status());
+    //在籍時の職種
+    $formTransmission->setOccupation($formTransmission->getOccupation());
+    //在籍時の役職
+    $formTransmission->setPosition($formTransmission->getPosition());
+    //在籍期間
+    $formTransmission->setEnrollment_period($formTransmission->getEnrollment_period());
+    //在籍形態
+    $formTransmission->setEmployment_status($formTransmission->getEmployment_status());
+    //福祉厚生
+    $formTransmission->setWelfare_office_environment($formTransmission->getWelfare_office_environment());
+    //勤務時間
+    $formTransmission->setWorking_hours($formTransmission->getWorking_hours());
+    //社内制度
+    $formTransmission->setIn_company_system($formTransmission->getIn_company_system());
+    //企業文化
+    $formTransmission->setCorporate_culture($formTransmission->getCorporate_culture());
+    //休暇
+    $formTransmission->setHoliday($formTransmission->getHoliday());
+    //組織体制
+    $formTransmission->setOrganizational_structure($formTransmission->getOrganizational_structure());
+    //女性の働きやすさ
+    $formTransmission->setEase_of_work_for_women($formTransmission->getEase_of_work_for_women());
+    //入社前とのギャップ
+    $formTransmission->setImage_gap($formTransmission->getImage_gap());
+    //働きがい
+    $formTransmission->setRewarding_work($formTransmission->getRewarding_work());
+    //強み・弱み
+    $formTransmission->setStrengths_and_weaknesses($formTransmission->getStrengths_and_weaknesses());
+    //年収・給与
+    $formTransmission->setAnnual_income_salary($formTransmission->getAnnual_income_salary());
+    //事業展望
+    $formTransmission->setBusiness_outlook($formTransmission->getBusiness_outlook());
+    //総評(タイトル)
+    $formTransmission->setGeneral_estimation_title($formTransmission->getGeneral_estimation_title());
+    //総評
+    $formTransmission->setGeneral_estimation($formTransmission->getGeneral_estimation());
 
     //問題があった場合,バリテーション関数からエラーメッセージが返ってきてるはずなので
     //getErr_msメソッドは返り値が配列になっている。
@@ -103,9 +125,113 @@
 
       debugFunction::debug('バリデーションOKです。');
 
+      //今まで登録したセッション内情報とフォームから新たに送信された内容を比較。変更が無いか確認。
+      //変更があった場合はセッション内情報を更新する。
+
+      //入社経路
+      if($_SESSION['joining_route'] !== $formTransmission->getJoining_route()){
+        $_SESSION['joining_route'] = $formTransmission->getJoining_route();
+      }
+
+      //在籍状況
+      if($_SESSION['enrollment_status'] !== $formTransmission->getEnrollment_status()){
+        $_SESSION['enrollment_status'] = $formTransmission->getEnrollment_status();
+      }
+
+      //在籍時の職種
+      if($_SESSION['occupation'] !== $formTransmission->getOccupation()){
+        $_SESSION['occupation'] = $formTransmission->getOccupation();
+      }
+
+      //在籍時の役職
+      if($_SESSION['position'] !== $formTransmission->getPosition()){
+        $_SESSION['position'] = $formTransmission->getPosition();
+      }
+
+      //在籍期間
+      if($_SESSION['enrollment_period'] !== $formTransmission->getEnrollment_period()){
+        $_SESSION['enrollment_period'] = $formTransmission->getEnrollment_period();
+      }
+
+      //在籍形態
+      if($_SESSION['employment_status'] !== $formTransmission->getEmployment_status()){
+        $_SESSION['employment_status'] = $formTransmission->getEmployment_status();
+      }
+
+      //福利厚生
+      if($_SESSION['welfare_office_environment'] !== $formTransmission->getWelfare_office_environment()){
+        $_SESSION['welfare_office_environment'] = $formTransmission->getWelfare_office_environment();
+      }
+
+      //勤務時間
+      if($_SESSION['working_hours'] !== $formTransmission->getWorking_hours()){
+        $_SESSION['working_hours'] = $formTransmission->getWorking_hours();
+      }
+
+      // 社内制度
+      if($_SESSION['in_company_system'] !== $formTransmission->getIn_company_system()){
+        $_SESSION['in_company_system'] = $formTransmission->getIn_company_system();
+      }
+
+      // 企業文化
+      if($_SESSION['corporate_culture'] !== $formTransmission->getCorporate_culture()){
+        $_SESSION['corporate_culture'] = $formTransmission->getCorporate_culture();
+      }
+
+      // 休暇
+      if($_SESSION['holiday'] !== $formTransmission->getHoliday()){
+        $_SESSION['holiday'] = $formTransmission->getHoliday();
+      }
+
+      //組織体制
+      if($_SESSION['organizational_structure'] !== $formTransmission->getOrganizational_structure()){
+        $_SESSION['organizational_structure'] = $formTransmission->getOrganizational_structure();
+      }
+
+      //女性の働きやすさ
+      if($_SESSION['ease_of_work_for_women'] !== $formTransmission->getEase_of_work_for_women()){
+        $_SESSION['ease_of_work_for_women'] = $formTransmission->getEase_of_work_for_women();
+      }
+
+      //入社前とのギャップ
+      if($_SESSION['image_gap'] !== $formTransmission->getImage_gap()){
+        $_SESSION['image_gap'] = $formTransmission->getImage_gap();
+      }
+
+      //働きがい
+      if($_SESSION['rewarding_work'] !== $formTransmission->getRewarding_work()){
+        $_SESSION['rewarding_work'] = $formTransmission->getRewarding_work();
+      }
+
+      //強み・弱み
+      if($_SESSION['strengths_and_weaknesses'] !== $formTransmission->getStrengths_and_weaknesses()){
+        $_SESSION['strengths_and_weaknesses'] = $formTransmission->getStrengths_and_weaknesses();
+      }
+
+      //年収・給与
+      if($_SESSION['annual_income_salary'] !== $formTransmission->getAnnual_income_salary()){
+        $_SESSION['annual_income_salary'] = $formTransmission->getAnnual_income_salary();
+      }
+
+      //事業展望
+      if($_SESSION['business_outlook'] !== $formTransmission->getBusiness_outlook()){
+        $_SESSION['business_outlook'] = $formTransmission->getBusiness_outlook();
+      }
+
+      //総評のタイトル
+      if($_SESSION['general_estimation_title'] !== $formTransmission->getGeneral_estimation_title()){
+        $_SESSION['general_estimation_title'] = $formTransmission->getGeneral_estimation_title();
+      }
+
+      //総評(詳しくお願いします)
+      if($_SESSION['general_estimation'] !== $formTransmission->getGeneral_estimation()){
+        $_SESSION['general_estimation'] = $formTransmission->getGeneral_estimation();
+      }
+
+      // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝登録処理＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
       //例外処理
       try {
-
           debugFunction::debug('登録処理に入ります。');
 
           // DBへ接続
@@ -120,22 +246,23 @@
           // SQL文作成
           //$signupProp->getDbh()->lastInsertId()で最後に追加したusersテーブル内レコードのidを取得。
           //最後に追加したレコードは直前のINSERT INTO users~なので必ず紐付いたgeneral_profsテーブルのレコードが生成できる。
-          $sql = 'INSERT INTO employee_reviews (`employee_id`,`joining_route`,`occupation`,`position`,`enrollment_period`,`
-          enrollment_status`,`employment_status`,`welfare_office_environment`,`working_hours`,
+
+          //employee_id	review_company_id
+          $sql = 'INSERT INTO employee_reviews (`employee_id`,`joining_route`,`occupation`,`position`,`enrollment_period`,`enrollment_status`,`employment_status`,`welfare_office_environment`,`working_hours`,
           `in_company_system`,`corporate_culture`,`holiday`,`organizational_structure`,`ease_of_work_for_women`,
           `image_gap`,`rewarding_work`,`strengths_and_weaknesses`,`annual_income_salary`,`business_outlook`,
           `general_estimation_title`,`general_estimation`)
           VALUES(:employee_id,:joining_route,:occupation,:position,:enrollment_period,
-          :enrollment_status,:employment_status,welfare_office_environment,:working_hours,
-          :in_company_system,:corporate_culture:,:holiday,:organizational_structure,:ease_of_work_for_women,
+          :enrollment_status,:employment_status,:welfare_office_environment,:working_hours,
+          :in_company_system,:corporate_culture,:holiday,:organizational_structure,:ease_of_work_for_women,
           :image_gap,:rewarding_work,:strengths_and_weaknesses,:annual_income_salary,:business_outlook,
           :general_estimation_title,:general_estimation)';
 
-          $data = array(':employee_id' => $contributorUserDate->getContributor_id(),':joining_route' => $formTransmission->getJoining_route(),':occupation' => $formTransmission->getOccupation(),':position' => $formTransmission->getPosition(),':enrollment_period' => $formTransmission->getEnrollment_period(),
-          ':enrollment_status' => $formTransmission->getEnrollment_status(),':employment_status' => $formTransmission->getEmployment_status(),':welfare_office_environment' => $formTransmission->getWelfare_office_environment(),':working_hours' => $formTransmission->getWorking_hours(),
-          ':in_company_system' => $formTransmission->getIn_company_system(),':corporate_culture' => $formTransmission->Corporate_culture(),':holiday' => $formTransmission->getHoliday(),':organizational_structure' => $formTransmission->getOrganizational_structure(),
-          ':ease_of_work_for_women' => $formTransmission->getEase_of_work_for_women(),':image_gap' => $formTransmission->getImage_gap(),':rewarding_work' => $formTransmission->getRewarding_work(),':strengths_and_weaknesses' => $formTransmission->getStrengths_and_weaknesses(),
-          ':annual_income_salary' => $formTransmission->getAnnual_income_salary(),':business_outlook' => $formTransmission->getBusiness_outlook(),':general_estimation_title' => $formTransmission->getGeneral_estimation_title(),':general_estimation' => $formTransmission->getGeneral_estimation());
+          $data = array(':employee_id' => $contributorUserDate->getContributor_id(),':joining_route' => $_SESSION['joining_route'],':occupation' => $_SESSION['occupation'],':position' => $_SESSION['position'],':enrollment_period' => $_SESSION['enrollment_period'],
+          ':enrollment_status' => $_SESSION['enrollment_status'] ,':employment_status' => $_SESSION['employment_status'],':welfare_office_environment' => $_SESSION['welfare_office_environment'],':working_hours' => $_SESSION['working_hours'],
+          ':in_company_system' => $_SESSION['in_company_system'],':corporate_culture' => $_SESSION['corporate_culture'],':holiday' => $_SESSION['holiday'],':organizational_structure' => $_SESSION['organizational_structure'],
+          ':ease_of_work_for_women' => $_SESSION['ease_of_work_for_women'],':image_gap' => $_SESSION['image_gap'],':rewarding_work' => $_SESSION['rewarding_work'],':strengths_and_weaknesses' => $_SESSION['strengths_and_weaknesses'],
+          ':annual_income_salary' => $_SESSION['annual_income_salary'],':business_outlook' => $_SESSION['business_outlook'],':general_estimation_title' => $_SESSION['general_estimation_title'],':general_estimation' => $_SESSION['general_estimation']);
 
           debugFunction::debug('取得したdata：'.print_r($data,true));
           // クエリ実行
@@ -149,8 +276,31 @@
             $_SESSION['login_date'] = time();
             $_SESSION['login_limit'] = $sesLimit;
 
+            // レビュー内容の初期化
+            $_SESSION['joining_route'] = "";
+            $_SESSION['occupation'] = "";
+            $_SESSION['position'] = "";
+            $_SESSION['enrollment_period'] = "";
+            $_SESSION['enrollment_status'] = "";
+            $_SESSION['employment_status'] = "";
+            $_SESSION['welfare_office_environment'] = "";
+            $_SESSION['working_hours'] = "";
+            $_SESSION['in_company_system'] = "";
+            $_SESSION['corporate_culture'] = "";
+            $_SESSION['holiday'] = "";
+            $_SESSION['organizational_structure'] = "";
+            $_SESSION['ease_of_work_for_women'] = "";
+            $_SESSION['image_gap'] = "";
+            $_SESSION['rewarding_work'] = "";
+            $_SESSION['strengths_and_weaknesses'] = "";
+            $_SESSION['annual_income_salary'] = "";
+            $_SESSION['business_outlook'] = "";
+            $_SESSION['general_estimation_title'] = "";
+            $_SESSION['general_estimation'] = "";
+
             debugFunction::debug('セッション変数の中身：'.print_r($_SESSION,true));
-            header("Location:reviewRegister-Cc.php"); //社内制度や企業文化について
+
+            header("Location:reviewRegister-cm.php"); //投稿完了画面
           }
         } catch (Exception $e) {
           error_log('エラー発生:' . $e->getMessage());
@@ -201,50 +351,52 @@
 
         <form method="post" class="revRegistPc-content__wrap">
 
-          <input class="revRegistPc-content__input" name="joining_route" placeholder="入社経路">
-          <input class="revRegistPc-content__input" name="enrollment_status" placeholder="在籍状況">
-          <input class="revRegistPc-content__input" name="occupation" placeholder="在籍時の職種">
-          <input class="revRegistPc-content__input" name="position" placeholder="在籍時の役職">
-          <input class="revRegistPc-content__input" name="enrollment_period" placeholder="在籍期間">
-          <input class="revRegistPc-content__input" name="employment_status" placeholder="在籍形態">
-          <input class="revRegistPc-content__input" name="welfare_office_environment" placeholder="福利厚生">
-          <input class="revRegistPc-content__input" name="working_hours" placeholder="勤務時間">
+          <input class="revRegistPc-content__input" name="joining_route" placeholder="入社経路" value="<?php if(!empty($_SESSION['joining_route'])) echo $_SESSION['joining_route']; ?>">
 
+          <input class="revRegistPc-content__input" name="enrollment_status" placeholder="在籍状況" value="<?php if(!empty($_SESSION['enrollment_status'])) echo $_SESSION['enrollment_status']; ?>">
+          <input class="revRegistPc-content__input" name="occupation" placeholder="在籍時の職種" value="<?php if(!empty($_SESSION['occupation'])) echo $_SESSION['occupation']; ?>">
+          <input class="revRegistPc-content__input" name="position" placeholder="在籍時の役職" value="<?php if(!empty($_SESSION['position'])) echo $_SESSION['position']; ?>">
+          <input class="revRegistPc-content__input" name="enrollment_period" placeholder="在籍期間" value="<?php if(!empty($_SESSION['enrollment_period'])) echo $_SESSION['enrollment_period']; ?>">
+          <input class="revRegistPc-content__input" name="employment_status" placeholder="在籍形態" value="<?php if(!empty($_SESSION['employment_status'])) echo $_SESSION['employment_status']; ?>">
+          <input class="revRegistPc-content__input" name="welfare_office_environment" placeholder="福利厚生" value="<?php if(!empty($_SESSION['welfare_office_environment'])) echo $_SESSION['welfare_office_environment']; ?>">
+          <input class="revRegistPc-content__input" name="working_hours" placeholder="勤務時間" value="<?php if(!empty($_SESSION['working_hours'])) echo $_SESSION['working_hours']; ?>">
+
+
+          <!-- textareaにvalue属性は無い。https://shgam.hatenadiary.jp/entry/2014/12/06/185627 -->
           <div class="revRegistPc-content__form-title">社内制度</div>
-          <textarea class="revRegistPc-content__form-areaForm" name="in_company_system" placeholder="社内制度について"></textarea>
+          <textarea class="revRegistPc-content__form-areaForm" name="in_company_system" placeholder="社内制度について"><?php if(!empty($_SESSION['in_company_system'])) echo $_SESSION['in_company_system']; ?></textarea>
 
           <div class="revRegistPc-content__form-title">企業文化</div>
-          <textarea class="revRegistPc-content__form-areaForm" name="corporate_culture" placeholder="企業文化について"></textarea>
+          <textarea class="revRegistPc-content__form-areaForm" name="corporate_culture" placeholder="企業文化について"><?php if(!empty($_SESSION['corporate_culture'])) echo $_SESSION['corporate_culture']; ?></textarea>
 
-          <div class="revRegistPc-content__form-title">休暇</div>
-          <textarea class="revRegistPc-content__form-areaForm" name="holiday" placeholder="休暇について"></textarea>
+          <div class="revRegistPc-content__form-title">休暇</div><textarea class="revRegistPc-content__form-areaForm" name="holiday" placeholder="休暇について" ><?php if(!empty($_SESSION['holiday'])) echo $_SESSION['holiday']; ?></textarea>
 
           <div class="revRegistPc-content__form-title">組織体制</div>
-          <textarea class="revRegistPc-content__form-areaForm" name="organizational_structure" placeholder="組織体制について"></textarea>
+          <textarea class="revRegistPc-content__form-areaForm" name="organizational_structure" placeholder="組織体制について"><?php if(!empty($_SESSION['organizational_structure'])) echo $_SESSION['organizational_structure']; ?></textarea>
 
           <div class="revRegistPc-content__form-title">女性の働きやすさ</div>
-          <textarea class="revRegistPc-content__form-areaForm" name="ease_of_work_for_women" placeholder="女性の働きやすさについて"></textarea>
+          <textarea class="revRegistPc-content__form-areaForm" name="ease_of_work_for_women" placeholder="女性の働きやすさについて"><?php if(!empty($_SESSION['ease_of_work_for_women'])) echo $_SESSION['ease_of_work_for_women']; ?></textarea>
 
           <div class="revRegistPc-content__form-title">入社前とのギャップ</div>
-          <textarea class="revRegistPc-content__form-areaForm" name="image_gap" placeholder="入社前とのギャップ"></textarea>
+          <textarea class="revRegistPc-content__form-areaForm" name="image_gap" placeholder="入社前とのギャップ"><?php if(!empty($_SESSION['image_gap'])) echo $_SESSION['image_gap'];?></textarea>
 
           <div class="revRegistPc-content__form-title">働きがい</div>
-          <textarea class="revRegistPc-content__form-areaForm" name="rewarding_work" placeholder="働きがいについて"></textarea>
+          <textarea class="revRegistPc-content__form-areaForm" name="rewarding_work" placeholder="働きがいについて"><?php if(!empty($_SESSION['rewarding_work'])) echo $_SESSION['rewarding_work'];?></textarea>
 
           <div class="revRegistPc-content__form-title">強み・弱み</div>
-          <textarea class="revRegistPc-content__form-areaForm" name="strengths_and_weaknesses" placeholder="強み・弱みについて"></textarea>
+          <textarea class="revRegistPc-content__form-areaForm" name="strengths_and_weaknesses" placeholder="強み・弱みについて"><?php if(!empty($_SESSION['strengths_and_weaknesses'])) echo $_SESSION['strengths_and_weaknesses']; ?></textarea>
 
           <div class="revRegistPc-content__form-title">年収・給与</div>
-          <textarea class="revRegistPc-content__form-areaForm" name="annual_income_salary" placeholder="年収・給与について"></textarea>
+          <textarea class="revRegistPc-content__form-areaForm" name="annual_income_salary" placeholder="年収・給与について"><?php if(!empty($_SESSION['annual_income_salary'])) echo $_SESSION['annual_income_salary']; ?></textarea>
 
           <div class="revRegistPc-content__form-title">事業展望</div>
-          <textarea class="revRegistPc-content__form-areaForm" name="business_outlook" placeholder="事業展望について"></textarea>
+          <textarea class="revRegistPc-content__form-areaForm" name="business_outlook" placeholder="事業展望について"><?php if(!empty($_SESSION['business_outlook'])) echo $_SESSION['business_outlook']; ?></textarea>
 
           <div class="revRegistPc-content__form-conciseTitle">総合的なこの会社の印象や評価を20文字以内でお願いします。</div>
-          <textarea class="revRegistPc-content__form-conciseAreaForm" name="corporate_culture" placeholder="総評(簡潔にお願いします)"></textarea>
+          <textarea class="revRegistPc-content__form-conciseAreaForm" name="general_estimation_title" placeholder="総評(簡潔にお願いします)" ><?php if(!empty($_SESSION['general_estimation_title'])) echo $_SESSION['general_estimation_title']; ?></textarea>
 
           <div class="revRegistPc-content__form-title">総評</div>
-          <textarea class="revRegistPc-content__form-areaForm" name="general_estimation" placeholder="総評(詳しくお願いします)"></textarea>
+          <textarea class="revRegistPc-content__form-areaForm" name="general_estimation" placeholder="総評(詳しくお願いします)" ><?php if(!empty($_SESSION['general_estimation'])) echo $_SESSION['general_estimation']; ?></textarea>
 
           <div class="revRegistPc-content__bottom-wrap">
             <input type="submit" class="revRegistPc-content__bottom-return revRegistPc-content__bottom-link" name="back" value="前の項目へ">
