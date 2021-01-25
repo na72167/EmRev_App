@@ -87,7 +87,11 @@
 
       //セッション内に保持されている情報とフォームから送信されている情報を比較。違う場合は書き換える。
       if($_SESSION['in_company_system'] !== $formTransmission->getIn_company_system()){
-        $_SESSION['in_corporate_culture'] = $formTransmission->getIn_company_system();
+        $_SESSION['in_company_system'] = $formTransmission->getIn_company_system();
+      }
+
+      if($_SESSION['corporate_culture'] !== $formTransmission->getCorporate_culture()){
+        $_SESSION['corporate_culture'] = $formTransmission->getCorporate_culture();
       }
 
       if($_SESSION['occupation'] !== $formTransmission->getCorporate_culture()){
@@ -124,10 +128,16 @@
     }
 
   }elseif(!empty($_POST['back'] === '前の項目へ') && $userDate->getRoll() === 50){
+    // 配列の初期化
+    $_SESSION['in_company_system'] = "";
+    $_SESSION['corporate_culture'] = "";
+    $_SESSION['holiday'] = "";
+    $_SESSION['organizational_structure'] = "";
+    $_SESSION['ease_of_work_for_women'] = "";
   //フラッシュメッセージ挟む。
   //ここのフォームで挿入したセッション情報を削除する。
   debugFunction::debug('「社内制度や企業文化について」のページへ戻ります。');
-  header("Location:mypage.php");
+  header("Location:reviewRegister-jr.php");
   }
 ?>
 
@@ -165,19 +175,19 @@
 
             <form method="post" class="revRegistJr-content__form">
               <div class="revRegistCc-content__form-title">社内制度</div>
-              <textarea class="revRegistCc-content__form-areaForm" name="in_company_system" placeholder="社内制度について" value=""></textarea>
+              <textarea class="revRegistCc-content__form-areaForm" name="in_company_system" placeholder="社内制度について"><?php if(!empty($_SESSION['in_company_system'])) echo $_SESSION['in_company_system']; ?></textarea>
 
               <div class="revRegistCc-content__form-title">企業文化</div>
-              <textarea class="revRegistCc-content__form-areaForm" name="corporate_culture" placeholder="企業文化について" value=""></textarea>
+              <textarea class="revRegistCc-content__form-areaForm" name="corporate_culture" placeholder="企業文化について"><?php if(!empty($_SESSION['corporate_culture'])) echo $_SESSION['corporate_culture']; ?></textarea>
 
               <div class="revRegistCc-content__form-title">休暇</div>
-              <textarea class="revRegistCc-content__form-areaForm" name="holiday" placeholder="休暇について" value=""></textarea>
+              <textarea class="revRegistCc-content__form-areaForm" name="holiday" placeholder="休暇について"><?php if(!empty($_SESSION['holiday'])) echo $_SESSION['holiday']; ?></textarea>
 
               <div class="revRegistCc-content__form-title">組織体制</div>
-              <textarea class="revRegistCc-content__form-areaForm" name="organizational_structure" placeholder="組織体制について" value=""></textarea>
+              <textarea class="revRegistCc-content__form-areaForm" name="organizational_structure" placeholder="組織体制について"><?php if(!empty($_SESSION['organizational_structure'])) echo $_SESSION['organizational_structure']; ?></textarea>
 
               <div class="revRegistCc-content__form-title">女性の働きやすさ</div>
-              <textarea class="revRegistCc-content__form-areaForm" name="ease_of_work_for_women" placeholder="女性の働きやすさについて" value=""></textarea>
+              <textarea class="revRegistCc-content__form-areaForm" name="ease_of_work_for_women" placeholder="女性の働きやすさについて"><?php if(!empty($_SESSION['ease_of_work_for_women'])) echo $_SESSION['ease_of_work_for_women']; ?></textarea>
 
               <div class="revRegistCc-content__bottom-wrap">
                 <input type="submit" class="revRegistCc-content__bottom-return revRegistCc-content__bottom-link" name="back" value="前の項目へ">

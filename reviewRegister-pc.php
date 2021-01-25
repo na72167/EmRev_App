@@ -297,6 +297,7 @@
             $_SESSION['business_outlook'] = "";
             $_SESSION['general_estimation_title'] = "";
             $_SESSION['general_estimation'] = "";
+            $_SESSION['in_corporate_culture'] = "";
 
             debugFunction::debug('セッション変数の中身：'.print_r($_SESSION,true));
 

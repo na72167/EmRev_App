@@ -124,10 +124,16 @@
     }
 
   }elseif(!empty($_POST['back'] === '前の項目へ') && $userDate->getRoll() === 50){
+    // 配列の初期化
+    $_SESSION['image_gap'] = "";
+    $_SESSION['rewarding_work'] = "";
+    $_SESSION['strengths_and_weaknesses'] = "";
+    $_SESSION['annual_income_salary'] = "";
+    $_SESSION['business_outlook'] = "";
   //フラッシュメッセージ挟む。
   //ここのフォームで挿入したセッション情報を削除する。
   debugFunction::debug('「社内制度や企業文化について」のページへ戻ります。');
-  header("Location:mypage.php");
+  header("Location:reviewRegister-cc.php");
   }
 
 
@@ -169,19 +175,19 @@
 
           <form method="post" class="revRegistJw-content__wrap">
             <div class="revRegistJw-content__form-title">入社前とのギャップ</div>
-            <textarea class="revRegistJw-content__form-areaForm" name="image_gap" placeholder="入社前とのギャップ" value=""></textarea>
+            <textarea class="revRegistJw-content__form-areaForm" name="image_gap" placeholder="入社前とのギャップ"><?php if(!empty($_SESSION['image_gap'])) echo $_SESSION['image_gap']; ?></textarea>
 
             <div class="revRegistJw-content__form-title">働きがい</div>
-            <textarea class="revRegistJw-content__form-areaForm" name="rewarding_work" placeholder="働きがいについて" value=""></textarea>
+            <textarea class="revRegistJw-content__form-areaForm" name="rewarding_work" placeholder="働きがいについて"><?php if(!empty($_SESSION['rewarding_work'])) echo $_SESSION['rewarding_work']; ?></textarea>
 
             <div class="revRegistJw-content__form-title">強み・弱み</div>
-            <textarea class="revRegistJw-content__form-areaForm" name="strengths_and_weaknesses" placeholder="強み・弱みについて" value=""></textarea>
+            <textarea class="revRegistJw-content__form-areaForm" name="strengths_and_weaknesses" placeholder="強み・弱みについて"><?php if(!empty($_SESSION['strengths_and_weaknesses'])) echo $_SESSION['strengths_and_weaknesses']; ?></textarea>
 
             <div class="revRegistJw-content__form-title">年収・給与</div>
-            <textarea class="revRegistJw-content__form-areaForm" name="annual_income_salary" placeholder="年収・給与について" value=""></textarea>
+            <textarea class="revRegistJw-content__form-areaForm" name="annual_income_salary" placeholder="年収・給与について"><?php if(!empty($_SESSION['annual_income_salary'])) echo $_SESSION['annual_income_salary']; ?></textarea>
 
             <div class="revRegistJw-content__form-title">事業展望</div>
-            <textarea class="revRegistJw-content__form-areaForm" name="business_outlook" placeholder="事業展望について" value=""></textarea>
+            <textarea class="revRegistJw-content__form-areaForm" name="business_outlook" placeholder="事業展望について"><?php if(!empty($_SESSION['business_outlook'])) echo $_SESSION['business_outlook']; ?></textarea>
 
             <div class="revRegistCc-content__bottom-wrap">
               <input type="submit" class="revRegistJw-content__bottom-return revRegistJw-content__bottom-link" name="back" value="前の項目へ">

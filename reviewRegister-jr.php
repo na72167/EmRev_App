@@ -1,6 +1,6 @@
 <?php
 
- // declare(strict_types=1);
+  // declare(strict_types=1);
   //主にuseを扱う際のルートディレクトリ指定に使ってる。
   require('vendor/autoload.php');
 
@@ -71,7 +71,7 @@
     $formTransmission->setOccupation($formTransmission->getOccupation());
     $formTransmission->setPosition($formTransmission->getPosition());
     $formTransmission->setEnrollment_period($formTransmission->getEnrollment_period());
-    $formTransmission->setEnrollment_status($formTransmission->getEmployment_status());
+    $formTransmission->setEnrollment_status($formTransmission->getEnrollment_status());
     $formTransmission->setEmployment_status($formTransmission->getEmployment_status());
     $formTransmission->setWelfare_office_environment($formTransmission->getWelfare_office_environment());
     $formTransmission->setWorking_hours($formTransmission->getWorking_hours());
@@ -92,6 +92,10 @@
       //セッション内に保持されている情報とフォームから送信されている情報を比較。違う場合は書き換える。
       if($_SESSION['joining_route'] !== $formTransmission->getJoining_route()){
         $_SESSION['joining_route'] = $formTransmission->getJoining_route();
+      }
+
+      if($_SESSION['enrollment_status'] !== $formTransmission->getEnrollment_status()){
+        $_SESSION['enrollment_status'] = $formTransmission->getEnrollment_status();
       }
 
       if($_SESSION['occupation'] !== $formTransmission->getOccupation()){
@@ -133,9 +137,30 @@
     }
 
   }elseif(!empty($_POST['cancel'] === 'レビューを取り消す') && $userDate->getRoll() === 50){
-  //フラッシュメッセージ挟む。
-  debugFunction::debug('変更を取り消しました。マイページへ遷移します。');
-  header("Location:mypage.php");
+    // レビュー内容の初期化
+    $_SESSION['joining_route'] = "";
+    $_SESSION['occupation'] = "";
+    $_SESSION['position'] = "";
+    $_SESSION['enrollment_period'] = "";
+    $_SESSION['enrollment_status'] = "";
+    $_SESSION['employment_status'] = "";
+    $_SESSION['welfare_office_environment'] = "";
+    $_SESSION['working_hours'] = "";
+    $_SESSION['in_company_system'] = "";
+    $_SESSION['corporate_culture'] = "";
+    $_SESSION['holiday'] = "";
+    $_SESSION['organizational_structure'] = "";
+    $_SESSION['ease_of_work_for_women'] = "";
+    $_SESSION['image_gap'] = "";
+    $_SESSION['rewarding_work'] = "";
+    $_SESSION['strengths_and_weaknesses'] = "";
+    $_SESSION['annual_income_salary'] = "";
+    $_SESSION['business_outlook'] = "";
+    $_SESSION['general_estimation_title'] = "";
+    $_SESSION['general_estimation'] = "";
+    //フラッシュメッセージ挟む。
+    debugFunction::debug('変更を取り消しました。マイページへ遷移します。');
+    header("Location:mypage.php");
   }
 ?>
 
@@ -176,14 +201,14 @@
           <form method="post" class="revRegistJr-content__form">
             <div class="revRegistJr-content__input-wrap">
               <!-- あとでここにgetでセッション入れる。 -->
-              <input class="revRegistJr-content__input" name="joining_route" placeholder="入社経路" value="">
-              <input class="revRegistJr-content__input" name="enrollment_status" placeholder="在籍状況" value="">
-              <input class="revRegistJr-content__input" name="occupation" placeholder="在籍時の職種" value="">
-              <input class="revRegistJr-content__input" name="position" placeholder="在籍時の役職" value="">
-              <input class="revRegistJr-content__input" name="enrollment_period" placeholder="在籍期間" value="">
-              <input class="revRegistJr-content__input" name="employment_status" placeholder="在籍形態" value="">
-              <input class="revRegistJr-content__input" name="welfare_office_environment" placeholder="福利厚生" value="">
-              <input class="revRegistJr-content__input" name="working_hours" placeholder="勤務時間" value="">
+              <input class="revRegistJr-content__input" name="joining_route" placeholder="入社経路" value="<?php if(!empty($_SESSION['joining_route'])) echo $_SESSION['joining_route']; ?>">
+              <input class="revRegistJr-content__input" name="enrollment_status" placeholder="在籍状況" value="<?php if(!empty($_SESSION['enrollment_status'])) echo $_SESSION['enrollment_status']; ?>">
+              <input class="revRegistJr-content__input" name="occupation" placeholder="在籍時の職種" value="<?php if(!empty($_SESSION['occupation'])) echo $_SESSION['occupation']; ?>">
+              <input class="revRegistJr-content__input" name="position" placeholder="在籍時の役職" value="<?php if(!empty($_SESSION['position'])) echo $_SESSION['position']; ?>">
+              <input class="revRegistJr-content__input" name="enrollment_period" placeholder="在籍期間" value="<?php if(!empty($_SESSION['enrollment_period'])) echo $_SESSION['enrollment_period']; ?>">
+              <input class="revRegistJr-content__input" name="employment_status" placeholder="在籍形態" value="<?php if(!empty($_SESSION['employment_status'])) echo $_SESSION['employment_status']; ?>">
+              <input class="revRegistJr-content__input" name="welfare_office_environment" placeholder="福利厚生" value="<?php if(!empty($_SESSION['welfare_office_environment'])) echo $_SESSION['welfare_office_environment']; ?>">
+              <input class="revRegistJr-content__input" name="working_hours" placeholder="勤務時間" value="<?php if(!empty($_SESSION['working_hours'])) echo $_SESSION['working_hours']; ?>">
             </div>
 
             <div class="revRegistJr-content__bottom-wrap">

@@ -100,7 +100,7 @@
       $_SESSION['login_limit'] = $sesLimit;
 
       debugFunction::debug('セッション変数の中身：'.print_r($_SESSION,true));
-      header("Location:reviewRegister-Pc.php"); //入社後のギャップや働きがいについて
+      header("Location:reviewRegister-pc.php"); //入社後のギャップや働きがいについて
 
     }elseif(!empty(array_filter($formTransmission->getErr_msAll()))){
       debugFunction::debug('バリデーションNGです。');
@@ -111,7 +111,7 @@
   //フラッシュメッセージ挟む。
   //ここのフォームで挿入したセッション情報を削除する。
   debugFunction::debug('「社内制度や企業文化について」のページへ戻ります。');
-  header("Location:mypage.php");
+  header("Location:reviewRegister-jw.php");
   }
 ?>
 
@@ -150,10 +150,10 @@
 
           <form method="post" class="revRegistGc-content__wrap">
             <div class="revRegistGc-content__form-conciseTitle">総合的なこの会社の印象や評価を20文字以内でお願いします。</div>
-            <textarea class="revRegistGc-content__form-conciseAreaForm" name="general_estimation_title" placeholder="総評(簡潔にお願いします)"></textarea>
+            <textarea class="revRegistGc-content__form-conciseAreaForm" name="general_estimation_title" placeholder="総評(簡潔にお願いします)"><?php if(!empty($_SESSION['general_estimation_title'])) echo $_SESSION['general_estimation_title']; ?></textarea>
 
             <div class="revRegistGc-content__form-title">総評</div>
-            <textarea class="revRegistGc-content__form-areaForm" name="general_estimation" placeholder="総評(詳しくお願いします)"></textarea>
+            <textarea class="revRegistGc-content__form-areaForm" name="general_estimation" placeholder="総評(詳しくお願いします)"><?php if(!empty($_SESSION['general_estimation'])) echo $_SESSION['general_estimation']; ?></textarea>
 
             <div class="revRegistGc-content__bottom-wrap">
               <input type="submit" class="revRegistGc-content__bottom-return revRegistGc-content__bottom-link" name="back" value="前の項目へ">
