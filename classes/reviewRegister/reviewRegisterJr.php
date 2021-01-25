@@ -176,6 +176,11 @@ class reviewRegisterJr extends validation{
     return $this->joining_route;
   }
 
+  // 在籍状況用ゲッター
+  public function getEnrollment_status(){
+    return $this->enrollment_status;
+  }
+
   // 在籍時の職種用ゲッター
   public function getOccupation(){
     return $this->occupation;

@@ -25,6 +25,18 @@
     return htmlspecialchars($str,ENT_QUOTES);
   }
 
+  //画像表示用関数
+  public static function showImg($path){
+    // 画像情報があるか確認
+    if(empty($path)){
+      //ない場合
+      return 'images/sample-img.png';
+    }else{
+      //ある場合
+      return $path;
+    }
+  }
+
 // 画像処理(後半のバリ関係の処理がまだイマイチなのでも少し詰める)
 public static function uploadImg($file, $key){
   debugFunction::debug('画像アップロード処理開始');
