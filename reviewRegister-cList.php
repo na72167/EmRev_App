@@ -57,13 +57,23 @@
       //セッション情報破棄後index.phpへ飛ばす。
   }
 
-  // ====================会社情報取得処理====================
+  // ====================レビュー対象になる会社の個別ID送信====================
+  if(!empty($_POST['company_id']) && $userDate->getRoll() === 50){
+    // レビュー対象になる会社の個別IDをセッションに保持する。
+    $_SESSION['company_id'] = $_POST['company_id'];
+    header("Location:reviewRegister-jr.php");
+  }
+
+  // ====================初期ページ表示処理====================
   // DBから会社データを一括取得
   $companyData = companyApply::companyPropListDefault();
   debugFunction::debug('取得した登録会社一覧情報：'.print_r($companyData,true));
   // それを多重連想配列形式で保持
   //[会社ID][key(カラム)]=> value(レコード) の形で管理
   //それをページの指定箇所に配置していく。
+
+
+  // ====================検索会社情報取得処理====================
 
   // post送信されていてなおかつ投稿者ユーザーだった場合。
   if(!empty($_POST['search'] === '検索する' && $userDate->getRoll() === 50)){
@@ -76,7 +86,7 @@
 
     //検索情報を取得後、会社情報を検索する。
     //ここのkey部分は実際に実行するSQL文にも関係する。
-    $companySearchResult = array();
+
     $companySearchResult = $companySearchPost->companySearch(
       array_filter(array(
         //会社名
@@ -105,17 +115,23 @@
     // 検索結果の内容表示$companySearchResult
     debugFunction::debug('検索した会社情報：'.print_r($companySearchResult,true));
 
-    // 指定変数内のインスタンス内プロパティを検索。
-    // いずれにもバリューが保持されていない場合$companyDataで取得した検索結果を初期化。
-    // その後$CompanySearchResult内のインスタンス情報へ書き換える。
-    // if($companySearchResult){
-    //   $companyData = null;
+    // $companySearchResult['compDate']が
+    // 存在するかどうかを判定する。
+    if(!isset($companySearchResult['compDate'])){
+      // 存在した場合
+      debugFunction::debug('判定処理後の検索した会社情報：'.print_r($companySearchResult,true));
 
-    //   //この代入処理時に$companyData内に$companySearchResultをそのまま格納しないか注意する。
-    //   //そのまま格納されてしまった場合、$companySearchResult内の定義内容を取り出し、$companyData
-    //   //へ代入される方法を探す。
-    //   $companyData = $companySearchResult;
-    // }
+      // 値が保持されている場合、上の処理companyPropListDefault()で取得したレコードを初期化。
+      $companyData = null;
+
+    // その後$CompanySearchResult内のインスタンス情報へ書き換える。
+      $companyData = $companySearchResult;
+      debugFunction::debug('新しい会社情報：'.print_r($companyData,true));
+
+    //下のサイトの関数を使ったほうがキレイにできそうなのでそのうち試す。
+    //https://www.php.net/manual/ja/function.get-object-vars.php
+    //https://www.php.net/manual/ja/function.property-exists.php)
+    }
   }
 
 ?>
@@ -143,6 +159,10 @@
 
   <!-- ここの要素はBEMの規則違反になっている -->
   <section class="middleElement" style="min-height: 1800px;">
+
+  <!-- GETとPOSTの使い分けがよく分かってなかったので
+  https://php-junkie.net/beginner/reserved_variables/get_post/
+  これを参考に書き換えるかも -->
 
     <section class="rigisRigisterReviewListSearch">
         <h1 class="rigisRigisterReviewListSearch__title">Company Search</h1>
@@ -272,9 +292,9 @@
                 </div>
                 <div class="rigisRigisterReviewList__reviewLink">>この会社のレビュー数(<span><?php echo etc::sanitize($val['number_of_reviews']); ?></span>)件</div>
               </div>
+
               <div class="rigisRigisterReviewList__userDetail">
                 <div class="rigisRigisterReviewList__name">(総合的な会社の印象が出力される予定)</div>
-
                 <div class="rigisRigisterReviewList__dmIncumbentWrap">
                   <div class="rigisRigisterReviewList__age">投稿日:<span>0000/00/00</span></div>
                   <div class="rigisRigisterReviewList__dm">総評:<span>サンプルサンプルサンプルサンプル<br>サンプルサンプルサンプルサンプルサ...</span><h1 class="rigisRigisterReviewList__userProfLink">このレビューの詳細を見る</h1></div>
@@ -287,7 +307,10 @@
 
               <!-- 参考コードのappendGetParam()について調べる。 -->
               <!-- ここから選択した会社のID情報をreviewRegister-jrへ送信する。 -->
-              <a href="reviewRegister-jr.php<?php echo '?comp_id='.$val['id']; ?>"><button class="#">この会社のレビューをする</button></a>
+              <form method="post">
+                <input type="hidden" name="company_id" value=<?php echo $val['id'] ?>>
+                <input class="#" type="submit" value="この会社のレビューをする">
+              </form>
             </div>
           <?php
             endforeach;

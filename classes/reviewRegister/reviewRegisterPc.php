@@ -25,6 +25,7 @@ class reviewRegisterPc extends validation{
   protected $business_outlook;
   protected $general_estimation_title;
   protected $general_estimation;
+  protected $company_id;
 
   protected $err_msJoining_route;
   protected $err_msEnrollment_status;
@@ -51,7 +52,7 @@ class reviewRegisterPc extends validation{
   public function __construct($joining_route,$enrollment_status,$occupation,$position,$enrollment_period,
   $employment_status,$welfare_office_environment,$working_hours,$in_company_system,$corporate_culture,$holiday,
   $organizational_structure,$ease_of_work_for_women,$image_gap,$rewarding_work,$strengths_and_weaknesses,
-  $annual_income_salary,$business_outlook,$general_estimation_title,$general_estimation,$err_msJoining_route,$err_msEnrollment_status,
+  $annual_income_salary,$business_outlook,$general_estimation_title,$general_estimation,$company_id,$err_msJoining_route,$err_msEnrollment_status,
   $err_msOccupation,$err_msPosition,$err_msEnrollment_period,$err_msEmployment_status,
   $err_msWelfare_office_environment,$err_msWorking_hours,$err_msIn_company_system,
   $err_msCorporate_culture,$err_msHoliday,$err_msOrganizational_structure,$err_msEase_of_work_for_women,$err_msImage_gap,$err_msRewarding_work,
@@ -76,6 +77,7 @@ class reviewRegisterPc extends validation{
     $this->business_outlook = $business_outlook;
     $this->general_estimation_title = $general_estimation_title;
     $this->general_estimation = $general_estimation;
+    $this->company_id = $company_id;
 
     $this->err_msJoining_route = $err_msJoining_route;
     $this->err_msEnrollment_status = $err_msEnrollment_status;
@@ -398,6 +400,11 @@ class reviewRegisterPc extends validation{
     if(empty($this->err_msGeneral_estimation)){
       $this->general_estimation = etc::sanitize($str);
     }
+  }
+
+  //会社識別用IDセッター
+  public function setCompany_id(int $str):void{
+    $this->company_id = etc::sanitize($str);
   }
 
   // 共通エラーメッセージ挿入用セッター

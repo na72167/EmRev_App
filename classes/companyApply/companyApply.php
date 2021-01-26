@@ -198,6 +198,19 @@ class companyApply extends validation{
         $rst['compDate'] = $stmt->fetchAll();//クエリ結果のデータを全レコードを格納
         $rst['total'] = $stmt->rowCount(); //総レコード数
         $rst['total_page'] = ceil($rst['total']/$span); //総ページ数
+
+        // そのまま$rstに対してarray_filter()を使うと検索結果が0件の場合
+        // $rst['total']内に入る0も削除されてしまうので削除するキーワードを指定する。
+        // https://qiita.com/inaling/items/349e40bf8e4334225d92
+        // https://qiita.com/Quantum/items/767dba44af81d1825248
+        // https://gray-code.com/php/delete-specified-value-from-array/
+        // https://qiita.com/Quantum/items/767dba44af81d1825248
+
+        // compDate内にレコードが無い場合、
+        // keyごと削除する。
+        if(empty($rst['compDate'])){
+          unset($rst['compDate']);
+        };
         return $rst;
       }else{
         return false;
@@ -358,6 +371,13 @@ class companyApply extends validation{
   }
 
   //===============getter関数関係=================
+
+  public function getCompanySearchResult():?array{
+    return [$this->company_name,$this->representative,$this->location,
+    $this->industry,$this->year_of_establishment,$this->isted_year,
+    $this->number_of_employees,$this->average_annual_income
+    ,$this->average_age,$this->number_of_reviews];
+  }
 
   public function getCompany_name():?string{
     return $this->company_name;

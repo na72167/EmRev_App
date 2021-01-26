@@ -67,7 +67,7 @@
     $formTransmission = new reviewRegisterPc($_POST['joining_route'],$_POST['enrollment_status'],$_POST['occupation'],$_POST['position'],$_POST['enrollment_period']
     ,$_POST['employment_status'],$_POST['welfare_office_environment'],$_POST['working_hours'],$_POST['in_company_system'],$_POST['corporate_culture'],$_POST['holiday'],$_POST['organizational_structure']
     ,$_POST['ease_of_work_for_women'],$_POST['image_gap'],$_POST['rewarding_work'],$_POST['strengths_and_weaknesses'],$_POST['annual_income_salary'],$_POST['business_outlook'],$_POST['general_estimation_title']
-    ,$_POST['general_estimation'],'','','','','','','','','','','','','','','','','','','','','');
+    ,$_POST['general_estimation'],'','','','','','','','','','','','','','','','','','','','','','');
 
     //キー定義されていないものを指定してvar_dump()するとstring(1) "�"が出力される。
     debugFunction::debug($formTransmission);
@@ -247,18 +247,17 @@
           //$signupProp->getDbh()->lastInsertId()で最後に追加したusersテーブル内レコードのidを取得。
           //最後に追加したレコードは直前のINSERT INTO users~なので必ず紐付いたgeneral_profsテーブルのレコードが生成できる。
 
-          //employee_id	review_company_id
-          $sql = 'INSERT INTO employee_reviews (`employee_id`,`joining_route`,`occupation`,`position`,`enrollment_period`,`enrollment_status`,`employment_status`,`welfare_office_environment`,`working_hours`,
+          $sql = 'INSERT INTO employee_reviews (`employee_id`,`review_company_id`,`joining_route`,`occupation`,`position`,`enrollment_period`,`enrollment_status`,`employment_status`,`welfare_office_environment`,`working_hours`,
           `in_company_system`,`corporate_culture`,`holiday`,`organizational_structure`,`ease_of_work_for_women`,
           `image_gap`,`rewarding_work`,`strengths_and_weaknesses`,`annual_income_salary`,`business_outlook`,
           `general_estimation_title`,`general_estimation`)
-          VALUES(:employee_id,:joining_route,:occupation,:position,:enrollment_period,
+          VALUES(:employee_id,:review_company_id,:joining_route,:occupation,:position,:enrollment_period,
           :enrollment_status,:employment_status,:welfare_office_environment,:working_hours,
           :in_company_system,:corporate_culture,:holiday,:organizational_structure,:ease_of_work_for_women,
           :image_gap,:rewarding_work,:strengths_and_weaknesses,:annual_income_salary,:business_outlook,
           :general_estimation_title,:general_estimation)';
 
-          $data = array(':employee_id' => $contributorUserDate->getContributor_id(),':joining_route' => $_SESSION['joining_route'],':occupation' => $_SESSION['occupation'],':position' => $_SESSION['position'],':enrollment_period' => $_SESSION['enrollment_period'],
+          $data = array(':employee_id' => $contributorUserDate->getContributor_id(),':review_company_id' => $_SESSION['company_id'],':joining_route' => $_SESSION['joining_route'],':occupation' => $_SESSION['occupation'],':position' => $_SESSION['position'],':enrollment_period' => $_SESSION['enrollment_period'],
           ':enrollment_status' => $_SESSION['enrollment_status'] ,':employment_status' => $_SESSION['employment_status'],':welfare_office_environment' => $_SESSION['welfare_office_environment'],':working_hours' => $_SESSION['working_hours'],
           ':in_company_system' => $_SESSION['in_company_system'],':corporate_culture' => $_SESSION['corporate_culture'],':holiday' => $_SESSION['holiday'],':organizational_structure' => $_SESSION['organizational_structure'],
           ':ease_of_work_for_women' => $_SESSION['ease_of_work_for_women'],':image_gap' => $_SESSION['image_gap'],':rewarding_work' => $_SESSION['rewarding_work'],':strengths_and_weaknesses' => $_SESSION['strengths_and_weaknesses'],
@@ -298,6 +297,9 @@
             $_SESSION['general_estimation_title'] = "";
             $_SESSION['general_estimation'] = "";
             $_SESSION['in_corporate_culture'] = "";
+            $_SESSION['company_id'] = "";
+            //空の値を削除する。
+            $_SESSION = array_filter($_SESSION);
 
             debugFunction::debug('セッション変数の中身：'.print_r($_SESSION,true));
 

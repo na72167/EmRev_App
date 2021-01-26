@@ -17,6 +17,7 @@
   debugFunction::debug('「「「「「「「「「「「「「「「「「「「');
   debugFunction::debug('レビュー投稿ページ(入社経路や在籍状況)');
   debugFunction::debug('「「「「「「「「「「「「「');
+  debugFunction::debug('「「「「「「「「「');
   debugFunction::debugLogStart();
 
   // このあと$_SESSION['user_id']を参照してuserｓテーブルに関した情報のみを管理するuserクラスを作成。
@@ -136,7 +137,7 @@
       debugFunction::debug($formTransmission->getErr_msAll());
     }
 
-  }elseif(!empty($_POST['cancel'] === 'レビューを取り消す') && $userDate->getRoll() === 50){
+  }elseif(!empty($_POST['cancel'] === '会社選択画面に戻る') && $userDate->getRoll() === 50){
     // レビュー内容の初期化
     $_SESSION['joining_route'] = "";
     $_SESSION['occupation'] = "";
@@ -158,9 +159,12 @@
     $_SESSION['business_outlook'] = "";
     $_SESSION['general_estimation_title'] = "";
     $_SESSION['general_estimation'] = "";
+    $_SESSION['company_id'] = "";
+    //空の値を削除する。
+    $_SESSION = array_filter($_SESSION);
     //フラッシュメッセージ挟む。
-    debugFunction::debug('変更を取り消しました。マイページへ遷移します。');
-    header("Location:mypage.php");
+    debugFunction::debug('変更を取り消しました。レビュー会社選択へ遷移します。');
+    header("Location:reviewRegister-cList.php");
   }
 ?>
 
@@ -212,7 +216,7 @@
             </div>
 
             <div class="revRegistJr-content__bottom-wrap">
-              <input type="submit" class="revRegistJr-content__bottom-cancel" name="cancel" value="レビューを取り消す">
+              <input type="submit" class="revRegistJr-content__bottom-cancel" name="cancel" value="会社選択画面に戻る">
               <input type="submit" class="revRegistJr-content__bottom-next revRegistJr-content__bottom-link" name="next" value="次の項目へ">
             </div>
 

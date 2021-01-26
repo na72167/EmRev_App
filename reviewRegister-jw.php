@@ -130,6 +130,8 @@
     $_SESSION['strengths_and_weaknesses'] = "";
     $_SESSION['annual_income_salary'] = "";
     $_SESSION['business_outlook'] = "";
+    //空の値を削除する。
+    $_SESSION = array_filter($_SESSION);
   //フラッシュメッセージ挟む。
   //ここのフォームで挿入したセッション情報を削除する。
   debugFunction::debug('「社内制度や企業文化について」のページへ戻ります。');
