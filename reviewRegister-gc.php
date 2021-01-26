@@ -108,6 +108,10 @@
     }
 
   }elseif(!empty($_POST['back'] === '前の項目へ') && $userDate->getRoll() === 50){
+    $_SESSION['general_estimation_title'] = '';
+    $_SESSION['general_estimation'] = '';
+    //空の値を削除する。
+    $_SESSION = array_filter($_SESSION);
   //フラッシュメッセージ挟む。
   //ここのフォームで挿入したセッション情報を削除する。
   debugFunction::debug('「社内制度や企業文化について」のページへ戻ります。');
