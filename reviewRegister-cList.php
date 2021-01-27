@@ -117,7 +117,7 @@
 
     // $companySearchResult['compDate']が
     // 存在するかどうかを判定する。
-    if(!isset($companySearchResult['compDate'])){
+    if(isset($companySearchResult['compDate'])){
       // 存在した場合
       debugFunction::debug('判定処理後の検索した会社情報：'.print_r($companySearchResult,true));
 
@@ -131,6 +131,10 @@
     //下のサイトの関数を使ったほうがキレイにできそうなのでそのうち試す。
     //https://www.php.net/manual/ja/function.get-object-vars.php
     //https://www.php.net/manual/ja/function.property-exists.php)
+    }elseif(!isset($companySearchResult['compDate'])){
+      //空だった場合
+      //フラッシュメッセージ内に「検索結果がありませんでした」
+      //と表示させる。
     }
   }
 

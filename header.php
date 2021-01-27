@@ -40,7 +40,7 @@
     <ul class="menuAbout__itemWrap">
       <li class="menuAbout__itemWrap-item"><a class="menuLink-color" href="./mypage.php">マイページ</a></li>
       <li class="menuAbout__itemWrap-item">お気に入りレビュー一覧</li>
-      <li class="menuAbout__itemWrap-item">登録レビュー一覧</li>
+      <li class="menuAbout__itemWrap-item"><a class="menuLink-color" href="./revliReviewList.php">投稿されたレビュー一覧</a></li>
       <li class="menuAbout__itemWrap-item">閲覧履歴</li>
       <li class="menuAbout__itemWrap-item"><a class="menuLink-color" href="./employeeRegistration.php">投稿者登録</a></li>
       <li class="menuAbout__itemWrap-item">登録社員一覧</li>
