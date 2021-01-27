@@ -136,6 +136,13 @@ class companyApply extends validation{
 
         debugFunction::debug('会社情報を取得しました');
         debugFunction::debug('取得した会社情報：'.print_r($rst['compDate'],true));
+
+        // compDate内にレコードが無い場合、
+        // keyごと削除する。
+        if(empty($rst['compDate'])){
+          unset($rst['compDate']);
+        };
+
         return $rst;
       }else{
         debugFunction::debug('会社情報を取得できませんでした');
@@ -147,13 +154,7 @@ class companyApply extends validation{
     }
   }
 
-  // ,$representative,$location,$industry,$year_of_establishment,
-  //  $listed_year,$number_of_employees,$average_annual_income,$average_age,$number_of_reviews
-
-  // 簡易処理実行サイト
-  // https://paiza.io/projects/bdgZszRUZgjpT7nKy9DYiA
-
-  // 会社情報検索メソッド
+   // =================会社情報検索メソッド=================
   public function companySearch(?array $search_prop,int $span = 10){
       //例外処理
     try {
@@ -220,6 +221,120 @@ class companyApply extends validation{
       error_log('エラー発生:' . $e->getMessage());
     }
   }
+
+  // =================一連の会社情報と関連レビューを取得するメソッド=================
+  public static function companyAndReviewPropListDefault($span = 10){
+    debugFunction::debug('会社情報と関連レビュー情報を取得します。');
+    //例外処理
+    try {
+      //接続情報をまとめたクラス
+      $dbh = new dbConnectPDO();
+      // 会社情報と関連レビューを降順で取得するクエリ文
+      $sql = 'SELECT ci.company_name,ci.industry,ci.location,ci.number_of_reviews,er.general_estimation_title,er.general_estimation,er.create_date FROM company_informations AS ci LEFT JOIN employee_reviews AS er ON ci.id = er.review_company_id ORDER BY ci.id DESC';
+      $data = array();
+
+      // 会社情報を降順で取得するクエリ文
+      $stmt = dbConnectFunction::queryPost($dbh->getPDO(), $sql, $data);
+
+      if($stmt){
+        // 会社情報と関連レビューのクエリ結果データを全レコード格納
+        $rst['compDate'] = $stmt->fetchAll();
+
+        // 取得したレコード数をカウント。その数字を
+        // totalキーを割り振って挿入する。
+        $rst['total'] = $stmt->rowCount(); //総レコード数
+        $rst['total_page'] = ceil($rst['total']/$span); //総ページ数
+
+        debugFunction::debug('クエリで取得した会社情報と関連レビュー：'.print_r($rst['compDate'],true));
+
+        // compDate内にレコードが無い場合、
+        // keyごと削除する。
+        if(empty($rst['compDate'])){
+          unset($rst['compDate']);
+        };
+
+        return $rst;
+      }else{
+        debugFunction::debug('会社情報と関連レビューを取得できませんでした');
+        return false;
+      }
+
+    } catch (Exception $e) {
+      error_log('エラー発生:' . $e->getMessage());
+    }
+  }
+
+  // =================一連の会社情報と関連レビューを検索するメソッド=================
+  public function companyAndReviewSearch(?array $search_prop,int $span = 10){
+    //例外処理
+  try {
+    //接続情報をまとめたクラス
+    $dbh = new dbConnectPDO();
+
+    // 件数用のSQL文作成 AND
+    $sql = 'SELECT * FROM company_informations AS ci LEFT JOIN employee_reviews AS er ON ci.id = er.review_company_id';
+    if(!empty($search_prop)){
+      $i = 1;
+        //配列内のキーをWHERE内の指定カラムにする。
+        foreach($search_prop as $key => $value){
+          debugFunction::debug('配列内：'.print_r([$key => $value],true));
+          //最初のみWHEREをつける。
+          if($i === 1){
+            $sql .= ' WHERE '.$key.'='.'"'.$value.'"';
+            $i++;
+          }else{
+            $sql .= ' AND '.$key.'='.'"'.$value.'"';
+            $i++;
+          }
+        }
+    }
+
+    // 会社の順序を昇順・降順に切り替える処理
+    // if(!empty($sort)){
+    //   switch($sort){
+    //     case 1:
+    //       $sql .= ' ORDER BY price ASC';
+    //       break;
+    //     case 2:
+    //       $sql .= ' ORDER BY price DESC';
+    //       break;
+    //   }
+    // }
+
+    $data = array();
+    // クエリ実行
+    $stmt = dbConnectFunction::queryPost($dbh->getPDO(), $sql, $data);
+
+    if($stmt){
+      $rst['compDate'] = $stmt->fetchAll();//クエリ結果のデータを全レコードを格納
+      $rst['total'] = $stmt->rowCount(); //総レコード数
+      $rst['total_page'] = ceil($rst['total']/$span); //総ページ数
+
+      // そのまま$rstに対してarray_filter()を使うと検索結果が0件の場合
+      // $rst['total']内に入る0も削除されてしまうので削除するキーワードを指定する。
+      // https://qiita.com/inaling/items/349e40bf8e4334225d92
+      // https://qiita.com/Quantum/items/767dba44af81d1825248
+      // https://gray-code.com/php/delete-specified-value-from-array/
+      // https://qiita.com/Quantum/items/767dba44af81d1825248
+
+      // compDate内にレコードが無い場合、
+      // keyごと削除する。
+      if(empty($rst['compDate'])){
+        unset($rst['compDate']);
+      };
+      return $rst;
+    }else{
+      return false;
+    }
+
+  } catch (Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+  }
+}
+
+
+
+
 
   //===============setter関数関係=================
 
