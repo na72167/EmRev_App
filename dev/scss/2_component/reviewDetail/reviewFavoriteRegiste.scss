@@ -1,0 +1,26 @@
+.reviewFavoriteRegiste{
+  height: 90px;
+  width: 1450px;
+  background-color: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin: 0 auto;
+  padding: 30px 100px 0px;
+  position: relative;
+  top: -50px;
+  overflow: hidden;
+  &__content{
+    &-wrap{
+      width: 1360px;
+      font-size: 20px;
+      padding: 0 350px;
+      overflow: hidden;
+    }
+    &-main{
+      float: left;
+    }
+    &-sub{
+      float: left;
+    }
+  }
+}
