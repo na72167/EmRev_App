@@ -1917,6 +1917,551 @@ button {
     border: 1px solid #fff;
     border-radius: 3px; }
 
+.companyReviewDetail {
+  height: 4830px;
+  width: 1400px;
+  background-color: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin: 0 auto;
+  padding: 10px 50px 0px;
+  position: relative;
+  top: -20px;
+  overflow: hidden; }
+  .companyReviewDetail-title {
+    font-size: 28px;
+    padding: 25px 0;
+    text-align: center;
+    border-bottom: 1px solid #b4becb; }
+  .companyReviewDetail__content-mainWrap {
+    height: 100%;
+    padding: 30px 5px;
+    border-radius: 10px; }
+  .companyReviewDetail__content-InHouseSystem {
+    height: 390px;
+    width: 1300px;
+    padding: 30px 50px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px; }
+    .companyReviewDetail__content-InHouseSystem-companyName {
+      font-size: 20px; }
+    .companyReviewDetail__content-InHouseSystem-subWrap {
+      overflow: hidden;
+      margin-top: 5px; }
+    .companyReviewDetail__content-InHouseSystem-icon {
+      float: left;
+      height: 50px;
+      width: 50px;
+      margin-right: 10px;
+      background-color: black; }
+    .companyReviewDetail__content-InHouseSystem-kind {
+      float: left;
+      font-size: 30px;
+      margin-top: 7px; }
+    .companyReviewDetail__content-InHouseSystem-date {
+      float: left;
+      margin-top: 25px;
+      margin-left: 20px; }
+    .companyReviewDetail__content-InHouseSystem-about {
+      margin-top: 20px; }
+  .companyReviewDetail__content-corporateCulture {
+    height: 390px;
+    width: 1300px;
+    padding: 30px 50px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px; }
+    .companyReviewDetail__content-corporateCulture-companyName {
+      font-size: 20px; }
+    .companyReviewDetail__content-corporateCulture-subWrap {
+      overflow: hidden;
+      margin-top: 5px; }
+    .companyReviewDetail__content-corporateCulture-icon {
+      float: left;
+      height: 50px;
+      width: 50px;
+      margin-right: 10px;
+      background-color: black; }
+    .companyReviewDetail__content-corporateCulture-kind {
+      float: left;
+      font-size: 30px;
+      margin-top: 7px; }
+    .companyReviewDetail__content-corporateCulture-date {
+      float: left;
+      margin-top: 25px;
+      margin-left: 20px; }
+    .companyReviewDetail__content-corporateCulture-about {
+      margin-top: 20px; }
+  .companyReviewDetail__content-OrganizationalStructure {
+    height: 390px;
+    width: 1300px;
+    padding: 30px 50px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px; }
+    .companyReviewDetail__content-OrganizationalStructure-companyName {
+      font-size: 20px; }
+    .companyReviewDetail__content-OrganizationalStructure-subWrap {
+      overflow: hidden;
+      margin-top: 5px; }
+    .companyReviewDetail__content-OrganizationalStructure-icon {
+      float: left;
+      height: 50px;
+      width: 50px;
+      margin-right: 10px;
+      background-color: black; }
+    .companyReviewDetail__content-OrganizationalStructure-kind {
+      float: left;
+      font-size: 30px;
+      margin-top: 7px; }
+    .companyReviewDetail__content-OrganizationalStructure-date {
+      float: left;
+      margin-top: 25px;
+      margin-left: 20px; }
+    .companyReviewDetail__content-OrganizationalStructure-about {
+      margin-top: 20px; }
+  .companyReviewDetail__content-EaseOfWorkForWomen {
+    height: 390px;
+    width: 1300px;
+    padding: 30px 50px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px; }
+    .companyReviewDetail__content-EaseOfWorkForWomen-companyName {
+      font-size: 20px; }
+    .companyReviewDetail__content-EaseOfWorkForWomen-subWrap {
+      overflow: hidden;
+      margin-top: 5px; }
+    .companyReviewDetail__content-EaseOfWorkForWomen-icon {
+      float: left;
+      height: 50px;
+      width: 50px;
+      margin-right: 10px;
+      background-color: black; }
+    .companyReviewDetail__content-EaseOfWorkForWomen-kind {
+      float: left;
+      font-size: 30px;
+      margin-top: 7px; }
+    .companyReviewDetail__content-EaseOfWorkForWomen-date {
+      float: left;
+      margin-top: 25px;
+      margin-left: 20px; }
+    .companyReviewDetail__content-EaseOfWorkForWomen-about {
+      margin-top: 20px; }
+  .companyReviewDetail__content-RewardingWork {
+    height: 390px;
+    width: 1300px;
+    padding: 30px 50px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px; }
+    .companyReviewDetail__content-RewardingWork-companyName {
+      font-size: 20px; }
+    .companyReviewDetail__content-RewardingWork-subWrap {
+      overflow: hidden;
+      margin-top: 5px; }
+    .companyReviewDetail__content-RewardingWork-icon {
+      float: left;
+      height: 50px;
+      width: 50px;
+      margin-right: 10px;
+      background-color: black; }
+    .companyReviewDetail__content-RewardingWork-kind {
+      float: left;
+      font-size: 30px;
+      margin-top: 7px; }
+    .companyReviewDetail__content-RewardingWork-date {
+      float: left;
+      margin-top: 25px;
+      margin-left: 20px; }
+    .companyReviewDetail__content-RewardingWork-about {
+      margin-top: 20px; }
+  .companyReviewDetail__content-gapBeforeJoiningTheCompany {
+    height: 390px;
+    width: 1300px;
+    padding: 30px 50px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px; }
+    .companyReviewDetail__content-gapBeforeJoiningTheCompany-companyName {
+      font-size: 20px; }
+    .companyReviewDetail__content-gapBeforeJoiningTheCompany-subWrap {
+      overflow: hidden;
+      margin-top: 5px; }
+    .companyReviewDetail__content-gapBeforeJoiningTheCompany-icon {
+      float: left;
+      height: 50px;
+      width: 50px;
+      margin-right: 10px;
+      background-color: black; }
+    .companyReviewDetail__content-gapBeforeJoiningTheCompany-kind {
+      float: left;
+      font-size: 30px;
+      margin-top: 7px; }
+    .companyReviewDetail__content-gapBeforeJoiningTheCompany-date {
+      float: left;
+      margin-top: 25px;
+      margin-left: 20px; }
+    .companyReviewDetail__content-gapBeforeJoiningTheCompany-about {
+      margin-top: 20px; }
+  .companyReviewDetail__content-BusinessOutlook {
+    height: 390px;
+    width: 1300px;
+    padding: 30px 50px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px; }
+    .companyReviewDetail__content-BusinessOutlook-companyName {
+      font-size: 20px; }
+    .companyReviewDetail__content-BusinessOutlook-subWrap {
+      overflow: hidden;
+      margin-top: 5px; }
+    .companyReviewDetail__content-BusinessOutlook-icon {
+      float: left;
+      height: 50px;
+      width: 50px;
+      margin-right: 10px;
+      background-color: black; }
+    .companyReviewDetail__content-BusinessOutlook-kind {
+      float: left;
+      font-size: 30px;
+      margin-top: 7px; }
+    .companyReviewDetail__content-BusinessOutlook-date {
+      float: left;
+      margin-top: 25px;
+      margin-left: 20px; }
+    .companyReviewDetail__content-BusinessOutlook-about {
+      margin-top: 20px; }
+  .companyReviewDetail__content-StrengthsAndWeaknesses {
+    height: 390px;
+    width: 1300px;
+    padding: 30px 50px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px; }
+    .companyReviewDetail__content-StrengthsAndWeaknesses-companyName {
+      font-size: 20px; }
+    .companyReviewDetail__content-StrengthsAndWeaknesses-subWrap {
+      overflow: hidden;
+      margin-top: 5px; }
+    .companyReviewDetail__content-StrengthsAndWeaknesses-icon {
+      float: left;
+      height: 50px;
+      width: 50px;
+      margin-right: 10px;
+      background-color: black; }
+    .companyReviewDetail__content-StrengthsAndWeaknesses-kind {
+      float: left;
+      font-size: 30px;
+      margin-top: 7px; }
+    .companyReviewDetail__content-StrengthsAndWeaknesses-date {
+      float: left;
+      margin-top: 25px;
+      margin-left: 20px; }
+    .companyReviewDetail__content-StrengthsAndWeaknesses-about {
+      margin-top: 20px; }
+  .companyReviewDetail__content-annualIncomeAndSalary {
+    height: 390px;
+    width: 1300px;
+    padding: 30px 50px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px; }
+    .companyReviewDetail__content-annualIncomeAndSalary-companyName {
+      font-size: 20px; }
+    .companyReviewDetail__content-annualIncomeAndSalary-subWrap {
+      overflow: hidden;
+      margin-top: 5px; }
+    .companyReviewDetail__content-annualIncomeAndSalary-icon {
+      float: left;
+      height: 50px;
+      width: 50px;
+      margin-right: 10px;
+      background-color: black; }
+    .companyReviewDetail__content-annualIncomeAndSalary-kind {
+      float: left;
+      font-size: 30px;
+      margin-top: 7px; }
+    .companyReviewDetail__content-annualIncomeAndSalary-date {
+      float: left;
+      margin-top: 25px;
+      margin-left: 20px; }
+    .companyReviewDetail__content-annualIncomeAndSalary-about {
+      margin-top: 20px; }
+  .companyReviewDetail__content-Welfare {
+    height: 390px;
+    width: 1300px;
+    padding: 30px 50px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px; }
+    .companyReviewDetail__content-Welfare-companyName {
+      font-size: 20px; }
+    .companyReviewDetail__content-Welfare-subWrap {
+      overflow: hidden;
+      margin-top: 5px; }
+    .companyReviewDetail__content-Welfare-icon {
+      float: left;
+      height: 50px;
+      width: 50px;
+      margin-right: 10px;
+      background-color: black; }
+    .companyReviewDetail__content-Welfare-kind {
+      float: left;
+      font-size: 30px;
+      margin-top: 7px; }
+    .companyReviewDetail__content-Welfare-date {
+      float: left;
+      margin-top: 25px;
+      margin-left: 20px; }
+    .companyReviewDetail__content-Welfare-about {
+      margin-top: 20px; }
+  .companyReviewDetail__content-generalComment {
+    height: 390px;
+    width: 1300px;
+    padding: 30px 50px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px; }
+    .companyReviewDetail__content-generalComment-companyName {
+      font-size: 20px; }
+    .companyReviewDetail__content-generalComment-subWrap {
+      overflow: hidden;
+      margin-top: 5px; }
+    .companyReviewDetail__content-generalComment-icon {
+      float: left;
+      height: 50px;
+      width: 50px;
+      margin-right: 10px;
+      background-color: black; }
+    .companyReviewDetail__content-generalComment-kind {
+      float: left;
+      font-size: 30px;
+      margin-top: 7px; }
+    .companyReviewDetail__content-generalComment-date {
+      float: left;
+      margin-top: 25px;
+      margin-left: 20px; }
+    .companyReviewDetail__content-generalComment-about {
+      margin-top: 20px; }
+  .companyReviewDetail .date {
+    margin-left: 10px; }
+
+.revDeCompanyInfo {
+  height: 580px;
+  width: 1550px;
+  background-color: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin: 0 auto;
+  position: relative;
+  top: -90px;
+  overflow: hidden; }
+  .revDeCompanyInfo__header {
+    height: 70px;
+    width: 1530px;
+    margin: 0 10px;
+    padding: 10px 0;
+    border-radius: 10px 10px 0 0;
+    border-bottom: 1px solid #b4becb; }
+  .revDeCompanyInfo__mainWrap {
+    height: 50px;
+    width: 1350px;
+    padding: 0 350px;
+    margin: 0 auto; }
+  .revDeCompanyInfo__title {
+    height: 50px;
+    width: 250px;
+    margin-top: 5px;
+    font-size: 28px;
+    font-weight: 10px;
+    float: left; }
+  .revDeCompanyInfo__subWrap {
+    float: left;
+    margin-top: 15px;
+    overflow: hidden; }
+  .revDeCompanyInfo__totalNumberOfPostedReviews {
+    float: left; }
+  .revDeCompanyInfo__compDetailLink {
+    margin-left: 5px;
+    float: left; }
+  .revDeCompanyInfo__content-EnrollmentPeriodInformation {
+    width: 200px;
+    border-bottom: 1px solid #b4becb; }
+
+.reviewerProf {
+  height: 480px;
+  width: 850px;
+  background-color: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin: 0 auto 0;
+  padding: 50px 100px 0px;
+  position: relative;
+  top: -170px;
+  overflow: hidden; }
+  .reviewerProf__img-wrap {
+    height: 230px;
+    width: 230px;
+    border: 1px solid #b4becb;
+    border-radius: 10px;
+    float: left; }
+  .reviewerProf__detail {
+    float: left;
+    margin: 10px 0 30px 130px; }
+  .reviewerProf__name {
+    overflow: hidden;
+    border-bottom: 1px solid #b4becb;
+    margin-bottom: 20px; }
+    .reviewerProf__name-element {
+      margin-right: 5px;
+      float: left; }
+    .reviewerProf__name-output {
+      float: left;
+      display: block; }
+  .reviewerProf__ageTel-Wrap {
+    overflow: hidden;
+    width: 230px; }
+  .reviewerProf__age {
+    float: left;
+    width: 50px;
+    overflow: hidden;
+    border-bottom: 1px solid #b4becb;
+    margin-bottom: 20px; }
+    .reviewerProf__age-element {
+      margin-right: 5px;
+      float: left; }
+    .reviewerProf__age-output {
+      float: left;
+      width: 20px; }
+  .reviewerProf__tel {
+    float: left;
+    height: 22px;
+    width: 150px;
+    margin-left: 30px;
+    overflow: hidden;
+    border-bottom: 1px solid #b4becb;
+    margin-bottom: 20px; }
+    .reviewerProf__tel-element {
+      margin-right: 5px;
+      float: left; }
+    .reviewerProf__tel-output {
+      width: 120px;
+      float: left; }
+  .reviewerProf__address {
+    overflow: hidden;
+    border-bottom: 1px solid #b4becb;
+    margin-bottom: 20px; }
+    .reviewerProf__address-element {
+      margin-right: 5px;
+      float: left; }
+    .reviewerProf__address-output {
+      height: 20px;
+      width: 160px;
+      float: left; }
+  .reviewerProf__state {
+    overflow: hidden;
+    border-bottom: 1px solid #b4becb;
+    margin-bottom: 20px; }
+    .reviewerProf__state-element {
+      margin-right: 5px;
+      float: left; }
+    .reviewerProf__state-output {
+      float: left; }
+  .reviewerProf__dmState {
+    overflow: hidden;
+    border-bottom: 1px solid #b4becb;
+    margin-bottom: 20px; }
+    .reviewerProf__dmState-element {
+      margin-right: 5px;
+      float: left; }
+    .reviewerProf__dmState-output {
+      float: left; }
+  .reviewerProf__employeeInfoWrap {
+    position: relative;
+    top: 270px;
+    right: 580px;
+    width: 1180px; }
+  .reviewerProf__affiliationCompany {
+    overflow: hidden;
+    border-bottom: 1px solid #b4becb;
+    margin-bottom: 20px; }
+    .reviewerProf__affiliationCompany-element {
+      margin-right: 5px;
+      float: left; }
+    .reviewerProf__affiliationCompany-output {
+      float: left;
+      width: 500px; }
+  .reviewerProf__incumbentPositionWrap {
+    overflow: hidden; }
+  .reviewerProf__incumbent {
+    float: left;
+    overflow: hidden;
+    border-bottom: 1px solid #b4becb;
+    margin-bottom: 20px; }
+    .reviewerProf__incumbent-element {
+      margin-right: 5px;
+      float: left; }
+    .reviewerProf__incumbent-output {
+      float: left; }
+  .reviewerProf__Position {
+    float: left;
+    margin-left: 30px;
+    overflow: hidden;
+    border-bottom: 1px solid #b4becb;
+    margin-bottom: 20px; }
+    .reviewerProf__Position-element {
+      margin-right: 5px;
+      float: left; }
+    .reviewerProf__Position-output {
+      float: left; }
+  .reviewerProf__currentDepartment {
+    overflow: hidden;
+    border-bottom: 1px solid #b4becb;
+    margin-bottom: 20px; }
+    .reviewerProf__currentDepartment-element {
+      margin-right: 5px;
+      float: left; }
+    .reviewerProf__currentDepartment-output {
+      float: left;
+      width: 520px; }
+  .reviewerProf__bottom-wrap {
+    background-color: #fff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    top: -140px;
+    height: 60px;
+    width: 850px;
+    padding: 10px 0 0;
+    margin: 0 auto -60px;
+    text-align: center; }
+  .reviewerProf__bottom-link {
+    text-decoration: none; }
+  .reviewerProf__bottom-return {
+    padding: 10px 77px;
+    background-color: #06D1EC;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 3px; }
+  .reviewerProf__bottom-next {
+    padding: 10px 37px;
+    margin-left: 50px;
+    background-color: #EC0618;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 3px; }
+
+.reviewFavoriteRegiste {
+  height: 90px;
+  width: 1450px;
+  background-color: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin: 0 auto;
+  padding: 30px 100px 0px;
+  position: relative;
+  top: -50px;
+  overflow: hidden; }
+  .reviewFavoriteRegiste__content-wrap {
+    width: 1360px;
+    font-size: 20px;
+    padding: 0 350px;
+    overflow: hidden; }
+  .reviewFavoriteRegiste__content-main {
+    float: left; }
+  .reviewFavoriteRegiste__content-sub {
+    float: left; }
+
 .revRegistCc-content {
   height: 1280px;
   width: 100%;
