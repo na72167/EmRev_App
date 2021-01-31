@@ -2238,8 +2238,8 @@ button {
     margin-left: 10px; }
 
 .revDeCompanyInfo {
-  height: 580px;
-  width: 1550px;
+  height: 380px;
+  width: 1450px;
   background-color: #fff;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
@@ -2254,30 +2254,72 @@ button {
     padding: 10px 0;
     border-radius: 10px 10px 0 0;
     border-bottom: 1px solid #b4becb; }
-  .revDeCompanyInfo__mainWrap {
-    height: 50px;
-    width: 1350px;
-    padding: 0 350px;
-    margin: 0 auto; }
-  .revDeCompanyInfo__title {
-    height: 50px;
-    width: 250px;
-    margin-top: 5px;
-    font-size: 28px;
-    font-weight: 10px;
-    float: left; }
-  .revDeCompanyInfo__subWrap {
-    float: left;
-    margin-top: 15px;
-    overflow: hidden; }
-  .revDeCompanyInfo__totalNumberOfPostedReviews {
-    float: left; }
-  .revDeCompanyInfo__compDetailLink {
-    margin-left: 5px;
-    float: left; }
-  .revDeCompanyInfo__content-EnrollmentPeriodInformation {
-    width: 200px;
-    border-bottom: 1px solid #b4becb; }
+    .revDeCompanyInfo__header-mainWrap {
+      height: 50px;
+      width: 1350px;
+      padding: 0 350px;
+      margin: 0 auto; }
+    .revDeCompanyInfo__header-title {
+      height: 50px;
+      width: 250px;
+      margin-top: 5px;
+      font-size: 28px;
+      font-weight: 10px;
+      float: left; }
+    .revDeCompanyInfo__header-subWrap {
+      float: left;
+      margin-top: 15px;
+      overflow: hidden; }
+    .revDeCompanyInfo__header-totalNumberOfPostedReviews {
+      float: left; }
+    .revDeCompanyInfo__header-compDetailLink {
+      margin-left: 5px;
+      float: left; }
+  .revDeCompanyInfo__content {
+    width: 1000px;
+    margin: 50px auto 0; }
+    .revDeCompanyInfo__content-enrollmentPeriodInformation {
+      width: 200px;
+      border-bottom: 1px solid #b4becb;
+      margin: 0 auto 20px; }
+    .revDeCompanyInfo__content-enrollmentStatusJoiningRoute-wrap {
+      overflow: hidden;
+      width: 900px;
+      margin: 0 auto 20px; }
+    .revDeCompanyInfo__content-enrollmentStatus {
+      width: 400px;
+      border-bottom: 1px solid #b4becb;
+      float: left; }
+    .revDeCompanyInfo__content-joiningRoute {
+      width: 400px;
+      border-bottom: 1px solid #b4becb;
+      float: left;
+      margin-left: 100px; }
+    .revDeCompanyInfo__content-occupationAtTheTimeOfEnrollmentJobTitleAtTheTimeOfEnrollment-wrap {
+      overflow: hidden;
+      width: 900px;
+      margin: 0 auto 20px; }
+    .revDeCompanyInfo__content-occupationAtTheTimeOfEnrollment {
+      width: 400px;
+      border-bottom: 1px solid #b4becb;
+      float: left; }
+    .revDeCompanyInfo__content-jobTitleAtTheTimeOfEnrollment {
+      width: 400px;
+      border-bottom: 1px solid #b4becb;
+      float: left;
+      margin-left: 100px; }
+    .revDeCompanyInfo__content-employmentStatusEnrollmentPeriod-wrap {
+      width: 900px;
+      margin: 0 auto; }
+    .revDeCompanyInfo__content-employmentStatus {
+      width: 400px;
+      border-bottom: 1px solid #b4becb;
+      float: left; }
+    .revDeCompanyInfo__content-enrollmentPeriod {
+      width: 400px;
+      border-bottom: 1px solid #b4becb;
+      float: left;
+      margin-left: 100px; }
 
 .reviewerProf {
   height: 480px;
