@@ -70,16 +70,16 @@
 
         </div>
 
+        <!-- ========================== -->
 
         <div class="reviewerProf__detail">
 
           <label class="">
             <div class="reviewerProf__name">
-                <div class="reviewerProf__name-areaMsg">
-
-                </div>
-                <h1 class="reviewerProf__name-element">name</h1>
-                <input class="reviewerProf__name-output" type="text" name="username" value="">
+              <div class="reviewerProf__name-areaMsg">
+              </div>
+              <h1 class="reviewerProf__name-element">name</h1>
+              <input class="reviewerProf__name-output" type="text" name="username" value="">
             </div>
           </label>
 
@@ -184,38 +184,54 @@
       </form>
     </section>
 
+    <!-- ========================== -->
+
     <section class="revDeCompanyInfo">
+
       <div class="revDeCompanyInfo__header">
-        <div class="revDeCompanyInfo__mainWrap">
-          <div class="revDeCompanyInfo__title">サンプル株式会社</div>
-          <div class="revDeCompanyInfo__subWrap">
-            <div class="revDeCompanyInfo__totalNumberOfPostedReviews">投稿レビュー総数:<span class="revDeCompanyInfo__countNum">○○</span>件</div>
-            <div class="revDeCompanyInfo__compDetailLink">この会社の詳細ページへ</div>
-          </div>
+        <div class="revDeCompanyInfo__header-mainWrap">
+          <div class="revDeCompanyInfo__header-title">サンプル株式会社</div>
+          <div class="revDeCompanyInfo__header-subWrap">
+          <div class="revDeCompanyInfo__header-totalNumberOfPostedReviews">投稿レビュー総数:<span class="revDeCompanyInfo__countNum">○○</span>件</div>
+          <div class="revDeCompanyInfo__header-compDetailLink">この会社の詳細ページへ</div>
         </div>
+      </div>
+
       </div>
 
       <div class="revDeCompanyInfo__content">
-
-        <div class="revDeCompanyInfo__content-enrollmentPeriodInformation">レビュー者の在籍期間情報</div>
-
-        <div class="revDeCompanyInfo__content-enrollmentStatusJoiningRoute-wrap">
-          <div class="revDeCompanyInfo__content-enrollmentStatus">在籍状況</div>
-          <div class="revDeCompanyInfo__content-joiningRoute">入社経路</div>
+        <div class="revDeCompanyInfo__content-enrollmentPeriodInformation">
+          レビュー者の在籍期間情報
         </div>
-
-        <div class="revDeCompanyInfo__content-wrap">
-          <div class="revDeCompanyInfo__content-occupationAtTheTimeOfEnrollmentJobTitleAtTheTimeOfEnrollment-wrap">
-            <div class="revDeCompanyInfo__content-occupationAtTheTimeOfEnrollment">在籍時の職種</div>
-            <div class="revDeCompanyInfo__content-jobTitleAtTheTimeOfEnrollment">在籍時の役職</div>
+        <div class="revDeCompanyInfo__content-enrollmentStatusJoiningRoute-wrap">
+          <div class="revDeCompanyInfo__content-enrollmentStatus">
+            在籍状況
           </div>
-          <div class="revDeCompanyInfo__content-employmentStatusEnrollmentPeriod-wrap">
-            <div class="revDeCompanyInfo__content-employmentStatus">雇用形態</div>
-            <div class="revDeCompanyInfo__content-enrollmentPeriod">在籍期間</div>
+          <div class="revDeCompanyInfo__content-joiningRoute">
+            入社経路
+          </div>
+        </div>
+        <div class="revDeCompanyInfo__content-occupationAtTheTimeOfEnrollmentJobTitleAtTheTimeOfEnrollment-wrap">
+          <div class="revDeCompanyInfo__content-occupationAtTheTimeOfEnrollment">
+            在籍時の職種
+          </div>
+          <div class="revDeCompanyInfo__content-jobTitleAtTheTimeOfEnrollment">
+            在籍時の役職
+          </div>
+        </div>
+        <div class="revDeCompanyInfo__content-employmentStatusEnrollmentPeriod-wrap">
+          <div class="revDeCompanyInfo__content-employmentStatus">
+            雇用形態
+          </div>
+          <div class="revDeCompanyInfo__content-enrollmentPeriod">
+            在籍期間
           </div>
         </div>
       </div>
+
     </section>
+
+    <!-- ========================== -->
 
     <section class="reviewFavoriteRegiste">
       <div class="reviewFavoriteRegiste__content-wrap">
