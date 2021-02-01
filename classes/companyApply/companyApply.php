@@ -77,7 +77,7 @@ class companyApply extends validation{
   }
 
 
-  //===============会社情報出力関係=================
+  //===============会社情報出力関係=================companyAndReviewSearch
 
   // 一連の会社情報を取得するメソッド
   // 削除予定(接頭辞のgetはミス)
@@ -230,7 +230,7 @@ class companyApply extends validation{
       //接続情報をまとめたクラス
       $dbh = new dbConnectPDO();
       // 会社情報と関連レビューを降順で取得するクエリ文
-      $sql = 'SELECT ci.company_name,ci.industry,ci.location,ci.number_of_reviews,er.general_estimation_title,er.general_estimation,er.create_date FROM company_informations AS ci LEFT JOIN employee_reviews AS er ON ci.id = er.review_company_id ORDER BY ci.id DESC';
+      $sql = 'SELECT ci.company_name,ci.industry,ci.location,ci.number_of_reviews,er.id,er.general_estimation_title,er.general_estimation,er.create_date FROM company_informations AS ci LEFT JOIN employee_reviews AS er ON ci.id = er.review_company_id ORDER BY ci.id DESC';
       $data = array();
 
       // 会社情報を降順で取得するクエリ文
@@ -270,23 +270,22 @@ class companyApply extends validation{
   try {
     //接続情報をまとめたクラス
     $dbh = new dbConnectPDO();
-
     // 件数用のSQL文作成 AND
     $sql = 'SELECT * FROM company_informations AS ci LEFT JOIN employee_reviews AS er ON ci.id = er.review_company_id';
     if(!empty($search_prop)){
       $i = 1;
-        //配列内のキーをWHERE内の指定カラムにする。
-        foreach($search_prop as $key => $value){
-          debugFunction::debug('配列内：'.print_r([$key => $value],true));
-          //最初のみWHEREをつける。
-          if($i === 1){
-            $sql .= ' WHERE '.$key.'='.'"'.$value.'"';
-            $i++;
-          }else{
-            $sql .= ' AND '.$key.'='.'"'.$value.'"';
-            $i++;
-          }
+      //配列内のキーをWHERE内の指定カラムにする。
+      foreach($search_prop as $key => $value){
+        debugFunction::debug('配列内：'.print_r([$key => $value],true));
+        //最初のみWHEREをつける。
+        if($i === 1){
+          $sql .= ' WHERE '.$key.'='.'"'.$value.'"';
+          $i++;
+        }else{
+          $sql .= ' AND '.$key.'='.'"'.$value.'"';
+          $i++;
         }
+      }
     }
 
     // 会社の順序を昇順・降順に切り替える処理
@@ -489,7 +488,7 @@ class companyApply extends validation{
 
   public function getCompanySearchResult():?array{
     return [$this->company_name,$this->representative,$this->location,
-    $this->industry,$this->year_of_establishment,$this->isted_year,
+    $this->industry,$this->year_of_establishment,$this->listed_year,
     $this->number_of_employees,$this->average_annual_income
     ,$this->average_age,$this->number_of_reviews];
   }

@@ -10,7 +10,7 @@
   class contributorUserProp{
 
     protected $id;
-    protected $contributor_id;
+    protected $user_id;
     protected $username;
     protected $age;
     protected $tel;
@@ -26,9 +26,9 @@
     protected $update_date;
     protected $err_msCommon;
 
-    public function __construct($id,$contributor_id,$username,$age,$tel,$zip,$addr,$affiliation_company,$incumbent,$currently_department,$currently_position,$dm_state,$delete_flg,$create_date,$update_date,$err_msCommon){
+    public function __construct($id,$user_id,$username,$age,$tel,$zip,$addr,$affiliation_company,$incumbent,$currently_department,$currently_position,$dm_state,$delete_flg,$create_date,$update_date,$err_msCommon){
       $this->id = $id;
-      $this->contributor_id = $contributor_id;
+      $this->user_id = $user_id;
       $this->username = $username;
       $this->age = $age;
       $this->tel = $tel;
@@ -55,7 +55,7 @@
         //SQL文作成(user情報一覧取得)
         //ON句は結合条件を指定するもの。今回の場合だとuserテーブル内のidカラムとemployee_profsテーブルの
         //user_idテーブルのuser_idカラム内のレコードがWHERE句で当てはまった値(session['user_id']の数字)と一緒のものを取得する。
-        $sql = 'SELECT * FROM users AS u LEFT JOIN contributor_profs AS cp ON u.id = cp.contributor_id WHERE u.id = :u_id';
+        $sql = 'SELECT * FROM users AS u LEFT JOIN contributor_profs AS cp ON u.id = cp.user_id WHERE u.id = :u_id';
         $data = array(':u_id' => $u_id);
         // クエリ実行
         $stmt = dbConnectFunction::queryPost($dbh->getPDO(), $sql, $data);
@@ -87,8 +87,8 @@
       return $this->id;
     }
 
-    public function getContributor_id():string{
-      return $this->contributor_id;
+    public function getUser_id():string{
+      return $this->user_id;
     }
 
     public function getUsername(): ?self{

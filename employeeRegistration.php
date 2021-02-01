@@ -80,20 +80,15 @@
       // ここのテーブル挿入から更新処理はもっとキレイに書けるはずなので、あとで書き換える。
 
       // ========================リレーション関係先のテーブル(contributor_profs)にレコードを挿入==============================
-
       // DBへ接続
       $dbh1 = new dbConnectPDO();
       // SQL文作成
-      $sql1 = 'INSERT INTO contributor_profs (`contributor_id`,`user_id`) VALUES(:contributor_id,:user_id)';
-      $data1 = array(':contributor_id' => $userDate->getID(),':user_id' => $userDate->getID());
+      $sql1 = 'INSERT INTO contributor_profs (`user_id`) VALUES(:user_id)';
+      $data1 = array(':user_id' => $userDate->getID());
       debugFunction::debug('取得したdata：'.print_r($data1,true));
       // クエリ実行
       $stmt1 = dbConnectFunction::queryPost($dbh1->getPDO(), $sql1, $data1);
-
       // ============================ここまで==========================
-
-
-
 
       // ========================リレーション関係先のテーブル(contributor_profs)を更新==============================
       // DBへ接続
@@ -104,14 +99,13 @@
       debugFunction::debug('取得したdata：'.print_r($data2,true));
       // クエリ実行
       $stmt2 = dbConnectFunction::queryPost($dbh2->getPDO(), $sql2, $data2);
-
       // ============================ここまで==========================
 
       // クエリ成功の場合
       if($stmt1 && $stmt2){
-        $_SESSION['msg_success'] = '投稿者登録しました！さっそくレビューを書いてみましょう！';
-        debugFunction::debug('マイページへ遷移します。');
-        header("Location:mypage.php"); //マイページへ
+        $_SESSION['msg_success'] = '投稿者登録しました！最初にプロフィール設定をしましょう！';
+        debugFunction::debug('プロフィール設定画面へ遷移します。');
+        header("Location:profileEdit.php"); //プロフィール設定画面へ
       }
 
     } catch (Exception $e) {

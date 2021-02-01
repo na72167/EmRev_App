@@ -45,7 +45,7 @@
       //投稿者ユーザー
       $contributorUserProp = contributorUserProp::getContributorUserProp($userDate->getId());
       //取得したレコードをオブジェクト単位で管理する。
-      $contributorUserDate = new contributorUserProp($contributorUserProp['id'],$contributorUserProp['contributor_id'],$contributorUserProp['username'],$contributorUserProp['age'],$contributorUserProp['tel'],$contributorUserProp['zip'],$contributorUserProp['addr'],$contributorUserProp['affiliation_company'],$contributorUserProp['incumbent'],$contributorUserProp['currently_department'],$contributorUserProp['currently_position'],$contributorUserProp['dm_state'],$contributorUserProp['delete_flg'],$contributorUserProp['create_date'],$contributorUserProp['update_date'],'');
+      $contributorUserDate = new contributorUserProp($contributorUserProp['id'],$contributorUserProp['user_id'],$contributorUserProp['username'],$contributorUserProp['age'],$contributorUserProp['tel'],$contributorUserProp['zip'],$contributorUserProp['addr'],$contributorUserProp['affiliation_company'],$contributorUserProp['incumbent'],$contributorUserProp['currently_department'],$contributorUserProp['currently_position'],$contributorUserProp['dm_state'],$contributorUserProp['delete_flg'],$contributorUserProp['create_date'],$contributorUserProp['update_date'],'');
       debugFunction::debug('取得した投稿ユーザー情報：'.print_r($contributorUserDate,true));
     }elseif($userDate->getRoll() === 1){
       //管理者権限持ち

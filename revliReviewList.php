@@ -1,5 +1,6 @@
 <?php
-    // declare(strict_types=1);
+
+  // declare(strict_types=1);
   //主にuseを扱う際のルートディレクトリ指定に使ってる。
   require('vendor/autoload.php');
 
@@ -48,7 +49,7 @@
       //投稿者ユーザー
       $contributorUserProp = contributorUserProp::getContributorUserProp($userDate->getId());
       //取得したレコードをオブジェクト単位で管理する。
-      $contributorUserDate = new contributorUserProp($contributorUserProp['id'],$contributorUserProp['contributor_id'],$contributorUserProp['username'],$contributorUserProp['age'],$contributorUserProp['tel'],$contributorUserProp['zip'],$contributorUserProp['addr'],$contributorUserProp['affiliation_company'],$contributorUserProp['incumbent'],$contributorUserProp['currently_department'],$contributorUserProp['currently_position'],$contributorUserProp['dm_state'],$contributorUserProp['delete_flg'],$contributorUserProp['create_date'],$contributorUserProp['update_date'],'');
+      $contributorUserDate = new contributorUserProp($contributorUserProp['id'],$contributorUserProp['user_id'],$contributorUserProp['username'],$contributorUserProp['age'],$contributorUserProp['tel'],$contributorUserProp['zip'],$contributorUserProp['addr'],$contributorUserProp['affiliation_company'],$contributorUserProp['incumbent'],$contributorUserProp['currently_department'],$contributorUserProp['currently_position'],$contributorUserProp['dm_state'],$contributorUserProp['delete_flg'],$contributorUserProp['create_date'],$contributorUserProp['update_date'],'');
       debugFunction::debug('取得した投稿ユーザー情報：'.print_r($contributorUserDate,true));
     }elseif($userDate->getRoll() === 1){
       //管理者権限持ち
@@ -67,7 +68,7 @@
   //[会社ID][key(カラム)]=> value(レコード) の形で管理
   //それをページの指定箇所に配置していく。
 
-    // ====================検索会社情報取得処理====================
+  // ====================検索会社情報取得処理====================
 
   // post送信されていてなおかつ投稿者ユーザーだった場合。
   if(!empty($_POST['search'] === '検索する')){
@@ -125,7 +126,7 @@
     }elseif(!isset($companySearchResult['compDate'])){
     //空だった場合
     //フラッシュメッセージ内に「検索結果がありませんでした」
-    //と表示させる。
+    //と表示させてデフォルトの検索結果を表示させる。
     }
   }
 
@@ -271,7 +272,8 @@
         <div class="revliReviewList__dmIncumbentWrap">
           <div class="revliReviewList__age">投稿日:<span><?php echo $val['create_date'] ?></span></div>
           <div class="revliReviewList__dm">総評:<span><?php echo $val['general_estimation'] ?></span>
-          <h1 class="revliReviewList__userProfLink">このレビューの詳細を見る</h1></div>
+          <!-- 選んだレビューの個別詳細画面へ移動する。 -->
+          <h1 class="revliReviewList__userProfLink"  onclick="location.href='reviewDetail.php?rev_id=<?php echo $val['id'] ?>'">このレビューの詳細を見る</h1></div>
         </div>
         <div class="revliReviewList__userNameAgeFavoliteWrap">
           <div class="revliReviewList__userNameAgeWrap">:<span>ユーザー名</span>さん<span>〇〇</span>歳</div>

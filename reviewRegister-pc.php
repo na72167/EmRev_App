@@ -46,7 +46,7 @@
       //投稿者ユーザー
       $contributorUserProp = contributorUserProp::getContributorUserProp($userDate->getId());
       //取得したレコードをオブジェクト単位で管理する。
-      $contributorUserDate = new contributorUserProp($contributorUserProp['id'],$contributorUserProp['contributor_id'],$contributorUserProp['username'],$contributorUserProp['age'],$contributorUserProp['tel'],$contributorUserProp['zip'],$contributorUserProp['addr'],$contributorUserProp['affiliation_company'],$contributorUserProp['incumbent'],$contributorUserProp['currently_department'],$contributorUserProp['currently_position'],$contributorUserProp['dm_state'],$contributorUserProp['delete_flg'],$contributorUserProp['create_date'],$contributorUserProp['update_date'],'');
+      $contributorUserDate = new contributorUserProp($contributorUserProp['id'],$contributorUserProp['user_id'],$contributorUserProp['username'],$contributorUserProp['age'],$contributorUserProp['tel'],$contributorUserProp['zip'],$contributorUserProp['addr'],$contributorUserProp['affiliation_company'],$contributorUserProp['incumbent'],$contributorUserProp['currently_department'],$contributorUserProp['currently_position'],$contributorUserProp['dm_state'],$contributorUserProp['delete_flg'],$contributorUserProp['create_date'],$contributorUserProp['update_date'],'');
       debugFunction::debug('取得した投稿ユーザー情報：'.print_r($contributorUserDate,true));
     }elseif($userDate->getRoll() === 1){
       //管理者権限持ち
@@ -257,7 +257,7 @@
           :image_gap,:rewarding_work,:strengths_and_weaknesses,:annual_income_salary,:business_outlook,
           :general_estimation_title,:general_estimation)';
 
-          $data = array(':employee_id' => $contributorUserDate->getContributor_id(),':review_company_id' => $_SESSION['company_id'],':joining_route' => $_SESSION['joining_route'],':occupation' => $_SESSION['occupation'],':position' => $_SESSION['position'],':enrollment_period' => $_SESSION['enrollment_period'],
+          $data = array(':employee_id' => $contributorUserDate->getUser_id(),':review_company_id' => $_SESSION['company_id'],':joining_route' => $_SESSION['joining_route'],':occupation' => $_SESSION['occupation'],':position' => $_SESSION['position'],':enrollment_period' => $_SESSION['enrollment_period'],
           ':enrollment_status' => $_SESSION['enrollment_status'] ,':employment_status' => $_SESSION['employment_status'],':welfare_office_environment' => $_SESSION['welfare_office_environment'],':working_hours' => $_SESSION['working_hours'],
           ':in_company_system' => $_SESSION['in_company_system'],':corporate_culture' => $_SESSION['corporate_culture'],':holiday' => $_SESSION['holiday'],':organizational_structure' => $_SESSION['organizational_structure'],
           ':ease_of_work_for_women' => $_SESSION['ease_of_work_for_women'],':image_gap' => $_SESSION['image_gap'],':rewarding_work' => $_SESSION['rewarding_work'],':strengths_and_weaknesses' => $_SESSION['strengths_and_weaknesses'],
