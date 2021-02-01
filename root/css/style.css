@@ -2475,6 +2475,12 @@ button {
     color: #fff;
     border: 1px solid #fff;
     border-radius: 3px; }
+  .reviewerProf__bottom-Impossible {
+    padding: 10px 50px;
+    background-color: #b4becb;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 3px; }
   .reviewerProf__bottom-next {
     padding: 10px 37px;
     margin-left: 50px;

@@ -8,11 +8,16 @@
   use \PDO;
   use \RuntimeException;
   use \Exception;
-  use classes\admin\signup;
-  use classes\admin\login;
   use classes\db\dbConnectFunction;
   use classes\db\dbConnectPDO;
+  use classes\profEdit\profEdit;
+  use classes\profEdit\getFormData;
   use classes\debug\debugFunction;
+  use classes\userProp\userProp;
+  use classes\userProp\generalUserProp;
+  use classes\userProp\contributorUserProp;
+  use classes\userProp\companyReviewContributorProp;
+  use classes\etc\etc;
 
   //デバック関係のメッセージも一通りまとめる。
   //デバックログスタートなどの補助的用自作関数も一通りまとめてメッセージファイルに継承する。
@@ -21,6 +26,57 @@
   debugFunction::debug('レビュー詳細ページ');
   debugFunction::debug('「「「「「「「「「「「「「');
   debugFunction::debugLogStart();
+
+  // このあと$_SESSION['user_id']を参照してuserｓテーブルに関した情報のみを管理するuserクラスを作成。
+  // 中のrollプロパティにアクセス。その権限情報とuserクラスを元に一般・社員・管理者・退会済み用のSQLを発行・検索を行う。(退会済みは別)。
+  // getUserPropクラスを切り分ける。
+
+  //ログインデータ($_SESSION['user_id']の数字)に一致するUsers情報を取得する。
+  $userProp = userProp::getUserProp($_SESSION['user_id']);
+
+  //取得した情報をオブジェクト管理する。
+  $userDate = new userProp($userProp['id'],$userProp['email'],$userProp['password'],$userProp['roll'],$userProp['report_flg'],$userProp['delete_flg'],$userProp['create_date'],$userProp['update_date']);
+
+  //フォーム送信前にもprofEdit関係のメソッドを扱いたいので先にインスタンス生成する。
+  $profEdit = new profEdit('','','','','','','','','','','','');
+
+  //第二引数にtrueを指定した場合,string型で出力される様になる。
+  debugFunction::debug('取得したユーザー情報：'.print_r($userDate,true));
+
+  debugFunction::debug('「「「「「「「「「「「「「「「「「「「');
+  debugFunction::debug('権限確認処理');
+  debugFunction::debug('「「「「「「「「「「「「「');
+
+  // ================ログインユーザーの権限チェック================
+  if($userDate->getRoll() === 100){
+      //ログインidに対応したgeneral_profsテーブルのレコードを取得する。
+      $generalUserProp = generalUserProp::getGeneralUserProp($userDate->getId());
+      //取得したレコードをオブジェクト単位で管理する。
+      $generalUserDate = new generalUserProp($generalUserProp['id'],$generalUserProp['email'],$generalUserProp['password'],$generalUserProp['roll'],$generalUserProp['report_flg'],$generalUserProp['delete_flg'],$generalUserProp['user_id'],$generalUserProp['username'],(int)$generalUserProp['age'],(int)$generalUserProp['tel'],$generalUserProp['profImg'],(int)$generalUserProp['zip'],$generalUserProp['addr'],$generalUserProp['create_date'],$generalUserProp['update_date'],'','','','','','');
+      debugFunction::debug('取得した一般ユーザー情報：'.print_r($generalUserDate,true));
+    }elseif($userDate->getRoll() === 50){
+
+      //投稿者ユーザー
+      $contributorUserProp = contributorUserProp::getContributorUserProp($userDate->getId());
+      //取得したレコードをオブジェクト単位で管理する。
+      $contributorUserDate = new contributorUserProp($contributorUserProp['id'],$contributorUserProp['user_id'],$contributorUserProp['username'],$contributorUserProp['age'],$contributorUserProp['tel'],$contributorUserProp['zip'],$contributorUserProp['addr'],$contributorUserProp['affiliation_company'],
+      $contributorUserProp['incumbent'],$contributorUserProp['currently_department'],$contributorUserProp['currently_position'],$contributorUserProp['dm_state'],$contributorUserProp['delete_flg'],$contributorUserProp['create_date'],$contributorUserProp['update_date'],'','');
+      debugFunction::debug('取得した投稿ユーザー情報：'.print_r($contributorUserDate,true));
+
+    }elseif($userDate->getRoll() === 1){
+      //管理者権限持ち
+    }elseif($userDate->getRoll() === 150){
+      //退会済み
+    }else{
+      //フラッシュメッセージで「権限が取得できません。ホームへ戻ります。」と表示
+      //セッション情報破棄後index.phpへ飛ばす。
+  }
+
+  // ================個別レビュー取得処理================
+
+  $listProp = companyReviewContributorProp::companyReviewContributorProp($_GET['rev_id']);
+  debugFunction::debug('取得した関連会社・レビュー・ユーザー情報：'.print_r($listProp,true));
+
 ?>
 
 <?php
@@ -78,8 +134,8 @@
             <div class="reviewerProf__name">
               <div class="reviewerProf__name-areaMsg">
               </div>
-              <h1 class="reviewerProf__name-element">name</h1>
-              <input class="reviewerProf__name-output" type="text" name="username" value="">
+              <!-- 多次元配列内に要素を挿入する際にできるkey[0]を削除か変更する方法を調べる。 -->
+              <h1 class="reviewerProf__name-element">name <?php echo etc::sanitize($listProp['reviews'][0]['username']);?></h1>
             </div>
           </label>
 
@@ -90,8 +146,7 @@
                 <div class="reviewerProf__age-areaMsg">
 
                 </div>
-                <div class="reviewerProf__age-element">age</div>
-                <input class="reviewerProf__age-output" type="text" name="age" value="">
+                <div class="reviewerProf__age-element">age<?php echo etc::sanitize($listProp['reviews'][0]['age']);?></div>
             </div>
           </label>
 
@@ -100,8 +155,7 @@
             <div class="reviewerProf__tel-areaMsg">
 
                 </div>
-                <div class="reviewerProf__tel-element">tel</div>
-                <input class="reviewerProf__tel-output" type="text" name="tel" value="">
+                <div class="reviewerProf__tel-element">tel<?php echo etc::sanitize($listProp['reviews'][0]['tel']);?></div>
             </div>
           </label>
 
@@ -112,8 +166,7 @@
                 <div class="reviewerProf__address-areaMsg">
 
                 </div>
-                <div class="reviewerProf__address-element">address</div>
-                <input class="reviewerProf__address-output" type="text" name="address" value="">
+                <div class="reviewerProf__address-element">address<?php echo etc::sanitize($listProp['reviews'][0]['addr']);?></div>
             </div>
           </label>
 
@@ -122,9 +175,13 @@
                 <div class="reviewerProf__dmState-areaMsg">
 
                 </div>
-                <div class="reviewerProf__dmState-element">DM可否</div>
-                  <!-- 許可か拒否の二択から選択できる様にする。 -->
-                  <input class="reviewerProf__dmState-output" type="text" name="dmState" value="">
+                <div class="reviewerProf__dmState-element">DM可否<?php if($listProp['reviews'][0]['dm_state'] === '0'){
+                    echo 'DM不可';
+                  }elseif($listProp['reviews'][0]['dm_state'] === '1'){
+                    echo 'DM可';
+                  }
+                ?>
+                </div>
                 </div>
             </div>
           </label>
@@ -134,8 +191,7 @@
               <div class="reviewerProf__affiliationCompany">
                 <div class="reviewerProf__affiliationCompany-areaMsg">
                 </div>
-                <h1 class="reviewerProf__affiliationCompany-element">現所属会社</h1>
-                <input class="reviewerProf__affiliationCompany-output" type="text" name="affiliationCompany" value="">
+                <h1 class="reviewerProf__affiliationCompany-element">現所属会社<?php echo etc::sanitize($listProp['reviews'][0]['affiliation_company']);?></h1>
               </div>
             </label>
 
@@ -145,8 +201,7 @@
                   <div class="reviewerProf__incumbent-areaMsg">
 
                   </div>
-                  <div class="reviewerProf__incumbent-element">現職</div>
-                  <input class="reviewerProf__incumbent-output" type="text" name="incumbent" value="">
+                  <div class="reviewerProf__incumbent-element">現職<?php echo etc::sanitize($listProp['reviews'][0]['incumbent']);?></div>
                 </div>
               </label>
 
@@ -155,8 +210,9 @@
                   <div class="reviewerProf__Position-areaMsg">
 
                   </div>
-                  <div class="reviewerProf__Position-element">現役職</div>
-                  <input class="reviewerProf__Position-output" type="text" name="position" value="">
+                  <div class="reviewerProf__Position-element">現役職
+                    <?php echo etc::sanitize($listProp['reviews'][0]['position']);?>
+                  </div>
                 </div>
               </label>
             </div>
@@ -164,10 +220,10 @@
             <label class="">
               <div class="reviewerProf__currentDepartment">
                 <div class="reviewerProf__currentDepartment-areaMsg">
-
                 </div>
-                <div class="reviewerProf__currentDepartment-element">現部署</div>
-                <input class="reviewerProf__currentDepartment-output" type="text" name="currentDepartment" value="">
+                <div class="reviewerProf__currentDepartment-element">現部署
+                <?php echo etc::sanitize($listProp['reviews'][0]['currently_department']);?>
+                </div>
               </div>
             </label>
           </div>
@@ -175,8 +231,12 @@
         </section>
 
         <div class="reviewerProf__bottom-wrap" style="margin-bottom:5px;">
-          <!-- post内容を初期化したのち、マイページへ移動 -->
-          <input type="submit" name='cancel-button' class="reviewerProf__bottom-return reviewerProf__bottom-link" value="DMを開始する">
+          <?php if($listProp['reviews'][0]['dm_state'] === '0'){
+              echo '<input class="reviewerProf__bottom-Impossible reviewerProf__bottom-link" value="DM不可">';
+            }elseif($listProp['reviews'][0]['dm_state'] === '1'){
+              echo '<input type="submit" name="cancel-button" class="reviewerProf__bottom-return reviewerProf__bottom-link" value="DMを開始する">';
+            }
+          ?>
           <!-- 送信処理に沿って画面遷移 -->
           <input type="submit" name='update-button' class="reviewerProf__bottom-next reviewerProf__bottom-link" value="このユーザーを通報する">
         </div>
@@ -190,10 +250,11 @@
 
       <div class="revDeCompanyInfo__header">
         <div class="revDeCompanyInfo__header-mainWrap">
-          <div class="revDeCompanyInfo__header-title">サンプル株式会社</div>
+          <div class="revDeCompanyInfo__header-title"><?php echo etc::sanitize($listProp['company'][0]['company_name']);?></div>
           <div class="revDeCompanyInfo__header-subWrap">
-          <div class="revDeCompanyInfo__header-totalNumberOfPostedReviews">投稿レビュー総数:<span class="revDeCompanyInfo__countNum">○○</span>件</div>
-          <div class="revDeCompanyInfo__header-compDetailLink">この会社の詳細ページへ</div>
+          <div class="revDeCompanyInfo__header-compDetailLink" onclick="location.href='companyInformationDetails.php?comp_id=<?php echo $listProp['company'][0]['id'] ?>'">
+          この会社の詳細ページへ
+          </div>
         </div>
       </div>
 

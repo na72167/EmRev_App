@@ -12,7 +12,7 @@
   use classes\userProp\userProp;
   use classes\userProp\contributorUserProp;
   use classes\userProp\generalUserProp;
-  use classes\companyProp\companyApply;
+  use classes\companyApply\companyApply;
 
   //デバック関係のメッセージも一通りまとめる。
   //デバックログスタートなどの補助的用自作関数も一通りまとめてメッセージファイルに継承する。
@@ -44,7 +44,7 @@
     //投稿者ユーザー
     $contributorUserProp = contributorUserProp::getContributorUserProp($userDate->getId());
     //取得したレコードをオブジェクト単位で管理する。
-    $contributorUserDate = new contributorUserProp($contributorUserProp['id'],$contributorUserProp['contributor_id'],$contributorUserProp['username'],$contributorUserProp['age'],$contributorUserProp['tel'],$contributorUserProp['zip'],$contributorUserProp['addr'],$contributorUserProp['affiliation_company'],$contributorUserProp['incumbent'],$contributorUserProp['currently_department'],$contributorUserProp['currently_position'],$contributorUserProp['dm_state'],$contributorUserProp['delete_flg'],$contributorUserProp['create_date'],$contributorUserProp['update_date'],'');
+    $contributorUserDate = new contributorUserProp($contributorUserProp['id'],$contributorUserProp['user_id'],$contributorUserProp['username'],$contributorUserProp['age'],$contributorUserProp['tel'],$contributorUserProp['zip'],$contributorUserProp['addr'],$contributorUserProp['affiliation_company'],$contributorUserProp['incumbent'],$contributorUserProp['currently_department'],$contributorUserProp['currently_position'],$contributorUserProp['dm_state'],$contributorUserProp['delete_flg'],$contributorUserProp['create_date'],$contributorUserProp['update_date'],'');
     debugFunction::debug('取得した投稿ユーザー情報：'.print_r($contributorUserDate,true));
   }elseif($userDate->getRoll() === 1){
     //管理者権限持ち
@@ -62,7 +62,7 @@
     debugFunction::debug('「「「「「「「「「「「「「');
 
     $formTransmission = new companyApply($_POST['company_name'],$_POST['representative'],$_POST['location'],$_POST['industry'],$_POST['year_of_establishment'],$_POST['listed_year'],$_POST['number_of_employees'],$_POST['average_annual_income'],
-    $_POST['average_age'],'','','','','','','','','','');
+    $_POST['average_age'],'','','','','','','','','','','');
 
     $formTransmission->setCompany_name($formTransmission->getCompany_name());
     $formTransmission->setRepresentative($formTransmission->getRepresentative());
@@ -73,6 +73,8 @@
     $formTransmission->setNumberOfEmployees($formTransmission->getNumber_of_employees());
     $formTransmission->setAverageAnnualIncome($formTransmission->getAverage_annual_income());
     $formTransmission->setAverageAge($formTransmission->getAverage_age());
+
+    debugFunction::debug('うんち！w：'.print_r($formTransmission,true));
 
     //ログインユーザーのidと同じ値をcontributor_idと紐付ける。
 
@@ -157,7 +159,7 @@
 
           <div class="">
             <div class="">上場年  <input name="listed_year" placeholder="入力してください"></div>
-            <div class="">従業員数  <input name="number_of_employees"　placeholder="入力してください"></div>
+            <div class="">従業員数  <input name="number_of_employees" placeholder="入力してください"></div>
           </div>
 
           <div class="">

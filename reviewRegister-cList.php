@@ -46,7 +46,7 @@
       //投稿者ユーザー
       $contributorUserProp = contributorUserProp::getContributorUserProp($userDate->getId());
       //取得したレコードをオブジェクト単位で管理する。
-      $contributorUserDate = new contributorUserProp($contributorUserProp['id'],$contributorUserProp['contributor_id'],$contributorUserProp['username'],$contributorUserProp['age'],$contributorUserProp['tel'],$contributorUserProp['zip'],$contributorUserProp['addr'],$contributorUserProp['affiliation_company'],$contributorUserProp['incumbent'],$contributorUserProp['currently_department'],$contributorUserProp['currently_position'],$contributorUserProp['dm_state'],$contributorUserProp['delete_flg'],$contributorUserProp['create_date'],$contributorUserProp['update_date'],'');
+      $contributorUserDate = new contributorUserProp($contributorUserProp['id'],$contributorUserProp['user_id'],$contributorUserProp['username'],$contributorUserProp['age'],$contributorUserProp['tel'],$contributorUserProp['zip'],$contributorUserProp['addr'],$contributorUserProp['affiliation_company'],$contributorUserProp['incumbent'],$contributorUserProp['currently_department'],$contributorUserProp['currently_position'],$contributorUserProp['dm_state'],$contributorUserProp['delete_flg'],$contributorUserProp['create_date'],$contributorUserProp['update_date'],'');
       debugFunction::debug('取得した投稿ユーザー情報：'.print_r($contributorUserDate,true));
     }elseif($userDate->getRoll() === 1){
       //管理者権限持ち
@@ -278,7 +278,6 @@
             <div class="rigisRigisterReviewList__mainContent">
 
               <div class="rigisRigisterReviewList__imgComInfoWrap">
-
                 <!-- 個別の写真を表示 -->
                 <div class="rigisRigisterReviewList__imgStyle">
                   <!-- alt属性はアプリ使用者が画像を表示できない環境やブラウザを使っている際に
@@ -315,6 +314,7 @@
                 <input type="hidden" name="company_id" value=<?php echo $val['id'] ?>>
                 <input class="#" type="submit" value="この会社のレビューをする">
               </form>
+
             </div>
           <?php
             endforeach;
