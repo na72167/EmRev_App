@@ -144,7 +144,6 @@
           <label class="">
             <div class="reviewerProf__age">
                 <div class="reviewerProf__age-areaMsg">
-
                 </div>
                 <div class="reviewerProf__age-element">age<?php echo etc::sanitize($listProp['reviews'][0]['age']);?></div>
             </div>
@@ -267,25 +266,31 @@
         <div class="revDeCompanyInfo__content-enrollmentStatusJoiningRoute-wrap">
           <div class="revDeCompanyInfo__content-enrollmentStatus">
             在籍状況
+            <?php echo etc::sanitize($listProp['reviews'][0]['enrollment_status']);?>
           </div>
           <div class="revDeCompanyInfo__content-joiningRoute">
             入社経路
+            <?php echo etc::sanitize($listProp['reviews'][0]['joining_route']);?>
           </div>
         </div>
         <div class="revDeCompanyInfo__content-occupationAtTheTimeOfEnrollmentJobTitleAtTheTimeOfEnrollment-wrap">
           <div class="revDeCompanyInfo__content-occupationAtTheTimeOfEnrollment">
             在籍時の職種
+            <?php echo etc::sanitize($listProp['reviews'][0]['occupation']);?>
           </div>
           <div class="revDeCompanyInfo__content-jobTitleAtTheTimeOfEnrollment">
             在籍時の役職
+            <?php echo etc::sanitize($listProp['reviews'][0]['position']);?>
           </div>
         </div>
         <div class="revDeCompanyInfo__content-employmentStatusEnrollmentPeriod-wrap">
           <div class="revDeCompanyInfo__content-employmentStatus">
             雇用形態
+            <?php echo etc::sanitize($listProp['reviews'][0]['employment_status']);?>
           </div>
           <div class="revDeCompanyInfo__content-enrollmentPeriod">
             在籍期間
+            <?php echo etc::sanitize($listProp['reviews'][0]['enrollment_period']);?>
           </div>
         </div>
       </div>
@@ -311,234 +316,134 @@
       <div class="companyReviewDetail__content-mainWrap">
 
         <div class="companyReviewDetail__content-InHouseSystem">
-          <div class="companyReviewDetail__content-InHouseSystem-companyName">サンプル株式会社のレビュー</div>
+          <div class="companyReviewDetail__content-InHouseSystem-companyName"><?php echo etc::sanitize($listProp['company'][0]['company_name']);?>のレビュー</div>
           <div class="companyReviewDetail__content-InHouseSystem-subWrap">
             <span class="companyReviewDetail__content-InHouseSystem-icon"></span>
             <div class="companyReviewDetail__content-InHouseSystem-kind">社内制度</div>
-            <span class="companyReviewDetail__content-InHouseSystem-date">投稿日<span class="date">1111/11/11</span></span>
+            <span class="companyReviewDetail__content-InHouseSystem-date">投稿日<span class="date"><?php echo etc::sanitize($listProp['reviews'][0]['create_date']);?></span></span>
           </div>
           <div class="companyReviewDetail__content-InHouseSystem-about">
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+            <?php echo etc::sanitize($listProp['reviews'][0]['in_company_system']);?>
           </div>
         </div>
 
         <div class="companyReviewDetail__content-corporateCulture">
-          <div class="companyReviewDetail__content-corporateCulture-companyName">サンプル株式会社のレビュー</div>
+          <div class="companyReviewDetail__content-corporateCulture-companyName"><?php echo etc::sanitize($listProp['company'][0]['company_name']);?>のレビュー</div>
           <div class="companyReviewDetail__content-corporateCulture-subWrap">
             <span class="companyReviewDetail__content-corporateCulture-icon">アイコン</span>
             <div class="companyReviewDetail__content-corporateCulture-kind">企業文化</div>
-            <span class="companyReviewDetail__content-corporateCulture-date">投稿日<span class="date">1111/11/11</span></span>
+            <span class="companyReviewDetail__content-corporateCulture-date">投稿日<span class="date"><?php echo etc::sanitize($listProp['reviews'][0]['create_date']);?></span></span>
           </div>
           <div class="companyReviewDetail__content-corporateCulture-about">
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+            <?php echo etc::sanitize($listProp['reviews'][0]['corporate_culture']);?>
           </div>
         </div>
 
         <div class="companyReviewDetail__content-OrganizationalStructure">
-          <div class="companyReviewDetail__content-OrganizationalStructure-companyName">サンプル株式会社のレビュー</div>
+          <div class="companyReviewDetail__content-OrganizationalStructure-companyName"><?php echo etc::sanitize($listProp['company'][0]['company_name']);?>のレビュー</div>
           <div class="companyReviewDetail__content-OrganizationalStructure-subWrap">
             <span class="companyReviewDetail__content-OrganizationalStructure-icon">アイコン</span>
             <div class="companyReviewDetail__content-OrganizationalStructure-kind">組織体制</div>
-            <span class="companyReviewDetail__content-OrganizationalStructure-date">投稿日<span class="date">1111/11/11</span></span>
+            <span class="companyReviewDetail__content-OrganizationalStructure-date">投稿日<span class="date"><?php echo etc::sanitize($listProp['reviews'][0]['create_date']);?></span></span>
           </div>
           <div class="companyReviewDetail__content-OrganizationalStructure-about">
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+            <?php echo etc::sanitize($listProp['reviews'][0]['organizational_structure']);?>
           </div>
         </div>
 
         <div class="companyReviewDetail__content-EaseOfWorkForWomen">
-          <div class="companyReviewDetail__content-EaseOfWorkForWomen-companyName">サンプル株式会社のレビュー</div>
+          <div class="companyReviewDetail__content-EaseOfWorkForWomen-companyName"><?php echo etc::sanitize($listProp['company'][0]['company_name']);?>のレビュー</div>
           <div class="companyReviewDetail__content-EaseOfWorkForWomen-subWrap">
             <span class="companyReviewDetail__content-EaseOfWorkForWomen-icon">アイコン</span>
             <div class="companyReviewDetail__content-EaseOfWorkForWomen-kind">女性の働きやすさ</div>
-            <span class="companyReviewDetail__content-EaseOfWorkForWomen-date">投稿日<span class="date">1111/11/11</span></span>
+            <span class="companyReviewDetail__content-EaseOfWorkForWomen-date">投稿日<span class="date"><?php echo etc::sanitize($listProp['reviews'][0]['create_date']);?></span></span>
           </div>
           <div class="companyReviewDetail__content-EaseOfWorkForWomen-about">
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+            <?php echo etc::sanitize($listProp['reviews'][0]['ease_of_work_for_women']);?>
           </div>
         </div>
 
         <div class="companyReviewDetail__content-RewardingWork">
-          <div class="companyReviewDetail__content-RewardingWork-companyName">
-          サンプル株式会社のレビュー</div>
+          <div class="companyReviewDetail__content-RewardingWork-companyName"><?php echo etc::sanitize($listProp['company'][0]['company_name']);?>のレビュー</div>
           <div class="companyReviewDetail__content-RewardingWork-subWrap">
             <span class="companyReviewDetail__content-RewardingWork-icon">アイコン</span>
             <div class="companyReviewDetail__content-RewardingWork-kind">働きがい</div>
-            <span class="companyReviewDetail__content-RewardingWork-date">投稿日<span class="date">1111/11/11</span></span>
+            <span class="companyReviewDetail__content-RewardingWork-date">投稿日<span class="date"><?php echo etc::sanitize($listProp['reviews'][0]['create_date']);?></span></span>
           </div>
           <div class="companyReviewDetail__content-RewardingWork-about">
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+            <?php echo etc::sanitize($listProp['reviews'][0]['rewarding_work']);?>
           </div>
         </div>
 
         <div class="companyReviewDetail__content-gapBeforeJoiningTheCompany">
-          <div class="companyReviewDetail__content-gapBeforeJoiningTheCompany-companyName">サンプル株式会社のレビュー</div>
+          <div class="companyReviewDetail__content-gapBeforeJoiningTheCompany-companyName"><?php echo etc::sanitize($listProp['company'][0]['company_name']);?>のレビュー</div>
           <div class="companyReviewDetail__content-gapBeforeJoiningTheCompany-subWrap">
             <span class="companyReviewDetail__content-gapBeforeJoiningTheCompany-icon">アイコン</span>
             <div class="companyReviewDetail__content-gapBeforeJoiningTheCompany-kind">入社前のギャップ</div>
-            <span class="companyReviewDetail__content-gapBeforeJoiningTheCompany-date">投稿日<span class="date">1111/11/11</span></span>
+            <span class="companyReviewDetail__content-gapBeforeJoiningTheCompany-date">投稿日<span class="date"><?php echo etc::sanitize($listProp['reviews'][0]['create_date']);?></span></span>
           </div>
           <div class="companyReviewDetail__content-gapBeforeJoiningTheCompany-about">
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+            <?php echo etc::sanitize($listProp['reviews'][0]['image_gap']);?>
           </div>
         </div>
 
         <div class="companyReviewDetail__content-BusinessOutlook">
-          <div class="companyReviewDetail__content-BusinessOutlook-companyName">サンプル株式会社のレビュー</div>
+          <div class="companyReviewDetail__content-BusinessOutlook-companyName"><?php echo etc::sanitize($listProp['company'][0]['company_name']);?>のレビュー</div>
           <div class="companyReviewDetail__content-BusinessOutlook-subWrap">
             <span class="companyReviewDetail__content-BusinessOutlook-icon">アイコン</span>
             <div class="companyReviewDetail__content-BusinessOutlook-kind">事業展望</div>
-            <span class="companyReviewDetail__content-BusinessOutlook-date">投稿日<span class="date">1111/11/11</span></span>
+            <span class="companyReviewDetail__content-BusinessOutlook-date">投稿日<span class="date"><?php echo etc::sanitize($listProp['reviews'][0]['create_date']);?></span></span>
           </div>
           <div class="companyReviewDetail__content-BusinessOutlook-about">
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+            <?php echo etc::sanitize($listProp['reviews'][0]['business_outlook']);?>
           </div>
         </div>
 
         <div class="companyReviewDetail__content-StrengthsAndWeaknesses">
-          <div class="companyReviewDetail__content-StrengthsAndWeaknesses-companyName">サンプル株式会社のレビュー</div>
+          <div class="companyReviewDetail__content-StrengthsAndWeaknesses-companyName"><?php echo etc::sanitize($listProp['company'][0]['company_name']);?>のレビュー</div>
           <div class="companyReviewDetail__content-StrengthsAndWeaknesses-subWrap">
             <span class="companyReviewDetail__content-StrengthsAndWeaknesses-icon">アイコン</span>
             <div class="companyReviewDetail__content-StrengthsAndWeaknesses-kind">強み・弱み</div>
-            <span class="companyReviewDetail__content-StrengthsAndWeaknesses-date">投稿日<span class="date">1111/11/11</span></span>
+            <span class="companyReviewDetail__content-StrengthsAndWeaknesses-date">投稿日<span class="date"><?php echo etc::sanitize($listProp['reviews'][0]['create_date']);?></span></span>
           </div>
           <div class="companyReviewDetail__content-StrengthsAndWeaknesses-about">
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+            <?php echo etc::sanitize($listProp['reviews'][0]['strengths_and_weaknesses']);?>
           </div>
         </div>
 
         <div class="companyReviewDetail__content-annualIncomeAndSalary">
-          <div class="companyReviewDetail__content-annualIncomeAndSalary-CompanyName">サンプル株式会社のレビュー</div>
+          <div class="companyReviewDetail__content-annualIncomeAndSalary-CompanyName"><?php echo etc::sanitize($listProp['company'][0]['company_name']);?>のレビュー</div>
           <div class="companyReviewDetail__content-annualIncomeAndSalary-subWrap">
             <span class="companyReviewDetail__content-annualIncomeAndSalary-icon"></span>
             <div class="companyReviewDetail__content-annualIncomeAndSalary-kind">年収・給与</div>
-            <span class="companyReviewDetail__content-annualIncomeAndSalary-date">投稿日<span class="date">1111/11/11</span></span>
+            <span class="companyReviewDetail__content-annualIncomeAndSalary-date">投稿日<span class="date"><?php echo etc::sanitize($listProp['reviews'][0]['create_date']);?></span></span>
           </div>
           <div class="companyReviewDetail__content-annualIncomeAndSalary-about">
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+            <?php echo etc::sanitize($listProp['reviews'][0]['annual_income_salary']);?>
           </div>
         </div>
 
         <div class="companyReviewDetail__content-Welfare">
-          <div class="companyReviewDetail__content-Welfare-CompanyName">サンプル株式会社のレビュー</div>
+          <div class="companyReviewDetail__content-Welfare-CompanyName"><?php echo etc::sanitize($listProp['company'][0]['company_name']);?>のレビュー</div>
           <div class="companyReviewDetail__content-Welfare-subWrap">
             <span class="companyReviewDetail__content-Welfare-icon">アイコン</span>
             <div class="companyReviewDetail__content-Welfare-kind">福利厚生</div>
-            <span class="companyReviewDetail__content-Welfare-date">投稿日<span class="date">1111/11/11</span></span>
+            <span class="companyReviewDetail__content-Welfare-date">投稿日<span class="date"><?php echo etc::sanitize($listProp['reviews'][0]['create_date']);?></span></span>
           </div>
           <div class="companyReviewDetail__content-Welfare-about">
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+            <?php echo etc::sanitize($listProp['reviews'][0]['welfare_office_environment']);?>
           </div>
         </div>
 
         <div class="companyReviewDetail__content-generalComment">
-          <div class="companyReviewDetail__content-generalComment-CompanyName">サンプル株式会社のレビュー</div>
+          <div class="companyReviewDetail__content-generalComment-CompanyName"><?php echo etc::sanitize($listProp['company'][0]['company_name']);?>のレビュー</div>
           <div class="companyReviewDetail__content-generalComment-subWrap">
             <span class="companyReviewDetail__content-generalComment-icon">アイコン</span>
             <div class="companyReviewDetail__content-generalComment-kind">総評</div>
-            <span class="companyReviewDetail__content-generalComment-date">投稿日<span class="date">1111/11/11</span></span>
+            <span class="companyReviewDetail__content-generalComment-date">投稿日<span class="date"><?php echo etc::sanitize($listProp['reviews'][0]['create_date']);?></span></span>
           </div>
           <div class="companyReviewDetail__content-generalComment-about">
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
-            サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル
+            <?php echo etc::sanitize($listProp['reviews'][0]['general_estimation']);?>
           </div>
         </div>
 
