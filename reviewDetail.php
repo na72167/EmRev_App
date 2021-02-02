@@ -77,6 +77,18 @@
   $listProp = companyReviewContributorProp::companyReviewContributorProp($_GET['rev_id']);
   debugFunction::debug('取得した関連会社・レビュー・ユーザー情報：'.print_r($listProp,true));
 
+  // ================閲覧履歴記録処理================
+
+  $searchResult = companyReviewContributorProp::serchUserAndHistoryLink($userDate->getID(),$listProp['reviews'][0]['id']);
+  //過去に同レビューを見ていた場合
+  if(!empty(array_filter(($searchResult)))){
+    // 対象レビューのupdateカラムを更新する
+    companyReviewContributorProp::updateUserAndHistoryLink($userDate->getID(),$listProp['reviews'][0]['id']);
+  }elseif(empty(array_filter(($searchResult)))){
+    //ログインユーザー情報と現在閲覧中のレビュー情報を登録する。
+    companyReviewContributorProp::userAndHistoryLink($userDate->getID(),$listProp['reviews'][0]['id']);
+  }
+
 ?>
 
 <?php
@@ -102,11 +114,9 @@
       require('./designspace.php');
     ?>
 
-    <!-- BEMに沿った命名の都合上ここのみ切り分ける -->
-    <section class="middleElement">
 
 
-      <section class="reviewerProf">
+    <section class="reviewerProf">
 
       <!-- 一般ユーザーの場合 -->
       <!-- enctype属性・・・送信する情報のエンコードタイプを指定する。form-dataはフォームにファイルを送信する機能がある場合に指定する。 -->

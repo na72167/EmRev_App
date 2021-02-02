@@ -74,7 +74,7 @@
     $formTransmission->setAverageAnnualIncome($formTransmission->getAverage_annual_income());
     $formTransmission->setAverageAge($formTransmission->getAverage_age());
 
-    debugFunction::debug('うんち！w：'.print_r($formTransmission,true));
+    debugFunction::debug('フォーム内容：'.print_r($formTransmission,true));
 
     //ログインユーザーのidと同じ値をcontributor_idと紐付ける。
 
