@@ -10,6 +10,7 @@
   use \Exception;
   use classes\db\dbConnectFunction;
   use classes\db\dbConnectPDO;
+  use classes\companyApply\companyApply;
   use classes\profEdit\profEdit;
   use classes\debug\debugFunction;
   use classes\userProp\userProp;
@@ -71,9 +72,74 @@
       //セッション情報破棄後index.phpへ飛ばす。
   }
 
-  // ========閲覧レコードとログインユーザーの個別IDを元にレビュー情報と会社情報を取得する処理。========
+  // ========閲覧レコードとログインユーザーの個別IDを元にレビュー情報と会社情報を取得する処理(初期画面用)========
   $historyRecode = companyReviewContributorProp::browsingHistoryLinkcompanyReviewContributorProp($userDate->getId());
   debugFunction::debug('取得したログインユーザーの閲覧履歴情報：'.print_r($historyRecode,true));
+
+    // ====================検索会社情報取得処理====================
+
+  // post送信されていてなおかつ投稿者ユーザーだった場合。
+  if(!empty($_POST['search'] === '検索する')){
+
+    $companySearchPost = new companyApply($_POST['company_name'],$_POST['representative'],$_POST['location'],$_POST['industry']
+    ,$_POST['year_of_establishment'],$_POST['listed_year'],$_POST['number_of_employees'],
+    $_POST['average_annual_income'],$_POST['average_age'],$_POST['number_of_reviews'],'','','','','','','','','','');
+
+    debugFunction::debug('POSTされた内容：'.print_r($companySearchPost,true));
+
+    //検索情報を取得後、会社情報を検索する。
+    //ここのkey部分は実際に実行するSQL文にも関係する。
+
+    $companySearchResult = $companySearchPost->companySearchBrowsingHistory(
+      array_filter(array(
+        //会社名
+        'ci.company_name' => $companySearchPost->getCompany_name(),
+        //代表者
+        'ci.representative' => $companySearchPost->getRepresentative(),
+        //所在地
+        'ci.location' => $companySearchPost->getLocation(),
+        //業界分類
+        'ci.industry' => $companySearchPost->getIndustry(),
+        //設立年度
+        'ci.year_of_establishment' => $companySearchPost->getYearOfEstablishment(),
+        //上場年
+        'ci.listed_year' => $companySearchPost->getListed_year(),
+        //従業員数
+        'ci.number_of_employees' => $companySearchPost->getNumber_of_employees(),
+        //平均年収
+        'ci.average_annual_income' => $companySearchPost->getAverage_annual_income(),
+        //平均年齢
+        'ci.average_age' => $companySearchPost->getAverage_age(),
+        //レビュー数
+        'ci.number_of_reviews' => $companySearchPost->getNumber_of_reviews()
+      ))
+    ,$userDate->getId());
+
+    // 検索結果の内容表示$companySearchResult
+    debugFunction::debug('検索した会社情報：'.print_r($companySearchResult,true));
+
+    // $companySearchResult['compDate']が
+    // 存在するかどうかを判定する。
+    if(isset($companySearchResult['browsingHistory'])){
+      // 存在した場合
+      debugFunction::debug('判定処理後の検索した会社情報：'.print_r($companySearchResult,true));
+
+      // 値が保持されている場合、上の処理companyPropListDefault()で取得したレコードを初期化。
+      $historyRecode = null;
+
+    // その後historyRecode内のインスタンス情報へ書き換える。
+      $historyRecode = $companySearchResult;
+      debugFunction::debug('新しい会社情報：'.print_r($companyData,true));
+
+    //下のサイトの関数を使ったほうがキレイにできそうなのでそのうち試す。
+    //https://www.php.net/manual/ja/function.get-object-vars.php
+    //https://www.php.net/manual/ja/function.property-exists.php)
+    }elseif(!isset($companySearchResult['browsingHistory'])){
+      //空だった場合
+      //フラッシュメッセージ内に「検索結果がありませんでした」
+      //と表示させる。
+    }
+  }
 
 ?>
 
@@ -102,42 +168,46 @@
   <section class="middleElement" style="min-height: 1800px;">
 
     <section class="browsingHistorySearch">
-    <h1 class="browsingHistorySearch__title">Employee Search</h1>
-    <form class="browsingHistorySearch__form">
+    <h1 class="browsingHistorySearch__title">Company Search</h1>
+    <form action="" method="post" class="browsingHistorySearch__form">
 
       <div class="browsingHistorySearch__inputContentStyle">
         <h1 class="browsingHistorySearch__inputName">会社名</h1>
-        <input class="browsingHistorySearch__inputStyle" placeholder="入力してください">
+        <input class="browsingHistorySearch__inputStyle" name="company_name" placeholder="入力してください">
       </div>
       <div class="browsingHistorySearch__inputContentStyle">
         <h1 class="browsingHistorySearch__inputName">業界</h1>
-        <input class="browsingHistorySearch__inputStyle" placeholder="入力してください">
+        <input class="browsingHistorySearch__inputStyle" name="industry" placeholder="入力してください">
+      </div>
+      <div class="browsingHistorySearch__inputContentStyle">
+        <h1 class="browsingHistorySearch__inputName">設立年度</h1>
+        <input class="browsingHistorySearch__inputStyle" name="year_of_establishment" placeholder="入力してください">
       </div>
       <div class="browsingHistorySearch__inputContentStyle">
         <h1 class="browsingHistorySearch__inputName">所在地</h1>
-        <input class="browsingHistorySearch__inputStyle" placeholder="入力してください">
+        <input class="browsingHistorySearch__inputStyle" name="location" placeholder="入力してください">
       </div>
       <div class="browsingHistorySearch__inputContentStyle">
         <h1 class="browsingHistorySearch__inputName">従業員数</h1>
-        <input class="browsingHistorySearch__inputStyle" placeholder="入力してください">
+        <input class="browsingHistorySearch__inputStyle" name="number_of_employees" placeholder="入力してください">
       </div>
       <div class="browsingHistorySearch__inputContentStyle">
         <h1 class="browsingHistorySearch__inputName">代表者名</h1>
-        <input class="browsingHistorySearch__inputStyle" placeholder="入力してください">
+        <input class="browsingHistorySearch__inputStyle" name="representative" placeholder="入力してください">
       </div>
       <div class="browsingHistorySearch__inputContentStyle">
         <h1 class="browsingHistorySearch__inputName">上場年</h1>
-        <input class="browsingHistorySearch__inputStyle" placeholder="入力してください">
+        <input class="browsingHistorySearch__inputStyle" name="listed_year" placeholder="入力してください">
       </div>
       <div class="browsingHistorySearch__inputContentStyle">
         <h1 class="browsingHistorySearch__inputName">口コミ数</h1>
-        <input class="browsingHistorySearch__inputStyle" placeholder="入力してください">
+        <input class="browsingHistorySearch__inputStyle" name="number_of_reviews" placeholder="入力してください">
       </div>
 
       <div class="browsingHistorySearch__inputContentStyle">
         <h1 class="browsingHistorySearch__inputName">平均年収</h1>
         <div class="browsingHistorySearch__betweenStyleWrap">
-          <input class="browsingHistorySearch__betweenStyle" placeholder="入力してください">
+          <input class="browsingHistorySearch__betweenStyle" name="average_annual_income" placeholder="入力してください">
           <div class="browsingHistorySearch__betweenStyleHoge">~</div>
           <input class="browsingHistorySearch__betweenStyle" placeholder="入力してください">
         </div>
@@ -147,7 +217,7 @@
       <div class="browsingHistorySearch__inputContentStyle">
         <h1 class="browsingHistorySearch__inputName">平均年齢</h1>
         <div class="browsingHistorySearch__betweenStyleWrap">
-          <input class="browsingHistorySearch__betweenStyle" placeholder="入力してください">
+          <input class="browsingHistorySearch__betweenStyle" name="average_age" placeholder="入力してください">
           <div class="browsingHistorySearch__betweenStyleHoge">~</div>
           <input class="browsingHistorySearch__betweenStyle" placeholder="入力してください">
         </div>
@@ -159,8 +229,8 @@
         <input class="browsingHistorySearch__inputStyle" placeholder="入力してください">
       </div>
 
+      <input type="submit" class="browsingHistorySearch__bottomStyle" name="search" value="検索する">
 
-      <bottom class="browsingHistorySearch__bottomStyle">検索する</bottom>
     </form>
   </section>
 
@@ -183,7 +253,7 @@
   <div class="browsingHistory">
     <div class="browsingHistory__header">
       <h1 class="browsingHistory__title">Review List</h1>
-      <h3>検索結果:<span>〇〇</span>件</h3>
+      <h3>検索結果:<span><?php echo $historyRecode['total'] ?></span>件</h3>
     </div>
 
     <?php

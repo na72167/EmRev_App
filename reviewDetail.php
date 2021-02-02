@@ -79,14 +79,15 @@
 
   // ================閲覧履歴記録処理================
 
-  $searchResult = companyReviewContributorProp::serchUserAndHistoryLink($userDate->getID(),$listProp['reviews'][0]['id']);
+  $searchResult = companyReviewContributorProp::searchUserAndHistoryLink($userDate->getID(),$_GET['rev_id']);
+    debugFunction::debug('閲覧履歴の出力：'.print_r($searchResult,true));
   //過去に同レビューを見ていた場合
   if(!empty(array_filter(($searchResult)))){
     // 対象レビューのupdateカラムを更新する
-    companyReviewContributorProp::updateUserAndHistoryLink($userDate->getID(),$listProp['reviews'][0]['id']);
+    companyReviewContributorProp::updateUserAndHistoryLink($userDate->getID(),$_GET['rev_id']);
   }elseif(empty(array_filter(($searchResult)))){
     //ログインユーザー情報と現在閲覧中のレビュー情報を登録する。
-    companyReviewContributorProp::userAndHistoryLink($userDate->getID(),$listProp['reviews'][0]['id']);
+    companyReviewContributorProp::userAndHistoryLink($userDate->getID(),$_GET['rev_id']);
   }
 
 ?>
