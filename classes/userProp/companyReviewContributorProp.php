@@ -158,7 +158,7 @@ class companyReviewContributorProp extends validation{
 
   //対象レコードのupdateカラムの更新
   public static function updateUserAndHistoryLink(int $user_id,string $review_id){
-    debugFunction::debug('履歴テーブルにログイン中ユーザーに関するレコードを追加します。');
+    debugFunction::debug('対象レコードの閲覧記録を更新します。');
     //例外処理
     try {
 
@@ -183,7 +183,7 @@ class companyReviewContributorProp extends validation{
   }
 
   //閲覧履歴テーブルにログインユーザー情報と閲覧したレビューの個別IDを登録する処理。
-  public static function serchUserAndHistoryLink(int $user_id,string $review_id){
+  public static function searchUserAndHistoryLink(int $user_id,string $review_id){
       debugFunction::debug('履歴テーブルに現在ログイン中のユーザーが過去に閲覧中のレビューを見たことがあるか確認します。');
       //例外処理
       try {

@@ -13,7 +13,7 @@ use classes\db\dbConnectPDO;
 use Webmozart\Assert\Mixin;
 
 class companyApply extends validation{
-  // これを参考にerr_msプロパティ内を連想配列形式で管理できるか確認する。
+  // これを参考にerr_msプロパティ内を連想配列形式で管理できるか確認する。companyAndReviewSearch
   // (これができないとエラー文が一つしか保持できない。)
   // https://qiita.com/ucan-lab/items/6decbe9cdf674ad11c8d#comments
 
@@ -77,7 +77,7 @@ class companyApply extends validation{
   }
 
 
-  //===============会社情報出力関係=================companyAndReviewSearch
+  //===============会社情報出力関係=================companySearchBrowsingHistor
 
   // 一連の会社情報を取得するメソッド
   // 削除予定(接頭辞のgetはミス)
@@ -230,7 +230,8 @@ class companyApply extends validation{
       //接続情報をまとめたクラス
       $dbh = new dbConnectPDO();
       // 会社情報と関連レビューを降順で取得するクエリ文
-      $sql = 'SELECT ci.company_name,ci.industry,ci.location,ci.number_of_reviews,er.id,er.general_estimation_title,er.general_estimation,er.create_date FROM company_informations AS ci LEFT JOIN employee_reviews AS er ON ci.id = er.review_company_id ORDER BY ci.id DESC';
+      $sql = 'SELECT ci.id,ci.company_name,ci.industry,ci.location,ci.number_of_reviews,er.id,er.general_estimation_title,er.general_estimation,er.create_date
+      FROM company_informations AS ci LEFT JOIN employee_reviews AS er ON ci.id = er.review_company_id WHERE ci.id = er.review_company_id ORDER BY ci.id DESC';
       $data = array();
 
       // 会社情報を降順で取得するクエリ文
@@ -320,6 +321,70 @@ class companyApply extends validation{
       // keyごと削除する。
       if(empty($rst['compDate'])){
         unset($rst['compDate']);
+      };
+      return $rst;
+    }else{
+      return false;
+    }
+
+  } catch (Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+  }
+}
+
+  //===============閲覧履歴画面専用検索画面=================
+
+  public function companySearchBrowsingHistory(?array $search_prop,$user_id,int $span = 10){
+    //例外処理
+  try {
+    //接続情報をまとめたクラス
+    $dbh = new dbConnectPDO();
+    // 件数用のSQL文作成 AND
+    $sql = 'SELECT * FROM browsing_historys_recodes AS bh LEFT JOIN employee_reviews as er on bh.review_id = er.id LEFT JOIN company_informations as ci
+    ON er.review_company_id = ci.id WHERE bh.user_id = :u_id';
+
+    // ORDER BY bh.browsing_history_date DESC
+    if(!empty($search_prop)){
+      //配列内のキーをWHERE内の指定カラムにする。
+      foreach($search_prop as $key => $value){
+        debugFunction::debug('配列内：'.print_r([$key => $value],true));
+          $sql .= ' AND '.$key.'='.'"'.$value.'"';
+        }
+      }
+
+
+    // 会社の順序を昇順・降順に切り替える処理
+    // if(!empty($sort)){
+    //   switch($sort){
+    //     case 1:
+    //       $sql .= ' ORDER BY price ASC';
+    //       break;
+    //     case 2:
+    //       $sql .= ' ORDER BY price DESC';
+    //       break;
+    //   }
+    // }
+
+    $data = array(':u_id' => $user_id);
+    // クエリ実行
+    $stmt = dbConnectFunction::queryPost($dbh->getPDO(), $sql, $data);
+
+    if($stmt){
+      $rst['browsingHistory'] = $stmt->fetchAll();//クエリ結果のデータを全レコードを格納
+      $rst['total'] = $stmt->rowCount(); //総レコード数
+      $rst['total_page'] = ceil($rst['total']/$span); //総ページ数
+
+      // そのまま$rstに対してarray_filter()を使うと検索結果が0件の場合
+      // $rst['total']内に入る0も削除されてしまうので削除するキーワードを指定する。
+      // https://qiita.com/inaling/items/349e40bf8e4334225d92
+      // https://qiita.com/Quantum/items/767dba44af81d1825248
+      // https://gray-code.com/php/delete-specified-value-from-array/
+      // https://qiita.com/Quantum/items/767dba44af81d1825248
+
+      // compDate内にレコードが無い場合、
+      // keyごと削除する。
+      if(empty($rst['browsingHistory'])){
+        unset($rst['browsingHistory']);
       };
       return $rst;
     }else{
