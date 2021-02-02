@@ -25,7 +25,7 @@ class companyReviewContributorProp extends validation{
   protected $average_age;
   protected $number_of_reviews;
 
-  //投稿者ユーザー関係
+  //ユーザー関係
   protected $id;
   protected $user_id;
   protected $username;
@@ -115,6 +115,10 @@ class companyReviewContributorProp extends validation{
     debugFunction::debug('投稿者ユーザーの情報を取得します。');
     //例外処理
     try {
+
+      // これを書いた時一つのクエリ文にjoin句を2回使える事を知らなかったので、そのうち書き直す。
+      // https://qiita.com/KentFujii/items/f25bcb5f5ca7d7db1c9c
+
       //レビュー情報とそれを投稿したユーザー情報を取得している。
       $dbh = new dbConnectPDO();
       $sql = 'SELECT * FROM employee_reviews AS er LEFT JOIN contributor_profs AS cp ON er.employee_id = cp.user_id WHERE er.id = :rev_id';
@@ -134,6 +138,137 @@ class companyReviewContributorProp extends validation{
       if(!empty($stmt&&$stmt2)){
         $rst['reviews'] = $stmt->fetchAll();//クエリ結果のデータを全レコードを格納
         $rst['company'] = $stmt2->fetchAll();//クエリ結果のデータを全レコードを格納
+
+        // そのまま$rstに対してarray_filter()を使うと検索結果が0件の場合
+        // $rst['total']内に入る0も削除されてしまうので削除するキーワードを指定する。
+        // https://qiita.com/inaling/items/349e40bf8e4334225d92
+        // https://qiita.com/Quantum/items/767dba44af81d1825248
+        // https://gray-code.com/php/delete-specified-value-from-array/
+        // https://qiita.com/Quantum/items/767dba44af81d1825248
+
+        return $rst;
+      }else{
+        return false;
+      }
+
+    } catch (Exception $e) {
+      error_log('エラー発生:' . $e->getMessage());
+    }
+  }
+
+  //対象レコードのupdateカラムの更新
+  public static function updateUserAndHistoryLink(int $user_id,string $review_id){
+    debugFunction::debug('履歴テーブルにログイン中ユーザーに関するレコードを追加します。');
+    //例外処理
+    try {
+
+      //レビュー情報とそれを投稿したユーザー情報を取得している。
+      $dbh = new dbConnectPDO();
+      // SQL文作成
+      $sql = 'UPDATE browsing_historys_recodes SET browsing_history_date = CURRENT_TIME() WHERE (review_id = :review_id && user_id =:user_id)';
+      $data = array(':review_id' => $review_id,':user_id' => $user_id);
+      debugFunction::debug('取得したdata：'.print_r($data,true));
+      // クエリ実行
+      $stmt = dbConnectFunction::queryPost($dbh->getPDO(), $sql, $data);
+
+      // クエリ成功の場合
+      if($stmt){
+        debugFunction::debug('対象レコードの更新時刻を変更しました。レビュー詳細画面へ続きます。');
+      }
+
+    } catch (Exception $e) {
+      error_log('エラー発生:' . $e->getMessage());
+      $err_msg['common'] = 'エラーが発生しました。しばらく経ってからやり直してください。';
+    }
+  }
+
+  //閲覧履歴テーブルにログインユーザー情報と閲覧したレビューの個別IDを登録する処理。
+  public static function serchUserAndHistoryLink(int $user_id,string $review_id){
+      debugFunction::debug('履歴テーブルに現在ログイン中のユーザーが過去に閲覧中のレビューを見たことがあるか確認します。');
+      //例外処理
+      try {
+
+        //レビュー情報とそれを投稿したユーザー情報を取得している。
+        $dbh = new dbConnectPDO();
+        // SQL文作成
+        $sql = 'SELECT * FROM browsing_historys_recodes WHERE (review_id = :review_id && user_id =:user_id)';
+        $data = array(':review_id' => $review_id,':user_id' => $user_id);
+        debugFunction::debug('取得したdata：'.print_r($data,true));
+        // クエリ実行
+        $stmt = dbConnectFunction::queryPost($dbh->getPDO(), $sql, $data);
+
+      // クエリ成功の場合
+      if(!empty($stmt)){
+        $rst['searchResult'] = $stmt->fetchAll();//クエリ結果のデータを全レコードを格納
+
+        // そのまま$rstに対してarray_filter()を使うと検索結果が0件の場合
+        // $rst['total']内に入る0も削除されてしまうので削除するキーワードを指定する。
+        // https://qiita.com/inaling/items/349e40bf8e4334225d92
+        // https://qiita.com/Quantum/items/767dba44af81d1825248
+        // https://gray-code.com/php/delete-specified-value-from-array/
+        // https://qiita.com/Quantum/items/767dba44af81d1825248
+
+        return $rst;
+      }else{
+        return false;
+      }
+
+    } catch (Exception $e) {
+      error_log('エラー発生:' . $e->getMessage());
+    }
+  }
+
+  //閲覧履歴テーブルにログインユーザー情報と閲覧したレビューの個別IDを登録する処理。
+  public static function userAndHistoryLink(int $user_id,string $review_id){
+    debugFunction::debug('履歴テーブルにログイン中ユーザーに関するレコードを追加します。');
+    //例外処理
+    try {
+
+      //レビュー情報とそれを投稿したユーザー情報を取得している。
+      $dbh = new dbConnectPDO();
+      // SQL文作成
+      $sql = 'INSERT INTO browsing_historys_recodes (`review_id`,`user_id`) VALUES(:review_id,:user_id)';
+      $data = array(':review_id' => $review_id,':user_id' => $user_id);
+      debugFunction::debug('取得したdata：'.print_r($data,true));
+      // クエリ実行
+      $stmt = dbConnectFunction::queryPost($dbh->getPDO(), $sql, $data);
+
+      // クエリ成功の場合
+      if($stmt){
+        debugFunction::debug('レビュー詳細画面へ続きます。');
+      }
+
+    } catch (Exception $e) {
+      error_log('エラー発生:' . $e->getMessage());
+      $err_msg['common'] = 'エラーが発生しました。しばらく経ってからやり直してください。';
+    }
+  }
+
+
+  // 閲覧レコードとログインユーザーの個別IDを元にレビュー情報と会社情報を取得する処理。
+  public static function browsingHistoryLinkcompanyReviewContributorProp(int $u_id,int $span = 10){
+    debugFunction::debug('閲覧レコードとログインユーザーの個別IDを元にレビュー情報と会社情報を取得します。');
+    //例外処理
+
+    // このあとログインユーザーの個別IDとbrowsing_historys_recodesテーブルのuser_idカラムに一致した
+    // employee_reviewsと会社情報を一括取得する。(並びはORDER BY update_date DESC)。
+
+    try {
+      //レビュー情報とそれを投稿したユーザー情報。レビュー対象の会社情報を取得している。
+      $dbh = new dbConnectPDO();
+      $sql = 'SELECT * FROM employee_reviews AS er LEFT JOIN browsing_historys_recodes AS bh ON er.id = bh.review_id LEFT JOIN company_informations AS ci ON er.review_company_id = ci.id LEFT JOIN contributor_profs AS cp ON er.employee_id = cp.user_id WHERE bh.user_id = :u_id ORDER BY bh.browsing_history_date DESC';
+      $data = array(':u_id' => $u_id);
+      // クエリ実行
+      $stmt = dbConnectFunction::queryPost($dbh->getPDO(), $sql, $data);
+
+      // クエリ成功の場合
+      if($stmt){
+
+        $rst['browsingHistory'] = $stmt->fetchAll();//クエリ結果のデータを全レコードを格納
+        debugFunction::debug('閲覧履歴情報：'.print_r($rst['browsingHistory'],true));
+
+        $rst['total'] = $stmt->rowCount(); //総レコード数
+        $rst['total_page'] = ceil($rst['total']/$span); //総ページ数
 
         // そのまま$rstに対してarray_filter()を使うと検索結果が0件の場合
         // $rst['total']内に入る0も削除されてしまうので削除するキーワードを指定する。
