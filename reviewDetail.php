@@ -310,9 +310,13 @@
 
     <!-- ========================== -->
 
+    <!-- お気に入り機能の為のクラス -->
     <section class="reviewFavoriteRegiste">
       <div class="reviewFavoriteRegiste__content-wrap">
-        <div class="reviewFavoriteRegiste__content-main">
+        <!-- data-の後ろはスネークケースでは無いとデータの管理対象にならない -->
+        <!-- js-click-likeの後ろの処理は、他から遷移してきた時点でお気に入り登録がされているかどうかを確認する物。 -->
+        <div class="reviewFavoriteRegiste__content-main js-click-like <?php if(etc::isLike($_SESSION['user_id'],$listProp['reviews'][0]['id'])){ echo 'activeLike'; } ?>"
+        data-reviewid="<?php echo etc::sanitize($listProp['reviews'][0]['id']); ?>">
           このユーザーのレビューをお気に入り登録する
         </div>
         <span class="reviewFavoriteRegiste__content-sub">(ここに星マークをいれる)</span>

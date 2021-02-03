@@ -72,6 +72,11 @@ a {
 button {
   border: 0; }
 
+.activeLike {
+  background-color: #ffff00;
+  width: 100px;
+  height: 100px; }
+
 .designSpace {
   height: 160px;
   width: 100%;

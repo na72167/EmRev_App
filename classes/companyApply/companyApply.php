@@ -340,7 +340,15 @@ class companyApply extends validation{
     //接続情報をまとめたクラス
     $dbh = new dbConnectPDO();
     // 件数用のSQL文作成 AND
-    $sql = 'SELECT * FROM browsing_historys_recodes AS bh LEFT JOIN employee_reviews as er on bh.review_id = er.id LEFT JOIN company_informations as ci
+    $sql = 'SELECT er.id,er.id,er.employee_id,er.review_company_id,er.joining_route,er.occupation,er.position,er.enrollment_period,
+    er.enrollment_status,er.employment_status,er.welfare_office_environment,er.working_hours,er.holiday,er.in_company_system,
+    er.corporate_culture,er.organizational_structure,er.ease_of_work_for_women,er.rewarding_work,er.image_gap,er.business_outlook,
+    er.strengths_and_weaknesses,er.annual_income_salary,er.general_estimation_title,er.general_estimation,er.like_count,
+    er.delete_flg,er.create_date,er.update_date,bh.review_id,bh.user_id,bh.delete_flg, bh.browsing_history_date,bh.create_date,bh.update_date,
+    ci.company_name,ci.industry,ci.company_url,ci.zip1,ci.zip2,ci.zip3,
+    ci.location,ci.number_of_employees,ci.year_of_establishment,ci.representative,
+    ci.listed_year,ci.average_annual_income,ci.average_age,ci.number_of_reviews,ci.delete_flg,ci.create_date,ci.update_date
+    FROM browsing_historys_recodes AS bh LEFT JOIN employee_reviews as er on bh.review_id = er.id LEFT JOIN company_informations as ci
     ON er.review_company_id = ci.id WHERE bh.user_id = :u_id';
 
     // ORDER BY bh.browsing_history_date DESC
