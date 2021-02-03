@@ -37,6 +37,36 @@
     }
   }
 
+  //お気に入り関係の処理
+  public static function isLike($u_id, $r_id){
+    debugFunction::debug('お気に入り情報があるか確認します。');
+    debugFunction::debug('ユーザーID：'.$u_id);
+    debugFunction::debug('個別レビューID：'.$r_id);
+    //例外処理
+    try {
+      // DBへ接続
+      $dbh = new dbConnectPDO();
+      // SQL文作成
+      // ログインユーザーがお気に入り対象としたレビューが以前登録したかを確認。
+      $sql = 'SELECT * FROM review_likes WHERE favorite_recode = :r_id AND user_id = :u_id';
+      $data = array(':u_id' => $_SESSION['user_id'], ':r_id' => $r_id);
+      // クエリ実行
+      $stmt = dbConnectFunction::queryPost($dbh->getPDO(), $sql, $data);
+
+      // レコードがあるか確認
+      if($stmt->rowCount()){
+        debugFunction::debug('お気に入りです');
+        return true;
+      }else{
+        debugFunction::debug('特に気に入ってません');
+        return false;
+      }
+
+    } catch (Exception $e) {
+      error_log('エラー発生:' . $e->getMessage());
+    }
+}
+
 // 画像処理(後半のバリ関係の処理がまだイマイチなのでも少し詰める)
 public static function uploadImg($file, $key){
   debugFunction::debug('画像アップロード処理開始');

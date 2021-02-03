@@ -119,9 +119,16 @@ class companyReviewContributorProp extends validation{
       // これを書いた時一つのクエリ文にjoin句を2回使える事を知らなかったので、そのうち書き直す。
       // https://qiita.com/KentFujii/items/f25bcb5f5ca7d7db1c9c
 
-      //レビュー情報とそれを投稿したユーザー情報を取得している。
+      //レビュー情報とそれを投稿したユーザー情報を取得している。(引っ張ってくるカラムの指定周りはそのうち削る。)
+      //er.idは必ず指定する(お気に入り機能の都合上)
       $dbh = new dbConnectPDO();
-      $sql = 'SELECT * FROM employee_reviews AS er LEFT JOIN contributor_profs AS cp ON er.employee_id = cp.user_id WHERE er.id = :rev_id';
+      $sql = 'SELECT er.id,er.employee_id,er.review_company_id,er.joining_route,er.occupation,er.position,er.enrollment_period,
+      er.enrollment_status,er.employment_status,er.welfare_office_environment,er.working_hours,er.holiday,er.in_company_system,
+      er.corporate_culture,er.organizational_structure,er.ease_of_work_for_women,er.rewarding_work,er.image_gap,er.business_outlook,
+      er.strengths_and_weaknesses,er.annual_income_salary,er.general_estimation_title,er.general_estimation,er.like_count,
+      er.delete_flg,er.create_date,er.update_date,cp.user_id,cp.username,cp.age,cp.tel,cp.zip,cp.addr,cp.affiliation_company,
+      cp.incumbent,cp.currently_department,cp.currently_position,cp.dm_state,cp.delete_flg,cp.create_date,cp.update_date
+      FROM employee_reviews AS er LEFT JOIN contributor_profs AS cp ON er.employee_id = cp.user_id WHERE er.id = :rev_id';
       $data = array(':rev_id' => $rev_id);
       // クエリ実行
       $stmt = dbConnectFunction::queryPost($dbh->getPDO(), $sql, $data);
@@ -245,7 +252,7 @@ class companyReviewContributorProp extends validation{
   }
 
 
-  // 閲覧レコードとログインユーザーの個別IDを元にレビュー情報と会社情報を取得する処理。
+  // (初期画面版)閲覧レコードとログインユーザーの個別IDを元にレビュー情報と会社情報を取得する処理。
   public static function browsingHistoryLinkcompanyReviewContributorProp(int $u_id,int $span = 10){
     debugFunction::debug('閲覧レコードとログインユーザーの個別IDを元にレビュー情報と会社情報を取得します。');
     //例外処理
@@ -256,7 +263,17 @@ class companyReviewContributorProp extends validation{
     try {
       //レビュー情報とそれを投稿したユーザー情報。レビュー対象の会社情報を取得している。
       $dbh = new dbConnectPDO();
-      $sql = 'SELECT * FROM employee_reviews AS er LEFT JOIN browsing_historys_recodes AS bh ON er.id = bh.review_id LEFT JOIN company_informations AS ci ON er.review_company_id = ci.id LEFT JOIN contributor_profs AS cp ON er.employee_id = cp.user_id WHERE bh.user_id = :u_id ORDER BY bh.browsing_history_date DESC';
+      $sql = 'SELECT er.id,er.id,er.employee_id,er.review_company_id,er.joining_route,er.occupation,er.position,er.enrollment_period,
+      er.enrollment_status,er.employment_status,er.welfare_office_environment,er.working_hours,er.holiday,er.in_company_system,
+      er.corporate_culture,er.organizational_structure,er.ease_of_work_for_women,er.rewarding_work,er.image_gap,er.business_outlook,
+      er.strengths_and_weaknesses,er.annual_income_salary,er.general_estimation_title,er.general_estimation,er.like_count,
+      er.delete_flg,er.create_date,er.update_date,bh.review_id,bh.user_id,bh.delete_flg, bh.browsing_history_date,bh.create_date,bh.update_date,
+      ci.company_name,ci.industry,ci.company_url,ci.zip1,ci.zip2,ci.zip3,
+      ci.location,ci.number_of_employees,ci.year_of_establishment,ci.representative,
+      ci.listed_year,ci.average_annual_income,ci.average_age,ci.number_of_reviews,ci.delete_flg,ci.create_date,ci.update_date,
+      cp.user_id,cp.username,cp.age,cp.tel,cp.zip,cp.addr,cp.affiliation_company,cp.incumbent,
+      cp.currently_department,cp.currently_position,cp.dm_state,cp.delete_flg,cp.create_date,cp.update_date
+      FROM employee_reviews AS er LEFT JOIN browsing_historys_recodes AS bh ON er.id = bh.review_id LEFT JOIN company_informations AS ci ON er.review_company_id = ci.id LEFT JOIN contributor_profs AS cp ON er.employee_id = cp.user_id WHERE bh.user_id = :u_id ORDER BY bh.browsing_history_date DESC';
       $data = array(':u_id' => $u_id);
       // クエリ実行
       $stmt = dbConnectFunction::queryPost($dbh->getPDO(), $sql, $data);

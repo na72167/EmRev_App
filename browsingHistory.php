@@ -284,7 +284,6 @@
         </div>
         <div class="browsingHistory__userNameAgeFavoliteWrap">
           <div class="browsingHistory__userNameAgeWrap">:<span><?php echo $val['username'] ?></span>さん<span><?php echo $val['age'] ?></span>歳</div>
-          <div class="browsingHistory__favorite">☆</div>
         </div>
       </div>
     </div>
