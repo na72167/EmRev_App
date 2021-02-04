@@ -81,7 +81,9 @@
     </section>
 
     <div class="profUserProfile__bottom-wrap">
-      <a href="#.php" class="profUserProfile__bottom-link"><bottom class="profUserProfile__bottom-return">DMを開始する</bottom></a>
+      <!-- 今のままだとデベロッパーツールでstyle=display:none;を消されるとDM不可の人でもDMできてしまうので対策を考える。 -->
+        <input class="reviewerProf__bottom-Impossible reviewerProf__bottom-link" <?php if($listProp['reviews'][0]['dm_state'] === '1') echo "style=display:none;"?> value="DM不可">
+        <input class="reviewerProf__bottom-return reviewerProf__bottom-link" <?php if($listProp['reviews'][0]['dm_state'] === '0') echo "style=display:none;"?> onclick="location.href='DM.php?partner_id=<?php echo $listProp['reviews'][0]['employee_id'] ?>'" value="DMを開始する">
       <a href="#.php" class="profUserProfile__bottom-link"><bottom class="profUserProfile__bottom-next">このユーザーをブロックする</bottom></a>
     </div>
 

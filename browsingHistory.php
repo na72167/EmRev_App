@@ -76,7 +76,7 @@
   $historyRecode = companyReviewContributorProp::browsingHistoryLinkcompanyReviewContributorProp($userDate->getId());
   debugFunction::debug('取得したログインユーザーの閲覧履歴情報：'.print_r($historyRecode,true));
 
-    // ====================検索会社情報取得処理====================
+  // ====================検索会社情報取得処理====================
 
   // post送信されていてなおかつ投稿者ユーザーだった場合。
   if(!empty($_POST['search'] === '検索する')){
