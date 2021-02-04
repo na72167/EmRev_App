@@ -241,12 +241,9 @@
         </section>
 
         <div class="reviewerProf__bottom-wrap" style="margin-bottom:5px;">
-          <?php if($listProp['reviews'][0]['dm_state'] === '0'){
-              echo '<input class="reviewerProf__bottom-Impossible reviewerProf__bottom-link" value="DM不可">';
-            }elseif($listProp['reviews'][0]['dm_state'] === '1'){
-              echo '<input type="submit" name="cancel-button" class="reviewerProf__bottom-return reviewerProf__bottom-link" value="DMを開始する">';
-            }
-          ?>
+          <!-- 今のままだとデベロッパーツールでstyle=display:none;を消されるとDM不可の人でもDMできてしまうので対策を考える。 -->
+          <div class="reviewerProf__bottom-Impossible reviewerProf__bottom-link" <?php if($listProp['reviews'][0]['dm_state'] === '1') echo "style=display:none;"?>>DM不可</div>
+          <div class="reviewerProf__bottom-return reviewerProf__bottom-link" <?php if($listProp['reviews'][0]['dm_state'] === '0') echo "style=display:none;"?> onclick="location.href='DM.php?toUser_id=<?php echo $listProp['reviews'][0]['employee_id'] ?>'">DMを開始する</div>
           <!-- 送信処理に沿って画面遷移 -->
           <input type="submit" name='update-button' class="reviewerProf__bottom-next reviewerProf__bottom-link" value="このユーザーを通報する">
         </div>

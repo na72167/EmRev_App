@@ -86,9 +86,10 @@
         // DBへ接続
         $dbh = new dbConnectPDO();
         // SQL文作成(1で代用している分はあとで書き換える)
-        $sql = 'INSERT INTO company_informations(`employee_review_id`,`company_name`,`industry`,`company_url`,`zip1`,`zip2`,`zip3`,`location`,`number_of_employees`,`year_of_establishment`,`representative`,`listed_year`,`average_annual_income`,`average_age`,`number_of_reviews`) VALUES(:employee_review_id,:company_name,:industry,:company_url,:zip1,:zip2,:zip3,:location,:number_of_employees,
+        $sql = 'INSERT INTO company_informations(`company_name`,`industry`,`company_url`,`zip1`,`zip2`,`zip3`,`location`,`number_of_employees`,`year_of_establishment`,`representative`,`listed_year`,`average_annual_income`,`average_age`,`number_of_reviews`)
+        VALUES(:company_name,:industry,:company_url,:zip1,:zip2,:zip3,:location,:number_of_employees,
         :year_of_establishment,:representative,:listed_year,:average_annual_income,:average_age,:number_of_reviews)';
-        $data = array(':employee_review_id' => $userDate->getId(),':company_name' => $formTransmission->getCompany_name(),':industry' => $formTransmission->getIndustry(),':company_url' =>1,
+        $data = array(':company_name' => $formTransmission->getCompany_name(),':industry' => $formTransmission->getIndustry(),':company_url' =>1,
         ':zip1' =>1,':zip2' =>1,':zip3' =>1,':location' =>$formTransmission->getLocation(),':number_of_employees' =>$formTransmission->getNumber_of_employees(),
         ':year_of_establishment' =>$formTransmission->getYearOfEstablishment(),':representative' =>$formTransmission->getRepresentative(),':listed_year' =>$formTransmission->getListed_year(),
         ':average_annual_income' =>$formTransmission->getAverage_annual_income(),':average_age' =>$formTransmission->getAverage_age(),':number_of_reviews' =>1);
@@ -96,9 +97,11 @@
         // クエリ実行
         $stmt = dbConnectFunction::queryPost($dbh->getPDO(), $sql, $data);
 
+        debugFunction::debug('実行結果：'.print_r($stmt,true));
+
         // クエリ成功の場合
         if($stmt){
-          $_SESSION['msg_success'] = 'プロフィールを更新しました。';
+          $_SESSION['msg_success'] = '会社登録を申請しました。';
           debugFunction::debug('マイページへ遷移します。');
           header("Location:mypage.php"); //マイページへ
         }
