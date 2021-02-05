@@ -108,39 +108,87 @@
   //https://qiita.com/re-24/items/c3ed814f2e1ee0f8e811
 
   $DmSearchProp = new directMessage($toUser_id,$userDate->getID(),'','');
-
   $DmSendUser = $DmSearchProp->toLoginUserMsgSearch($_SESSION['user_id']);
-
-  //===========現在詰まっている点=============
-  // [05-Feb-2021 13:27:41 Asia/Tokyo] デバッグ：ログイン中ユーザーに対してメッセージを送ったユーザーを検索します。
-  // [05-Feb-2021 13:27:41 Asia/Tokyo] デバッグ：ログイン中ユーザーID：3
-  // [05-Feb-2021 13:27:41 Asia/Tokyo] PHP Notice:  A non well formed numeric value encountered in /Applications/MAMP/htdocs/EmRev/EmRev_app/DM.php on line 117
-  // [05-Feb-2021 13:27:41 Asia/Tokyo] PHP Notice:  Undefined variable: RecentDmList in /Applications/MAMP/htdocs/EmRev/EmRev_app/DM.php on line 119
-  // [05-Feb-2021 13:27:41 Asia/Tokyo] デバッグ：ログイン中ユーザーに対して送信時間+3日以内にメッセージを送ったユーザー情報など：
-  // [05-Feb-2021 13:27:41 Asia/Tokyo] PHP Notice:  A non well formed numeric value encountered in /Applications/MAMP/htdocs/EmRev/EmRev_app/DM.php on line 117
-  // [05-Feb-2021 13:27:41 Asia/Tokyo] PHP Notice:  Undefined variable: RecentDmList in /Applications/MAMP/htdocs/EmRev/EmRev_app/DM.php on line 119
-  // [05-Feb-2021 13:27:41 Asia/Tokyo] デバッグ：ログイン中ユーザーに対して送信時間+3日以内にメッセージを送ったユーザー情報など：
-  // [05-Feb-2021 13:27:41 Asia/Tokyo] PHP Notice:  Undefined index: send in /Applications/MAMP/htdocs/EmRev/EmRev_app/DM.php on line 130
-  // [05-Feb-2021 13:27:41 Asia/Tokyo] デバッグ：セッション変数の中身：
-  //=========================
-
-  //多分日時の加算周りでミスをして時刻の出力でエラーが出ている為その点の修正を行う。
-  //次はこれを試す。
-  //DateTime クラスのまとめメモ
-  //https://qiita.com/re-24/items/c3ed814f2e1ee0f8e811
 
   if(!empty($DmSendUser)){
     foreach($DmSendUser as $key => $val){
-      if($val['to_user'] === $dmInfo->getFromUser_id() && $val['send_date']+strtotime('+3 day') > date("Y/m/d H:i:s")){
-        //メッセージの送信先がログインユーザーで尚且つ現在時刻が送信時間+3日以内の場合
-        debugFunction::debug('ログイン中ユーザーに対して送信時間+3日以内にメッセージを送ったユーザー情報など：'.$RecentDmList);
-      }elseif($val['to_user'] === $dmInfo->getFromUser_id() && $val['send_date']+strtotime('+3 day') < date("Y/m/d H:i:s") &&
-      $val['send_date']+strtotime('+7 day') > date("Y/m/d H:i:s")){
-        //メッセージの送信先がログインユーザーで尚且つ現在時刻が送信時間+3日以上、送信時間+7日以内の場合
-        debugFunction::debug('ログイン中ユーザーに対して送信時間+3日以上、送信時間+7日以内にメッセージを送ったユーザー情報など：'.$ThisWeekDmList);
+      //dm_messagesテーブルのsend_date関係のレコードを対象にする。
+      //modify()関数を複数回使う場合はその数に合わせてインスタンスを用意しないといけない。
+      //modify()を使った日付変更は一時的な物では無いので,一つのインスタンスに対して複数回modify()
+      //を使うと判定処理に支障が出やすくなる。
+      $RecentDesignated = new DateTime($val['send_date']);
+      $ThisWeekDmListDesignated1 = new DateTime($val['send_date']);
+      $ThisWeekDmListDesignated2 = new DateTime($val['send_date']);
+
+        //メッセージの送信先がログインユーザーで尚且つ送信時間+3日以内の場合
+      if($val['to_user'] === $dmInfo->getFromUser_id() && $RecentDesignated->modify('+3 days')->format('Y-m-d H:i:s') > date("Y-m-d H:i:s")){
+        // もう一度配列管理に戻す
+        $RecentDm =
+          array(
+          'id' => $val['id'],
+          'send_date' => $val['send_date'],
+          'to_user' => $val['to_user'],
+          'from_user' => $val['from_user'],
+          'msg' => $val['msg'],
+          'delete_flg' => $val['delete_flg'],
+          'create_date' => $val['create_date'],
+          'update_date' => $val['update_date'],
+          'user_id' => $val['user_id'],
+          'username' => $val['username'],
+          'age' => $val['age'],
+          'tel' => $val['tel'],
+          'zip' => $val['zip'],
+          'addr' => $val['addr'],
+          'affiliation_company' => $val['affiliation_company'],
+          'incumbent' => $val['incumbent'],
+          'currently_department' => $val['currently_department'],
+          'currently_position' => $val['currently_position'],
+          'dm_state' => $val['dm_state']
+          );
+        debugFunction::debug('ログイン中ユーザーに対して送信時間+3日以内にメッセージを送ったユーザー情報など：'.print_r($RecentDm,true));
+      }
+
+      //メッセージの送信先がログインユーザーで尚且つ送信時間+3日以上・7日以内の場合
+      if($val['to_user'] === $dmInfo->getFromUser_id() && $ThisWeekDmListDesignated1->modify('+3 days')->format('Y-m-d H:i:s') < date("Y-m-d H:i:s") &&
+      $ThisWeekDmListDesignated2->modify('+7 days')->format('Y-m-d H:i:s') > date("Y-m-d H:i:s")){
+        // もう一度配列管理に戻す
+        $ThisWeekDm =
+        array(
+          'id' => $val['id'],
+          'send_date' => $val['send_date'],
+          'to_user' => $val['to_user'],
+          'from_user' => $val['from_user'],
+          'msg' => $val['msg'],
+          'delete_flg' => $val['delete_flg'],
+          'create_date' => $val['create_date'],
+          'update_date' => $val['update_date'],
+          'user_id' => $val['user_id'],
+          'username' => $val['username'],
+          'age' => $val['age'],
+          'tel' => $val['tel'],
+          'zip' => $val['zip'],
+          'addr' => $val['addr'],
+          'affiliation_company' => $val['affiliation_company'],
+          'incumbent' => $val['incumbent'],
+          'currently_department' => $val['currently_department'],
+          'currently_position' => $val['currently_position'],
+          'dm_state' => $val['dm_state']
+          );
+        debugFunction::debug('ログイン中ユーザーに対して送信時間+3日以上、送信時間+7日以内にメッセージを送ったユーザー情報など：'.print_r($ThisWeekDm,true));
+      }
+
+      // 該当したDMを管理する
+      if(!empty($RecentDm)){
+        $RecentDmList[] = $RecentDm;
+        debugFunction::debug('最近のDM一覧：'.print_r($RecentDmList,true));
+      }
+      if(!empty($ThisWeekDm)){
+        $ThisWeekDmList[] = $ThisWeekDm;
+        debugFunction::debug('今週のDM一覧：'.print_r($ThisWeekDmList,true));
       }
     }
   }
+
   // ======================DM送信処理========================
 
   // post送信されていた場合
