@@ -7,6 +7,7 @@
   use \PDO;
   use \RuntimeException;
   use \Exception;
+  use \DateTime;
   use classes\db\dbConnectFunction;
   use classes\db\dbConnectPDO;
   use classes\companyApply\companyApply;
@@ -78,39 +79,76 @@
 
   //=========過去にログインユーザーと連絡相手ユーザー間で連絡を取り合った事があるか確認=========
 
-  if($dmInfo->searchDmHistory($dmInfo->getToUser_id(),$dmInfo->getFromUser_id()) !== ''){
-
-    // 連絡先相手のID情報が取得できたか確認
-    if($dmInfo->getToUser_id() !== ''){
-      // DBからメッセージデータを取得
-      $viewData = $dmInfo->partnerMsg($dmInfo->getToUser_id());
-      debugFunction::debug('取得した相手のDMメッセージ：'.print_r($viewData,true));
-        // メッセージが取得できたかチェック
-        if(!empty($viewData)){
-          debugFunction::debug('相手ユーザーはログインユーザーに対して以前メッセージを送っています。');
-        }elseif((empty($viewData))){
-          debugFunction::debug('相手ユーザーはログインユーザーに対してまだメッセージを送っていません');
-        }
-    }elseif($dmInfo->getToUser_id() === null){
-      // フラッシュ用セッション内に「連絡に必要な情報が取得できませんでした。」と表示する。
-      $_SESSION['msg_success'] = '連絡に必要な情報が取得できませんでした。';
-      header("Location:mypage.php"); //マイページへ
-    }
-
-  }elseif($dmInfo->searchDmHistory($dmInfo->getToUser_id(),$dmInfo->getFromUser_id()) === ''){
-    debugFunction::debug('新規DMを開始します。');
+  // 連絡先相手のID情報が取得できたか確認
+  if($dmInfo->getToUser_id() !== ''){
+    // DBからメッセージデータを取得
+    $viewData = $dmInfo->searchDmHistory($dmInfo->getToUser_id(),$dmInfo->getFromUser_id());
+    debugFunction::debug('取得したDMメッセージ：'.print_r($viewData,true));
+  }elseif($dmInfo->getToUser_id() === null){
+    // フラッシュ用セッション内に「連絡に必要な情報が取得できませんでした。」と表示する。
+    $_SESSION['msg_success'] = '連絡に必要な情報を取得できませんでした。';
+    header("Location:mypage.php"); //マイページへ
   }
 
+  // ======================連絡先相手の詳細情報========================
 
+  // 連絡先相手のID情報が取得できたか確認
+  if($dmInfo->getToUser_id() !== ''){
+    // 連絡先相手の投稿者情報を取得する(DM機能は投稿者登録をしないと使えない想定なのでuserPropクラス経由でのID取得は✗)
+    $contributorToUserProp = contributorUserProp::getContributorUserProp($dmInfo->getToUser_id());
+    debugFunction::debug('取得した連絡先相手の投稿者情報：'.print_r($contributorToUserProp,true));
+    if(empty($contributorToUserProp)){
+      $_SESSION['msg_success'] = '連絡に必要な情報を取得できませんでした。';
+      header("Location:mypage.php"); //マイページへ
+    }
+  }
+
+  // ======================ログインユーザーに対してメッセージを送信した他ユーザーの一覧取得処理========================
+  //DateTime クラスのまとめメモ
+  //https://qiita.com/re-24/items/c3ed814f2e1ee0f8e811
+
+  $DmSearchProp = new directMessage($toUser_id,$userDate->getID(),'','');
+
+  $DmSendUser = $DmSearchProp->toLoginUserMsgSearch($_SESSION['user_id']);
+
+  //===========現在詰まっている点=============
+  // [05-Feb-2021 13:27:41 Asia/Tokyo] デバッグ：ログイン中ユーザーに対してメッセージを送ったユーザーを検索します。
+  // [05-Feb-2021 13:27:41 Asia/Tokyo] デバッグ：ログイン中ユーザーID：3
+  // [05-Feb-2021 13:27:41 Asia/Tokyo] PHP Notice:  A non well formed numeric value encountered in /Applications/MAMP/htdocs/EmRev/EmRev_app/DM.php on line 117
+  // [05-Feb-2021 13:27:41 Asia/Tokyo] PHP Notice:  Undefined variable: RecentDmList in /Applications/MAMP/htdocs/EmRev/EmRev_app/DM.php on line 119
+  // [05-Feb-2021 13:27:41 Asia/Tokyo] デバッグ：ログイン中ユーザーに対して送信時間+3日以内にメッセージを送ったユーザー情報など：
+  // [05-Feb-2021 13:27:41 Asia/Tokyo] PHP Notice:  A non well formed numeric value encountered in /Applications/MAMP/htdocs/EmRev/EmRev_app/DM.php on line 117
+  // [05-Feb-2021 13:27:41 Asia/Tokyo] PHP Notice:  Undefined variable: RecentDmList in /Applications/MAMP/htdocs/EmRev/EmRev_app/DM.php on line 119
+  // [05-Feb-2021 13:27:41 Asia/Tokyo] デバッグ：ログイン中ユーザーに対して送信時間+3日以内にメッセージを送ったユーザー情報など：
+  // [05-Feb-2021 13:27:41 Asia/Tokyo] PHP Notice:  Undefined index: send in /Applications/MAMP/htdocs/EmRev/EmRev_app/DM.php on line 130
+  // [05-Feb-2021 13:27:41 Asia/Tokyo] デバッグ：セッション変数の中身：
+  //=========================
+
+  //多分日時の加算周りでミスをして時刻の出力でエラーが出ている為その点の修正を行う。
+  //次はこれを試す。
+  //DateTime クラスのまとめメモ
+  //https://qiita.com/re-24/items/c3ed814f2e1ee0f8e811
+
+  if(!empty($DmSendUser)){
+    foreach($DmSendUser as $key => $val){
+      if($val['to_user'] === $dmInfo->getFromUser_id() && $val['send_date']+strtotime('+3 day') > date("Y/m/d H:i:s")){
+        //メッセージの送信先がログインユーザーで尚且つ現在時刻が送信時間+3日以内の場合
+        debugFunction::debug('ログイン中ユーザーに対して送信時間+3日以内にメッセージを送ったユーザー情報など：'.$RecentDmList);
+      }elseif($val['to_user'] === $dmInfo->getFromUser_id() && $val['send_date']+strtotime('+3 day') < date("Y/m/d H:i:s") &&
+      $val['send_date']+strtotime('+7 day') > date("Y/m/d H:i:s")){
+        //メッセージの送信先がログインユーザーで尚且つ現在時刻が送信時間+3日以上、送信時間+7日以内の場合
+        debugFunction::debug('ログイン中ユーザーに対して送信時間+3日以上、送信時間+7日以内にメッセージを送ったユーザー情報など：'.$ThisWeekDmList);
+      }
+    }
+  }
   // ======================DM送信処理========================
 
   // post送信されていた場合
-  if(!empty($_POST)){
+  if($_POST['send'] === "送信"){
     debugFunction::debug('POST送信があります。');
     //バリデーションチェック
-    $dmInfo->setMsg($dmInfo->getMsg($_POST['msg']));
-
-    if(empty(array_filter($dmInfo->getErr_msAll()))){
+    $dmInfo->setMsg($_POST['msg']);
+    if(empty($dmInfo->err_msMsg())){
       debugFunction::debug('バリデーションOKです。');
       //例外処理
       try {
@@ -120,8 +158,7 @@
         $sql = 'INSERT INTO dm_messages (send_date,to_user,from_user,msg) VALUES (:send_date,:to_user,:from_user,:msg)';
         $data = array(':send_date' => date('Y-m-d H:i:s'), ':to_user' => $dmInfo->getToUser_id(), ':from_user' => $dmInfo->getFromUser_id(), ':msg' => $dmInfo->getMsg());
         // クエリ実行
-        $stmt = dbConnectFunction::queryPost($dbh, $sql, $data);
-
+        $stmt = dbConnectFunction::queryPost($dbh->getPDO(), $sql, $data);
         // クエリ成功の場合
         if($stmt){
           $_POST = array(); //postをクリア
@@ -130,7 +167,6 @@
           // https://www.flatflag.nir87.com/server-358#_SERVER
           header("Location:DM.php?toUser_id=".$dmInfo->getToUser_id()); //同じ条件で再ジャンプ
         }
-
       } catch (Exception $e) {
         error_log('エラー発生:' . $e->getMessage());
         //フラッシュメッセージで接続できなかった事を表示させる。
@@ -182,135 +218,63 @@
           <div class="dmScreen__recent-wrap">
             <h1 class="dmScreen__recent-style">Recent</h1>
 
-            <div>
-              <div class="dmScreen__recent-element" tabIndex="0">
-                <div class="dmScreen__recent-imgStyle">
-                  <span class="dmScreen__recent-activeSignal"></span>
-                  <img href="#">
-                </div>
+            <?php
+              if(!empty($RecentDmList)){
+                foreach($RecentDmList as $key => $val){
+            ?>
+              <div>
+                <div class="dmScreen__recent-element" tabIndex="0">
+                  <div class="dmScreen__recent-imgStyle">
+                    <span class="dmScreen__recent-activeSignal"></span>
+                    <img href="#">
+                  </div>
 
-                <div class="dmScreen__recent-name">
-                  山田太郎
-                </div>
-                <div class="dmScreen__recent-time">
-                  1m
-                </div>
+                  <div class="dmScreen__recent-name">
+                    <?php echo $RecentDmList['username'] ?>
+                  </div>
+                  <div class="dmScreen__recent-time">
+                    <!-- ここには現在時刻から$RecentDmList['send_date']を比較したのち、その時間差を出力させる。-->
+                    1m
+                  </div>
 
-                <div class="dmScreen__recent-marker"></div>
+                  <div class="dmScreen__recent-marker"></div>
+                </div>
               </div>
-            </div>
-
-            <div>
-              <div class="dmScreen__recent-element" tabIndex="0">
-                <div class="dmScreen__recent-imgStyle">
-                  <span class="dmScreen__recent-activeSignal"></span>
-                  <img href="#">
-                </div>
-                <div class="dmScreen__recent-name">
-                  山田太郎
-                </div>
-                <div class="dmScreen__recent-time">
-                  1m
-                </div>
-                <div class="dmScreen__recent-marker"></div>
-              </div>
-            </div>
-
+            <?php
+                }
+              }
+            ?>
           </div>
 
           <div class="dmScreen__thisWeek-wrap">
             <h1 class="dmScreen__thisWeek-style">This Week</h1>
-
             <div>
-              <div class="dmScreen__thisWeek-element" tabIndex="0">
-                <div class="dmScreen__thisWeek-imgStyle">
-                  <span class="dmScreen__thisWeek-activeSignal"></span>
-                  <img href="#">
-                </div>
+              <?php
+                if(!empty($ThisWeekDmList)){
+                  foreach($ThisWeekDmList as $key => $val){
+              ?>
+                <div>
+                  <div class="dmScreen__thisWeek-element" tabIndex="0">
+                    <div class="dmScreen__thisWeek-imgStyle">
+                      <span class="dmScreen__thisWeek-activeSignal"></span>
+                      <img href="#">
+                    </div>
 
-                <div class="dmScreen__thisWeek-name">
-                  山田太郎
-                </div>
-                <div class="dmScreen__thisWeek-time">
-                  1m
-                </div>
+                    <div class="dmScreen__thisWeek-name">
+                      <?php echo $val['username'] ?>
+                    </div>
+                    <div class="dmScreen__thisWeek-time">
+                      <!-- ここには現在時刻から$RecentDmList['send_date']を比較したのち、その時間差を出力させる。-->
+                      1m
+                    </div>
 
-                <div class="dmScreen__thisWeek-marker"></div>
-              </div>
-            </div>
-
-            <div>
-              <div class="dmScreen__thisWeek-element" tabIndex="0">
-                <div class="dmScreen__thisWeek-imgStyle">
-                  <span class="dmScreen__thisWeek-activeSignal"></span>
-                  <img href="#">
+                    <div class="dmScreen__thisWeek-marker"></div>
+                  </div>
                 </div>
-
-                <div class="dmScreen__thisWeek-name">
-                  山田太郎
-                </div>
-                <div class="dmScreen__thisWeek-time">
-                  1m
-                </div>
-
-                <div class="dmScreen__thisWeek-marker"></div>
-              </div>
-            </div>
-
-            <div>
-              <div class="dmScreen__thisWeek-element" tabIndex="0">
-                <div class="dmScreen__thisWeek-imgStyle">
-                  <span class="dmScreen__thisWeek-activeSignal"></span>
-                  <img href="#">
-                </div>
-
-                <div class="dmScreen__thisWeek-name">
-                  山田太郎
-                </div>
-                <div class="dmScreen__thisWeek-time">
-                  1m
-                </div>
-
-                <div class="dmScreen__thisWeek-marker"></div>
-              </div>
-            </div>
-
-            <div>
-              <div class="dmScreen__thisWeek-element" tabIndex="0">
-                <div class="dmScreen__thisWeek-imgStyle">
-                  <span class="dmScreen__thisWeek-activeSignal"></span>
-                  <img href="#">
-                </div>
-
-                <div class="dmScreen__thisWeek-name">
-                  山田太郎
-                </div>
-                <div class="dmScreen__thisWeek-time">
-                  1m
-                </div>
-
-                <div class="dmScreen__thisWeek-marker"></div>
-              </div>
-            </div>
-
-            <div>
-              <div class="dmScreen__thisWeek-element" tabIndex="0">
-                <div class="dmScreen__thisWeek-imgStyle">
-                  <span class="dmScreen__thisWeek-activeSignal"></span>
-                  <img href="#">
-                </div>
-
-                <div class="dmScreen__thisWeek-name">
-                  山田太郎
-                </div>
-                <div class="dmScreen__thisWeek-time">
-                  1m
-                </div>
-
-                <div class="dmScreen__thisWeek-marker"></div>
-              </div>
-            </div>
-          </div>
+              <?php
+                  }
+                }
+              ?>
         </div>
       </div>
 
@@ -323,7 +287,7 @@
           </div>
 
           <div class="dmScreen__callPartner-name">
-            山田太郎
+          <?php echo $contributorToUserProp['username'] ?>
             <div class="dmScreen__callPartner-time">
             active now
             </div>
@@ -338,30 +302,33 @@
         if(!empty($viewData)){
           foreach($viewData as $key => $val){
             // メッセージ送信者判定
-            // to_user内のIDが連絡先ユーザーのIDと一致しているか確認。
-            // 一致した場合は相手側のメッセージスタイルでメッセージを出力する。
-            if($val['to_user'] === $dmInfo->getToUser_id()){
+            // from_user内のIDがログインユーザーのIDと一致しているか確認。
+            // 一致した場合はログインユーザー側でメッセージを出力する。
+            if($val['from_user'] === $dmInfo->getFromUser_id()){
         ?>
+        <!-- ログインユーザー側DM -->
+        <div class="dmScreen__contactBoard-contactMyself">
+          <div class="dmScreen__contactBoard-imgStyleMyself">
+            <img href="#">
+          </div>
+          <div class="dmScreen__contactBoard-TextMyself">
+            <span><?php echo $val['msg'] ?></span>
+            <span><?php echo $val['send_date'] ?></span>
+          </div>
+        </div>
+
+        <?php
+            // 一致しなかった場合は相手側のメッセージスタイルのメッセージスタイルでメッセージを出力する。
+            }else{
+          ?>
         <!-- 相手側DM -->
         <div class="dmScreen__contactBoard-contactPerson">
           <div class="dmScreen__contactBoard-imgStylePerson">
             <img href="#">
           </div>
           <div class="dmScreen__contactBoard-personText">
-            <span><?php echo $val['msg'] ?>
-          </div>
-        </div>
-        <?php
-            // 一致しなかった場合はログインユーザー側のメッセージスタイルでメッセージを出力する。
-            }else{
-          ?>
-        <!-- 自分側DM -->
-        <div class="dmScreen__contactBoard-contactMyself">
-          <div class="dmScreen__contactBoard-imgStyleMyself">
-            <img href="#">
-          </div>
-          <div class="dmScreen__contactBoard-TextMyself">
-            <span><?php echo $val['msg'] ?>
+            <span><?php echo $val['msg'] ?></span>
+            <span><?php echo $val['send_date'] ?></span>
           </div>
         </div>
 
@@ -382,11 +349,11 @@
 
       <div class="dmScreen__inputForm">
 
-        <form  class="dmScreen__inputForm-clickSignal">
+        <form method="post" class="dmScreen__inputForm-clickSignal">
           <input class="dmScreen__inputForm-style" name="msg" placeholder="Type Something">
           <!-- 空でもvalueをつけないとtype="submit"を指定した要素はデフォルト文字「送信」が表示される。 -->
           <!-- https://www.tagindex.com/html_tag/form/input_submit.html -->
-          <input type="submit" class="dmScreen__inputForm-button" name="send" value="">
+          <input type="submit" class="dmScreen__inputForm-button" name="send" value="送信">
         </form>
 
 
