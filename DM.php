@@ -12,6 +12,7 @@
   use classes\db\dbConnectPDO;
   use classes\companyApply\companyApply;
   use classes\msg\directMessage;
+  use classes\msg\directMessageSearch;
   use classes\profEdit\profEdit;
   use classes\debug\debugFunction;
   use classes\userProp\userProp;
@@ -28,7 +29,7 @@
   debugFunction::debug('「「「「「「「「「「「「「');
   debugFunction::debugLogStart();
 
-    // このあと$_SESSION['user_id']を参照してuserｓテーブルに関した情報のみを管理するuserクラスを作成。
+  // このあと$_SESSION['user_id']を参照してuserｓテーブルに関した情報のみを管理するuserクラスを作成。
   // 中のrollプロパティにアクセス。その権限情報とuserクラスを元に一般・社員・管理者・退会済み用のSQLを発行・検索を行う。(退会済みは別)。
   // getUserPropクラスを切り分ける。
 
@@ -90,7 +91,7 @@
     header("Location:mypage.php"); //マイページへ
   }
 
-  // ======================連絡先相手の詳細情報========================
+  // ======================連絡先相手の詳細情報取得========================
 
   // 連絡先相手のID情報が取得できたか確認
   if($dmInfo->getToUser_id() !== ''){
@@ -109,8 +110,51 @@
 
   $DmSearchProp = new directMessage($toUser_id,$userDate->getID(),'','');
   $DmSendUser = $DmSearchProp->toLoginUserMsgSearch($_SESSION['user_id']);
+  $SearchResult = null;
 
-  if(!empty($DmSendUser)){
+  // 検索機能を利用したか確認
+  if($_POST['search'] === '検索'){
+    debugFunction::debug('POST(検索)があります。');
+    $SearchProp = new directMessageSearch($_POST['searchName'],'');
+    $SearchProp->setSearchName($SearchProp->getSearchName());
+    if($SearchProp->getSearchName()){
+      debugFunction::debug('バリデーションOKです。');
+       //例外処理
+      try {
+        //接続情報をまとめたクラス
+        $dbh = new dbConnectPDO();
+        //SQL文作成
+        //ログイン中ユーザーに対してメッセージを送ったユーザー
+        //ログインユーザーが検索したユーザーネームと同じ
+        //ユーザー情報を取得します。
+        $sql = 'SELECT d_mes.id,d_mes.send_date,d_mes.to_user,d_mes.from_user,d_mes.msg,d_mes.delete_flg,d_mes.create_date,d_mes.update_date,
+        cp.user_id,cp.username,cp.age,cp.tel,cp.zip,cp.addr,cp.affiliation_company,cp.incumbent,cp.currently_department,
+        cp.currently_position,cp.dm_state,cp.delete_flg,cp.create_date,cp.update_date
+        FROM `dm_messages` AS d_mes LEFT JOIN contributor_profs AS cp ON d_mes.from_user = cp.user_id
+        WHERE to_user = :to_user AND username = :username ORDER BY send_date ASC';
+        $data = array(':to_user' => $userDate->getID(),':username' => $SearchProp->getSearchName());
+        // クエリ実行
+        $stmt = dbConnectFunction::queryPost($dbh->getPDO(), $sql, $data);
+        if($stmt){
+          // クエリ結果の全データを返却
+          $SearchResult = $stmt->fetchAll();
+          $_POST = null;
+          debugFunction::debug('検索結果：'.print_r($SearchResult,true));
+          debugFunction::debug('POST内：'.print_r($_POST['search'],true));
+        }else{
+          $_POST = null;
+          //フラッシュメッセージで「検索に当てはまるユーザーは存在しません」
+          //と表示させる。
+        }
+      } catch (Exception $e) {
+        // [PHP] まとめて例外をスローする小技
+        // https://qiita.com/mpyw/items/6bd99ff62571c02feaa1
+        error_log('エラー発生:' . $e->getMessage());
+      }
+    }
+  }
+
+  if(!empty($DmSendUser) && empty($SearchResult)){
     foreach($DmSendUser as $key => $val){
       //dm_messagesテーブルのsend_date関係のレコードを対象にする。
       //modify()関数を複数回使う場合はその数に合わせてインスタンスを用意しないといけない。
@@ -120,7 +164,7 @@
       $ThisWeekDmListDesignated1 = new DateTime($val['send_date']);
       $ThisWeekDmListDesignated2 = new DateTime($val['send_date']);
 
-        //メッセージの送信先がログインユーザーで尚且つ送信時間+3日以内の場合
+      //メッセージの送信先がログインユーザーで尚且つ送信時間+3日以内の場合
       if($val['to_user'] === $dmInfo->getFromUser_id() && $RecentDesignated->modify('+3 days')->format('Y-m-d H:i:s') > date("Y-m-d H:i:s")){
         // もう一度配列管理に戻す
         $RecentDm =
@@ -193,7 +237,7 @@
 
   // post送信されていた場合
   if($_POST['send'] === "送信"){
-    debugFunction::debug('POST送信があります。');
+    debugFunction::debug('POST(送信)があります。');
     //バリデーションチェック
     $dmInfo->setMsg($_POST['msg']);
     if(empty($dmInfo->err_msMsg())){
@@ -254,12 +298,12 @@
     <div class="dmScreen__userList-wrap">
 
       <div class="dmScreen__userSearch-wrap">
-        <label>
-          <form action="#">
-              <input class="dmScreen__userSearch-input" placeholder="Search">
-              <bottom class="dmScreen__userSearch-button"></bottom>
-          </form>
-        </label>
+        <form method="post">
+          <input class="dmScreen__userSearch-input"  name="searchName" placeholder="Search">
+          <!-- 空でもvalueをつけないとtype="submit"を指定した要素はデフォルト文字「送信」が表示される。 -->
+          <!-- https://www.tagindex.com/html_tag/form/input_submit.html -->
+          <input type="submit" class="dmScreen__userSearch-button" name="search" value="検索">
+        </form>
       </div>
 
       <div class="dmScreen__timeZone-wrap">
