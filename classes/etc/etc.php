@@ -67,6 +67,37 @@
     }
 }
 
+  //認証キー生成
+  //$chars変数内の62文字の中からランダムで8文字選ぶ。
+  public static function makeRandKey($length = 8) {
+    $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJLKMNOPQRSTUVWXYZ0123456789';
+    $str = '';
+    for ($i = 0; $i < $length; ++$i) {
+        $str .= $chars[mt_rand(0, 61)];
+    }
+    return $str;
+  }
+
+  // ==============メール送信=================
+  public static function sendMail($from, $to, $subject, $comment){
+    //送信に必要な情報が一通り揃っているか
+    if(!empty($to) && !empty($subject) && !empty($comment)){
+        //文字化けしないように設定（お決まりパターン）
+        mb_language("Japanese"); //現在使っている言語を設定する
+        mb_internal_encoding("UTF-8"); //内部の日本語をどうエンコーディング（機械が分かる言葉へ変換）するかを設定
+
+        //メールを送信（送信結果はtrueかfalseで返ってくる）
+        $result = mb_send_mail($to, $subject, $comment, "From: ".$from);
+        //送信結果を判定
+        if ($result) {
+          debugFunction::debug('メールを送信しました。');
+        } else {
+          debugFunction::debug('【エラー発生】メールの送信に失敗しました。');
+        }
+    }
+  }
+
+
 // 画像処理(後半のバリ関係の処理がまだイマイチなのでも少し詰める)
 public static function uploadImg($file, $key){
   debugFunction::debug('画像アップロード処理開始');

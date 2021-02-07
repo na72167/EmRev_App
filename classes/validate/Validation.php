@@ -24,6 +24,7 @@
     const ERROR_MS_09 = '31文字以内で入力してください';
     const ERROR_MS_10 = '電話番号の形式が違います';
     const ERROR_MS_11 = '郵便番号の形式が違います';
+    const ERROR_MS_14 = '文字で入力してください';
 
     // =========サクセスメッセージ関係=========
     const SUCCESS_MS_01 = '31文字以内で入力してください';
@@ -109,6 +110,13 @@
     public function validMaxLenPassword($string,$prop,$max = 31){
       if(mb_strlen($string) > $max or mb_strlen($string) == $max){
         $this->$prop = self::ERROR_MS_09;
+      }
+    }
+
+    //固定長チェック
+    function validLength($string,$prop, $len = 8){
+      if( mb_strlen($string) !== $len ){
+        $this->$prop = $len.self::ERROR_MS_14;
       }
     }
 
