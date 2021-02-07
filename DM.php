@@ -269,7 +269,7 @@
 ?>
 
 <?php
-  // タイトルの読み込み
+  // タイトルの読み込み検索
   $Page_Title = 'DM画面';
   $Intro__Text_Title ='Direct Mail';
   $Intro__Text_Sub ='ダイレクトメッセージ画面';

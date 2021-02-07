@@ -44,7 +44,7 @@
       <li class="menuAbout__itemWrap-item"><a class="menuLink-color" href="./browsingHistory.php">閲覧履歴</li>
       <li class="menuAbout__itemWrap-item"><a class="menuLink-color" href="./employeeRegistration.php">投稿者登録</a></li>
       <li class="menuAbout__itemWrap-item">登録社員一覧</li>
-      <li class="menuAbout__itemWrap-item">パスワード変更</li>
+      <li class="menuAbout__itemWrap-item"><a class="menuLink-color" href="./passwordReminder.php">パスワード変更</a></li>
       <li class="menuAbout__itemWrap-item"><a class="menuLink-color" href="./reviewCompanyRegistration.php">レビュー会社登録申請</li>
       <li class="menuAbout__itemWrap-item"><a class="menuLink-color" href="./withdrawal.php">退会する</a></li>
     </ul>
